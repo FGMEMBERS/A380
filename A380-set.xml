@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+<PropertyList>
+ <sim>
+
+  <description>Airbus A380</description>
+
+  <flight-model>jsb</flight-model>
+  <aero>A380</aero>
+
+  <systems>
+   <autopilot>
+    <path>Aircraft/A380/A380-autopilot.xml</path>
+   </autopilot>
+   	<!--Modified by Ampere-->
+	<electrical>
+		<path>Aircraft/A380/Systems/Electrical/electrical.xml</path>
+	</electrical>
+	<hydraulical>
+		<path>Aircraft/A380/Systems/Hydraulical/hydraulics.xml</path>
+	</hydraulical>
+	<!--End modifications -->
+  </systems> 
+  
+  <sound>
+   <path>Aircraft/737/Sounds/737-sound.xml</path>
+  </sound>
+
+  <panel>
+   <path>Aircraft/737/Panels/737-ifr-panel.xml</path>
+   <visibility>false</visibility>
+  </panel>
+  
+  <model>
+   <path>Aircraft/A380/XML/A380.xml</path>
+  </model>
+   
+  <view>
+   <internal archive="y">true</internal>
+   <config>
+     <!-- x/y/z == right/up/back -->
+     <x-offset-m archive="y">-0.53</x-offset-m>
+     <y-offset-m archive="y">-1.6</y-offset-m>
+     <z-offset-m archive="y">10.41</z-offset-m>
+     <pitch-offset-deg archive="y">-8.0</pitch-offset-deg>
+   </config>
+  </view>
+  
+  <view n="1">
+   <config>
+     <!-- big plane, so extend chase view offset a bit -->
+     <target-z-offset-m archive="y">36.3635</target-z-offset-m>
+   </config>
+  </view>
+
+  <chase-distance-m>-75</chase-distance-m>
+
+    
+  <!-- turns off GA tower communications -->
+  <ATC>
+   <enabled type="bool">false</enabled>
+  </ATC>
+
+  <!-- turns off GA traffic -->
+  <ai-traffic>
+   <enabled type="bool">false</enabled>
+  </ai-traffic>
+
+ </sim>
+   
+  <consumables>
+  <fuel>
+   <tank n="0">
+     <level-gal_us archive="y">12000</level-gal_us>
+   </tank>
+   <tank n="1">
+    <level-gal_us archive="y">12000</level-gal_us>
+   </tank>
+   <tank n="2">
+    <level-gal_us archive="y">12000</level-gal_us>
+   </tank>
+   <tank n="3">
+    <level-gal_us archive="y">12000</level-gal_us>
+   </tank>
+  </fuel>
+ </consumables>
+ 
+ <engines>
+  <engine n="0">
+    <running>false</running>
+  </engine>
+  <engine n="1">
+    <running>false</running>
+  </engine>
+  <engine n="2">
+    <running>false</running>
+  </engine>
+  <engine n="3">
+    <running>false</running>
+  </engine>
+ </engines>
+
+ <radios>
+  <dme>
+    <switch-position>1</switch-position>
+  </dme>
+ </radios>
+
+ <input>
+    <keyboard>
+     <!-- set 12.5% flap adjustment with each detent --> 
+     <key n="91">
+       <name>[</name>
+       <desc>Decrease flaps.</desc>
+       <binding>
+         <command>property-adjust</command>
+         <property>/controls/flight/flaps</property>
+         <step type="double">-0.125</step>
+       </binding>
+     </key>
+     <key n="93">
+       <name>]</name>
+       <desc>Increase flaps.</desc>
+       <binding>
+         <command>property-adjust</command>
+         <property>/controls/flight/flaps</property>
+         <step type="double">0.125</step>
+       </binding>
+     </key>
+   </keyboard>
+ </input>
+ 
+ 	<!--Changed by Ampere -->
+	<!--Create our own properties -->
+	
+	
+	<surface-positions>
+		<HST-pos-norm type="double">0.0</HST-pos-norm>
+	</surface-positions>	
+	<!--Change ends-->
+
+</PropertyList>
+
+
