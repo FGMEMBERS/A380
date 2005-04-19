@@ -65,6 +65,10 @@
    <enabled type="bool">false</enabled>
   </ai-traffic>
 
+  <help>
+   <title>Airbus A380</title>
+  </help>
+
  </sim>
    
   <consumables>
