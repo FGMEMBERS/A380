@@ -20,7 +20,7 @@
 #  	 root()			- Returns the root if there is one.
 #  	 remove(v)		- Remove v from the tree provided that v only has one child.
 #  	 replace(v, o)		- Replace the element being stored at v with o.
-#  	 setRoot(v)		- Makes v the root.
+#  	 setRoot(e)		- Makes a root that contains e as an element.
 #  	 size()			- Returns the amount of nodes.
 # ********** ********** ********** ********** ********** ********** ********** ********** ********** **********
 BinaryTree = {
@@ -33,8 +33,8 @@ BinaryTree = {
 			
 			# Instance variables:
 			obj._element = element;
-			obj._left = parent;
-			obj._parent = left;
+			obj._left = left;
+			obj._parent = parent;
 			obj._right = right;
 			
 			return obj;
@@ -92,22 +92,12 @@ BinaryTree = {
 	
 	# Determines whether the specified node has a left child.
 	hasLeft : func(v){
-		if (v.getLeft == nil){
-			return 0;
-		}
-		else {
-			return 1;
-		}
+		return ((v.getLeft() == nil) == 0);
 	},
 	
 	# Determines whether the specified node has a right child.
 	hasRight : func(v){
-		if (v.getRight() == nil){
-			return 0;
-		}
-		else {
-			return 1;
-		}
+		return ((v.getRight() == nil) == 0);
 	},
 	
 	# Check whether the tree is empty.
@@ -122,12 +112,7 @@ BinaryTree = {
 	
 	# Returns whether the specified node is external.
 	isExternal : func(v){
-		if (me.isInternal(v)){
-			return 0;
-		}
-		else {
-			return 1;
-		}
+		return (me.isInternal(v) == 0);
 	},
 	
 	# Returns whether the specified node is internal.
@@ -159,16 +144,35 @@ BinaryTree = {
 	
 	# Returns the left child of the specified node.
 	getLeft : func(v){
-		return v.getLeft();
+		if (me.hasLeft(v)){
+			return v.getLeft();
+		}
+		else {
+			# Force an error.  DO NOT REMOVE!
+			die ("node has no left child.");
+			return nil;
+		}
 	},
 	
 	# Returns the right child of the specified node.
 	getRight : func(v){
-		return v.getRight();
+		if (me.hasRight(v)){
+			return v.getRight();
+		}
+		else {
+			# Force an error.  DO NOT REMOVE!
+			die ("node has no right child.");
+			return nil;
+		}
 	},
 	
 	# Returns the parent of the specified node.
 	getParent : func(v){
+		if (me.isRoot(v)){
+			# Force an error.  DO NOT REMOVE!
+			die ("cannot obtain parent from root.");
+			return nil;
+		}
 		return v.getParent();
 	},
 	
@@ -186,38 +190,47 @@ BinaryTree = {
 	
 	# Inserts a left child at the specified node.
 	insertLeft : func(v, e){
-		# Create a new node and place it under v.
-		n = me.Position.new(e, v, nil, nil);
-		
-		if (me.getLeft(v) == nil){
-			# Count as new node.
-			me._size = me._size + 1;
+		if (me.hasLeft(v)){
+			# Force an error.  DO NOT REMOVE!
+			die ("cannot left child when one is already exists.");
+			return nil;
 		}
 		
+		# Create a new node and place it under v.
+		n = me.Position.new(e, v, nil, nil);
 		v.setLeft(n);
+		
+		me._size = me._size + 1;
 		
 		return n;
 	},
 	
 	# Inserts a right child at the specified node.
 	insertRight : func(v, e){
-		# Create a new node and place it under v.
-		n = me.Position.new(e, v, nil, nil);
-		
-		if (me.getRight(v) == nil){
-			# Count as new node.
-			me._size = me._size + 1;
+		if (me.hasRight(v)){
+			# Force an error.  DO NOT REMOVE!
+			die ("cannot insert right child when one is already exists.");
+			return nil;
 		}
 		
+		# Create a new node and place it under v.
+		n = me.Position.new(e, v, nil, nil);
 		v.setRight(n);
+		
+		me._size = me._size + 1;
 		
 		return n;
 	},
 	
 	# Removes the specified node from the tree if it only has one child.
 	remove : func(v){
+		if (v == nil){
+			return nil;
+		}
 		if (me.hasLeft(v) and me.hasRight(v)){
 			# Remove operation can't be performed if both children exist.
+			# Force an error.  DO NOT REMOVE!
+			die ("cannot remove node when both its children exist.");
 			return nil;
 		}
 		
@@ -244,7 +257,7 @@ BinaryTree = {
 			else {
 				# Set c as root.
 				c.setParent(nil);
-				me.setRoot(c);
+				me._root = c;
 			}
 		}
 		else {
@@ -283,10 +296,20 @@ BinaryTree = {
 		if (me._root == nil){
 			# Count as new node.
 			me._size = me._size + 1;
+			
+			me._root = me.Position.new(e, nil, nil, nil);
+			
+			return me._root;
 		}
-		
-		me._root = Node.new(e, nil, nil, nil);
-		
-		return me._root;
+		else {
+			# Force an error.  DO NOT REMOVE!
+			die ("root has already been set.");
+			return nil;
+		}
+	},
+	
+	# Returns the number of nodes on the tree.
+	size : func{
+		return me._size;
 	}
 };

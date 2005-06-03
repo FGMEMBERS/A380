@@ -107,6 +107,9 @@ Queue = {
 	# Takes a peek at the object at the front of the queue.
 	front : func{
 		# Returns the actual object being stored, not the node object.
+		if (me.head == nil){
+			return nil;
+		}
 		return me.head.getElement();
 	},
 	

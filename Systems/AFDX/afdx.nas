@@ -31,8 +31,12 @@ Network = {
 		globals.switch2 = Switch.new("cockpit_sw_2");
 		
 		# Misc.
-		switch1.setVerbose(2);
-		switch2.setVerbose(2);
+		switch1.setVerbose(3);
+		switch2.setVerbose(3);
+		switch1.setBpduMaxAge(8);
+		switch1.setForwardDelay(4);
+		switch2.setBpduMaxAge(8);
+		switch2.setForwardDelay(4);
 		switch1.update();
 		switch2.update();
 		

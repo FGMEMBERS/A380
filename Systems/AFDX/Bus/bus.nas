@@ -21,10 +21,8 @@ Bus = {
 		obj.parents = [Bus];
 		
 		# Instance variables:
-		obj._incoming1 = "";	# First incoming path.
-		obj._incoming2 = "";	# Second incoming path.
-		obj._outgoing1 = "";	# First outgoing path.
-		obj._outgoing2 = "";	# Second outgoing path.
+		obj._p1 = nil;		# Port 1.
+		obj._p2 = nil;		# Port 2.
 		
 		return obj;
 	},
@@ -40,15 +38,11 @@ Bus = {
 		}
 		
 		# Look for the free end.
-		if (me._incoming1 == ""){
-			prop = port.toString();
-			me._incoming1 = (prop ~ "/incoming");
-			me._outgoing1 = (prop ~ "/outgoing");
+		if (me._p1 == nil){
+			me._p1 = port;
 		}
-		elsif (me._incoming2 == ""){
-			prop = port.toString();
-			me._incoming2 = (prop ~ "/incoming");
-			me._outgoing2 = (prop ~ "/outgoing");
+		elsif (me._p2 == nil){
+			me._p2 = port;
 		}
 		else{
 			return nil;
@@ -67,13 +61,11 @@ Bus = {
 		# Look for the occupied end.
 		incoming = port.toString() ~ "/incoming";
 		
-		if (streq(me._incoming1, incoming) == 1){
-			me._incoming1 = "";
-			me._outgoing1 = "";
+		if (streq(port.toString(), me._p1.toString())){
+			me._p1 = nil;
 		}
-		elsif (streq(me._incoming2, incoming) == 1){
-			me._incoming2 = "";
-			me._outgoing2 = "";
+		elsif (streq(port.toString(), me._p2.toString())){
+			me._p2 = nil;
 		}
 		else{
 			return nil;
@@ -84,33 +76,12 @@ Bus = {
 	
 	# Transfers data from one port to another.
 	update : func{
-		# Copy nodes from outgoing1 to incoming 2.
-		msgCount = 0;
-		outgoing = props.globals.getNode(me._outgoing1);
-		nodes = outgoing.getChildren();
-		
-		foreach (node ; nodes){
-			tmpNode = props.globals.getNode(me._incoming2 ~ "/msg[" ~ msgCount ~ "]", 1);
-			tmpNode.setValue(node.getValue());
-			msgCount = msgCount + 1;
+		while (me._p2.noOutgoing() == 0){
+			me._p1._inputBuffer.enqueue(me._p2._outputBuffer.dequeue());
 		}
-		
-		# Clean the outgoing node.
-		outgoing.setValue(nil);
-		
-		# Copy nodes from outgoing2 to incoming 1.
-		msgCount = 0;
-		outgoing = props.globals.getNode(me._outgoing2);
-		nodes = outgoing.getChildren();
-		
-		foreach (node ; nodes){
-			tmpNode = props.globals.getNode(me._incoming1 ~ "/msg[" ~ msgCount ~ "]", 1);
-			tmpNode.setValue(node.getValue());
-			msgCount = msgCount + 1;
+		while (me._p1.noOutgoing() == 0){
+			me._p2._inputBuffer.enqueue(me._p1._outputBuffer.dequeue());
 		}
-		
-		# Clean the outgoing node.
-		outgoing.setValue(nil);
 	}
 };
 # ********** ********** ********** ********** ********** ********** ********** ********** ********** **********

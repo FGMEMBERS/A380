@@ -35,18 +35,19 @@ SwitchPort = {
 		
 		# Instance varaibles:
 		obj._cost = 0;
-		obj._forwardDelay = 15;		# Forward delay timer.
+		obj._forwardDelay = 15;			# Forward delay timer.
 		obj._id = id;
-		obj._incoming = Queue.new();	# Incoming buffer.
-		obj._lastBPDU = nil;		# The last received BPDU message.
-		obj._lastBPDUexpiry = 0;	# The expiry time for the received BPDU.
-		obj._nextUpdate = 0;		# Scheduler for next state increment.
-		obj._outgoing = Queue.new();	# Outgoing buffer.
-		obj._prop = prop;		# The location at which properties are stored.
-		obj._maxAge = 20;		# The maximium age that the port will stay in blocking mode.
+		obj._inputBuffer = Queue.new(); 	# Incoming buffer.
+		obj._lastBPDU = nil;			# The last received BPDU message.
+		obj._lastBPDUexpiry = 0;		# The expiry time for the received BPDU.
+		obj._nextUpdate = 0;			# Scheduler for next state increment.
+		obj._outputBuffer = Queue.new();	# Outgoing buffer.
+		obj._prop = prop;			# The location at which properties are stored.
+		obj._maxAge = 20;			# The maximium age that the port will stay in blocking 
+							#  mode.
 		obj._role = 0;
-		obj._state = 0;			# -1 = disabled, 0 = me.initializing, 1 = blocking, 
-						# 2 = listening, 3 = learning, 4 = forwarding.
+		obj._state = 0;				# -1 = disabled, 0 = me.initializing, 1 = blocking, 
+							# 2 = listening, 3 = learning, 4 = forwarding.
 		
 		return obj;
 	},
@@ -55,33 +56,45 @@ SwitchPort = {
 	
 	# Override the dequeue() function in the port object.
 	dequeue : func{
-		STP_MUTLICAST = chr(01) ~ chr(80) ~ chr(194) ~ chr(0) ~ chr(0) ~ chr(0);	# 01 80 C2 00 00 00
+		STP_MULTICAST = chr(01) ~ chr(80) ~ chr(194) ~ chr(0) ~ chr(0) ~ chr(0);	# 01 80 C2 00 00 00
 		
-		if (me._incoming.size() == 0){
-			# Update buffer.
-			nodes = props.globals.getNode(me._prop ~ "/incoming").getChildren();
-			
-			foreach (node ; nodes){
-				msg = node.getValue();
-				me._incoming.enqueue(msg);
-				
-				# In addition to enqueuing the message, remember the received BPDU if the 
-				#  destination address is a STP Multicast address.
-				frame = Frame.new(msg);
-				if (streq(frame.getDestination(), STP_MULTICAST)){
-					# Get time from /sim/time/elapsed-sec[0].
-					curTime = props.globals.getNode("/sim/time/elapsed-sec[0]").getValue();
+#		if (me._incoming.size() == 0){
+#			# Update buffer.
+#			nodes = props.globals.getNode(me._prop ~ "/incoming").getChildren();
+#			
+#			foreach (node ; nodes){
+#				msg = node.getValue();
+#				me._incoming.enqueue(msg);
+#				
+#				# In addition to enqueuing the message, remember the received BPDU if the 
+#				#  destination address is a STP Multicast address.
+#				frame = Frame.new(msg);
+#				if (streq(frame.getDestination(), STP_MULTICAST)){
+#					# Get time from /sim/time/elapsed-sec[0].
+#					curTime = props.globals.getNode("/sim/time/elapsed-sec[0]").getValue();
+#		
+#					me._lastBPDU = msg;
+#					me._lastBPDUexpiry = curTime + me._maxAge;
+#				}
+#			}
+#			
+#			# Flush the property tree.
+#			me.init(me._prop, "incoming");
+#		}
 		
-					me._lastBPDU = msg;
-					me._lastBPDUexpiry = curTime + me._maxAge;
-				}
-			}
+		msg = me._inputBuffer.dequeue();
+		frame = Frame.new(msg);
+		# If the received message is a BPDU, remember it for the amount of time specified by MaxAge.
+		if (streq(frame.getDestination(), STP_MULTICAST)){
+			# Get time from /sim/time/elapsed-sec[0].
+			curTime = props.globals.getNode("/sim/time/elapsed-sec[0]").getValue();
 			
-			# Flush the property tree.
-			me.init(me._prop, "incoming");
+			llc = LLC.new(frame.getData());
+			me._lastBPDU = BPDU.new(llc.getData());
+			me._lastBPDUexpiry = curTime + me._maxAge;
 		}
 		
-		return me._incoming.dequeue();
+		return msg;
 	},
 	
 	getCost : func{
@@ -164,13 +177,13 @@ SwitchPort = {
 			return 0;
 		}
 		else {
-			if (size(cost) == nil){
+#			if (size(cost) == nil){
 				me._cost = cost;
-			}
-			else {
-				# Argument cannot be a string.
-				return -1;
-			}
+#			}
+#			else {
+#				# Argument cannot be a string.
+#				return -1;
+#			}
 		}
 	},
 	
@@ -181,13 +194,13 @@ SwitchPort = {
 			return 0;
 		}
 		else {
-			if (size(delay) == nil){
+#			if (size(delay) == nil){
 				me._forwardDelay = delay;
-			}
-			else {
-				# Argument cannot be a string.
-				return -1;
-			}
+#			}
+#			else {
+#				# Argument cannot be a string.
+#				return -1;
+#			}
 		}
 	},
 	
@@ -198,13 +211,13 @@ SwitchPort = {
 			return 0;
 		}
 		else {
-			if (size(age) == nil){
+#			if (size(age) == nil){
 				me._maxAge = age;
-			}
-			else {
-				# Argument cannot be a string.
-				return -1;
-			}
+#			}
+#			else {
+#				# Argument cannot be a string.
+#				return -1;
+#			}
 		}
 	},
 	

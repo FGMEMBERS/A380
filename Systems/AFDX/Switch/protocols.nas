@@ -48,11 +48,11 @@ BPDU = {
 			# Flags (1 byte)
 			append(tmp, chr(0));
 			# RootID (8 bytes)
-			append(tmp, chr(127) ~ chr(255) ~ chr(0) ~ chr(0) ~ chr(0) ~ chr(0) ~ chr(0) ~ chr(0));
+			append(tmp, decToAscii(32768) ~ chr(255) ~ chr(255) ~ chr(255) ~ chr(255) ~ chr(255) ~ chr(255));
 			# Root path cost (4 bytes)
 			append(tmp, chr(0) ~ chr(0) ~ chr(0) ~ chr(0));
 			# BridgeID (8 bytes)
-			append(tmp, chr(127) ~ chr(255) ~ chr(0) ~ chr(0) ~ chr(0) ~ chr(0) ~ chr(0) ~ chr(0));
+			append(tmp, decToAscii(32768) ~ chr(255) ~ chr(255) ~ chr(255) ~ chr(255) ~ chr(255) ~ chr(255));
 			# PortID (2 bytes)
 			append(tmp, chr(0) ~ chr(0));
 			# Message age (2 bytes)
@@ -75,29 +75,43 @@ BPDU = {
 		return obj;
 	},
 	
+	# Query:
+	
+	isTC : func{
+		return (me.block[3] == chr(65));
+	},
+	
+	isTCA : func{
+		return (me.block[3] == chr(1));
+	},
+	
+	isTCN : func{
+		return (me.block[3] == chr(64));
+	},
+	
 	# Accessors:
 	getBridgeID : func{
 		return me.block[6];
 	},
 	
 	getForwardDelay : func{
-		return strc(me.block[11], 1);
+		return asciiToDec(me.block[11]);
 	},
 	
 	getHelloTime : func{
-		return strc(me.block[10], 1);
+		return asciiToDec(me.block[10]);
 	},
 	
 	getMaxAge : func{
-		return strc(me.block[9], 1);
+		return asciiToDec(me.block[9]);
 	},
 	
 	getMessageAge : func{
-		return strc(me.block[8], 1);
+		return asciiToDec(me.block[8]);
 	},
 	
 	getPortID : func{
-		return strc(me.block[7], 1);
+		return asciiToDec(me.block[7]);
 	},
 	
 	getRootID : func{
@@ -105,10 +119,26 @@ BPDU = {
 	},
 	
 	getRootPathCost : func{
-		return strc(me.block[5], 3);
+		return asciiToDec(me.block[5]);
 	},
 	
 	# Modifiers:
+	
+	# Force the BPDU to be a Topology Change message.
+	forceTC : func{
+		tmp[3] = chr(65);
+	},
+	
+	# Force the BPDU to be a Topology Change Acknowledgement Message.
+	forceTCA : func{
+		tmp[3] = chr(1);
+	},
+	
+	# Force the BPDU to be a Topology Change Notification message.
+	forceTCN : func{
+		tmp[3] = chr(64);
+	},
+	
 	setBridgeID : func(bid){
 		if (size(bid) == 8){
 			me.block[6] = bid;
@@ -127,7 +157,11 @@ BPDU = {
 		}
 		else {
 #			if (size(delay) == nil){
-				tmp = chr(0) ~ chr(delay);
+				tmp = decToAscii(delay);
+				while (size(tmp) < 2){
+					tmp = chr(0) ~ tmp;
+				}
+
 				me.block[11] = tmp;
 #			}
 #			else {
@@ -144,7 +178,11 @@ BPDU = {
 		}
 		else {
 #			if (size(elapse) == nil){
-				tmp = chr(0) ~ chr(elapse);
+				tmp = decToAscii(elapse);
+				while (size(tmp) < 2){
+					tmp = chr(0) ~ tmp;
+				}
+
 				me.block[10] = tmp;
 #			}
 #			else {
@@ -161,7 +199,11 @@ BPDU = {
 		}
 		else {
 #			if (size(age) == nil){
-				tmp = chr(0) ~ chr(age);
+				tmp = decToAscii(age);
+				while (size(tmp) < 2){
+					tmp = chr(0) ~ tmp;
+				}
+
 				me.block[9] = tmp;
 #			}
 #			else {
@@ -178,7 +220,10 @@ BPDU = {
 		}
 		else {
 #			if (size(age) == nil){
-				tmp = chr(0) ~ chr(age);
+				tmp = decToAscii(age);
+				while (size(tmp) < 2){
+					tmp = chr(0) ~ tmp;
+				}
 				me.block[8] = tmp;
 #			}
 #			else {
@@ -195,7 +240,10 @@ BPDU = {
 		}
 		else {
 #			if (size(id) == nil){
-				tmp = chr(0) ~ chr(id);
+				tmp = decToAscii(id);
+				while (size(tmp) < 2){
+					tmp = chr(0) ~ tmp;
+				}
 				me.block[7] = tmp;
 #			}
 #			else {
@@ -223,7 +271,10 @@ BPDU = {
 		}
 		else {
 #			if (size(cost) == nil){
-				tmp = chr(0) ~ chr(cost);
+				tmp = decToAscii(cost);
+				while (size(tmp) < 4){
+					tmp = chr(0) ~ tmp;
+				}
 				me.block[5] = tmp;
 #			}
 #			else {
@@ -251,29 +302,33 @@ Frame = {
 		
 		tmp = [];
 		
-		if (size(packet) > 0){
+		if (size(packet) > 26){
+			# Sync (7 bytes) ignored.
+			append(tmp, substr(packet, 0, 7));
 			# Delimiter (1 byte) ignored.
-			# Sync (4 bytes) ignored.
+			append(tmp, substr(packet, 7, 1));
 			# Destination (6 bytes)
-			append(tmp, substr(packet, 1, 6));
+			append(tmp, substr(packet, 8, 6));
 			# Source (6 bytes)
-			append(tmp, substr(packet, 7, 6));
-			# Length of data field (4 bytes)
-			append(tmp, substr(packet, 13, 4));
+			append(tmp, substr(packet, 14, 6));
+			# Length of data field (2 bytes)
+			append(tmp, substr(packet, 20, 2));
 			# Data field (1500 bytes MAX)
-			append(tmp, substr(packet, 17, size(packet) - 17 - 5));
+			append(tmp, substr(packet, 22, asciiToDec(tmp[4])));
 			# Check sum (4 bytes)
-			append(tmp, substr(packet, size(packet) - 5));
+			append(tmp, substr(packet, size(packet) - 5), 4);
 		}
 		else {
-			# Delimiter (1 byte) ignored.
-			# Sync (4 bytes) ignored.
+			# Sync (7 bytes)
+			append(tmp, chr(170) ~ chr(170) ~ chr(170) ~ chr(170) ~ chr(170) ~ chr(170) ~ chr(170));
+			# Delimiter (1 byte)
+			append(tmp, chr(171));
 			# Destination (6 bytes)
 			append(tmp, chr(0) ~ chr(0) ~ chr(0) ~ chr(0) ~ chr(0) ~ chr(0));
 			# Source (6 bytes)
 			append(tmp, chr(0) ~ chr(0) ~ chr(0) ~ chr(0) ~ chr(0) ~ chr(0));
-			# Length of data field (4 bytes)
-			append(tmp, chr(0) ~ chr(0) ~ chr(0) ~ chr(0));
+			# Length of data field (2 bytes)
+			append(tmp, chr(0) ~ chr(0));
 			# Data field (1500 bytes MAX)
 			append(tmp, chr(0));
 			# Check sum (4 bytes)
@@ -288,28 +343,32 @@ Frame = {
 	
 	# Retrieve the data field in string.
 	getData : func{
-		return me.block[3];
+		return me.block[5];
 	},
 	
 	# Retrieve the destination address.
 	getDestination : func{
-		return me.block[0];
+		return me.block[2];
 	},
 	
 	# Retrieve the source address.
 	getSource : func{
-		return me.block[1];
+		return me.block[3];
 	},
 	
 	# Modify the data field.
 	setData : func(data){
-		me.block[3] = data;
+		me.block[5] = data;
+		me.block[4] = decToAscii(size(data));
+		while (size(me.block[4]) < 2){
+			me.block[4] = chr(0) ~ me.block[4];
+		}
 	},
 	
 	# Modify the destination address.
 	setDestination : func(address){
 		if (size(address) == 6){
-			me.block[0] = address;
+			me.block[2] = address;
 			return 1;
 		}
 		else {
@@ -321,7 +380,7 @@ Frame = {
 	# Modify the source address.
 	setSource : func(address){
 		if (size(address) == 6){
-			me.block[1] = address;
+			me.block[3] = address;
 			return 1;
 		}
 		else {
@@ -332,7 +391,11 @@ Frame = {
 	
 	# Turn the frame into a string.
 	toString : func{
-		return (me.block[0] ~ me.block[1] ~ me.block[2] ~ me.block[3] ~ me.block[4]);
+		out = "";
+		foreach (block ; me.block){
+			out = out ~ block;
+		}
+		return out;
 	}
 };
 
@@ -373,7 +436,7 @@ LLC = {
 	
 	# Accessors:
 	getControl : func{
-		return strc(me.block[2], 0);
+		return asciiToDec(me.block[2]);
 	},
 	
 	getData : func{
@@ -381,11 +444,11 @@ LLC = {
 	},
 	
 	getDSAP : func{
-		return strc(me.block[0], 0);
+		return asciiToDec(me.block[0]);
 	},
 	
 	getSSAP : func{
-		return strc(me.block[1], 0);
+		return asciiToDec(me.block[1]);
 	},
 	
 	# Modifiers:

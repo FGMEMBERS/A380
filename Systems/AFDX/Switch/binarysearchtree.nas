@@ -8,8 +8,7 @@
 #  	 new(c) 		- creates and returns a new instance of the binary search tree object.
 #  	 find(k)		- returns the entry with the given key.
 #  	 insert(k, e)		- inserts the element and associate it with the given key.
-#  	 remove(entry)		- removes the specified entry from the binary search tree.
-#  	 standardRemove(v)	- removes the specified node from the binary tree.
+#  	 removeEntry(entry)	- removes the specified entry from the binary search tree.
 # ********** ********** ********** ********** ********** ********** ********** ********** ********** **********
 Comparator = {
 	# An empty comparator
@@ -54,24 +53,71 @@ BinarySearchTree = {
 		
 		# Instance variables:
 		obj._c = c;	# Comparator.
-		
+		obj._entries = 0;
+		obj._root = nil;
+		obj._size = 0;
+				
 		return obj;
 	},
 	
 	# Auxiliary methods:
 	
+	# Returns the entry of the specified tree node.
+	entry : func(pos){
+		return pos.element();
+	},
+	
+	# Returns the key of the specified tree node.
+	key : func(pos){
+		return pos.element().key();
+	},
+	
+	# Returns the value of the specified tree node.
+	value : func(pos){
+		return pos.element().value();
+	},
+	
+	# Inserts an entry at v external node, then expands v to be an internal node.
+	insertAtExternal : func(v, e){
+		if (v == nil or e == nil){
+			# Illegal argument(s).
+			# Force an error.  DO NOT REMOVE!
+			die ("illegal argument(s).");
+			return ni;
+		}
+		
+		if (me.isInternal(v)){
+			# Force an error.  DO NOT REMOVE!
+			die ("cannot insert v, as it is not an external node.");
+			return nil;
+		}
+		
+		# Extend v by adding external nodes.
+		me.insertLeft(v, nil);
+		me.insertRight(v, nil);
+		me.replace(v, e);
+		
+		# Increase nodes tally.
+		me._entries = me._entries + 1;
+		
+		return e;
+	},
+	
 	# From the given node, performs a search down the tree and returns the node containing the given key.
 	search : func(k, v){
 		if (k == nil or v == nil){
-			# Invalid argument(s).
+			# Illegal argument(s).
+			# Force an error.  DO NOT REMOVE!
+			die ("illegal argument(s).");
 			return nil;
 		}
+		
 		if (me.isExternal(v)){
 			# No node with the given key is found, so return the external node.
 			return v;
 		}
 		else {
-			key = v.element().key();
+			key = me.key(v);
 			tmp = me._c.compare(k, key);
 			
 			if (tmp < 0){
@@ -80,9 +126,7 @@ BinarySearchTree = {
 			elsif (tmp > 0){
 				return me.search(k, me.getRight(v));
 			}
-			else {
-				return v;
-			}
+			return v;
 		}
 	},
 	
@@ -90,6 +134,12 @@ BinarySearchTree = {
 	
 	# Finds and returns the entry with the given key.
 	find : func(k){
+		if (k == nil){
+			# Force an error.  DO NOT REMOVE!
+			die ("invalid key.");
+			return nil;
+		}
+			
 		v = me.search(k, me._root);
 		
 		if (v == nil){
@@ -107,8 +157,18 @@ BinarySearchTree = {
 		}
 	},
 	
-	# Returns the element contained in the given entry.
-	getElement : func(entry){
+	# Returns the key of the specified entry.
+	getKey : func(entry){
+		return entry.key();
+	},
+	
+	# Returns the node where the entry is contained.
+	getPosition : func(entry){
+		return entry.position();
+	},
+	
+	# Returns the value stored in the given entry.
+	getValue : func(entry){
 		return entry.value();
 	},
 	
@@ -116,47 +176,47 @@ BinarySearchTree = {
 	
 	# Using the key, inserts an element in the correct position on the tree.
 	insert : func(k, e){
+		if (k == nil or e == nil){
+			# Illegal argument(s).
+			# Force an error.  DO NOT REMOVE!
+			die ("illegal argument(s).");
+			return nil;
+		}
+		
 		# Search for the correct external node.
-		v = me.search(k, me._root);
+		v = me.search(k, me.root());
 		
-		if (me.isInternal(v)){
-			# Entry already exists.
+		if (v == nil){
+			# Error encountered during search.
 			return nil;
 		}
-		
-		# Create a new position.
-		pos = me.Position.new(nil, v, nil, nil);
-		
-		# Create an entry.
-		entry = Entry.new(k, e, pos);
-		pos.setElement(entry);
-		
-		# Initialize external nodes for node pos.
-		c = me.Position.new(nil, pos, nil, nil);
-		
-		# Search for the correct location to place pos.
-		tmp = me._c.compare(k, v.element().key());
-		if (tmp < 0){
-			tmp = me.insertLeft(v, e);
-			a = me.insertLeft(tmp, c);
-			b = me.insertRight(tmp, c);
-			return tmp;
+		elsif ((v.element() == nil) == 0){ 
+			if (me._c.compare(v.element().key(), k) == 0){
+				# Entry already exists.  Update the node and return the result.
+				entry = me.Entry.new(k, e, v);
+				return me.replace(v, entry);
+			}
 		}
-		elsif (tmp > 0){
-			tmp = me.insertRight(v, e);
-			a = me.insertLeft(tmp, c);
-			b = me.insertRight(tmp, c);
-			return tmp;
+		
+		while (me.isInternal(v)){
+			v = me.search(k, me.getRight(v));
 		}
-		else {
-			# Entry Externalready exists.
-			return nil;
-		}
+		
+		entry = me.Entry.new(k, e, v);
+		
+		return (me.insertAtExternal(v, entry)); 
 	},
 	
 	# Removes the node with the given entry.
-	remove : func(entry){
-		v = entry.position();
+	removeEntry : func(entry){
+		if (entry == nil){
+			# Illegal argument.
+			# Force an error.  DO NOT REMOVE!
+			die ("cannot remove null entry.");
+			return nil;
+		}
+		
+		v = me.getPosition(entry);
 		
 		if (me.isExternal(v)){
 			# No node with key entry.key().
@@ -166,14 +226,14 @@ BinarySearchTree = {
 		if (me.isExternal(me.getLeft(v)) == 1){
 			# The left child of v is external.
 			# Remove v's external child, then use the standard remove function to remove v.
-			tmp = me.standardRemove(me.getLeft(v));
-			return me.standardRemove(v);
+			tmp = me.remove(me.getLeft(v));
+			return me.remove(v);
 		}
 		elsif (me.isExternal(me.getRight(v)) == 1){
 			# The right child of v is external.
 			# Remove v's external child, then use the standard remove function to remove v.
-			me.standardRemove(me.getRight(v));
-			return me.standardRemove(v);
+			me.remove(me.getRight(v));
+			return me.remove(v);
 		}
 		else {	# Both children of v are internal nodes.
 			# Get the right child of v, then iterate through all the left child until we hit a 
@@ -188,67 +248,13 @@ BinarySearchTree = {
 			me.replace(v, tmp.element());
 			
 			# Remove l using standard remove.
-			me.standardRemove(l);
+			me.remove(l);
 			
 			# Remove l's parent.
-			me.standardRemove(tmp);
+			me.remove(tmp);
 		}
+		me._entries = me._entries - 1;
 		
 		return v;
-	},
-	
-	# Removes the specified node from the tree if it only has one child.
-	standardRemove : func(v){
-		if (me.hasLeft(v) and me.hasRight(v)){
-			# Remove operation can't be performed if both children exist.
-			return nil;
-		}
-		
-		# Get child of v.
-		c = nil;
-		if (me.hasLeft(v)){
-			c = me.getLeft(v);
-		}
-		elsif (me.hasRight(v)){
-			c = me.getRight(v);
-		}
-		else {
-			c = nil;
-		}
-		
-		# Get parent of v.
-		p = nil;
-		if (v == me.root()){
-			# Special case, where the root is being removed.
-			if (c == nil){
-				# Last node being removed.
-				me._root = nil;
-			}
-			else {
-				# Set c as root.
-				c.setParent(nil);
-				me.setRoot(c);
-			}
-		}
-		else {
-			p = me.getParent(v);
-			if (v == me.getLeft(p)){
-				p.setLeft(c);
-			}
-			elsif (v == me.getRight(p)) {
-				p.setRight(c);
-			}
-		}
-		
-		# Set parent for c if c exists.
-		if (c == nil){}
-		else {
-			c.setParent(p);
-		}
-		
-		# Deduct tally.
-		me._size = me._size - 1;
-		
-		return v.element();
 	}
 };

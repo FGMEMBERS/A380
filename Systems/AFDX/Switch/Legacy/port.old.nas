@@ -6,8 +6,9 @@
 #  	 new(prop)		- creates a new instance of the class.
 #  	 enqueue(msg)		- enqueues a message to the outgoing buffer.
 #  	 dequeue()		- dequeues a message from the incoming buffer.
-#  	 noIncoming()		- returns whether the input buffer is empty.
-#  	 noOutgoing()		- returns whether the output buffer is empty.
+#  	 lastBPDU()		- returns the last BPDU received by the port.
+#  	 noIncoming()		- returns wether the incoming buffer is empty.
+#  	 send() 		- sends out the messages contained in the outgoing buffer.
 #  	 setVerbose(state)	- specifies the verbosness of the switch, with:
 #  	 			  * 0 being silent.
 #  	 			  * 1 generates warning messages only.
@@ -35,18 +36,36 @@ Port = {
 		}
 		
 		# Instance variables:
-		obj._inputBuffer = Queue.new(); 	# Incoming buffer.
+		obj._incoming = Queue.new();	# Incoming buffer.
 		obj._lastBPDU = "";
-		obj._outgoing = Queue.new();	
-		obj._outputBuffer = Queue.new();	# Outgoing buffer.
-		obj._prop = prop;			# The location at which properties are stored.
+		obj._outgoing = Queue.new();	# Outgoing buffer.
+		obj._outputBuffer = Queue.new();
+		obj._prop = prop;		# The location at which properties are stored.
 		
 		return obj;
 	},
 	
 	# Dequeues string message from the incoming buffer.
 	dequeue : func{
-		return me._inputBuffer.dequeue();
+		if (me._incoming.size() == 0){
+			# Update buffer.
+#			nodes = props.globals.getNode(me._prop ~ "/incoming").getChildren();
+#			
+#			foreach (node ; nodes){
+#				me._incoming.enqueue(node.getValue());
+#			}
+			
+			incomings = me.read();
+			foreach (incoming ; incomings){
+				me._incoming.enqueue(incoming);
+			}
+			
+			# Flush the property tree.
+			tmp = me.init(me._prop, "incoming");
+			tmp.setValue(nil);
+		}
+		
+		return me._incoming.dequeue();
 	},
 	
 	# Enqueues string messages to the outgoing buffer.
@@ -58,6 +77,7 @@ Port = {
 		
 		# Write to buffer.
 		me._outputBuffer.enqueue(msg);
+		me._outgoing.enqueue(msg);
 	},
 	
 	init : func(prop, node){
@@ -85,18 +105,94 @@ Port = {
 		return props.globals.getNode(prop ~ "/" ~ node, 1);
 	},
 	
-	# Returns whether the input buffer is empty.
+	# Returns whether the incoming buffer is empty.
 	noIncoming : func{
-		return me._inputBuffer.isEmpty();
+		if (me._incoming.size() == 0){
+#			nodes = props.globals.getNode(me._prop ~ "/incoming").getChildren();
+#			
+#			foreach (node ; nodes){
+#				me._incoming.enqueue(node.getValue());
+#			}
+			
+			incomings = me.read();
+			foreach (incoming ; incomings){
+				me._incoming.enqueue(incoming);
+			}
+			
+			# Flush the property tree.
+			tmp = me.init(me._prop, "incoming");
+			tmp.setValue(nil);
+		}
+		
+		return me._incoming.isEmpty();
 	},
 	
-	# Returns whether the output buffer is empty.
-	noOutgoing : func{
-		return me._outputBuffer.isEmpty();
-	},
-		
+	# Sends out the messages that were enqueued in the outgoing buffer.
 	send : func{
-		# Legacy function.
+		count = 0;
+		
+		while (me._outgoing.size() > 0){
+			# Write to property tree.
+#			me.init(me._prop ~ "/outgoing", "msg[" ~ count ~ "]");
+#			node = props.globals.getNode(me._prop ~ "/outgoing/msg[" ~ count ~ "]", 1);
+			
+			msg = me._outgoing.dequeue();
+			
+			if (msg == nil){
+			}
+			else {
+#				node.setValue(msg);
+				for (i = 0; i < size(msg); i = i + 1){
+					node = props.globals.getNode(me._prop ~ "/outgoing/msg[" ~ count ~ "]", 1);
+					count = count + 1;
+					node.setIntValue(strc(msg, i));
+				}
+			}
+			
+#			count = count + 1;	
+		}
+	},
+	
+	# Reads and returns the messages in the input buffer.
+	read : func{
+		count = 0;
+		finish = -1;
+		out = [];
+		dataSize = "";
+		tmp = "";
+		
+		nodes = props.globals.getNode(me._prop ~ "/incoming").getChildren();
+		
+		foreach (node ; nodes){
+			if (count == 0){
+				dataSize = "";
+				tmp = "";
+				finish = -1;
+			}
+			elsif (count == 25){
+				dataSize = dataSize ~ node.getValue();
+			}
+			elsif (count == 26){
+				finish = count + asciiToDec(dataSize) + 4;
+			}
+			
+			# Read a byte.
+			tmp = tmp ~ chr(node.getValue());
+			
+			if (count >= finish + 4 and finish > -1){
+				append(out, tmp);
+				count = 0;
+			}
+			else{
+				count = count + 1;
+			}
+		}
+		
+		if (size(out) == 0 and size(tmp) > 0){
+			append(out, tmp);
+		}
+		
+		return out;
 	},
 	
 	toString : func{
