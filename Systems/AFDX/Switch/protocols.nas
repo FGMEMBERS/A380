@@ -1,3 +1,8 @@
+# ********** ********** ********** ********** ********** ********** ********** ********** ********** **********
+# Copyright (C) 2005  Ampere K. [Hardraade]
+#
+# This file is protected by the GNU Public License.  For more details, please see the text file COPYING.
+# ********** ********** ********** ********** ********** ********** ********** ********** ********** **********
 BPDU = {
 	# Parse a string to create an instance of the BPDU format.
 	new : func(data){
@@ -48,21 +53,21 @@ BPDU = {
 			# Flags (1 byte)
 			append(tmp, chr(0));
 			# RootID (8 bytes)
-			append(tmp, decToAscii(32768) ~ chr(255) ~ chr(255) ~ chr(255) ~ chr(255) ~ chr(255) ~ chr(255));
+			append(tmp, decToAscii(65535) ~ chr(255) ~ chr(255) ~ chr(255) ~ chr(255) ~ chr(255) ~ chr(255));
 			# Root path cost (4 bytes)
 			append(tmp, chr(0) ~ chr(0) ~ chr(0) ~ chr(0));
 			# BridgeID (8 bytes)
-			append(tmp, decToAscii(32768) ~ chr(255) ~ chr(255) ~ chr(255) ~ chr(255) ~ chr(255) ~ chr(255));
+			append(tmp, decToAscii(65535) ~ chr(255) ~ chr(255) ~ chr(255) ~ chr(255) ~ chr(255) ~ chr(255));
 			# PortID (2 bytes)
 			append(tmp, chr(0) ~ chr(0));
 			# Message age (2 bytes)
 			append(tmp, chr(0) ~ chr(0));
 			# Maximium age (2 bytes)
-			append(tmp, chr(0) ~ chr(0));
+			append(tmp, chr(0) ~ chr(20));
 			# Hello time (2 bytes)
-			append(tmp, chr(0) ~ chr(0));
+			append(tmp, chr(0) ~ chr(2));
 			# Forward delay (2 bytes)
-			append(tmp, chr(0) ~ chr(0));
+			append(tmp, chr(0) ~ chr(15));
 		}
 		obj = {};
 		obj.parents = [BPDU];
@@ -78,7 +83,7 @@ BPDU = {
 	# Query:
 	
 	isTC : func{
-		return (me.block[3] == chr(65));
+		return (me.block[3] == chr(129));
 	},
 	
 	isTCA : func{
@@ -86,7 +91,7 @@ BPDU = {
 	},
 	
 	isTCN : func{
-		return (me.block[3] == chr(64));
+		return (me.block[3] == chr(128));
 	},
 	
 	# Accessors:
@@ -126,17 +131,22 @@ BPDU = {
 	
 	# Force the BPDU to be a Topology Change message.
 	forceTC : func{
-		tmp[3] = chr(65);
+		me.block[3] = chr(129);
 	},
 	
 	# Force the BPDU to be a Topology Change Acknowledgement Message.
 	forceTCA : func{
-		tmp[3] = chr(1);
+		me.block[3] = chr(1);
 	},
 	
 	# Force the BPDU to be a Topology Change Notification message.
 	forceTCN : func{
-		tmp[3] = chr(64);
+		me.block[3] = chr(128);
+	},
+	
+	# Lower all flags.
+	lowerFlags : func{
+		me.block[3] = chr(0);
 	},
 	
 	setBridgeID : func(bid){

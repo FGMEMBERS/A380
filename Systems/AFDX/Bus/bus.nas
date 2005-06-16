@@ -1,4 +1,8 @@
 # ********** ********** ********** ********** ********** ********** ********** ********** ********** **********
+# Copyright (C) 2005  Ampere K. [Hardraade]
+#
+# This file is protected by the GNU Public License.  For more details, please see the text file COPYING.
+# ********** ********** ********** ********** ********** ********** ********** ********** ********** **********
 # bus.nas
 # This Nasal script simulates the functions of an ethernet cable, by copying nodes from one section of the 
 #  property tree to another.
@@ -11,7 +15,7 @@
 #  	 			   object.  Otherwise, returns null.
 #  	 disconnect(port)	- Disconnects the bus from the given port.  If successful, returns the given
 #  	 			   port object.  Otherwise, returns null.
-#  	 update()		- Run this functions to transfer data from one port to another.
+# X	 update()		- Run this functions to transfer data from one port to another.
 # ********** ********** ********** ********** ********** ********** ********** ********** ********** **********
  
 Bus = {
@@ -43,6 +47,9 @@ Bus = {
 		}
 		elsif (me._p2 == nil){
 			me._p2 = port;
+			# Tie queues together.
+			me._p1._inputBuffer = me._p2._outputBuffer;
+			me._p2._inputBuffer = me._p1._outputBuffer;
 		}
 		else{
 			return nil;
@@ -63,6 +70,9 @@ Bus = {
 		
 		if (streq(port.toString(), me._p1.toString())){
 			me._p1 = nil;
+			# Sever queues.
+			me._p1._inputBuffer = Queue.new();
+			me._p2._inputBuffer = Queue.new();
 		}
 		elsif (streq(port.toString(), me._p2.toString())){
 			me._p2 = nil;
@@ -74,14 +84,14 @@ Bus = {
 		return port;
 	},
 	
-	# Transfers data from one port to another.
+#	# Transfers data from one port to another.
 	update : func{
-		while (me._p2.noOutgoing() == 0){
-			me._p1._inputBuffer.enqueue(me._p2._outputBuffer.dequeue());
-		}
-		while (me._p1.noOutgoing() == 0){
-			me._p2._inputBuffer.enqueue(me._p1._outputBuffer.dequeue());
-		}
+#		while (me._p2.noOutgoing() == 0){
+#			me._p1._inputBuffer.enqueue(me._p2._outputBuffer.dequeue());
+#		}
+#		while (me._p1.noOutgoing() == 0){
+#			me._p2._inputBuffer.enqueue(me._p1._outputBuffer.dequeue());
+#		}
 	}
 };
 # ********** ********** ********** ********** ********** ********** ********** ********** ********** **********

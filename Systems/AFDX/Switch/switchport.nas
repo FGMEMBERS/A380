@@ -1,4 +1,8 @@
-# ********** ********** ********** ********** ********** ********** ********** ********** ********** ********** 
+# ********** ********** ********** ********** ********** ********** ********** ********** ********** **********
+# Copyright (C) 2005  Ampere K. [Hardraade]
+#
+# This file is protected by the GNU Public License.  For more details, please see the text file COPYING.
+# ********** ********** ********** ********** ********** ********** ********** ********** ********** **********
 # switchport.nas
 # This Nasal script is an extension of the port object.  The SwitchPort object is specifically designed for the
 #  ethernet switch (switch.nas) to use.
@@ -18,10 +22,11 @@
 #  	 			  * 0 : initializing
 #  	 			  Theoretically, you can reset the port by calling changeState(0), but this 
 #  	 			   hasn't been tested thus it is not recommended.
+#  	 flush()		- flushs the port and clears the buffers.
 #  	 getCost()		- returns the root path cost of this port.
 #  	 getID()		- returns the id of this port.
-#  	 lastBPDU()		- returns the last BPDU received by this port.  Returns null if there is none,
-#  	 			   or if the last BPDU received is expired.
+#  	 lastMessage()		- returns the last message received by this port.
+#  	 previousState()	- retrives the previous state of the port.
 #  	 setCost(cost)		- modifies the root path cost of this port.
 #  	 setForwardDelay(delay) - sets the forward delay timer to the specified value.  Forward delay is the 
 #  	 			  amount of time that the port will stay in listening or learning mode.
@@ -38,10 +43,11 @@ SwitchPort = {
 		obj._forwardDelay = 15;			# Forward delay timer.
 		obj._id = id;
 		obj._inputBuffer = Queue.new(); 	# Incoming buffer.
-		obj._lastBPDU = nil;			# The last received BPDU message.
-		obj._lastBPDUexpiry = 0;		# The expiry time for the received BPDU.
+		obj._lastMessage = "";			# The last message received by the port.
+		obj._lastMessageTime = 0;		# The time at which the last message was received.
 		obj._nextUpdate = 0;			# Scheduler for next state increment.
 		obj._outputBuffer = Queue.new();	# Outgoing buffer.
+		obj._previousState = -1;		# The previous state of the port.
 		obj._prop = prop;			# The location at which properties are stored.
 		obj._maxAge = 20;			# The maximium age that the port will stay in blocking 
 							#  mode.
@@ -51,65 +57,6 @@ SwitchPort = {
 		
 		return obj;
 	},
-	
-	# Accessors:
-	
-	# Override the dequeue() function in the port object.
-	dequeue : func{
-		STP_MULTICAST = chr(01) ~ chr(80) ~ chr(194) ~ chr(0) ~ chr(0) ~ chr(0);	# 01 80 C2 00 00 00
-		
-#		if (me._incoming.size() == 0){
-#			# Update buffer.
-#			nodes = props.globals.getNode(me._prop ~ "/incoming").getChildren();
-#			
-#			foreach (node ; nodes){
-#				msg = node.getValue();
-#				me._incoming.enqueue(msg);
-#				
-#				# In addition to enqueuing the message, remember the received BPDU if the 
-#				#  destination address is a STP Multicast address.
-#				frame = Frame.new(msg);
-#				if (streq(frame.getDestination(), STP_MULTICAST)){
-#					# Get time from /sim/time/elapsed-sec[0].
-#					curTime = props.globals.getNode("/sim/time/elapsed-sec[0]").getValue();
-#		
-#					me._lastBPDU = msg;
-#					me._lastBPDUexpiry = curTime + me._maxAge;
-#				}
-#			}
-#			
-#			# Flush the property tree.
-#			me.init(me._prop, "incoming");
-#		}
-		
-		msg = me._inputBuffer.dequeue();
-		frame = Frame.new(msg);
-		# If the received message is a BPDU, remember it for the amount of time specified by MaxAge.
-		if (streq(frame.getDestination(), STP_MULTICAST)){
-			# Get time from /sim/time/elapsed-sec[0].
-			curTime = props.globals.getNode("/sim/time/elapsed-sec[0]").getValue();
-			
-			llc = LLC.new(frame.getData());
-			me._lastBPDU = BPDU.new(llc.getData());
-			me._lastBPDUexpiry = curTime + me._maxAge;
-		}
-		
-		return msg;
-	},
-	
-	getCost : func{
-		return me._cost;
-	},
-	
-	getID : func{
-		return me._id;
-	},
-	
-	lastBPDU : func{
-		return me._lastBPDU;
-	},
-	
-	# Modifiers:
 	
 	changeState : func(state){
 		status = "";
@@ -121,6 +68,8 @@ SwitchPort = {
 		}
 		else {
 #			if (size(state) == nil){
+				# Remember previous state.
+				me._previousState = me._state;
 				me._state = state;
 				
 				
@@ -169,6 +118,87 @@ SwitchPort = {
 		
 		return state;
 	},
+	
+	# Flush the buffers.
+	flush : func{
+		me._lastMessage = "";
+		while (me._inputBuffer.isEmpty() == 0){
+			# Dequeue messages to oblivian.
+			me._inputBuffer.dequeue();
+		}
+	},
+	
+	update : func{
+		# Get time from /sim/time/elapsed-sec[0].
+		curTime = props.globals.getNode("/sim/time/elapsed-sec[0]").getValue();
+		
+#		me.echo("\t Port " ~ me._id ~ ": current elapsed time is " ~ curTime ~ ".", 3);
+		
+		if (me._state == 0){
+			# Initialze the port on the property tree.
+			
+			
+			
+			me.echo("\t Port " ~ me._id ~ ": initializing... ", 2);
+			me.init(me._prop, "status");
+			me.echo("\t Port " ~ me._id ~ ": " ~ me._prop ~ "/status initialized on the property tree.", 3);
+			me.init(me._prop, "incoming");
+			me.echo("\t Port " ~ me._id ~ ": " ~ me._prop ~ "/incoming initialized on the property tree.", 3);
+			me.init(me._prop, "outgoing");
+			me.echo("\t Port " ~ me._id ~ ": " ~ me._prop ~ "/outgoing initialized on the property tree.", 3);
+			
+			# Increment state.
+			me.changeState(me._state + 1);
+		}
+		else {
+			if (me._state > -1 and me._state < 4){
+				if (curTime > me._nextUpdate){
+					# Increment state.
+					me.changeState(me._state + 1);
+				}
+			}
+		}
+		
+		return me._state;
+	},
+	
+	# Accessors:
+	
+	# Override the dequeue() function in the port object.
+	dequeue : func{
+		if (me._inputBuffer.isEmpty()){
+			return nil;
+		}
+		STP_MULTICAST = chr(01) ~ chr(80) ~ chr(194) ~ chr(0) ~ chr(0) ~ chr(0);	# 01 80 C2 00 00 00
+		
+		msg = me._inputBuffer.dequeue();
+		me._lastMessage = msg;
+		me._lastMessageTime = props.globals.getNode("/sim/time/elapsed-sec[0]").getValue();
+		
+		return msg;
+	},
+	
+	getCost : func{
+		return me._cost;
+	},
+	
+	getID : func{
+		return me._id;
+	},
+	
+	lastMessage : func{
+		return me._lastMessage;
+	},
+	
+	lastMessageTime : func{
+		return me._lastMessageTime;
+	},
+	
+	previousState : func{
+		return me._previousState;
+	},
+	
+	# Modifiers:
 	
 	setCost : func(cost){
 		# Validate argument.
@@ -219,44 +249,6 @@ SwitchPort = {
 #				return -1;
 #			}
 		}
-	},
-	
-	update : func{
-		# Get time from /sim/time/elapsed-sec[0].
-		curTime = props.globals.getNode("/sim/time/elapsed-sec[0]").getValue();
-		
-#		me.echo("\t Port " ~ me._id ~ ": current elapsed time is " ~ curTime ~ ".", 3);
-		
-		if (me._state == 0){
-			# Initialze the port on the property tree.
-			
-			
-			
-			me.echo("\t Port " ~ me._id ~ ": initializing... ", 2);
-			me.init(me._prop, "status");
-			me.echo("\t Port " ~ me._id ~ ": " ~ me._prop ~ "/status initialized on the property tree.", 3);
-			me.init(me._prop, "incoming");
-			me.echo("\t Port " ~ me._id ~ ": " ~ me._prop ~ "/incoming initialized on the property tree.", 3);
-			me.init(me._prop, "outgoing");
-			me.echo("\t Port " ~ me._id ~ ": " ~ me._prop ~ "/outgoing initialized on the property tree.", 3);
-			
-			# Increment state.
-			me.changeState(me._state + 1);
-		}
-		else {
-			if (me._state > -1 and me._state < 4){
-				if (curTime > me._nextUpdate){
-					# Increment state.
-					me.changeState(me._state + 1);
-				}
-			}
-		}
-		
-		if ((me._lastBPDU == nil) == 0 and curTime > me._lastBPDUexpiry){
-			me._lastBPDU = nil;
-		}
-		
-		return me._state;
 	}
 }
 # ********** ********** ********** ********** ********** ********** ********** ********** ********** **********

@@ -1,4 +1,8 @@
 # ********** ********** ********** ********** ********** ********** ********** ********** ********** **********
+# Copyright (C) 2005  Ampere K. [Hardraade]
+#
+# This file is protected by the GNU Public License.  For more details, please see the text file COPYING.
+# ********** ********** ********** ********** ********** ********** ********** ********** ********** **********
 # This is an implementation of a port object in Nasal.
 # Class:
 #  Port

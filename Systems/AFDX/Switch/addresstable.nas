@@ -1,4 +1,8 @@
 # ********** ********** ********** ********** ********** ********** ********** ********** ********** **********
+# Copyright (C) 2005  Ampere K. [Hardraade]
+#
+# This file is protected by the GNU Public License.  For more details, please see the text file COPYING.
+# ********** ********** ********** ********** ********** ********** ********** ********** ********** **********
 # addresstable.nas
 # This Nasal script implements the address table of the afdx switch.
 # 
@@ -8,6 +12,8 @@
 #  	 new()				# Creates and returns a new address table.
 #  	 add(address, portNum, expTime) # Creates a new entry in the address table.
 #  	 find(address)			# Returns the port number that is associated with the given address.
+#  	 getAgingTime()			# Returns the current aging time of the address table.
+#  	 setAgingTime(age)		# Sets the current aging time of the address table.
 #  	 size()				# Returns the number of entries stored in the address table.
 #  	 update()			# Checks the current time and removes old entries if necessary.
 # ********** ********** ********** ********** ********** ********** ********** ********** ********** **********
@@ -74,12 +80,33 @@ AddressTable = {
 		obj.parents = [AddressTable];
 		
 		# Instance variables:
+		obj._agingTime = 300;
 		obj._database = BinarySearchTree.new(me.Comparator);	# Use a Binary Search Tree to store
 									#  entries.
 		obj._entries = 0;					# Number of entries in the table.
 		obj._timeStamps = Queue.new();				# Use a queue to store time stamps.
 		
 		return obj;
+	},
+	
+	# Accessors:
+	
+	getAgingTime : func{
+		return me._agingTime;
+	},
+	
+	# Returns the number of entries stored in the address table.
+	size : func{
+		return me._entries;
+	},
+	
+	# Modifiers:
+	
+	setAgingTime : func(age){
+		if ((age == nil) == 0 and age > 0 and age <= 32768){
+			me._agingTime = age;
+			return age;
+		}
 	},
 	
 	# Auxiliary functions:
@@ -97,15 +124,18 @@ AddressTable = {
 	# Other functions:
 	
 	# Adds an entry to the address table.
-	add : func(address, portNum, expTime){
+	add : func(address, portNum, curTime){
 		# Initialize binary search tree if this is the first run.
-		if (me._database.isEmpty()){
+		if (me._database.isEmpty() and (me._database.root() == nil)){
 			me._database.setRoot(nil);
 		}
 		
-		# Insert new entry into binary search tree.
-		tsForTree = me.TimeStamp.new(portNum, expTime);
+		# Keep count of the current size of the tree.  This is used to determine whether the contents
+		#  in the tree have changed later on.
 		c = me._database.size();
+		
+		# Insert new entry of portID into binary search tree.
+		tsForTree = me.TimeStamp.new(portNum, curTime);
 		e = me._database.insert(address, tsForTree);
 		
 		if (e == nil){
@@ -113,8 +143,8 @@ AddressTable = {
 			return nil;
 		}
 		else {
-			# Create a new time stamp and put it in our queue.
-			ts = me.TimeStamp.new(address, expTime);
+			# Create a new time stamp for address and put it in our queue.
+			ts = me.TimeStamp.new(address, curTime);
 			me._timeStamps.enqueue(ts);
 			
 			if ((me._database.size() == c) == 0){
@@ -128,6 +158,7 @@ AddressTable = {
 	
 	# Returns the port number that is associated with the given address.
 	find : func(address){
+		# Try to obtain an entry from the tree with the address as the key.
 		ent = me._database.find(address);
 		
 		if (ent == nil){
@@ -135,14 +166,11 @@ AddressTable = {
 			return nil;
 		}
 		else {
-			# Return the port number.
-			return me._database.getElement(ent).element();
+			# Obtain the timestamp from the entry.
+			ts = me._database.getValue(ent);
+			# Return the port number in the timestamp.
+			return ts.element();
 		}
-	},
-	
-	# Returns the number of entries stored in the address table.
-	size : func{
-		return me._entries;
 	},
 	
 	# Performs a check on the current time and removes entries if necessary.
@@ -158,14 +186,14 @@ AddressTable = {
 		# Take a peek at the queue.  If the time stamp indicates that the object has expired, perform
 		#  dequeue operation and remove the associated node from the binary search tree.
 		front = me._timeStamps.front();
-		while ((front == nil) == 0 and curTime >= front.time()){
-			# Entry expired..
+		while ((front == nil) == 0 and curTime >= front.time() + me._agingTime){
+			# Entry expired.
 			address = me._timeStamps.dequeue().element();
 			
 			# Look for the dequeued element on the tree, and remove the said element from the tree
 			#  if its time stamp has expired.
 			ent = me._database.find(address);
-			time = ent.value().time();
+			time = ent.value().time() + me._agingTime;
 			
 			if (curTime >= time){
 				me._database.removeEntry(ent);

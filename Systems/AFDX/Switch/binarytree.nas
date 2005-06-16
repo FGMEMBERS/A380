@@ -1,4 +1,8 @@
 # ********** ********** ********** ********** ********** ********** ********** ********** ********** **********
+# Copyright (C) 2005  Ampere K. [Hardraade]
+#
+# This file is protected by the GNU Public License.  For more details, please see the text file COPYING.
+# ********** ********** ********** ********** ********** ********** ********** ********** ********** **********
 # tree.nas
 # This is an implementation of a binary tree using Nasal.
 #
@@ -262,10 +266,10 @@ BinaryTree = {
 		}
 		else {
 			p = me.getParent(v);
-			if (v == me.getLeft(p)){
+			if (me.hasLeft(v) and v == me.getLeft(p)){
 				p.setLeft(c);
 			}
-			elsif (v == me.getRight(p)) {
+			elsif (me.hasRight(v) and v == me.getRight(p)) {
 				p.setRight(c);
 			}
 		}

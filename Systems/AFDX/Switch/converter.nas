@@ -1,4 +1,8 @@
-# ********** ********** ********** ********** ********** ********** ********** ********** ********** ********** 
+# ********** ********** ********** ********** ********** ********** ********** ********** ********** **********
+# Copyright (C) 2005  Ampere K. [Hardraade]
+#
+# This file is protected by the GNU Public License.  For more details, please see the text file COPYING.
+# ********** ********** ********** ********** ********** ********** ********** ********** ********** **********
 # converter.nas
 # This Nasal script contains functions that convert values from one base to another.  The functions that
 #  convert values from base10 to another base will only work on positive numbers.

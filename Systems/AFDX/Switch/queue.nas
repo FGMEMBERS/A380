@@ -1,4 +1,8 @@
 # ********** ********** ********** ********** ********** ********** ********** ********** ********** **********
+# Copyright (C) 2005  Ampere K. [Hardraade]
+#
+# This file is protected by the GNU Public License.  For more details, please see the text file COPYING.
+# ********** ********** ********** ********** ********** ********** ********** ********** ********** **********
 # queue.nas
 # This is a Nasal implementation of a Queue using a linked-list.  All the Queue's functions and subroutines
 #  have a running time of O(1).

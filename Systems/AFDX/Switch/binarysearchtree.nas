@@ -1,4 +1,8 @@
-# ********** ********** ********** ********** ********** ********** ********** ********** ********** ********** 
+# ********** ********** ********** ********** ********** ********** ********** ********** ********** **********
+# Copyright (C) 2005  Ampere K. [Hardraade]
+#
+# This file is protected by the GNU Public License.  For more details, please see the text file COPYING.
+# ********** ********** ********** ********** ********** ********** ********** ********** ********** **********
 # binarysearchtree.nas
 # This is an implementation of a binary search tree using Nasal.  This class inherits the BinaryTree object.
 # 
@@ -82,7 +86,7 @@ BinarySearchTree = {
 		if (v == nil or e == nil){
 			# Illegal argument(s).
 			# Force an error.  DO NOT REMOVE!
-			die ("illegal argument(s).");
+			die ("node or element cannot be null.");
 			return ni;
 		}
 		
@@ -92,7 +96,7 @@ BinarySearchTree = {
 			return nil;
 		}
 		
-		# Extend v by adding external nodes.
+		# Make v internal by adding external nodes.
 		me.insertLeft(v, nil);
 		me.insertRight(v, nil);
 		me.replace(v, e);
@@ -139,6 +143,10 @@ BinarySearchTree = {
 			die ("invalid key.");
 			return nil;
 		}
+		if (me.root() == nil){
+			# Root has not been initialized.  Abort.
+			return nil;
+		}
 			
 		v = me.search(k, me._root);
 		
@@ -179,7 +187,11 @@ BinarySearchTree = {
 		if (k == nil or e == nil){
 			# Illegal argument(s).
 			# Force an error.  DO NOT REMOVE!
-			die ("illegal argument(s).");
+			die ("key or object cannot be null.");
+			return nil;
+		}
+		if (me.root() == nil){
+			# Root has not been initialized.  Abort.
 			return nil;
 		}
 		
@@ -198,12 +210,12 @@ BinarySearchTree = {
 			}
 		}
 		
+		# Create and insert a new entry.
 		while (me.isInternal(v)){
 			v = me.search(k, me.getRight(v));
 		}
 		
 		entry = me.Entry.new(k, e, v);
-		
 		return (me.insertAtExternal(v, entry)); 
 	},
 	
@@ -223,35 +235,34 @@ BinarySearchTree = {
 			return nil;
 		}
 		
-		if (me.isExternal(me.getLeft(v)) == 1){
+		rmNode = nil;
+		if (me.hasLeft(v) and me.isExternal(me.getLeft(v)) == 1){
 			# The left child of v is external.
 			# Remove v's external child, then use the standard remove function to remove v.
-			tmp = me.remove(me.getLeft(v));
-			return me.remove(v);
+			me.remove(me.getLeft(v));
 		}
-		elsif (me.isExternal(me.getRight(v)) == 1){
+		elsif (me.hasRight(v) and me.isExternal(me.getRight(v)) == 1){
 			# The right child of v is external.
 			# Remove v's external child, then use the standard remove function to remove v.
 			me.remove(me.getRight(v));
-			return me.remove(v);
 		}
 		else {	# Both children of v are internal nodes.
 			# Get the right child of v, then iterate through all the left child until we hit a 
 			#  node with an external children.
-			r = me.getRight(v);
-			l = me.getLeft(r);
+			swap = me.getRight(v);
+			l = me.getLeft(swap);
 			while (me.isInternal(l)){
-				l = me.getLeft(r);
+				l = me.getLeft(l);
 			}
-			# Replace v with l's parent.
+			# Replace r with l's parent.
 			tmp = l.getParent();
-			me.replace(v, tmp.element());
+			me.replace(swap, tmp.element());
 			
 			# Remove l using standard remove.
 			me.remove(l);
 			
 			# Remove l's parent.
-			me.remove(tmp);
+#			me.remove(tmp);
 		}
 		me._entries = me._entries - 1;
 		
