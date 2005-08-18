@@ -3,6 +3,7 @@
 <PropertyList>
 
  <path>../Models/a380.ac</path>
+ <!--<path>../Models/fuselage.3ds</path>-->
  <texture-path>../Textures/Livery/House</texture-path>
  <offsets>
    <z-m>-8.7</z-m>
@@ -23,14 +24,22 @@ change by Ampere -->
     <!--<z-m>5.23531</z-m>-->
    </offsets>
   </model>
-
-  <!-- Temorary hack -->
+  
   <model>
-   <path>Aircraft/A380/XML/windshield.xml</path>
+   <path>Aircraft/A380/XML/FlightDeck/flightdeck.xml</path>
+   <offsets>
+    <x-m>8.792</x-m>
+    <z-m>5.919</z-m>
+   </offsets>
   </model>
 
+  <!-- Temorary hack 
+  <model>
+   <path>Aircraft/A380/XML/windshield.xml</path>
+  </model>-->
+
 <!--
--->
+
 
   <model>
   <path>Aircraft/747/Models/boeing747-400-pfd-jw.xml</path>
@@ -61,7 +70,7 @@ change by Ampere -->
    <pitch-deg>-20.0</pitch-deg>
   </offsets>
  </model>
-
+-->
    <animation>
   <type>rotate</type>
   <object-name>nouterstrut</object-name>

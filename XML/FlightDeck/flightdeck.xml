@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+	<path>../../Models/FlightDeck/flightdeck.3ds</path> 
+	<texture-path>../../Textures/Common</texture-path>
+	
+	<!-- Load the front panel -->
+	<model>
+		<path>Aircraft/A380/XML/FlightDeck/FrontPanel/frontpanel.xml</path>
+		<offsets>
+			<x-m>0.83692</x-m>
+			<z-m>0.67036</z-m>
+			<pitch-deg>73.0</pitch-deg>
+		</offsets>
+	</model>
+
+	<!-- Load the overhead panel -->
+	<model>
+		<path>Aircraft/A380/XML/FlightDeck/Overhead/overhead.xml</path>
+		<offsets>
+			<!--<x-m>1.09059</x-m>
+			<z-m>1.29219</z-m>-->
+			<x-m>1.12329</x-m>
+			<z-m>1.31467</z-m>
+			<pitch-deg>161.367</pitch-deg>
+		</offsets>
+	</model>
+
+
+</PropertyList> 

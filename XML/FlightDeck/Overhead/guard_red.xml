@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+	<path>../../../Models/FlightDeck/guard_red.3ds</path> 
+	<texture-path>../../../Textures/Common</texture-path>
+	<offsets>
+		<z-m>0.002</z-m>
+	</offsets>
+	
+	<!-- Disable shadow. -->
+	<animation>
+		<type>noshadow</type>
+		<object-name>Rectangle04</object-name>
+		<object-name>Rectangle05</object-name>
+		<object-name>Shape01</object-name>
+	</animation>
+
+</PropertyList> 
+ 

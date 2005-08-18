@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+	<path>../../../Models/FlightDeck/frontpanel.3ds</path> 
+	<!--<offsets>
+		<x-m>0.90597</x-m>
+		<z-m>0.49453</z-m>-->
+		<!--<x-m>0.84885</x-m>
+		<z-m>0.68447</z-m>-->
+		<!--<x-m>0.83692</x-m>
+		<z-m>0.67036</z-m>
+		<pitch-deg>73.0</pitch-deg>
+	</offsets>-->
+	
+	<!-- Load flight displays. -->
+	<model>
+		<path>Aircraft/A380/XML/FlightDeck/FrontPanel/pfd_c.xml</path>
+		<name>pfd_c</name>
+		<offsets>
+			<x-m>-0.015</x-m>
+			<y-m>-0.605</y-m>
+			<z-m>-0.0075</z-m>
+		</offsets>
+	</model>
+	<model>
+		<path>Aircraft/A380/XML/FlightDeck/FrontPanel/nd_c.xml</path>
+		<name>nd_c</name>
+		<offsets>
+			<x-m>-0.015</x-m>
+			<y-m>-0.42625</y-m>
+			<z-m>-0.0075</z-m>
+		</offsets>
+	</model>
+	<model>
+		<name>pdf_fo</name>
+		<path>Aircraft/A380/XML/FlightDeck/FrontPanel/pfd_fo.xml</path>
+		<offsets>
+			<x-m>-0.015</x-m>
+			<y-m>0.45625</y-m>
+			<z-m>-0.0075</z-m>
+		</offsets>
+	</model>
+	<model>
+		<name>nd_fo</name>
+		<path>Aircraft/A380/XML/FlightDeck/FrontPanel/nd_fo.xml</path>
+		<offsets>
+			<x-m>-0.015</x-m>
+			<y-m>0.2775</y-m>
+			<z-m>-0.0075</z-m>
+		</offsets>
+	</model>
+	<model>
+		<name>ecam</name>
+		<path>Aircraft/A380/XML/FlightDeck/FrontPanel/ecam.xml</path>
+		<offsets>
+			<x-m>-0.015</x-m>
+			<y-m>-0.075</y-m>
+			<z-m>-0.0075</z-m>
+		</offsets>
+	</model>
+	
+	<!-- Load glare shield. -->
+	<model>
+		<name>fcu</name>
+		<path>Aircraft/A380/XML/FlightDeck/Glareshield/fcu.xml</path>
+		<offsets>
+			<x-m>-0.26</x-m>
+			<z-m>0.25</z-m>
+		</offsets>
+	</model>
+	<model>
+		<name>efis_c</name>
+		<path>Aircraft/A380/XML/FlightDeck/Glareshield/efis_c.xml</path>
+		<offsets>
+			<x-m>-0.26</x-m>
+			<y-m>-0.289</y-m>
+			<z-m>0.25</z-m>
+		</offsets>
+	</model>
+	<model>
+		<name>gs_wing_c</name>
+		<path>Aircraft/A380/XML/FlightDeck/Glareshield/gs_wing_c.xml</path>
+		<offsets>
+			<x-m>-0.26</x-m>
+			<y-m>-0.594</y-m>
+			<z-m>0.25</z-m>
+		</offsets>
+	</model>
+	
+	<!-- Disable shadows -->
+	<animation>
+	<type>noshadow</type>
+		<object-name>PANEL</object-name>
+		<object-name>Void</object-name>
+		
+		<object-name>pfd_c</object-name>
+		<object-name>nd_c</object-name>
+		<object-name>ecam</object-name>
+		<object-name>nd_fo</object-name>
+		<object-name>pfd_fo</object-name>
+		
+		<object-name>gs_wing_c</object-name>
+		<object-name>efis_c</object-name>
+		<object-name>fcu</object-name>
+	</animation>
+	
+
+</PropertyList> 
