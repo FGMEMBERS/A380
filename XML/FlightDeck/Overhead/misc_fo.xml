@@ -2,7 +2,7 @@
 
 <PropertyList>
 
-	<path>../../../Models/FlightDeck/misc_fo.3ds</path> 
+	<path>../../../Models/FlightDeck/Overhead/misc_fo.3ds</path> 
 	<texture-path>../../../Textures/Common</texture-path>
 	
 	<!-- Load the guards (red) for the buttons. -->

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+	<path>../../../Models/FlightDeck/Pedestal/displayFrame.3ds</path> 
+	<texture-path>../../../Textures/Common</texture-path>
+	
+	<model>
+		<name>cdu1</name>
+		<path>Aircraft/A380/XML/FlightDeck/Pedestal/display.xml</path>
+		<offsets>
+			<x-m>-0.03</x-m>
+			<y-m>-0.27</y-m>
+			<z-m>-0.0075</z-m>
+		</offsets>
+	</model>
+		
+	<model>
+		<name>ecam</name>
+		<path>Aircraft/A380/XML/FlightDeck/Pedestal/display.xml</path>
+		<offsets>
+			<x-m>-0.03</x-m>
+			<y-m>-0.08</y-m>
+			<z-m>-0.0075</z-m>
+		</offsets>
+	</model>
+		
+	<model>
+		<name>cdu2</name>
+		<path>Aircraft/A380/XML/FlightDeck/Pedestal/display.xml</path>
+		<offsets>
+			<x-m>-0.03</x-m>
+			<y-m>0.11</y-m>
+			<z-m>-0.0075</z-m>
+		</offsets>
+	</model>
+
+</PropertyList> 
+ 

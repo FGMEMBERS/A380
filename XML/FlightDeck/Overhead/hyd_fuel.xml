@@ -2,7 +2,7 @@
 
 <PropertyList>
 
-	<path>../../../Models/FlightDeck/hyd_fuel.3ds</path> 
+	<path>../../../Models/FlightDeck/Overhead/hyd_fuel.3ds</path> 
 	<texture-path>../../../Textures/Common</texture-path>
 	
 	<!-- -->

@@ -2,7 +2,7 @@
 
 <PropertyList>
 
-	<path>../../../Models/FlightDeck/display1.3ds</path> 
+	<path>../../../Models/FlightDeck/FrontPanel/display1.3ds</path> 
 	<texture-path>../../../Textures/Common</texture-path>
 
 </PropertyList> 

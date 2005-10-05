@@ -2,7 +2,7 @@
 
 <PropertyList>
 
-	<path>../../../Models/FlightDeck/anti_ice_lights.3ds</path> 
+	<path>../../../Models/FlightDeck/Overhead/anti_ice_lights.3ds</path> 
 	<texture-path>../../../Textures/Common</texture-path>
 
 </PropertyList> 

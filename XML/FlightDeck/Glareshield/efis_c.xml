@@ -2,8 +2,11 @@
 
 <PropertyList>
 
-	<path>../../../Models/FlightDeck/efis.3ds</path> 
+	<path>../../../Models/FlightDeck/Glareshield/efis_c.3ds</path> 
 	<texture-path>../../../Textures/Common</texture-path>
+	<offsets>
+		<z-m>0.25</z-m>
+	</offsets>
 
 </PropertyList> 
  

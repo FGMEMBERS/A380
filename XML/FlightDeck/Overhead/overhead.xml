@@ -2,7 +2,7 @@
 
 <PropertyList>
 
-	<path>../../../Models/FlightDeck/overhead.3ds</path> 
+	<path>../../../Models/FlightDeck/Overhead/overhead.3ds</path> 
 	<texture-path>../../../Textures/Common</texture-path>
 
 	<!-- -->

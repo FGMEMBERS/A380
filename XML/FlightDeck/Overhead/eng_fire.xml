@@ -2,7 +2,7 @@
 
 <PropertyList>
 
-	<path>../../../Models/FlightDeck/eng_fire.3ds</path> 
+	<path>../../../Models/FlightDeck/Overhead/eng_fire.3ds</path> 
 	<texture-path>../../../Textures/Common</texture-path>
 
 </PropertyList> 

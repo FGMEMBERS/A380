@@ -9,9 +9,13 @@
 	<model>
 		<path>Aircraft/A380/XML/FlightDeck/FrontPanel/frontpanel.xml</path>
 		<offsets>
-			<x-m>0.83692</x-m>
-			<z-m>0.67036</z-m>
-			<pitch-deg>73.0</pitch-deg>
+			<!--
+			<x-m>0.83691</x-m>
+			<z-m>0.63578</z-m>
+			-->
+			<x-m>0.83864</x-m>
+			<z-m>0.62594</z-m>
+			<pitch-deg>80.0</pitch-deg>
 		</offsets>
 	</model>
 
@@ -27,5 +31,12 @@
 		</offsets>
 	</model>
 
-
+	<!-- Load the pedestal -->
+	<model>
+		<path>Aircraft/A380/XML/FlightDeck/Pedestal/pedestal.xml</path>
+		<offsets>
+			<x-m>0.83691</x-m>
+			<z-m>0.5</z-m>
+		</offsets>
+	</model>
 </PropertyList> 

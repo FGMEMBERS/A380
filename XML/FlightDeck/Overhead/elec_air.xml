@@ -2,7 +2,7 @@
 
 <PropertyList>
 
-	<path>../../../Models/FlightDeck/elec_air.3ds</path> 
+	<path>../../../Models/FlightDeck/Overhead/elec_air.3ds</path> 
 	<texture-path>../../../Textures/Common</texture-path>
 	
 	<!-- Load the guards (red) for the buttons. -->

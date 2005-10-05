@@ -32,7 +32,7 @@ change by Ampere -->
     <z-m>5.919</z-m>
    </offsets>
   </model>
-
+  
   <!-- Temorary hack 
   <model>
    <path>Aircraft/A380/XML/windshield.xml</path>

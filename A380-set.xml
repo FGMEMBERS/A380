@@ -235,9 +235,10 @@
 		<HST-pos-norm type="double">0.0</HST-pos-norm>
 	</surface-positions>	
 	-->
+	<!--
 	<nasal>
-		<!-- Switch: -->
-		<!-- Conversion functions -->
+		<!- Switch: ->
+		<!- Conversion functions ->
 		<base_converter>
 			<file>Aircraft/A380/Systems/AFDX/Switch/converter.nas</file>
 			<script>
@@ -249,7 +250,7 @@
 				globals.hexToDec = hexToDec;
 			</script>
 		</base_converter>
-		<!-- Load all abstract data types -->
+		<!- Load all abstract data types ->
 		<queue>
 			<file>Aircraft/A380/Systems/AFDX/Switch/queue.nas</file>
 			<script>
@@ -268,7 +269,7 @@
 				globals.BinarySearchTree = BinarySearchTree;
 			</script>
 		</binary_search_tree>
-		<!-- Load all hard components of the switch -->
+		<!- Load all hard components of the switch ->
 		<port>
 			<file>Aircraft/A380/Systems/AFDX/Switch/port.nas</file>
 			<script>
@@ -281,7 +282,7 @@
 				globals.SwitchPort = SwitchPort;
 			</script>
 		</switch_port>
-		<!-- Load all soft components of the switch -->
+		<!- Load all soft components of the switch ->
 		<protocols>
 			<file>Aircraft/A380/Systems/AFDX/Switch/protocols.nas</file>
 			<script>
@@ -296,14 +297,14 @@
 				globals.AddressTable = AddressTable;
 			</script>
 		</address_table>
-		<!-- Switch -->
+		<!- Switch ->
 		<switch>
 			<file>Aircraft/A380/Systems/AFDX/Switch/switch.nas</file>
 			<script>
 				globals.Switch = Switch;
 			</script>
 		</switch>
-		<!-- Bus -->
+		<!- Bus ->
 		<bus>
 			<file>Aircraft/A380/Systems/AFDX/Bus/bus.nas</file>
 			<script>
@@ -311,7 +312,7 @@
 			</script>
 		</bus>
 		
-		<!-- Define AFDX Network -->
+		<!- Define AFDX Network ->
 		<define_afdx>
 			<file>Aircraft/A380/Systems/AFDX/afdx.nas</file>
 			<script>
@@ -320,7 +321,7 @@
 			</script>
 		</define_afdx>
 		
-		<!-- AFDX Network: S_1_sw1 -->
+		<!- AFDX Network: S_1_sw1 ->
 		<S_1_sw1>
 			<script>
 				run = func{
@@ -331,7 +332,7 @@
 			</script>
 		</S_1_sw1>
 		
-		<!-- AFDX Network: S_1_sw2 -->
+		<!- AFDX Network: S_1_sw2 ->
 		<S_1_sw2>
 			<script>
 				run = func{
@@ -342,7 +343,7 @@
 			</script>
 		</S_1_sw2>
 		
-		<!-- AFDX Network: S_1_sw3 -->
+		<!- AFDX Network: S_1_sw3 ->
 		<S_1_sw3>
 			<script>
 				run = func{
@@ -353,7 +354,7 @@
 			</script>
 		</S_1_sw3>
 		
-		<!-- AFDX Network: S_2_sw1 -->
+		<!- AFDX Network: S_2_sw1 ->
 		<S_2_sw1>
 			<script>
 				run = func{
@@ -364,7 +365,7 @@
 			</script>
 		</S_2_sw1>
 		
-		<!-- AFDX Network: S_2_sw2 -->
+		<!- AFDX Network: S_2_sw2 ->
 		<S_2_sw2>
 			<script>
 				run = func{
@@ -375,7 +376,7 @@
 			</script>
 		</S_2_sw2>
 		
-		<!-- AFDX Network: S_3_sw1 -->
+		<!- AFDX Network: S_3_sw1 ->
 		<S_3_sw1>
 			<script>
 				run = func{
@@ -386,7 +387,7 @@
 			</script>
 		</S_3_sw1>
 		
-		<!-- AFDX Network: S_3_sw2 -->
+		<!- AFDX Network: S_3_sw2 ->
 		<S_3_sw2>
 			<script>
 				run = func{
@@ -397,7 +398,7 @@
 			</script>
 		</S_3_sw2>
 		
-		<!-- AFDX Network: S_4_sw1 -->
+		<!- AFDX Network: S_4_sw1 ->
 		<S_4_sw1>
 			<script>
 				run = func{
@@ -408,7 +409,7 @@
 			</script>
 		</S_4_sw1>
 		
-		<!-- AFDX Network: S_4_sw2 -->
+		<!- AFDX Network: S_4_sw2 ->
 		<S_4_sw2>
 			<script>
 				run = func{
@@ -419,7 +420,7 @@
 			</script>
 		</S_4_sw2>
 
-	</nasal>
+	</nasal>-->
 	<!--Change ends-->
 
 </PropertyList>
