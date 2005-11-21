@@ -3,6 +3,7 @@
  <sim>
 
   <description>Airbus A380</description>
+  <aircraft-version>noftp</aircraft-version>
 
   <flight-model>jsb</flight-model>
   <aero>A380</aero>
