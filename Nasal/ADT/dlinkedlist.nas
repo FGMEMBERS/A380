@@ -14,27 +14,28 @@
 #
 #  DLinkedList
 #  	new()			- creates and returns a new instance of the double linked list.
-#  	first()			- returns the first node in the object.
 #  	insertAfter(p, e)	- inserts the specified element after the given position.
 #  	insertBefore(p, e)	- inserts the specified element before the given position.
 #  	insertFirst(e)		- inserts the given element at the beginning of the list.
 #  	insertLast(e)		- inserts the given element at the end of the list.
 #  	isEmpty()		- returns whether the list is empty.
-#  	last()			- returns the last node in the linked list.
-#  	next(p)			- returns the next node following p.
-#  	prev(p)			- returns the node preceding p.
+#  	getElement(p)		- returns the element stored in the given node.
+#  	getFirst()		- returns the first node in the object.
+#  	getLast()		- returns the last node in the linked list.
+#  	getNext(p)		- returns the next node following p.
+#  	getPrev(p)		- returns the node preceding p.
 #  	remove(p)		- removes the specified node.
 #  	replace(p, e)		- replaces the element in the specified position with e.
 #  	size()			- returns the number of objects being stored in the list.
 # ********** ********** ********** ********** ********** ********** ********** ********** ********** **********
 DLinkedList = {
 # Private objects:
-	DNode = {
+	DNode : {
 	# Methods:
 		# Creates and returns a new instance of the node object.
 		new : func(prev, next, element, isSentinal){
 			obj = {};
-			obj.parents = [DNode];
+			obj.parents = [DLinkedList.DNode];
 			
 			# Instance variables:
 			obj._element = element;
@@ -91,8 +92,8 @@ DLinkedList = {
 		obj.parents = [DLinkedList];
 		
 		# Instance variables:
-		obj._first = DNode.new(nil, nil, nil, 1);
-		obj._last = DNode.new(obj._first, nil, nil, 1);
+		obj._first = obj.DNode.new(nil, nil, nil, 1);
+		obj._last = obj.DNode.new(obj._first, nil, nil, 1);
 		obj._first.setNext(obj._last);
 		obj._size = 0;
 		
@@ -126,6 +127,11 @@ DLinkedList = {
 	},
 	
 # Accessors:
+	# Returns the element contained in the given node.
+	getElement : func(p){
+		return p.getElement();
+	},
+	
 	# Returns the node at the beginning of the list.
 	getFirst : func{
 		#if (me.isEmpty){
@@ -195,7 +201,7 @@ DLinkedList = {
 	insertAfter : func(p, e){
 		v = me.checkPosition(p);
 		
-		newNode = DNode.new(v, v.getNext(), e, 0);
+		newNode = me.DNode.new(v, v.getNext(), e, 0);
 		#if (v.getNext() != nil){
 		#	v.getNext().setPrev(newNode);
 		#}
@@ -215,7 +221,7 @@ DLinkedList = {
 	insertBefore : func(p, e){
 		v = me.checkPosition(p);
 		
-		newNode = DNode.new(v.getPrev(), v, e, 0);
+		newNode = me.DNode.new(v.getPrev(), v, e, 0);
 		#if (v.getPrev() != nil){
 		#	v.getPrev().setNext(newNode);
 		#}
@@ -235,9 +241,9 @@ DLinkedList = {
 	insertFirst : func(e){
 		me._size = me._size + 1;
 		
-		newNode = DNode.new(me._first, me._first.getNext(), e, 0);
+		newNode = me.DNode.new(me._first, me._first.getNext(), e, 0);
 		# Don't create link to sentinal.
-		#newNode = DNode.new(nil, me._first.getNext(), e, 0);
+		#newNode = me.DNode.new(nil, me._first.getNext(), e, 0);
 		
 		me._first.getNext().setPrev(newNode);
 		me._first.setNext(newNode);
@@ -249,9 +255,9 @@ DLinkedList = {
 	insertLast : func(e){
 		me._size = me._size + 1;
 		
-		newNode = DNode.new(me._last.getPrev(), me._last, e, 0);
+		newNode = me.DNode.new(me._last.getPrev(), me._last, e, 0);
 		# Don't create link to sentinal.
-		#newNode = DNode.new(me._last.getPrev(), nil, e, 0);
+		#newNode = me.DNode.new(me._last.getPrev(), nil, e, 0);
 		
 		me._last.getPrev().setNext(newNode);
 		me._last.setPrev(newNode);
