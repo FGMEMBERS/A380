@@ -12,7 +12,7 @@
 #  this library may expand to include such implementations as the "edge list" and "adjacency list" structures.
 #
 # Dependencies:
-#  A380.Nasal.ADT.DLinkList
+#  A380.Nasal.ADT.DLinkedList
 #
 # Class:
 #  Graph
@@ -27,15 +27,15 @@
 #  	 opposite(v, e)		- returns the vertex connected by e and distinct from v.
 #  	 removeEdge(e)		- removes the specified edge from the graph.
 #  	 removeVertex(v)	- removes the specified vertex from the graph.
-#  	 replace(e, x)		- replaces edge e with edge x.
-#  	 replace(v, x)		- replaces vertex v with vertex x.
+#  	 replaceE(e, x)		- replaces edge e with edge x.
+#  	 replaceV(v, x)		- replaces vertex v with vertex x.
 #  	 vertices()		- returns a vector containing all the vertices in the graph.
 #  Graph.AdjMatrix
 #  	Methods:
 #  	 new()			- creates and returns a new instance a graph object implemented using the 
 #  	 			   "adjacency matrix" structure.
 # ********** ********** ********** ********** ********** ********** ********** ********** ********** **********
-DLinkedList = A380.Nasal.ADT.DLinkedList;
+# DLinkedList = A380.Nasal.ADT.DLinkedList;
 
 Graph = {
 # Methods:
@@ -438,7 +438,7 @@ Graph.AdjMatrix = {
 		# Go through an entire column (or row) of our matrix, and put all the edges into a list.
 		tmpList = DLinkedList.new();
 		m = me._matrix;
-		for (i = 1; i < m.rowCount(); i = i + 1){
+		for (i = 1; i <= m.rowCount(); i = i + 1){
 			edge = m.getElement(i, v.getIndex() + 1);
 			
 			if (edge != nil){
@@ -583,40 +583,43 @@ Graph.AdjMatrix = {
 		}
 		
 		# Create a new matrix with one less row and one less column to our current matrix.
-		me._vertexCount = me._vertexCount - 1;
-		tmp = me.Matrix.new(me._vertexCount, me._vertexCount);
+		tmp = me.Matrix.new(me._vertexCount - 1, me._vertexCount - 1);
 		
-		# Let the index of the vertex be i.  Row i and Column i would divide the matrix into four
-		#  quadrants.  Copy each quadrant seperately into our new matrix.
-		i = v.getIndex() + 1;
-		m = me._matrix;
+		# Row i and Column i would divide the matrix into four quadrants.  Copy each quadarant 
+		#  into our new matrix.
 		
-		if (i > 1){
-			# First quadrant, from (1, 1) to (i-1, i-1).
-			tmp.insertMatrix(m.subMatrix(1, 1, i - 1, i - 1), 1, 1);
-			
-			if (i < m.colCount()){
-				# Second quadrant, from (1, i+1) to (i-1, m.colCount()).
-				tmp.insertMatrix(m.subMatrix(1, i + 1, i - 1, m.colCount()), 1, i);
+		rowShift = 0;
+		# Go through all rows.
+		for (k = 1; k <= me._vertexCount; k = k + 1){
+			if (k != i + 1){
+				colShift = 0;
+				# Go through all columns.
+				for (l = 1; l <= me._vertexCount; l = l + 1){
+					if (l != i + 1){
+						tmp.setElement(me._matrix.getElement(k, l), k + rowShift, l + colShift);
+					}
+					else {
+						# Skip a column.
+						colShift = -1;
+					}
+				}
 			}
-			
-			if (i < m.rowCount()){
-				# Third quadrant, from (i+1, 1) to (m.rowCount(), i-1).
-				tmp.insertMatrix(m.subMatrix(i + 1, 1, m.rowCount(), i - 1), i, 1);
+			else {
+				# Skip a row.
+				rowShift = -1;
 			}
-		}
-		if (i < m.rowCount()){	
-			# Forth quadrant, from (i+1, i+1) to (m.rowCount(), m.colCount()).
-			tmp.insertMatrix(m.subMatrix(i + 1, i + 1, m.rowCount(), m.colCount()), i, i);
 		}
 		
 		# Use the new matrix.
 		me._matrix = tmp;
 		
+		# Decrease the vertex count.
+		me._vertexCount = me._vertexCount - 1;
+		
 		return removed;
 	},
 	
-	replace : func(e, x){
+	replaceE : func(e, x){
 		if (e == nil){
 			# Raise an error.
 			# DO NOT REMOVE!
@@ -625,7 +628,7 @@ Graph.AdjMatrix = {
 		return e.setElement(x);
 	},
 	
-	replace : func(v, x){
+	replaceV : func(v, x){
 		me.checkVertex(v);
 		return v.setElement(x);
 	}
