@@ -6,7 +6,7 @@ kids 17
 OBJECT poly
 name "eicas"
 loc -0.00157432 -0.000573281 -0.000161321
-texture "eicas background2.rgb"
+texture "eicas_background2.rgb"
 numvert 8
 0.000877932 0.0768154 0.0755007
 0.000877924 0.0768154 -0.0755007
