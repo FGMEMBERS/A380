@@ -2,22 +2,23 @@
 
 <PropertyList>
 
- <path>../Models/a380.ac</path>
- <!--<path>../Models/fuselage.3ds</path>-->
- <texture-path>../Textures/Livery/House</texture-path>
- <offsets>
+<path>../Models/a380.ac</path> 
+<texture-path>../Textures/Livery/House</texture-path>
+<offsets>
    <z-m>-8.7</z-m>
+   <y-m>0</y-m>
+   <x-m>-30</x-m>  
    <pitch-deg>0.0</pitch-deg>
- </offsets>
+</offsets>   
  
 <!--
 change by Ampere -->
   <model>
-   <path>Aircraft/A380/XML/wing.xml</path>
+   <path>Aircraft/A380/XML/Wings/wings.xml</path>
   </model>
 
   <model>
-   <path>Aircraft/A380/XML/hstab.xml</path>
+   <path>Aircraft/A380/XML/htp.xml</path>
    <offsets>
     <x-m>64.616</x-m>
     <z-m>7.19884</z-m>
