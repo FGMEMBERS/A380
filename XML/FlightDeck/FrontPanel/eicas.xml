@@ -1,0 +1,1325 @@
+<?xml version="1.0"?>
+<PropertyList>
+
+ <path>../../../Models/FlightDeck/FrontPanel/eicas.ac</path> 
+<texture-path>../../../Models/FlightDeck/FrontPanel</texture-path>  
+  <animation>
+  <type>rotate</type>
+  <object-name>needle</object-name>
+  <property>/controls/engines/engine[0]/throttle</property>
+  <interpolation>
+        <entry><ind>0</ind><dep>0</dep></entry>
+        <entry><ind>1</ind><dep>195</dep></entry>
+  </interpolation>  
+ <center>
+   <x-m>-0.1802</x-m>
+   <y-m>0.0252</y-m>
+   <z-m>0.02</z-m>
+  </center>  
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>-1</z>
+  </axis>
+ </animation>
+
+  <animation>
+  <type>rotate</type>
+  <object-name>needle1</object-name>
+  <property>/controls/engines/engine[1]/throttle</property>
+    <interpolation>
+            <entry><ind>0</ind><dep>0</dep></entry>
+            <entry><ind>1</ind><dep>195</dep></entry>
+        </interpolation>  
+<center>
+   <x-m>-0.1802</x-m>
+   <y-m>0.058</y-m>
+   <z-m>0.02</z-m>
+  </center>  
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>-1</z>
+  </axis>
+ </animation>
+
+  <animation>
+  <type>rotate</type>
+  <object-name>needle2</object-name>
+  <property>/controls/engines/engine[2]/throttle</property>
+    <interpolation>
+            <entry><ind>0</ind><dep>0</dep></entry>
+            <entry><ind>1</ind><dep>195</dep></entry>
+        </interpolation>  
+<center>
+   <x-m>-0.1802</x-m>
+   <y-m>0.0986</y-m>
+   <z-m>0.02</z-m>
+  </center>  
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>-1</z>
+  </axis>
+ </animation>
+
+  <animation>
+  <type>rotate</type>
+  <object-name>needle3</object-name>
+  <property>/controls/engines/engine[3]/throttle</property>   
+ <interpolation>
+            <entry><ind>0</ind><dep>0</dep></entry>
+            <entry><ind>1</ind><dep>195</dep></entry>
+        </interpolation>  
+<center>
+   <x-m>-0.1802</x-m>
+   <y-m>0.1314</y-m>
+   <z-m>0.02</z-m>
+  </center>  
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>-1</z>
+  </axis>
+ </animation>
+
+<animation>
+  <type>rotate</type>
+  <object-name>needle5</object-name>
+  <property>/controls/engines/engine[1]/throttle</property>
+    <interpolation>
+            <entry><ind>0</ind><dep>0</dep></entry>
+            <entry><ind>1</ind><dep>95</dep></entry>
+        </interpolation>  
+<center> 
+   <x-m>-0.1802</x-m>
+   <y-m>0.058</y-m>
+   <z-m>0.02</z-m>
+  </center>  
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>needle6</object-name>
+  <property>/controls/engines/engine[2]/throttle</property>
+    <interpolation>
+            <entry><ind>0</ind><dep>0</dep></entry>
+            <entry><ind>1</ind><dep>95</dep></entry>
+        </interpolation>  
+<center>
+   <x-m>-0.1802</x-m>
+   <y-m>0.0986</y-m>
+   <z-m>0.02</z-m>
+  </center>  
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+
+
+  <animation>
+  <type>rotate</type>
+  <object-name>needle7</object-name>
+  <property>/engines/engine[0]/egt_degf</property>
+  <interpolation>
+        <entry><ind>0</ind><dep>0</dep></entry>
+        <entry><ind>1355</ind><dep>165</dep></entry>
+  </interpolation>  
+ <center>
+   <x-m>-0.1402</x-m>
+   <y-m>0.0252</y-m>
+   <z-m>0.02</z-m>
+  </center>  
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>-1</z>
+  </axis>
+ </animation>
+
+  <animation>
+  <type>rotate</type>
+  <object-name>needle8</object-name>
+  <property>/engines/engine[1]/egt_degf</property>
+    <interpolation>
+            <entry><ind>0</ind><dep>0</dep></entry>
+            <entry><ind>1355</ind><dep>165</dep></entry>
+        </interpolation>  
+<center>
+   <x-m>-0.1402</x-m>
+   <y-m>0.058</y-m>
+   <z-m>0.02</z-m>
+  </center>  
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>-1</z>
+  </axis>
+ </animation>
+
+  <animation>
+  <type>rotate</type>
+  <object-name>needle9</object-name>
+  <property>/engines/engine[2]/egt_degf</property>
+    <interpolation>
+            <entry><ind>0</ind><dep>0</dep></entry>
+            <entry><ind>1355</ind><dep>165</dep></entry>
+        </interpolation>  
+<center>
+   <x-m>-0.1402</x-m>
+   <y-m>0.0986</y-m>
+   <z-m>0.02</z-m>
+  </center>  
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>-1</z>
+  </axis>
+ </animation>
+
+  <animation>
+  <type>rotate</type>
+  <object-name>needle10</object-name>
+  <property>/engines/engine[3]/egt_degf</property>   
+ <interpolation>
+            <entry><ind>0</ind><dep>0</dep></entry>
+            <entry><ind>1355</ind><dep>165</dep></entry>
+        </interpolation>  
+<center>
+   <x-m>-0.1402</x-m>
+   <y-m>0.1314</y-m>
+   <z-m>0.02</z-m>
+  </center>  
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>-1</z>
+  </axis>
+ </animation>
+
+ 
+
+
+<animation>
+  <type>select</type>
+  <object-name>needle1</object-name>
+   <condition>
+    <less-than>
+     <property>/engines/engine[1]/reverser-pos-norm</property>
+     <value>0.5</value>
+    </less-than>
+   </condition>
+ </animation> 
+  <animation>
+  <type>select</type>
+  <object-name>1n1a</object-name>
+   <condition>
+    <less-than>
+     <property>/engines/engine[1]/reverser-pos-norm</property>
+     <value>0.5</value>
+    </less-than>
+   </condition>
+ </animation> 
+  <animation>
+  <type>select</type>
+  <object-name>1n1b</object-name>
+   <condition>
+    <less-than>
+     <property>/engines/engine[1]/reverser-pos-norm</property>
+     <value>0.5</value>
+    </less-than>
+   </condition>
+ </animation> 
+  <animation>
+  <type>select</type>
+  <object-name>1n1c</object-name>
+   <condition>
+    <less-than>
+     <property>/engines/engine[1]/reverser-pos-norm</property>
+     <value>0.5</value>
+    </less-than>
+   </condition>
+ </animation> 
+  <animation>
+  <type>select</type>
+  <object-name>1n1d</object-name>
+   <condition>
+    <less-than>
+     <property>/engines/engine[1]/reverser-pos-norm</property>
+     <value>0.5</value>
+    </less-than>
+   </condition>
+ </animation> 
+  <animation>
+  <type>select</type>
+  <object-name>rect2</object-name>
+   <condition>
+    <less-than>
+     <property>/engines/engine[1]/reverser-pos-norm</property>
+     <value>0.5</value>
+    </less-than>
+   </condition>
+ </animation>
+
+
+
+
+
+  <animation>
+  <type>select</type>
+  <object-name>r2</object-name>
+   <condition>
+    <greater-than>
+     <property>/engines/engine[1]/reverser-pos-norm</property>
+     <value>0.5</value>
+    </greater-than>
+   </condition>
+ </animation> 
+<animation>
+  <type>select</type>
+  <object-name>r1</object-name>
+   <condition>
+    <greater-than>
+     <property>/engines/engine[1]/reverser-pos-norm</property>
+     <value>0.5</value>
+    </greater-than>
+   </condition>
+ </animation> 
+<animation>
+  <type>select</type>
+  <object-name>needle5</object-name>
+   <condition>
+    <greater-than>
+     <property>/engines/engine[1]/reverser-pos-norm</property>
+     <value>0.5</value>
+    </greater-than>
+   </condition>
+ </animation> 
+
+
+
+
+  <animation>
+  <type>select</type>
+  <object-name>needle2</object-name>
+   <condition>
+    <less-than>
+     <property>/engines/engine[2]/reverser-pos-norm</property>
+     <value>0.5</value>
+    </less-than>
+   </condition>
+ </animation> 
+  <animation>
+  <type>select</type>
+  <object-name>2n1a</object-name>
+   <condition>
+    <less-than>
+     <property>/engines/engine[2]/reverser-pos-norm</property>
+     <value>0.5</value>
+    </less-than>
+   </condition>
+ </animation> 
+  <animation>
+  <type>select</type>
+  <object-name>2n1b</object-name>
+   <condition>
+    <less-than>
+     <property>/engines/engine[2]/reverser-pos-norm</property>
+     <value>0.5</value>
+    </less-than>
+   </condition>
+ </animation> 
+  <animation>
+  <type>select</type>
+  <object-name>2n1c</object-name>
+   <condition>
+    <less-than>
+     <property>/engines/engine[2]/reverser-pos-norm</property>
+     <value>0.5</value>
+    </less-than>
+   </condition>
+ </animation> 
+  <animation>
+  <type>select</type>
+  <object-name>2n1d</object-name>
+   <condition>
+    <less-than>
+     <property>/engines/engine[2]/reverser-pos-norm</property>
+     <value>0.5</value>
+    </less-than>
+   </condition>
+ </animation> 
+  <animation>
+  <type>select</type>
+  <object-name>rect3</object-name>
+   <condition>
+    <less-than>
+     <property>/engines/engine[2]/reverser-pos-norm</property>
+     <value>0.5</value>
+    </less-than>
+   </condition>
+ </animation>
+
+
+
+
+
+  <animation>
+  <type>select</type>
+  <object-name>r4</object-name>
+   <condition>
+    <greater-than>
+     <property>/engines/engine[2]/reverser-pos-norm</property>
+     <value>0.5</value>
+    </greater-than>
+   </condition>
+ </animation> 
+<animation>
+  <type>select</type>
+  <object-name>r3</object-name>
+   <condition>
+    <greater-than>
+     <property>/engines/engine[2]/reverser-pos-norm</property>
+     <value>0.5</value>
+    </greater-than>
+   </condition>
+ </animation> 
+<animation>
+  <type>select</type>
+  <object-name>needle6</object-name>
+   <condition>
+    <greater-than>
+     <property>/engines/engine[2]/reverser-pos-norm</property>
+     <value>0.5</value>
+    </greater-than>
+   </condition>
+ </animation> 
+
+
+<animation>
+  <type>textranslate</type>
+  <object-name>n1d</object-name>
+  <property>/controls/engines/engine[0]/throttle</property>
+  <factor>100.0</factor>
+<step>0.001</step>  
+<axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>n1c</object-name>
+  <property>/controls/engines/engine[0]/throttle</property>
+  <factor>10.0</factor>
+<step>0.01</step>  
+<axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+<animation>
+   <type>select</type>
+   <object-name>n1b</object-name>
+<condition>
+   <and>
+      <equals>
+       <property>sim/current-view/view-number</property>
+       <value>0</value>
+      </equals>
+<greater-than>
+<property>/controls/engines/engine[0]/throttle</property>
+<value>0.0999</value>
+</greater-than>
+   </and>
+</condition>
+ </animation>
+  
+ <animation>
+  <type>textranslate</type>
+  <object-name>n1b</object-name>
+  <property>/controls/engines/engine[0]/throttle</property>
+  <factor>1.0</factor>
+<step>0.1</step>  
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+   <type>select</type>
+   <object-name>n1a</object-name>
+<condition>
+   <and>
+      <equals>
+       <property>sim/current-view/view-number</property>
+       <value>0</value>
+      </equals>
+<greater-than>
+<property>/controls/engines/engine[0]/throttle</property>
+<value>0.99</value>
+</greater-than>
+   </and>
+</condition>
+ </animation>
+  
+
+ <animation>
+  <type>textranslate</type>
+  <object-name>n1a</object-name>
+  <property>/controls/engines/engine[0]/throttle</property>
+  <factor>0.10</factor>
+<step>1</step>  
+  
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>1n1d</object-name>
+  <property>/controls/engines/engine[1]/throttle</property>
+  <factor>100.0</factor>
+<step>0.001</step>  
+<axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>1n1c</object-name>
+  <property>/controls/engines/engine[1]/throttle</property>
+  <factor>10.0</factor>
+<step>0.01</step>  
+<axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+<animation>
+   <type>select</type>
+   <object-name>1n1b</object-name>
+<condition>
+   <and>
+      <equals>
+       <property>sim/current-view/view-number</property>
+       <value>0</value>
+      </equals>
+<greater-than>
+<property>/controls/engines/engine[1]/throttle</property>
+<value>0.0999</value>
+</greater-than>
+   </and>
+</condition>
+ </animation>
+  
+ <animation>
+  <type>textranslate</type>
+  <object-name>1n1b</object-name>
+  <property>/controls/engines/engine[1]/throttle</property>
+  <factor>1.0</factor>
+<step>0.1</step>  
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+   <type>select</type>
+   <object-name>1n1a</object-name>
+<condition>
+   <and>
+      <equals>
+       <property>sim/current-view/view-number</property>
+       <value>0</value>
+      </equals>
+<greater-than>
+<property>/controls/engines/engine[1]/throttle</property>
+<value>0.99</value>
+</greater-than>
+   </and>
+</condition>
+ </animation>
+  
+
+ <animation>
+  <type>textranslate</type>
+  <object-name>1n1a</object-name>
+  <property>/controls/engines/engine[1]/throttle</property>
+  <factor>0.10</factor>
+<step>1</step>  
+  
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+
+<animation>
+  <type>textranslate</type>
+  <object-name>2n1d</object-name>
+  <property>/controls/engines/engine[2]/throttle</property>
+  <factor>100.0</factor>
+<step>0.001</step>  
+<axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>2n1c</object-name>
+  <property>/controls/engines/engine[2]/throttle</property>
+  <factor>10.0</factor>
+<step>0.01</step>  
+<axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+<animation>
+   <type>select</type>
+   <object-name>2n1b</object-name>
+<condition>
+   <and>
+      <equals>
+       <property>sim/current-view/view-number</property>
+       <value>0</value>
+      </equals>
+<greater-than>
+<property>/controls/engines/engine[2]/throttle</property>
+<value>0.0999</value>
+</greater-than>
+   </and>
+</condition>
+ </animation>
+  
+ <animation>
+  <type>textranslate</type>
+  <object-name>2n1b</object-name>
+  <property>/controls/engines/engine[2]/throttle</property>
+  <factor>1.0</factor>
+<step>0.1</step>  
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+   <type>select</type>
+   <object-name>2n1a</object-name>
+<condition>
+   <and>
+      <equals>
+       <property>sim/current-view/view-number</property>
+       <value>0</value>
+      </equals>
+<greater-than>
+<property>/controls/engines/engine[2]/throttle</property>
+<value>0.99</value>
+</greater-than>
+   </and>
+</condition>
+ </animation>
+  
+
+ <animation>
+  <type>textranslate</type>
+  <object-name>2n1a</object-name>
+  <property>/controls/engines/engine[2]/throttle</property>
+  <factor>0.10</factor>
+<step>1</step>  
+  
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>3n1d</object-name>
+  <property>/controls/engines/engine[3]/throttle</property>
+  <factor>100.0</factor>
+<step>0.001</step>  
+<axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>3n1c</object-name>
+  <property>/controls/engines/engine[3]/throttle</property>
+  <factor>10.0</factor>
+<step>0.01</step>  
+<axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+<animation>
+   <type>select</type>
+   <object-name>3n1b</object-name>
+<condition>
+   <and>
+      <equals>
+       <property>sim/current-view/view-number</property>
+       <value>0</value>
+      </equals>
+<greater-than>
+<property>/controls/engines/engine[3]/throttle</property>
+<value>0.0999</value>
+</greater-than>
+   </and>
+</condition>
+ </animation>
+  
+ <animation>
+  <type>textranslate</type>
+  <object-name>3n1b</object-name>
+  <property>/controls/engines/engine[3]/throttle</property>
+  <factor>1.0</factor>
+<step>0.1</step>  
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+   <type>select</type>
+   <object-name>3n1a</object-name>
+<condition>
+   <and>
+      <equals>
+       <property>sim/current-view/view-number</property>
+       <value>0</value>
+      </equals>
+<greater-than>
+<property>/controls/engines/engine[3]/throttle</property>
+<value>0.99</value>
+</greater-than>
+   </and>
+</condition>
+ </animation>
+  
+
+ <animation>
+  <type>textranslate</type>
+  <object-name>3n1a</object-name>
+  <property>/controls/engines/engine[3]/throttle</property>
+  <factor>0.10</factor>
+<step>1</step>  
+  
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+
+
+
+ <animation>
+  <type>textranslate</type>
+  <object-name>n2d</object-name>
+  <property>/engines/engine[0]/n1</property>
+  <factor>1.0</factor>
+<step>0.1</step>  
+<axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>n2c</object-name>
+  <property>/engines/engine[0]/n1</property>
+  <factor>0.10</factor>
+<step>1</step>  
+<axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+<animation>
+   <type>select</type>
+   <object-name>n2b</object-name>
+<condition>
+   <and>
+      <equals>
+       <property>sim/current-view/view-number</property>
+       <value>0</value>
+      </equals>
+<greater-than>
+<property>/engines/engine[0]/n1</property>
+<value>9.99</value>
+</greater-than>
+   </and>
+</condition>
+ </animation>
+  
+ <animation>
+  <type>textranslate</type>
+  <object-name>n2b</object-name>
+  <property>/engines/engine[0]/n1</property>
+<factor>0.01</factor>
+  <step>10</step>
+  
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+   <type>select</type>
+   <object-name>n2a</object-name>
+<condition>
+   <and>
+      <equals>
+       <property>sim/current-view/view-number</property>
+       <value>0</value>
+      </equals>
+<greater-than>
+<property>/engines/engine[0]/n1</property>
+<value>99.99</value>
+</greater-than>
+   </and>
+</condition>
+ </animation>
+  
+
+ <animation>
+  <type>textranslate</type>
+  <object-name>n2a</object-name>
+  <property>/engines/engine[0]/n1</property>
+  <factor>0.001</factor>
+  <step>100</step>
+  
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>1n2d</object-name>
+  <property>/engines/engine[1]/n1</property>
+  <factor>1.0</factor>
+<step>0.1</step>  
+<axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>1n2c</object-name>
+  <property>/engines/engine[1]/n1</property>
+  <factor>0.10</factor>
+<step>1</step>  
+<axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+<animation>
+   <type>select</type>
+   <object-name>1n2b</object-name>
+<condition>
+   <and>
+      <equals>
+       <property>sim/current-view/view-number</property>
+       <value>0</value>
+      </equals>
+<greater-than>
+<property>/engines/engine[1]/n1</property>
+<value>9.99</value>
+</greater-than>
+   </and>
+</condition>
+ </animation>
+  
+ <animation>
+  <type>textranslate</type>
+  <object-name>1n2b</object-name>
+  <property>/engines/engine[1]/n1</property>
+<factor>0.01</factor>
+  <step>10</step>
+  
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+   <type>select</type>
+   <object-name>1n2a</object-name>
+<condition>
+   <and>
+      <equals>
+       <property>sim/current-view/view-number</property>
+       <value>0</value>
+      </equals>
+<greater-than>
+<property>/engines/engine[1]/n1</property>
+<value>99.99</value>
+</greater-than>
+   </and>
+</condition>
+ </animation>
+  
+
+ <animation>
+  <type>textranslate</type>
+  <object-name>1n2a</object-name>
+  <property>/engines/engine[1]/n1</property>
+  <factor>0.001</factor>
+  <step>100</step>
+  
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+
+
+ <animation>
+  <type>textranslate</type>
+  <object-name>2n2d</object-name>
+  <property>/engines/engine[2]/n1</property>
+  <factor>1.0</factor>
+<step>0.1</step>  
+<axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>2n2c</object-name>
+  <property>/engines/engine[2]/n1</property>
+  <factor>0.10</factor>
+<step>1</step>  
+<axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+<animation>
+   <type>select</type>
+   <object-name>2n2b</object-name>
+<condition>
+   <and>
+      <equals>
+       <property>sim/current-view/view-number</property>
+       <value>0</value>
+      </equals>
+<greater-than>
+<property>/engines/engine[2]/n1</property>
+<value>9.99</value>
+</greater-than>
+   </and>
+</condition>
+ </animation>
+  
+ <animation>
+  <type>textranslate</type>
+  <object-name>2n2b</object-name>
+  <property>/engines/engine[2]/n1</property>
+<factor>0.01</factor>
+  <step>10</step>
+  
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+   <type>select</type>
+   <object-name>2n2a</object-name>
+<condition>
+   <and>
+      <equals>
+       <property>sim/current-view/view-number</property>
+       <value>0</value>
+      </equals>
+<greater-than>
+<property>/engines/engine[2]/n1</property>
+<value>99.99</value>
+</greater-than>
+   </and>
+</condition>
+ </animation>
+  
+
+ <animation>
+  <type>textranslate</type>
+  <object-name>2n2a</object-name>
+  <property>/engines/engine[2]/n1</property>
+  <factor>0.001</factor>
+  <step>100</step>
+  
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>3n2d</object-name>
+  <property>/engines/engine[3]/n1</property>
+  <factor>1.0</factor>
+<step>0.1</step>  
+<axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>3n2c</object-name>
+  <property>/engines/engine[3]/n1</property>
+  <factor>0.10</factor>
+<step>1</step>  
+<axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+<animation>
+   <type>select</type>
+   <object-name>3n2b</object-name>
+<condition>
+   <and>
+      <equals>
+       <property>sim/current-view/view-number</property>
+       <value>0</value>
+      </equals>
+<greater-than>
+<property>/engines/engine[3]/n1</property>
+<value>9.99</value>
+</greater-than>
+   </and>
+</condition>
+ </animation>
+  
+ <animation>
+  <type>textranslate</type>
+  <object-name>3n2b</object-name>
+  <property>/engines/engine[3]/n1</property>
+<factor>0.01</factor>
+  <step>10</step>
+  
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+   <type>select</type>
+   <object-name>3n2a</object-name>
+<condition>
+   <and>
+      <equals>
+       <property>sim/current-view/view-number</property>
+       <value>0</value>
+      </equals>
+<greater-than>
+<property>/engines/engine[3]/n1</property>
+<value>99.99</value>
+</greater-than>
+   </and>
+</condition>
+ </animation>
+  
+
+ <animation>
+  <type>textranslate</type>
+  <object-name>3n2a</object-name>
+  <property>/engines/engine[3]/n1</property>
+  <factor>0.001</factor>
+  <step>100</step>  
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+
+ <animation>
+  <type>textranslate</type>
+  <object-name>egtd</object-name>
+  <property>/engines/engine[0]/egt_degf</property>
+  <factor>0.1</factor>
+  <step>1</step>  
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>textranslate</type>
+  <object-name>egtc</object-name>
+  <property>/engines/engine[0]/egt_degf</property>
+  <factor>0.01</factor>
+  <step>10</step>  
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>textranslate</type>
+  <object-name>egtb</object-name>
+  <property>/engines/engine[0]/egt_degf</property>
+  <factor>0.001</factor>
+  <step>100</step>  
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>textranslate</type>
+  <object-name>egta</object-name>
+  <property>/engines/engine[0]/egt_degf</property>
+  <factor>0.0001</factor>
+  <step>1000</step>  
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>1egtd</object-name>
+  <property>/engines/engine[1]/egt_degf</property>
+  <factor>0.1</factor>
+  <step>1</step>  
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>textranslate</type>
+  <object-name>1egtc</object-name>
+  <property>/engines/engine[1]/egt_degf</property>
+  <factor>0.01</factor>
+  <step>10</step>  
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>textranslate</type>
+  <object-name>1egtb</object-name>
+  <property>/engines/engine[1]/egt_degf</property>
+  <factor>0.001</factor>
+  <step>100</step>  
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>textranslate</type>
+  <object-name>1egta</object-name>
+  <property>/engines/engine[1]/egt_degf</property>
+  <factor>0.0001</factor>
+  <step>1000</step>  
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+
+<animation>
+  <type>textranslate</type>
+  <object-name>2egtd</object-name>
+  <property>/engines/engine[2]/egt_degf</property>
+  <factor>0.1</factor>
+  <step>1</step>  
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>textranslate</type>
+  <object-name>2egtc</object-name>
+  <property>/engines/engine[2]/egt_degf</property>
+  <factor>0.01</factor>
+  <step>10</step>  
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>textranslate</type>
+  <object-name>2egtb</object-name>
+  <property>/engines/engine[2]/egt_degf</property>
+  <factor>0.001</factor>
+  <step>100</step>  
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>textranslate</type>
+  <object-name>2egta</object-name>
+  <property>/engines/engine[2]/egt_degf</property>
+  <factor>0.0001</factor>
+  <step>1000</step>  
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>3egtd</object-name>
+  <property>/engines/engine[3]/egt_degf</property>
+  <factor>0.1</factor>
+  <step>1</step>  
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>textranslate</type>
+  <object-name>3egtc</object-name>
+  <property>/engines/engine[3]/egt_degf</property>
+  <factor>0.01</factor>
+  <step>10</step>  
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>textranslate</type>
+  <object-name>3egtb</object-name>
+  <property>/engines/engine[3]/egt_degf</property>
+  <factor>0.001</factor>
+  <step>100</step>  
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>textranslate</type>
+  <object-name>3egta</object-name>
+  <property>/engines/engine[3]/egt_degf</property>
+  <factor>0.0001</factor>
+  <step>1000</step>  
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+
+
+
+</PropertyList>

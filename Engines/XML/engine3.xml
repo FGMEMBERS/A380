@@ -9,7 +9,7 @@
 		<object-name>FanFront</object-name>
 		<object-name>FanBack</object-name>
 		<object-name>cone</object-name>
-		<property>/engines/engine[2]/n1</property>
+		<property>engines/engine[2]/n1</property>
 		<factor>30</factor>
 		<center>
 			<x-m>0</x-m>

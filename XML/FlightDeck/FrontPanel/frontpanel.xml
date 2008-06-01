@@ -13,24 +13,36 @@
 		<pitch-deg>73.0</pitch-deg>
 	</offsets>-->
 	
+
+
+
+    <animation>
+        <type>material</type>
+        <object-name>PANEL</object-name>
+        <emission>
+<red>0.31</red>
+            <green>0.47</green>
+            <blue>0.47</blue>
+    <factor-prop>controls/lighting/panel-norm[0]</factor-prop>	
+
+        </emission>
+    </animation>
+
+
+
 	<!-- Load flight displays. -->
 	<model>
-		<path>Aircraft/A380/XML/FlightDeck/FrontPanel/pfd_c.xml</path>
-		<name>pfd_c</name>
+		<path>Aircraft/A380/XML/FlightDeck/FrontPanel/default.xml</path>
+		<name>pfd_cb</name>
 		<offsets>
-			<!--
-			<x-m>-0.015</x-m>
-			<y-m>-0.605</y-m>
-			<z-m>-0.0075</z-m>
-			-->
 			<x-m>-0.015</x-m>
 			<y-m>-0.63</y-m>
 			<z-m>-0.0075</z-m>
 		</offsets>
 	</model>
 	<model>
-		<path>Aircraft/A380/XML/FlightDeck/FrontPanel/nd_c.xml</path>
-		<name>nd_c</name>
+		<path>Aircraft/A380/XML/FlightDeck/FrontPanel/default.xml</path>
+		<name>nd_cb</name>
 		<offsets>
 			<!--
 			<x-m>-0.015</x-m>
@@ -43,8 +55,8 @@
 		</offsets>
 	</model>
 	<model>
-		<name>pdf_fo</name>
-		<path>Aircraft/A380/XML/FlightDeck/FrontPanel/pfd_fo.xml</path>
+		<name>pdf_fob</name>
+		<path>Aircraft/A380/XML/FlightDeck/FrontPanel/default.xml</path>
 		<offsets>
 			<!--
 			<x-m>-0.015</x-m>
@@ -57,8 +69,8 @@
 		</offsets>
 	</model>
 	<model>
-		<name>nd_fo</name>
-		<path>Aircraft/A380/XML/FlightDeck/FrontPanel/nd_fo.xml</path>
+		<name>nd_fob</name>
+		<path>Aircraft/A380/XML/FlightDeck/FrontPanel/default.xml</path>
 		<offsets>
 			<!--
 			<x-m>-0.015</x-m>
@@ -71,8 +83,8 @@
 		</offsets>
 	</model>
 	<model>
-		<name>ecam</name>
-		<path>Aircraft/A380/XML/FlightDeck/FrontPanel/ecam.xml</path>
+		<name>ecamb</name>
+		<path>Aircraft/A380/XML/FlightDeck/FrontPanel/default.xml</path>
 		<offsets>
 			<!--
 			<x-m>-0.015</x-m>
@@ -84,6 +96,37 @@
 			<z-m>-0.0075</z-m>
 		</offsets>
 	</model>
+
+<model>
+		<name>eicas</name>
+		<path>Aircraft/A380/XML/FlightDeck/FrontPanel/eicas.xml</path>
+	  <offsets>
+		<x-m>-0.015</x-m>
+			<y-m>-0.08</y-m>
+			<z-m>-0.0075</z-m>
+  </offsets>
+	</model>
+	
+<model>
+		<path>Aircraft/A380/XML/FlightDeck/FrontPanel/pfd_c.xml</path>
+		<name>pfd_c</name>
+		<offsets>
+			<x-m>-0.015</x-m>
+			<y-m>-0.63</y-m>
+			<z-m>-0.0075</z-m>
+		</offsets>
+
+	</model>
+	<model>
+		<path>Aircraft/A380/XML/FlightDeck/FrontPanel/nd_c.xml</path>
+		<name>nd_c</name>
+		<offsets>
+			<x-m>-0.015</x-m>
+			<y-m>-0.44125</y-m>
+			<z-m>-0.0075</z-m>
+		</offsets>
+	</model>
+
 	
 	<!-- Load glare shield. -->
 	<model>

@@ -54,7 +54,7 @@
     <ground_reactions>
         <contact type="BOGEY" name="NOSE_LG">
             <location unit="IN">
-                <x> 373.6 </x>
+                <x> 488,52 </x>
                 <y> 0 </y>
                 <z> -344.9 </z>
             </location>
@@ -97,6 +97,55 @@
             <brake_group> RIGHT </brake_group>
             <retractable>1</retractable>
         </contact>
+<!--
+
+        <contact type="STRUCTURE" name="ELG">
+            <location unit="IN">
+                <x> 488,52 </x>
+                <y> 0 </y>
+                <z> -322.9 </z>
+            </location>
+            <static_friction> 0.8 </static_friction>
+            <dynamic_friction> 0.5 </dynamic_friction>
+            <rolling_friction> 0.02 </rolling_friction>
+            <spring_coeff unit="LBS/FT"> 362502 </spring_coeff>
+            <damping_coeff unit="LBS/FT/SEC"> 120834 </damping_coeff>
+            <max_steer unit="DEG"> 30 </max_steer>
+            <brake_group> NONE </brake_group>
+            <retractable>0</retractable>
+        </contact>
+        <contact type="STRUCTURE" name="EMLG1">
+            <location unit="IN">
+                <x> 1644 </x>
+                <y> -282.8 </y>
+                <z> -322.9 </z>
+            </location>
+            <static_friction> 0.8 </static_friction>
+            <dynamic_friction> 0.5 </dynamic_friction>
+            <rolling_friction> 0.02 </rolling_friction>
+            <spring_coeff unit="LBS/FT"> 1.20834e+06 </spring_coeff>
+            <damping_coeff unit="LBS/FT/SEC"> 241668 </damping_coeff>
+            <max_steer unit="DEG"> 0.0 </max_steer>
+            <brake_group> NONE </brake_group>
+            <retractable>0</retractable>
+        </contact>
+        <contact type="STRUCTURE" name="EMLG2">
+            <location unit="IN">
+                <x> 1644 </x>
+                <y> 282.8 </y>
+                <z> -322.9 </z>
+            </location>
+            <static_friction> 0.8 </static_friction>
+            <dynamic_friction> 0.5 </dynamic_friction>
+            <rolling_friction> 0.02 </rolling_friction>
+            <spring_coeff unit="LBS/FT"> 1.20834e+06 </spring_coeff>
+            <damping_coeff unit="LBS/FT/SEC"> 241668 </damping_coeff>
+            <max_steer unit="DEG"> 0.0 </max_steer>
+            <brake_group> NONE </brake_group>
+            <retractable>0</retractable>
+        </contact>
+-->
+
     </ground_reactions>
     <propulsion>
         <engine file="TRENT-900">
@@ -199,7 +248,33 @@
                 </orient>
             </thruster>
         </engine>
-        <tank type="FUEL">    <!-- Tank number 0 -->
+      <engine file="Pushback">
+            <location unit="IN">
+                <x> 100 </x>
+                <y> 0 </y>
+                <z> 0 </z>
+            </location>
+            <orient unit="DEG">
+                <roll> 0.0 </roll>
+                <pitch> 0 </pitch>
+                <yaw> 0 </yaw>
+            </orient>
+            <feed>1</feed>
+            <thruster file="direct">
+                <location unit="IN">
+                <x> 100 </x>
+                <y> 0 </y>
+                <z> 0 </z>
+                </location>
+                <orient unit="DEG">
+                    <roll> 0.0 </roll>
+                    <pitch> 0.0 </pitch>
+                    <yaw> 0.0 </yaw>
+                </orient>
+            </thruster>
+        </engine>
+    
+      <tank type="FUEL">    <!-- Tank number 0 -->
             <location unit="IN">
                 <x> 1580.79 </x>
                 <y> 200 </y>

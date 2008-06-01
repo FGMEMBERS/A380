@@ -1,0 +1,331 @@
+<?xml version="1.0"?>
+ <PropertyList>
+  <sim>
+    <description>Airbus A380-House</description>
+    <aircraft-version>noftp</aircraft-version>
+    <flight-model>jsb</flight-model>
+    <livery>../Textures/Livery/SA</livery>
+   <aero>A380</aero>
+
+    <systems>
+     <autopilot>
+     <path>Aircraft/A380/A380-autopilot.xml</path>
+    </autopilot>
+    	<!--Modified by Ampere-->
+ 	<electrical>
+ 		<path>Aircraft/A380/Systems/Electrical/electrical.xml</path>
+ 	</electrical>
+ 	<hydraulical>
+ 		<path>Aircraft/A380/Systems/Hydraulical/hydraulics.xml</path>
+ 	</hydraulical>
+ 	<!--End modifications -->
+   </systems>
+
+       <sound>
+    <path>Aircraft/A380/Sounds/A380-sound.xml</path>
+   </sound>
+
+   <model>
+    <path>Aircraft/A380/XML/A380-House.xml</path>
+   </model>
+         
+<view n="0">
+      <name>Cockpit</name>
+      <type>lookfrom</type>
+      <internal type="bool">true</internal>
+      <config>
+        <x-offset-m type="double">-0.55</x-offset-m>
+        <y-offset-m type="double">-1.65</y-offset-m>
+        <z-offset-m type="double">-19.50</z-offset-m>
+        <pitch-offset-deg>-9</pitch-offset-deg>
+        <default-field-of-view-deg type="double">60.0</default-field-of-view-deg>
+      </config>
+    </view>
+    <view n="1">
+      <config>
+        <z-offset-m archive="y" type="double">75.0</z-offset-m>
+	 
+      </config>
+    </view>
+    <view n="2">
+      <config>
+        <z-offset-m archive="y" type="double">75.0</z-offset-m>
+	 
+      </config>
+    </view>
+    <view n="5">
+      <config>
+        <z-offset-m archive="y" type="double">75.0</z-offset-m>
+	
+      </config>
+  <chase-distance-m>-75</chase-distance-m>
+  </view>
+  
+  <flaps>
+	  <setting>0.000</setting>  <!-- flaps up -->
+	  <setting>0.2424</setting> 
+	  <setting>0.5151</setting> 
+	  <setting>0.7878</setting>
+	  <setting>1.000</setting>  
+  </flaps>
+  
+    <systems>
+      <electrical>
+        <path></path>
+      </electrical>
+      <autopilot>
+	      <path>Aircraft/A380/A380-autopilot.xml</path>
+      </autopilot>
+    </systems>
+    <sound>
+     <path>Aircraft/A380/Sounds/A380-sound.xml</path>
+	 <switch type = "bool"></switch>
+    </sound>
+    <hud>
+      <enable3d>false</enable3d>
+    </hud>
+    <virtual-cockpit archive="y">true</virtual-cockpit>
+    <allow-toggle-cockpit>true</allow-toggle-cockpit>
+  
+
+    <help>
+      <title>A380</title>
+      <key>
+        <name>Delete</name>
+        <desc>toggle thrust reversers</desc>
+      </key>
+        <key>
+        <name>Ctrl-b</name>
+        <desc>toggle speed brakes</desc>
+      </key>
+    </help>
+    
+     <weight n="0">
+        <name>pax/ bagagge</name>
+        <weight-lb>76000</weight-lb>
+        <max-lb>80000</max-lb>
+        <min-lb>0</min-lb>
+    </weight>   
+    
+<rendering>
+<line-smooth type="bool">true</line-smooth>
+<point-sprite type="bool">true</point-sprite>
+</rendering>
+
+<tutorials include="A380-tutorial.xml"/>
+
+  <menubar>
+        <default>
+            <menu n="10">
+                <label>A380</label>
+                <enabled type="bool">true</enabled>
+                <item>
+                    <label>Autostart</label>
+                    <binding>
+                        <command>property-toggle</command>
+                        <property>sim/model/start-idling</property>
+                    </binding>
+                </item>
+
+                <item>
+                    <label>Contrails</label>
+                    <binding>
+                        <command>property-toggle</command>
+                        <property>ai/submodels/contrails</property>
+                    </binding>
+                </item>
+                         <item>
+                    <label>Map Lights</label>
+                    <binding>
+                        <command>property-toggle</command>
+                        <property>controls/lighting/panel-norm[0]</property>
+                    </binding>
+                </item>
+                <item>
+                    <label>Cabin Lights</label>
+                    <binding>
+                        <command>property-toggle</command>
+                        <property>controls/lighting/cabin-lights</property>
+                    </binding>
+                </item>
+                <item>
+                    <label>Select Livery</label>
+                    <binding>
+                        <command>nasal</command>
+                        <script>aircraft.livery.dialog.toggle()</script>
+                    </binding>
+                </item>
+            </menu>
+        </default>
+    </menubar>
+
+
+
+
+
+  </sim>
+  <engines>
+    <engine n="0">
+    <running>true</running>
+          </engine>
+    <engine n="1">
+    <running>true</running>
+      <rpm>1000</rpm>
+      <reverser-position type="double">0.000000</reverser-position>
+    </engine>
+      <engine n="2">
+        <running>true</running>
+<rpm>1000</rpm>
+      <reverser-position type="double">0.000000</reverser-position>          
+</engine>
+      <engine n="3">
+        <running>true</running>
+         </engine>
+
+    <engine n="4">
+    <running>false</running>
+          </engine>    
+  </engines>
+
+  <input>
+    <keyboard>
+      <key n="127">
+        <name>Delete</name>
+        <desc>Toggle Reversers</desc>
+        <binding>
+          <command>nasal</command>
+          <script>reversethrust.togglereverser()</script>
+        </binding>
+      </key>
+
+ <key n="80">
+  <name>P</name>
+  <mod-shift>
+   <desc>Toggle Pushback</desc>
+   <binding>
+      <command>nasal</command>
+	<script>pushback.togglepushback()</script>
+   </binding>
+  </mod-shift>
+ </key>
+
+		<key n="101">
+			<name>e</name>
+			<desc>Cycle cockpit location - Stand up, walk around, sit down</desc>
+			<binding>
+				<command>nasal</command>
+				<script>walk.cycle_cockpit(1)</script>
+			</binding>
+		</key>
+		<key n="69">
+			<name>E</name>
+			<desc>Cycle cockpit location - Return to cockpit</desc>
+			<binding>
+				<command>nasal</command>
+				<script>walk.cycle_cockpit(10)</script>
+			</binding>
+		</key>
+		<key n="119">
+			<name>w</name>
+			<desc>Walk forward toward view</desc>
+			<repeatable>true</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>walk.walk_about(0.1)</script>
+			</binding>
+		</key>
+		<key n="87">
+			<name>W</name>
+			<desc>Walk backward from view</desc>
+			<repeatable>true</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>walk.walk_about(-0.1)</script>
+			</binding>
+		</key>
+
+
+   <key n="9">
+    <name>Tab</name>
+    <desc>switch autobrake</desc>
+    <binding>
+     <command>property-cycle</command>
+     <property>/controls/gear/autobrakes</property>
+     <value>0</value> 
+     <value>1</value> 
+     <value>2</value> 
+     <value>3</value> 
+     <value>4</value> 
+     <value>5</value> 
+    </binding>
+   </key>
+      
+    </keyboard>
+  </input>
+  
+<surface-positions>
+<speedbrake-pos-norm type="float">0.0</speedbrake-pos-norm>
+</surface-positions>
+
+<controls>
+		<gear>
+			<autobrakes type="int">5</autobrakes>
+			<!-- 0=off, 1=1, 2=2, 3=3, 4=MAX, 5=RTO -->
+		</gear>
+		<flight>
+			<CG-trim-fwd type="double">60000</CG-trim-fwd>
+			<CG-trim-aft type="double">0</CG-trim-aft>
+					
+			<autospeedbrakes-armed type="string">true</autospeedbrakes-armed>
+		</flight>
+
+<switches>
+<landing-light-c type = "bool">1</landing-light-c> 
+<landing-light-l type = "bool">1</landing-light-l> 
+<landing-light-r type = "bool">1</landing-light-r> 
+<taxi-lights>1</taxi-lights>
+<nav-lights>1</nav-lights>
+<beacon>1</beacon>
+<strobe>1</strobe>
+<logo-lights>1</logo-lights>
+<cabin-lights>1</cabin-lights>
+<map-lights>0</map-lights>
+<master-panel>0</master-panel>
+</switches>
+</controls>
+
+<instrumentation>
+ <wxradar>
+ <serviceable>true</serviceable>
+  <range type="int" archive="y">20</range>
+  <minimized type="bool" archive="y">false</minimized>
+  <switch archive="y">off</switch>
+  <mode archive="y">wx</mode>
+  <lightning type="bool" archive="y">false</lightning>
+  <display-mode archive="y">arc</display-mode>
+ </wxradar>
+ 	<radar>
+		<range type="int" archive="y">20</range>
+	</radar>
+</instrumentation>
+
+<nasal>
+    <A380>
+      <file>Aircraft/A380/Nasal/electrical.nas</file>
+      <file>Aircraft/A380/Nasal/system.nas</file>
+      <file>Aircraft/A380/Nasal/flightdirector.nas</file>
+</A380>
+    <reversethrust>
+      <file>Aircraft/A380/Nasal/reverse-thrust.nas</file>
+    </reversethrust>
+
+    <walk>
+      <file>Aircraft/A380/Nasal/walk.nas</file>
+    </walk>
+
+  <pushback>
+      <file>Aircraft/A380/Nasal/Pushback.nas</file>
+    </pushback>
+</nasal>
+
+</PropertyList>
