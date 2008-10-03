@@ -2,7 +2,8 @@
  <PropertyList>
   <sim>
     <description>Airbus A380-House</description>
-    <aircraft-version>noftp</aircraft-version>
+    <version>1.0</version>
+    <status>beta</status>
     <flight-model>jsb</flight-model>
     <livery>../Textures/Livery/SA</livery>
    <aero>A380</aero>
