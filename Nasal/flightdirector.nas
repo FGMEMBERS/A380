@@ -191,8 +191,8 @@ gps_next_wp = func {
 #############################################################################
 # handle KC 290 Mode Controller inputs, and compute correct mode/settings
 #############################################################################
-setlistener("/instrumentation/flightdirector/autopilot-on", func {
-    ap_on = cmdarg().getValue();
+setlistener("/instrumentation/flightdirector/autopilot-on", func(n) {
+    ap_on = n.getValue();
 if(ap_on == 1) {
  if(lnav == 0 or lnav ==nil){setprop("autopilot/locks/heading","wing-leveler");}
 }
@@ -203,22 +203,22 @@ else {
 }
 });
 
-setlistener("/instrumentation/flightdirector/at-on", func {
-    at_on = cmdarg().getValue();
+setlistener("/instrumentation/flightdirector/at-on", func(n) {
+    at_on = n.getValue();
 if(ap_on == 1) {
  if(at_on) {setprop("autopilot/locks/speed","speed-with-throttle");}
  else {setprop("autopilot/locks/speed","");}
 }
 });
 
-setlistener("/instrumentation/flightdirector/fd-on", func {
-    fd_on = cmdarg().getValue();
+setlistener("/instrumentation/flightdirector/fd-on", func(n) {
+    fd_on = n.getValue();
  if(fd_on == 1) {setprop("autopilot/locks/passive-mode",1);}
  else {setprop("autopilot/locks/passive-mode",0);}
 });
 
-setlistener("/instrumentation/flightdirector/lnav", func {
-    lnav = cmdarg().getValue();
+setlistener("/instrumentation/flightdirector/lnav", func(n) {
+    lnav = n.getValue();
 if(ap_on==1){
 if(lnav == 0 or lnav ==nil){setprop("autopilot/locks/heading","wing-leveler");}
 if(lnav == 1){setprop("autopilot/locks/heading","dg-heading-hold");}
@@ -230,8 +230,8 @@ if(lnav == 5){setprop("autopilot/locks/heading","true-heading-hold");}
 }
 });
 
-setlistener("/instrumentation/flightdirector/vnav", func {
-    vnav = cmdarg().getValue();
+setlistener("/instrumentation/flightdirector/vnav", func(n) {
+    vnav = n.getValue();
 if(ap_on==1){
 if(vnav == 0 or vnav == nil){setprop("autopilot/locks/altitude","pitch-hold");}
 if(vnav == 1){if(getprop("/instrumentation/nav/has-gs")!=0){
