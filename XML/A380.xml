@@ -3,7 +3,7 @@
 <PropertyList>
 
 <path>../Models/a380.ac</path> 
-<texture-path>../Textures/Livery/House</texture-path>
+<texture-path>../Textures/Livery/</texture-path>
 <offsets>
    <z-m>-8.7</z-m>
    <y-m>0</y-m>
@@ -11,8 +11,59 @@
    <pitch-deg>0.0</pitch-deg>
 </offsets>   
  
-<!--
-change by Ampere -->
+
+<!-- Pushback -->
+<model>
+ <name>Pushback</name>
+ <path>Models/Airport/Pushback/Goldhofert.xml</path>
+ <offsets>
+  <x-m>8.15</x-m>
+  <y-m>0</y-m>
+  <z-m>1.0</z-m>
+ </offsets>
+</model>
+
+<!-- MP Livery Update -->
+<nasal> 
+<load> var livery_update = aircraft.livery_update.new("Aircraft/A380/XML/Liveries"); </load> 
+<unload> 
+livery_update.stop(); 
+</unload> 
+</nasal> 
+
+<animation>
+<type>material</type> 
+<object-name>Fuselage</object-name> 
+<object-name>vertstab</object-name> 
+<object-name>lowerrudder</object-name> 
+<object-name>upperrudder</object-name>
+<object-name>ngrhaftdoor</object-name>
+<object-name>nglhaftdoor</object-name>
+<object-name>ngrhfwddoor</object-name>
+<object-name>innerbgdoor</object-name>
+<object-name>midbgdoor</object-name>
+<object-name>outerbgdoor</object-name>
+<object-name>lhwgdoor</object-name>
+<object-name>rhwgdoor</object-name>
+<object-name>rhinnerbgdoor</object-name>
+<object-name>rhmidbgdoor</object-name>
+<object-name>rhouterbgdoor</object-name>
+<object-name>lhbodyfairing</object-name>
+<object-name>rhbodyfairing</object-name>
+<object-name>apu</object-name>
+<object-name>vertstab</object-name>
+<object-name>nglhfwddoor</object-name>
+<object-name>ngrhfwddoor</object-name>
+<object-name>nglhfwddoor.001</object-name>
+<object-name>ngrhfwddoor.001</object-name>
+<object-name>ngrhaftdoor</object-name>
+<object-name>nglhaftdoor</object-name>
+<property-base>sim/model/livery</property-base> 
+<texture-prop>texture</texture-prop> 
+<texture>A380.png</texture> 
+</animation> 
+
+<!-- change by Ampere -->
   <model>
    <path>Aircraft/A380/XML/Wings/wings.xml</path>
   </model>
@@ -283,8 +334,18 @@ change by Ampere -->
   <animation>
   <type>rotate</type>
   <object-name>bouterstrut</object-name>
-  <object-name>blowerstrut</object-name>  
-  <property>gear/gear[1]/position-norm</property>   
+  <object-name>blowerstrut</object-name>
+  <object-name>btruck</object-name>
+  <object-name>brearaxle</object-name>
+  <object-name>bmidaxle</object-name>
+  <object-name>bfwdaxle</object-name> 
+  <object-name>btyrerf</object-name>   
+  <object-name>btyrelf</object-name>
+  <object-name>btyrerm</object-name>   
+  <object-name>btyrelm</object-name>   
+  <object-name>btyrera</object-name>   
+  <object-name>btyrela</object-name> 
+    <property>gear/gear[1]/position-norm</property>   
   <interpolation>
     <entry>
       <ind>0.0</ind>
@@ -319,28 +380,7 @@ change by Ampere -->
   </axis>
  </animation>
   
- <animation>
-  <type>translate</type> 
-  <object-name>blowerstrut</object-name>   
-  <object-name>btruck</object-name>   
-  <property>gear/gear[1]/position-norm</property>
- <factor>0.1</factor>
-  <offset-deg>-90</offset-deg>
-  <min-deg>-80</min-deg>
-  <max-deg>80</max-deg>   
-  <center>
-   <x-m>44.11</x-m>
-   <y-m>-2.57</y-m>
-   <z-m>1.94</z-m>
-  </center>
-  <axis>
-   <x>0</x>
-   <y>0</y>
-   <z>1</z>
-  </axis>
- </animation>
-
- <animation>
+<animation>
   <type>rotate</type> 
   <object-name>btruck</object-name>
   <object-name>brearaxle</object-name>
@@ -356,15 +396,15 @@ change by Ampere -->
   <interpolation>
     <entry>
       <ind>0.0</ind>
-      <dep>60.0</dep>
+      <dep>55.0</dep>
     </entry>
     <entry>
       <ind>0.25</ind>
-      <dep>60.0</dep>
+      <dep>55.0</dep>
     </entry>
     <entry>
       <ind>0.50</ind>
-      <dep>30.0</dep>
+      <dep>15.0</dep>
     </entry>
     <entry>
       <ind>0.75</ind>
@@ -384,6 +424,28 @@ change by Ampere -->
    <x>0.0</x>
    <y>1.0</y>
    <z>0.0</z>
+  </axis>
+ </animation>
+
+
+ <animation>
+  <type>translate</type> 
+  <object-name>blowerstrut</object-name>   
+  <object-name>btruck</object-name>   
+  <property>gear/gear[1]/position-norm</property>
+ <factor>0.1</factor>
+  <offset-deg>-90</offset-deg>
+  <min-deg>-80</min-deg>
+  <max-deg>80</max-deg>   
+  <center>
+   <x-m>44.11</x-m>
+   <y-m>-2.57</y-m>
+   <z-m>1.94</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
   </axis>
  </animation>
 
@@ -618,6 +680,16 @@ change by Ampere -->
   <type>rotate</type>
   <object-name>rbouterstrut</object-name>
   <object-name>rblowerstrut</object-name>  
+  <object-name>rbtruck</object-name>
+  <object-name>rbrearaxle</object-name>
+  <object-name>rbmidaxle</object-name>
+  <object-name>rbfwdaxle</object-name> 
+  <object-name>rbtyrerf</object-name>   
+  <object-name>rbtyrelf</object-name>
+  <object-name>rbtyrerm</object-name>   
+  <object-name>rbtyrelm</object-name>   
+  <object-name>rbtyrera</object-name>   
+  <object-name>rbtyrela</object-name> 
   <property>gear/gear[2]/position-norm</property>  
   <interpolation>
     <entry>
@@ -690,15 +762,15 @@ change by Ampere -->
   <interpolation>
     <entry>
       <ind>0.0</ind>
-      <dep>60.0</dep>
+      <dep>55.0</dep>
     </entry>
     <entry>
       <ind>0.25</ind>
-      <dep>60.0</dep>
+      <dep>55.0</dep>
     </entry>
     <entry>
       <ind>0.50</ind>
-      <dep>30.0</dep>
+      <dep>15.0</dep>
     </entry>
     <entry>
       <ind>0.75</ind>
@@ -982,7 +1054,152 @@ change by Ampere -->
    <z>1.0</z>
   </axis>
  </animation>
-
-
  
+ 
+   <animation>
+    <type>rotate</type>
+    <object-name>door.cargo_aft</object-name>
+    <property>instrumentation/doors/aft-cargo/position-norm</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep>   0 </dep></entry>
+      <entry><ind> 1 </ind><dep> 15 </dep></entry>
+    </interpolation>
+    
+    <center>
+      <x-m>55.557198</x-m>
+      <y-m>4.396200</y-m>
+      <z-m>-2.939900</z-m>
+    </center>
+
+    <axis>
+      <x>-0.997548</x>
+      <y>0.000000</y>
+      <z>-0.069983</z>
+    </axis>
+
+    
+    <!-- axis>
+      <x1-m> 56.8971 </x1-m>
+      <y1-m>  4.3962 </y1-m>
+      <z1-m> -2.8459 </z1-m>
+      <x2-m> 54.2173 </x2-m>
+      <y2-m>  4.3962 </y2-m>
+      <z2-m> -3.0339 </z2-m>
+    </axis -->
+  </animation>
+  
+   <animation>
+    <type>rotate</type>
+    <object-name>door.cargo_forward</object-name>
+    <property>instrumentation/doors/forward-cargo/position-norm</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep>   0 </dep></entry>
+      <entry><ind> 1 </ind><dep> 15 </dep></entry>
+    </interpolation>
+    <center>
+      <x-m>19.845150</x-m>
+      <y-m>4.428100</y-m>
+      <z-m>-3.097250</z-m>
+    </center>
+
+    <axis>
+      <x>-0.999823</x>
+      <y>-0.003007</y>
+      <z>0.018568</z>
+    </axis>
+
+    <!-- axis>
+      <x1-m> 21.2748 </x1-m>
+      <y1-m>  4.4324 </y1-m>
+      <z1-m> -3.1238 </z1-m>
+      <x2-m> 18.4155 </x2-m>
+      <y2-m>  4.4238 </y2-m>
+      <z2-m> -3.0707 </z2-m>
+    </axis -->
+  </animation>
+
+<!-- Lights -->
+<!-- Beacons -->
+<model>
+   <path>Aircraft/A380/XML/Lights/beacon.xml</path>
+   <name>Beaconlight.U</name>
+         <offsets>
+             <x-m>40.545</x-m>
+             <y-m>-0.003</y-m>
+             <z-m>1.608</z-m>
+         </offsets>
+</model>
+
+<model>
+   <path>Aircraft/A380/XML/Lights/beacon.xml</path>
+   <name>StrobeLight.L</name>
+         <offsets>
+             <x-m>28.869</x-m>
+             <y-m>-0.009</y-m>
+             <z-m>10.985</z-m>
+         </offsets>
+</model>
+
+<!-- Navigational Lights -->
+
+<model>
+   <path>Aircraft/A380/XML/Lights/RedLight.xml</path>
+   <name>NavLight.L</name>
+         <offsets>
+             <x-m>54.843</x-m>
+             <y-m>-39.183</y-m>
+             <z-m>7.32504</z-m>
+         </offsets>
+</model>
+
+<model>
+   <path>Aircraft/A380/XML/Lights/GreenLight.xml</path>
+   <name>NavLight.R</name>
+         <offsets>
+             <x-m>54.843</x-m>
+             <y-m>39.183</y-m>
+             <z-m>7.32504</z-m>
+         </offsets>
+</model>
+
+<!-- Positional Lights -->
+<model>
+   <path>Aircraft/A380/XML/Lights/position.xml</path>
+   <name>NavLight1.L</name>
+         <offsets>
+             <x-m>57.864</x-m>
+             <y-m>-39.810</y-m>
+             <z-m>7.47704</z-m>
+         </offsets>
+</model>
+
+<model>
+   <path>Aircraft/A380/XML/Lights/position.xml</path>
+   <name>NavLight1.R</name>
+         <offsets>
+             <x-m>57.864</x-m>
+             <y-m>39.810</y-m>
+             <z-m>7.47704</z-m>
+         </offsets>
+</model>
+
+<model>
+  <path>Aircraft/A380/XML/Lights/flash.xml</path>
+  <name>Strobe.L</name>
+  <offsets>
+    <x-m>55.1843</x-m>
+    <y-m>-39.808</y-m>
+    <z-m>7.32504</z-m>
+  </offsets>
+</model>
+
+<model>
+  <path>Aircraft/A380/XML/Lights/flash.xml</path>
+  <name>Strobe.R</name>
+  <offsets>
+    <x-m>55.1843</x-m>
+    <y-m>39.808</y-m>
+    <z-m>7.32504</z-m>
+  </offsets>
+</model>
 </PropertyList>

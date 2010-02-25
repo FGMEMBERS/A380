@@ -3,6 +3,7 @@
 
  <path>../../../Models/FlightDeck/FrontPanel/eicas.ac</path> 
 <texture-path>../../../Models/FlightDeck/FrontPanel</texture-path>  
+
   <animation>
   <type>rotate</type>
   <object-name>needle</object-name>
@@ -128,10 +129,10 @@
   <animation>
   <type>rotate</type>
   <object-name>needle7</object-name>
-  <property>/engines/engine[0]/egt_degf</property>
+  <property>/engines/engine[0]/egt_degc</property>
   <interpolation>
         <entry><ind>0</ind><dep>0</dep></entry>
-        <entry><ind>1355</ind><dep>165</dep></entry>
+        <entry><ind>950</ind><dep>165</dep></entry>
   </interpolation>  
  <center>
    <x-m>-0.1402</x-m>
@@ -148,10 +149,10 @@
   <animation>
   <type>rotate</type>
   <object-name>needle8</object-name>
-  <property>/engines/engine[1]/egt_degf</property>
+  <property>/engines/engine[1]/egt_degc</property>
     <interpolation>
             <entry><ind>0</ind><dep>0</dep></entry>
-            <entry><ind>1355</ind><dep>165</dep></entry>
+            <entry><ind>950</ind><dep>165</dep></entry>
         </interpolation>  
 <center>
    <x-m>-0.1402</x-m>
@@ -168,10 +169,10 @@
   <animation>
   <type>rotate</type>
   <object-name>needle9</object-name>
-  <property>/engines/engine[2]/egt_degf</property>
+  <property>/engines/engine[2]/egt_degc</property>
     <interpolation>
             <entry><ind>0</ind><dep>0</dep></entry>
-            <entry><ind>1355</ind><dep>165</dep></entry>
+            <entry><ind>950</ind><dep>165</dep></entry>
         </interpolation>  
 <center>
    <x-m>-0.1402</x-m>
@@ -188,10 +189,10 @@
   <animation>
   <type>rotate</type>
   <object-name>needle10</object-name>
-  <property>/engines/engine[3]/egt_degf</property>   
+  <property>/engines/engine[3]/egt_degc</property>   
  <interpolation>
             <entry><ind>0</ind><dep>0</dep></entry>
-            <entry><ind>1355</ind><dep>165</dep></entry>
+            <entry><ind>950</ind><dep>165</dep></entry>
         </interpolation>  
 <center>
    <x-m>-0.1402</x-m>
@@ -1113,7 +1114,7 @@
  <animation>
   <type>textranslate</type>
   <object-name>egtd</object-name>
-  <property>/engines/engine[0]/egt_degf</property>
+  <property>/engines/engine[0]/egt_degc</property>
   <factor>0.1</factor>
   <step>1</step>  
   <axis>
@@ -1126,7 +1127,7 @@
  <animation>
   <type>textranslate</type>
   <object-name>egtc</object-name>
-  <property>/engines/engine[0]/egt_degf</property>
+  <property>/engines/engine[0]/egt_degc</property>
   <factor>0.01</factor>
   <step>10</step>  
   <axis>
@@ -1139,7 +1140,7 @@
  <animation>
   <type>textranslate</type>
   <object-name>egtb</object-name>
-  <property>/engines/engine[0]/egt_degf</property>
+  <property>/engines/engine[0]/egt_degc</property>
   <factor>0.001</factor>
   <step>100</step>  
   <axis>
@@ -1152,7 +1153,7 @@
  <animation>
   <type>textranslate</type>
   <object-name>egta</object-name>
-  <property>/engines/engine[0]/egt_degf</property>
+  <property>/engines/engine[0]/egt_degc</property>
   <factor>0.0001</factor>
   <step>1000</step>  
   <axis>
@@ -1165,7 +1166,7 @@
 <animation>
   <type>textranslate</type>
   <object-name>1egtd</object-name>
-  <property>/engines/engine[1]/egt_degf</property>
+  <property>/engines/engine[1]/egt_degc</property>
   <factor>0.1</factor>
   <step>1</step>  
   <axis>
@@ -1178,7 +1179,7 @@
  <animation>
   <type>textranslate</type>
   <object-name>1egtc</object-name>
-  <property>/engines/engine[1]/egt_degf</property>
+  <property>/engines/engine[1]/egt_degc</property>
   <factor>0.01</factor>
   <step>10</step>  
   <axis>
@@ -1191,7 +1192,7 @@
  <animation>
   <type>textranslate</type>
   <object-name>1egtb</object-name>
-  <property>/engines/engine[1]/egt_degf</property>
+  <property>/engines/engine[1]/egt_degc</property>
   <factor>0.001</factor>
   <step>100</step>  
   <axis>
@@ -1204,7 +1205,7 @@
  <animation>
   <type>textranslate</type>
   <object-name>1egta</object-name>
-  <property>/engines/engine[1]/egt_degf</property>
+  <property>/engines/engine[1]/egt_degc</property>
   <factor>0.0001</factor>
   <step>1000</step>  
   <axis>
@@ -1218,7 +1219,7 @@
 <animation>
   <type>textranslate</type>
   <object-name>2egtd</object-name>
-  <property>/engines/engine[2]/egt_degf</property>
+  <property>/engines/engine[2]/egt_degc</property>
   <factor>0.1</factor>
   <step>1</step>  
   <axis>
@@ -1231,7 +1232,7 @@
  <animation>
   <type>textranslate</type>
   <object-name>2egtc</object-name>
-  <property>/engines/engine[2]/egt_degf</property>
+  <property>/engines/engine[2]/egt_degc</property>
   <factor>0.01</factor>
   <step>10</step>  
   <axis>
@@ -1244,7 +1245,7 @@
  <animation>
   <type>textranslate</type>
   <object-name>2egtb</object-name>
-  <property>/engines/engine[2]/egt_degf</property>
+  <property>/engines/engine[2]/egt_degc</property>
   <factor>0.001</factor>
   <step>100</step>  
   <axis>
@@ -1257,7 +1258,7 @@
  <animation>
   <type>textranslate</type>
   <object-name>2egta</object-name>
-  <property>/engines/engine[2]/egt_degf</property>
+  <property>/engines/engine[2]/egt_degc</property>
   <factor>0.0001</factor>
   <step>1000</step>  
   <axis>
@@ -1270,7 +1271,7 @@
 <animation>
   <type>textranslate</type>
   <object-name>3egtd</object-name>
-  <property>/engines/engine[3]/egt_degf</property>
+  <property>/engines/engine[3]/egt_degc</property>
   <factor>0.1</factor>
   <step>1</step>  
   <axis>
@@ -1283,7 +1284,7 @@
  <animation>
   <type>textranslate</type>
   <object-name>3egtc</object-name>
-  <property>/engines/engine[3]/egt_degf</property>
+  <property>/engines/engine[3]/egt_degc</property>
   <factor>0.01</factor>
   <step>10</step>  
   <axis>
@@ -1296,7 +1297,7 @@
  <animation>
   <type>textranslate</type>
   <object-name>3egtb</object-name>
-  <property>/engines/engine[3]/egt_degf</property>
+  <property>/engines/engine[3]/egt_degc</property>
   <factor>0.001</factor>
   <step>100</step>  
   <axis>
@@ -1309,7 +1310,7 @@
  <animation>
   <type>textranslate</type>
   <object-name>3egta</object-name>
-  <property>/engines/engine[3]/egt_degf</property>
+  <property>/engines/engine[3]/egt_degc</property>
   <factor>0.0001</factor>
   <step>1000</step>  
   <axis>

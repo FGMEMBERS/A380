@@ -19,6 +19,49 @@
 			<pitch-deg>30.0</pitch-deg>
 		</offsets>
 	</model>
+	
+	 <!--  Left (capt) MCDU keyboard and numpad -->
+	<model>
+	  <path>Aircraft/A380/XML/FlightDeck/Pedestal/mcdu_keyboard_01.xml</path>
+	  <name>keys-left</name>
+	  <offsets>
+	    <x-m>0.06</x-m>
+	    <y-m>0.01</y-m>
+	    <z-m>0.008</z-m>
+	  </offsets>
+	</model>
+	
+	<model>
+	  <path>Aircraft/A380/XML/FlightDeck/Pedestal/mcdu_numpad_01.xml</path>
+	  <name>numkeys-left</name>
+	  <offsets>
+	    <x-m>0.105</x-m>
+	    <y-m>0.12</y-m>
+	    <z-m>0.008</z-m>
+	  </offsets>
+	</model>
+
+	<!-- right (f.o.) MCDU keyboard and numpad -->
+	
+	<model>
+	  <path>Aircraft/A380/XML/FlightDeck/Pedestal/mcdu_keyboard_02.xml</path>
+	  <name>keys-left</name>
+	  <offsets>
+	    <x-m>0.06</x-m>
+	    <y-m>0.29</y-m>
+	    <z-m>0.008</z-m>
+	  </offsets>
+	</model>
+	
+	<model>
+	  <path>Aircraft/A380/XML/FlightDeck/Pedestal/mcdu_numpad_02.xml</path>
+	  <name>numkeys-left</name>
+	  <offsets>
+	    <x-m>0.105</x-m>
+	    <y-m>0.29</y-m>
+	    <z-m>0.008</z-m>
+	  </offsets>
+	</model>
 
 	<!-- Upper panel -->
 	<model>

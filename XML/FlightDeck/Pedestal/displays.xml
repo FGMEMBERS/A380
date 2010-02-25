@@ -7,7 +7,7 @@
 	
 	<model>
 		<name>cdu1</name>
-		<path>Aircraft/A380/XML/FlightDeck/Pedestal/display.xml</path>
+		<path>Aircraft/A380/XML/FlightDeck/Pedestal/mcdu_new_display_01.xml</path>
 		<offsets>
 			<x-m>-0.03</x-m>
 			<y-m>-0.27</y-m>
@@ -17,7 +17,7 @@
 		
 	<model>
 		<name>ecam</name>
-		<path>Aircraft/A380/XML/FlightDeck/Pedestal/display.xml</path>
+		<path>Aircraft/A380/XML/FlightDeck/Pedestal/system_display.xml</path>
 		<offsets>
 			<x-m>-0.03</x-m>
 			<y-m>-0.08</y-m>
@@ -27,7 +27,7 @@
 		
 	<model>
 		<name>cdu2</name>
-		<path>Aircraft/A380/XML/FlightDeck/Pedestal/display.xml</path>
+		<path>Aircraft/A380/XML/FlightDeck/Pedestal/mcdu_new_display_02.xml</path>
 		<offsets>
 			<x-m>-0.03</x-m>
 			<y-m>0.11</y-m>

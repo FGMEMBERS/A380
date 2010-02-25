@@ -2,8 +2,8 @@
 
 <PropertyList>
 
-	<path>../../../Models/FlightDeck/Overhead/placeholders.3ds</path> 
-	<texture-path>../../../Textures/Common</texture-path>
+	<path>../../../Models/FlightDeck/Overhead/placeholders.ac</path> 
+	<texture-path>../../../Textures/Instruments</texture-path>
 
 </PropertyList> 
  

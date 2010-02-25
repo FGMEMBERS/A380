@@ -2,8 +2,8 @@
 
 <PropertyList>
 
-	<path>../../../Models/FlightDeck/Pedestal/flap.3ds</path> 
-	<texture-path>../../../Textures/Common</texture-path>
+	<path>../../../Models/FlightDeck/Pedestal/flap.ac</path> 
+	<texture-path>../../../Textures/Instruments</texture-path>
 
  <animation>
   <type>rotate</type>

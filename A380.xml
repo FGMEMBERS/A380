@@ -4,21 +4,41 @@
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
 
+<!-- 
+     This is the Airbus A380 double-deck wide body subsonic general passenger transport aircraft.
+     
+     Modification History:
+     When	Who		What
+     2007	ICunningram	Initial
+     2008	KAmpere		update
+     2008	FDalvi		update
+     APR-2009	SHamilton	update
+-->
+
     <fileheader>
-        <author> Author Name </author>
+        <author>Cunningram, Ampere, et al</author>
         <filecreationdate> Creation Date </filecreationdate>
-        <version> Version </version>
-        <description> Models a a380 </description>
+        <version>V1.0.2</version>
+        <description>Models an A380</description>
     </fileheader>
 
     <metrics>
-        <wingarea unit="FT2"> 8934.95 </wingarea>
+        <!-- wingarea unit="FT2"> 8934.95 </wingarea>
         <wingspan unit="FT"> 261.82 </wingspan>
         <chord unit="FT"> 34.13 </chord>
         <htailarea unit="FT2"> 2233.74 </htailarea>
         <htailarm unit="FT"> 102.66 </htailarm>
         <vtailarea unit="FT2"> 1786.99 </vtailarea>
-        <vtailarm unit="FT"> 0 </vtailarm>
+        <vtailarm unit="FT"> 0 </vtailarm -->
+	<wingarea  unit="FT2"> 9096.43 </wingarea>
+        <wingspan  unit="FT" >  261.82 </wingspan>
+        <wing_incidence>          2.00 </wing_incidence>
+        <chord     unit="FT" >   33.5 </chord>
+        <htailarea unit="FT2"> 2274.11 </htailarea>
+        <htailarm  unit="FT" >  107.78 </htailarm>
+        <vtailarea unit="FT2"> 1819.29 </vtailarea>
+        <vtailarm  unit="FT" >  107.78 </vtailarm>
+
         <location name="AERORP" unit="IN">
             <x> 1580.8 </x>
             <y> 0 </y>
@@ -37,18 +57,81 @@
     </metrics>
 
     <mass_balance>
-        <ixx unit="SLUG*FT2"> 9.87831e+07 </ixx>
+        <!-- ixx unit="SLUG*FT2"> 9.87831e+07 </ixx>
         <iyy unit="SLUG*FT2"> 9.33213e+07 </iyy>
         <izz unit="SLUG*FT2"> 1.95326e+08 </izz>
         <ixy unit="SLUG*FT2"> 0 </ixy>
         <ixz unit="SLUG*FT2"> 0 </ixz>
         <iyz unit="SLUG*FT2"> 0 </iyz>
         <emptywt unit="LBS"> 725004 </emptywt>
-        <location name="CG" unit="IN">
+	        <location name="CG" unit="IN">
             <x> 1580.8 </x>
             <y> 0 </y>
             <z> -71.9 </z>
+        </location -->
+	<ixx unit="SLUG*FT2">  40378502 </ixx>
+        <iyy unit="SLUG*FT2">  38145914 </iyy>
+        <izz unit="SLUG*FT2">  79841172 </izz>
+        <emptywt unit="LBS" >    740880 </emptywt>
+        <location name="CG" unit="M">
+          <!-- x> 1580.79 </x>
+          <y>   0.00 </y>
+          <z> -71.85 </z -->
+	  <x> 40.152066 </x>
+	  <y> 0.0000 </y>
+	  <z> -5.52 </z>
         </location>
+	<pointmass name="pilots" >
+          <weight unit="KG">160</weight>
+          <location name="crew" unit = "M">
+            <x>  4.0710 </x>                      
+            <y>  0.0000 </y>                      
+            <z> -7.0326 </z>                      
+          </location>                           
+        </pointmass>                            
+
+        <pointmass name="passenger main" >
+          <weight unit="KG">43040</weight>
+          <location name="passenger" unit = "M">
+            <x>  37.4554 </x>
+            <y>  0.0000 </y>
+            <z>  -5.7104 </z>
+          </location>
+        </pointmass>
+        <pointmass name="passenger upper" >
+          <weight unit="KG">25200</weight>
+          <location name="passenger" unit = "M">
+            <x>  37.4554 </x>
+            <y>  0.0000 </y>
+            <z>  -8.3097 </z>
+          </location>
+        </pointmass>
+
+        <pointmass name="cargo forward" >
+          <weight unit="KG">28577</weight>
+          <location name="POINTMASS" unit = "M">
+            <x>  15.5171 </x>
+            <y>  0.0000 </y>
+            <z>  -3.7654 </z>
+          </location>
+        </pointmass>
+	
+        <pointmass name="cargo aft" >
+          <weight unit="KG">20310</weight>
+          <location name="POINTMASS" unit = "M">
+            <x>  45.6932 </x>
+            <y>  0.0000 </y>
+            <z>  -4.1767 </z>
+	  </location>
+        </pointmass>
+	<pointmass name="cargo bulk" >
+          <weight unit="KG">2515</weight>
+          <location name="POINTMASS" unit = "M">
+            <x>  52.4356 </x>
+            <y>  0.00 </y>
+	    <z>  -4.3714 </z>
+          </location>
+        </pointmass>
     </mass_balance>
 
     <ground_reactions>
@@ -149,10 +232,10 @@
     </ground_reactions>
     <propulsion>
         <engine file="TRENT-900">
-            <location unit="IN">
-                <x> 1580.79 </x>
-                <y> -523.648 </y>
-                <z> -40 </z>
+            <location unit="M">
+                <x>  46.9824 </x>
+                <y>  26.2467 </y>
+		<z>  -3.4 </z>
             </location>
             <orient unit="DEG">
                 <roll> 0.0 </roll>
@@ -160,11 +243,18 @@
                 <yaw> 0 </yaw>
             </orient>
             <feed>0</feed>
+	    <feed>4</feed>
+	    <feed>6</feed>
+	    <feed>10</feed>
+	    <feed>8</feed>
             <thruster file="direct">
-                <location unit="IN">
-                    <x> 1580.79 </x>
+                <location unit="M">
+                    <!-- x> 1580.79 </x>
                     <y> -523.648 </y>
-                    <z> -40 </z>
+                    <z> -40 </z -->
+		    <x> 46.9824 </x>
+		    <y> 26.2467 </y>
+		    <z> -3.4 </z>
                 </location>
                 <orient unit="DEG">
                     <roll> 0.0 </roll>
@@ -174,10 +264,10 @@
             </thruster>
         </engine>
         <engine file="TRENT-900">
-            <location unit="IN">
-                <x> 1580.79 </x>
-                <y> -523.648 </y>
-                <z> -40 </z>
+            <location unit="M">
+                <x> 38.9500 </x>
+                <y> 15.9365 </y>
+		<z> -2.55 </z>
             </location>
             <orient unit="DEG">
                 <roll> 0.0 </roll>
@@ -185,11 +275,18 @@
                 <yaw> 0 </yaw>
             </orient>
             <feed>1</feed>
+	    <feed>4</feed>
+	    <feed>6</feed>
+	    <feed>10</feed>
+	    <feed>8</feed>
             <thruster file="direct">
-                <location unit="IN">
-                    <x> 1580.79 </x>
+                <location unit="M">
+                    <!-- x> 1580.79 </x>
                     <y> -523.648 </y>
-                    <z> -40 </z>
+                    <z> -40 </z -->
+		    <x> 38.9500 </x>
+		    <y> 15.9365 </y>
+		    <z> -2.55 </z>
                 </location>
                 <orient unit="DEG">
                     <roll> 0.0 </roll>
@@ -199,10 +296,10 @@
             </thruster>
         </engine>
         <engine file="TRENT-900">
-            <location unit="IN">
-                <x> 1580.79 </x>
-                <y> 523.648 </y>
-                <z> -40 </z>
+            <location unit="M">
+                <x> 38.9500 </x>
+		<y> -15.9365 </y>
+		<z> -2.55 </z>
             </location>
             <orient unit="DEG">
                 <roll> 0.0 </roll>
@@ -210,11 +307,18 @@
                 <yaw> 0 </yaw>
             </orient>
             <feed>2</feed>
+	    <feed>5</feed>
+	    <feed>7</feed>
+	    <feed>10</feed>
+	    <feed>9</feed>
             <thruster file="direct">
-                <location unit="IN">
-                    <x> 1580.79 </x>
+                <location unit="M">
+                    <!-- x> 1580.79 </x>
                     <y> 523.648 </y>
-                    <z> -40 </z>
+                    <z> -40 </z -->
+		    <x> 38.9500 </x>
+		    <y> -15.9365 </y>
+		    <z> -2.55 </z>
                 </location>
                 <orient unit="DEG">
                     <roll> 0.0 </roll>
@@ -224,10 +328,10 @@
             </thruster>
         </engine>
         <engine file="TRENT-900">
-            <location unit="IN">
-                <x> 1580.79 </x>
-                <y> 523.648 </y>
-                <z> -40 </z>
+            <location unit="M">
+                <x>  46.9824 </x>
+                <y>  -26.2467 </y>
+		<z>  -3.4 </z>
             </location>
             <orient unit="DEG">
                 <roll> 0.0 </roll>
@@ -235,11 +339,18 @@
                 <yaw> 0 </yaw>
             </orient>
             <feed>3</feed>
+	    <feed>5</feed>
+	    <feed>7</feed>
+	    <feed>10</feed>
+	    <feed>9</feed>
             <thruster file="direct">
-                <location unit="IN">
-                    <x> 1580.79 </x>
+                <location unit="M">
+                    <!-- x> 1580.79 </x>
                     <y> 523.648 </y>
-                    <z> -40 </z>
+                    <z> -40 </z -->
+		    <x>  46.9824 </x>
+                    <y>  -26.2467 </y>
+		    <z>  -3.4 </z>
                 </location>
                 <orient unit="DEG">
                     <roll> 0.0 </roll>
@@ -248,6 +359,8 @@
                 </orient>
             </thruster>
         </engine>
+	
+	<!--  APU type -->
       <engine file="Pushback">
             <location unit="IN">
                 <x> 100 </x>
@@ -260,6 +373,7 @@
                 <yaw> 0 </yaw>
             </orient>
             <feed>1</feed>
+	    <feed>4</feed>
             <thruster file="direct">
                 <location unit="IN">
                 <x> 100 </x>
@@ -273,53 +387,138 @@
                 </orient>
             </thruster>
         </engine>
-    
-      <tank type="FUEL">    <!-- Tank number 0 -->
-            <location unit="IN">
-                <x> 1580.79 </x>
+
+    <!-- 
+           The A380 has 11 tanks in all. The feed tanks feed each engine with
+	   a cross-over valve to the next engine. The sequence for feeding the
+	   feed tanks is;
+	    1. inner tank -> feed
+	    2. mid tank   -> feed
+	    3. trim tank  -> feed
+	    4. outer tank -> feed
+	   The trim tank should be moved to the outer tank until full during approach.
+    -->
+      <tank type="FUEL">    <!-- feed number 0 -->
+            <location unit="M">
+                <!-- x> 1580.79 </x>
                 <y> 200 </y>
-                <z> -71.8539 </z>
+                <z> -71.8539 </z -->
+		<x> 48.5306 </x>
+		<y> 23.4729 </y>
+		<z> -5.01 </z>
             </location>
-            <capacity unit="LBS"> 100000 </capacity>
-            <contents unit="LBS"> 12000 </contents>
+            <capacity unit="LBS"> 48390 </capacity>
+            <contents unit="LBS"> 16775 </contents>
+	    <priority>1</priority>
         </tank>
-        <tank type="FUEL">    <!-- Tank number 1 -->
-            <location unit="IN">
-                <x> 1580.79 </x>
-                <y> -200 </y>
-                <z> -71.8539 </z>
+        <tank type="FUEL">    <!-- feed number 1 -->
+            <location unit="M">
+		<x> 37.4956 </x>
+		<y> 7.6904 </y>
+		<z> -3.3069 </z>
             </location>
-            <capacity unit="LBS"> 10000.3 </capacity>
-            <contents unit="LBS"> 12000 </contents>
+            <capacity unit="LBS"> 50780 </capacity>
+            <contents unit="LBS"> 18280 </contents>
+	    <priority>1</priority>
         </tank>
-        <tank type="FUEL">    <!-- Tank number 2 -->
-            <location unit="IN">
-                <x> 1580.79 </x>
+        <tank type="FUEL">    <!-- feed number 2 -->
+            <location unit="M">
+		<x> 37.4956 </x>
+		<y> -7.6904 </y>
+		<z> -3.3069 </z>
+            </location>
+            <capacity unit="LBS"> 50780 </capacity>
+            <contents unit="LBS"> 18280 </contents>
+	    <priority>1</priority>
+        </tank>
+        <tank type="FUEL">    <!-- feed number 3 -->
+            <location unit="M">
+		<x> 48.5306 </x>
+		<y> -23.4729 </y>
+		<z> -5.01 </z>
+            </location>
+            <capacity unit="LBS"> 48390 </capacity>
+            <contents unit="LBS"> 16775 </contents>
+	    <priority>1</priority>
+        </tank>
+	<tank type="FUEL">    <!-- innerL 4 -->
+            <location unit="M">
+		<x> 42.1149 </x>
+		<y> 8.5886 </y>
+		<z> -3.3069 </z>
+            </location>
+            <capacity unit="LBS"> 79850 </capacity>
+            <contents unit="LBS"> 17034 </contents>
+	    <priority>2</priority>
+        </tank>
+	<tank type="FUEL">    <!-- innerR 5 -->
+            <location unit="M">
+		<x> 42.1149 </x>
+		<y> -8.5886 </y>
+		<z> -3.3069 </z>
+            </location>
+            <capacity unit="LBS"> 79850 </capacity>
+            <contents unit="LBS"> 17034 </contents>
+	    <priority>2</priority>
+        </tank>
+	<tank type="FUEL">    <!-- midL 6 -->
+            <location unit="M"> 
+		<x> 44.0396 </x>
+		<y> 15.0043 </y>
+		<z> -4.67 </z>
+            </location>
+            <capacity unit="LBS"> 63100 </capacity>
+            <contents unit="LBS"> 16826 </contents>
+	    <priority>3</priority>
+        </tank>
+	<tank type="FUEL">    <!-- midR 7 -->
+            <location unit="M">
+		<x> 44.0396 </x>
+		<y> -15.0043 </y>
+		<z> -4.67 </z>
+            </location>
+            <capacity unit="LBS"> 63100 </capacity>
+            <contents unit="LBS"> 16826 </contents>
+	    <priority>3</priority>
+        </tank>
+	<tank type="FUEL">    <!-- outerL 8 -->
+            <location unit="M">
+		<x> 52.7169 </x>
+		<y> 30.1754 </y>
+		<z> -5.28 </z>
+            </location>
+            <capacity unit="LBS"> 18200 </capacity>
+            <contents unit="LBS"> 10434 </contents>
+	    <priority>4</priority>
+        </tank>
+	<tank type="FUEL">    <!-- outerR 9 -->
+            <location unit="M">
+		<x> 52.7169 </x>
+		<y> -30.1754 </y>
+		<z> -5.28 </z>
+            </location>
+            <capacity unit="LBS"> 18200 </capacity>
+            <contents unit="LBS"> 10434 </contents>
+	    <priority>4</priority>
+        </tank>
+	<tank type="FUEL">    <!-- trim 10 -->
+            <location unit="M">
+                <!-- x> 1580.79 </x>
                 <y> 0 </y>
-                <z> -71.8539 </z>
+                <z> -71.8539 </z -->
+		<x> 60.8777 </x>
+		<y> 0.0000 </y>
+		<z> -7.9141 </z>
             </location>
-            <capacity unit="LBS"> 100000 </capacity>
-            <contents unit="LBS"> 12000.1 </contents>
+            <capacity unit="LBS"> 41020 </capacity>
+            <contents unit="LBS"> 20000 </contents>
+	    <priority>5</priority>
         </tank>
-        <tank type="FUEL">    <!-- Tank number 3 -->
-            <location unit="IN">
-                <x> 1580.79 </x>
-                <y> 0 </y>
-                <z> -71.8539 </z>
-            </location>
-            <capacity unit="LBS"> 50000.3 </capacity>
-            <contents unit="LBS"> 12000.1 </contents>
-        </tank>
-        <tank type="FUEL">    <!-- Tank number 4 -->
-            <location unit="IN">
-                <x> 1580.79 </x>
-                <y> 0 </y>
-                <z> -71.8539 </z>
-            </location>
-            <capacity unit="LBS"> 15104.3 </capacity>
-            <contents unit="LBS"> 12000 </contents>
-        </tank>
+	
     </propulsion>
+
+    <system file="pushback"/> 
+
     <flight_control name="FCS: a380">
      <channel name="All">
 
@@ -815,4 +1014,19 @@
             </function>
         </axis>
     </aerodynamics>
+    <external_reactions>
+ 	  <force name="pushback" frame="BODY">
+	      <location unit="IN">
+		   <x>12.150</x>
+		   <y>-0.875</y>
+		   <z>1.641</z>
+		</location>
+	      <direction>
+		   <x>-1</x>
+		   <y>0</y>
+		   <z>0</z>
+		</direction>
+	 </force>
+    </external_reactions>
+
 </fdm_config>

@@ -2,11 +2,303 @@
 
 <PropertyList>
 
-	<path>../../../Models/FlightDeck/Glareshield/efis_c.3ds</path> 
-	<texture-path>../../../Textures/Common</texture-path>
+	<path>../../../Models/FlightDeck/Glareshield/efis_c.ac</path> 
+	<texture-path>../../../Textures/Instruments</texture-path>
 	<offsets>
 		<z-m>0.25</z-m>
 	</offsets>
+
+ <animation>
+    <type>pick</type>
+    <object-name>baro.select</object-name>
+    <action>
+        <button>0</button>
+	<binding>
+          <command>property-toggle</command>
+          <property>/instrumentation/efis/baro-mode</property>
+        </binding>
+      </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>baro.knob</object-name>
+    <action>
+      <button>3</button>
+      <binding>
+        <command>property-adjust</command>
+	<property>/instrumentation/altimeter/setting-inhg</property>
+	<step>0.01</step>
+	<max>40.00</max>
+	<min>0.00</min>
+      </binding>
+    </action>
+    <action>
+      <button>4</button>
+      <binding>
+        <command>property-adjust</command>
+	<property>/instrumentation/altimeter/setting-inhg</property>
+	<step>-0.01</step>
+	<max>40.00</max>
+	<min>0.00</min>
+      </binding>
+    </action>
+  </animation>
+ 
+ 
+  <animation>
+   <type>textranslate</type>
+   <object-name>baro.04</object-name>
+   <property>/instrumentation/efis/baro</property>
+   <factor>0.0001</factor>
+   <step>1000.0</step>
+   <axis>
+     <x>0</x>
+     <y>1</y>
+     <z>0</z>
+   </axis>
+ </animation>
+ <animation>
+   <type>textranslate</type>
+   <object-name>baro.03</object-name>
+   <property>/instrumentation/efis/baro</property>
+   <factor>0.001</factor>
+   <step>100.0</step>
+   <axis>
+     <x>0</x>
+     <y>1</y>
+     <z>0</z>
+   </axis>
+ </animation>
+ <animation>
+   <type>textranslate</type>
+   <object-name>baro.02</object-name>
+   <property>/instrumentation/efis/baro</property>
+   <factor>0.01</factor>
+   <step>10.0</step>
+   <axis>
+     <x>0</x>
+     <y>1</y>
+     <z>0</z>
+   </axis>
+ </animation>
+ <animation>
+   <type>textranslate</type>
+   <object-name>baro.01</object-name>
+   <property>/instrumentation/efis/baro</property>
+   <factor>0.1</factor>
+   <step>1.0</step>
+   <axis>
+     <x>0</x>
+     <y>1</y>
+     <z>0</z>
+   </axis>
+ </animation>
+ 
+ <animation>
+   <type>select</type>
+   <object-name>mode.plan</object-name>
+   <condition>
+     <equals>
+     <property>/instrumentation/wxradar/display-mode</property>
+     <value>3</value>
+     </equals>
+   </condition>
+ </animation>
+ 
+ <animation>
+   <type>select</type>
+   <object-name>mode.arc</object-name>
+   <condition>
+     <equals>
+     <property>/instrumentation/wxradar/display-mode</property>
+     <value>2</value>
+     </equals>
+   </condition>
+ </animation>
+  
+ <animation>
+   <type>select</type>
+   <object-name>mode.nav</object-name>
+   <condition>
+     <equals>
+     <property>/instrumentation/wxradar/display-mode</property>
+     <value>0</value>
+     </equals>
+   </condition>
+ </animation>
+  
+ <animation>
+   <type>select</type>
+   <object-name>mode.vor</object-name>
+   <condition>
+     <equals>
+     <property>/instrumentation/wxradar/display-mode</property>
+     <value>1</value>
+     </equals>
+   </condition>
+ </animation>
+  
+ <animation>
+   <type>select</type>
+   <object-name>mode.ls</object-name>
+   <condition>
+     <equals>
+     <property>/instrumentation/wxradar/display-mode</property>
+     <value>4</value>
+     </equals>
+   </condition>
+ </animation>
+
+ <animation>
+   <type>pick</type>
+   <object-name>ndmode.knob</object-name>
+   <action>
+     <button>0</button>
+     <repeatable>false</repeatable>
+     <binding>
+      <command>property-adjust</command>
+      <property>/instrumentation/wxradar/display-mode</property>
+      <step>1.0</step>
+      <min>0</min>
+      <max>9</max>
+      <wrap>false</wrap>
+     </binding>
+   </action>
+   <action>
+     <button>1</button>
+     <repeatable>false</repeatable>
+     <binding>
+      <command>property-adjust</command>
+      <property>/instrumentation/wxradar/display-mode</property>
+      <step>-1.0</step>
+      <min>0</min>
+      <max>9</max>
+      <wrap>false</wrap>
+     </binding>
+   </action>   
+ </animation>
+
+ <animation>
+   <type>pick</type>
+   <object-name>ndrange.knob</object-name>
+   <action>
+     <button>0</button>
+     <repeatable>false</repeatable>
+     <binding>
+      <!-- command>property-adjust</command>
+      <property>/instrumentation/radar/range</property>
+      <step>1.0</step>
+      <min>1</min>
+      <max>640</max>
+      <wrap>false</wrap -->
+      <command>nasal</command>
+      <script>FCU.change_radar_range(1)</script>
+     </binding>
+   </action>
+   <action>
+     <button>1</button>
+     <repeatable>false</repeatable>
+     <binding>
+      <!-- command>property-adjust</command>
+      <property>/instrumentation/radar/range</property>
+      <step>-1.0</step>
+      <min>1</min>
+      <max>640</max>
+      <wrap>false</wrap -->
+      <command>nasal</command>
+      <script>FCU.change_radar_range(-1)</script>
+     </binding>
+   </action>   
+ </animation>
+  
+ <animation>
+   <type>select</type>
+   <object-name>range.zoom</object-name>
+   <condition>
+   <less-than>
+     <property>/instrumentation/wxradar/range</property>
+     <value>10</value>
+   </less-than>
+   </condition>
+ </animation>
+
+ <animation>
+   <type>select</type>
+   <object-name>range.10</object-name>
+   <condition>
+   <equals>
+     <property>/instrumentation/wxradar/range</property>
+     <value>10</value>
+   </equals>
+   </condition>
+ </animation>
+ 
+ <animation>
+   <type>select</type>
+   <object-name>range.20</object-name>
+   <condition>
+   <equals>
+     <property>/instrumentation/wxradar/range</property>
+     <value>20</value>
+   </equals>
+   </condition>
+ </animation>
+  
+ <animation>
+   <type>select</type>
+   <object-name>range.40</object-name>
+   <condition>
+   <equals>
+     <property>/instrumentation/wxradar/range</property>
+     <value>40</value>
+   </equals>
+   </condition>
+ </animation>
+  
+ <animation>
+   <type>select</type>
+   <object-name>range.80</object-name>
+   <condition>
+   <equals>
+     <property>/instrumentation/wxradar/range</property>
+     <value>80</value>
+   </equals>
+   </condition>
+ </animation>
+  
+ <animation>
+   <type>select</type>
+   <object-name>range.160</object-name>
+   <condition>
+   <equals>
+     <property>/instrumentation/wxradar/range</property>
+     <value>160</value>
+   </equals>
+   </condition>
+ </animation>
+  
+ <animation>
+   <type>select</type>
+   <object-name>range.320</object-name>
+   <condition>
+   <equals>
+     <property>/instrumentation/wxradar/range</property>
+     <value>320</value>
+   </equals>
+   </condition>
+ </animation>
+  
+ <animation>
+   <type>select</type>
+   <object-name>range.640</object-name>
+   <condition>
+   <equals>
+     <property>/instrumentation/wxradar/range</property>
+     <value>640</value>
+   </equals>
+   </condition>
+ </animation>
 
 </PropertyList> 
  

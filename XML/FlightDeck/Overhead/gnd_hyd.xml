@@ -2,8 +2,8 @@
 
 <PropertyList>
 
-	<path>../../../Models/FlightDeck/Overhead/gnd_hyd.3ds</path> 
-	<texture-path>../../../Textures/Common</texture-path>
+	<path>../../../Models/FlightDeck/Overhead/gnd_hyd.ac</path> 
+	<texture-path>../../../Textures/Instruments</texture-path>
 
 </PropertyList> 
  

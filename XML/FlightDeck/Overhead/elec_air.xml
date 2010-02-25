@@ -2,16 +2,16 @@
 
 <PropertyList>
 
-	<path>../../../Models/FlightDeck/Overhead/elec_air.3ds</path> 
-	<texture-path>../../../Textures/Common</texture-path>
+	<path>../../../Models/FlightDeck/Overhead/elec_air.ac</path> 
+	<texture-path>../../../Textures/Instruments</texture-path>
 	
 	<!-- Load the guards (red) for the buttons. -->
 	<model>
 		<path>Aircraft/A380/XML/FlightDeck/Overhead/guard_red.xml</path>
 		<!--<name>guard_red</name>-->
 		<offsets>
-			<x-m>-0.1675</x-m>
-			<y-m>0.195125</y-m>
+			<x-m>-0.1595</x-m>
+			<y-m>0.186125</y-m>
 		</offsets>
 	</model>
 	<model>

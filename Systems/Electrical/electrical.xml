@@ -21,7 +21,7 @@ machines.
 			<kind>alternator</kind>
 			<rpm-source>/engines/engine[0]/n1</rpm-source>
 			<volts>115</volts> <!-- guess -->
-			<amps>13</amps>   <!-- guess -->
+			<amps>1304</amps>   <!-- guess -->
 		</supplier>
 		
 		
@@ -31,7 +31,7 @@ machines.
 			<kind>alternator</kind>
 			<rpm-source>/engines/engine[1]/n1</rpm-source>
 			<volts>115</volts> <!-- guess -->
-			<amps>13</amps>   <!-- guess -->
+			<amps>1304</amps>   <!-- guess -->
 		</supplier>
 	
 		<!-- Third one: from APU?? -->
@@ -106,7 +106,7 @@ machines.
 			<kind>alternator</kind>
 			<rpm-source>/engines/engine[2]/n1</rpm-source>
 			<volts>115</volts> <!-- guess -->
-			<amps>13</amps>   <!-- guess -->
+			<amps>1304</amps>   <!-- guess -->
 		</supplier>
 		
 		
@@ -116,7 +116,7 @@ machines.
 			<kind>alternator</kind>
 			<rpm-source>/engines/engine[3]/n1</rpm-source>
 			<volts>115</volts> <!-- guess -->
-			<amps>13</amps>   <!-- guess -->
+			<amps>1304</amps>   <!-- guess -->
 		</supplier>
 	
 		<!-- Third one: from APU?? -->

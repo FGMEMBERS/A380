@@ -1,0 +1,2944 @@
+<?xml version="1.0"?>
+
+<!--
+    MFD Display for A380.
+    This file is for MFD unit 0.
+    There are a number of "pages" within the MFD display. A menu bar across the top
+    allows us to select various sub-menu options from the main main across.
+    The naming of <text> objects is;
+       label.xxxx - for static text labelling 
+       field.xxxx - fields that user can input value into
+       value.xxxx - dynamic text values for display
+    This file is broken down to all label text first,
+    then field and value text group for each page. 
+    
+    Author: S.Hamilton - Sep 2009
+
+-->
+
+<PropertyList>
+
+	<path>../../../Models/FlightDeck/Pedestal/mcdu_display.ac</path> 
+	<texture-path>../../../Textures/Common</texture-path>
+
+<!--  Text labels -->
+
+<text>
+  <name>label.active</name>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+    <pitch-deg>-90</pitch-deg>
+    <x-m>-0.19</x-m>
+    <y-m>0.033</y-m>
+    <z-m>0.002</z-m>
+  </offsets>
+  <type>literal</type>
+  <text>ACTIVE</text>
+  <font>helvetica_medium.txf</font>
+  <character-size type="double">0.005</character-size>
+  <alignment>right-bottom</alignment>  
+</text>
+
+
+<animation>
+  <type>pick</type>
+  <object-name>menu.active</object-name>
+    <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU1.changePage(0,"active.init")</script>
+   </binding>
+  </action>
+</animation>
+
+
+<!--  active.init page labels  -->
+<text>
+  <name>label.FLT_NBR</name>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+    <pitch-deg>-90</pitch-deg>
+    <x-m>-0.171</x-m>
+    <y-m>0.034</y-m>
+    <z-m>0.002</z-m>
+  </offsets>
+  <type>literal</type>
+  <text>FLT NBR</text>
+  <font>helvetica_medium.txf</font>
+  <character-size type="double">0.005</character-size>
+  <alignment>right-bottom</alignment>
+</text>
+
+<text>
+    <name>label.FROM</name>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.16</x-m>
+      <y-m>0.034</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type>literal</type>
+    <text>FROM</text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>right-bottom</alignment>
+</text>
+  
+<text>
+  <name>label.TO</name>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+    <pitch-deg>-90</pitch-deg>
+    <x-m>-0.16</x-m>
+    <y-m>0.069</y-m>
+    <z-m>0.002</z-m>
+  </offsets>
+  <type>literal</type>
+  <text>TO</text>
+  <font>helvetica_medium.txf</font>
+  <character-size type="double">0.005</character-size>
+  <alignment>right-bottom</alignment>
+</text>
+
+<text>
+    <name>label.CPY_RTE</name>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.1466</x-m>
+      <y-m>0.034</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type>literal</type>
+    <text>CPNY RTE</text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>right-bottom</alignment>
+</text>
+
+<text>
+    <name>label.ALT_RTE</name>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.1364</x-m>
+      <y-m>0.034</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type>literal</type>
+    <text>ALTN RTE</text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>right-bottom</alignment>
+</text>
+
+<text>
+    <name>label.CRZ_FL</name>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.118</x-m>
+      <y-m>0.034</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type>literal</type>
+    <text>CRZ FL</text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>right-bottom</alignment>
+</text>
+
+<text>
+  <name>label.CRZ_TEMP</name>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+    <pitch-deg>-90</pitch-deg>
+    <x-m>-0.118</x-m>
+    <y-m>0.093</y-m>
+    <z-m>0.002</z-m>
+  </offsets>
+  <type>literal</type>
+  <text>CRZ TEMP</text>
+  <font>helvetica_medium.txf</font>
+  <character-size type="double">0.005</character-size>
+  <alignment>right-bottom</alignment>
+</text>
+
+<text>
+  <name>label.IRS</name>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+    <pitch-deg>-90</pitch-deg>
+    <x-m>-0.071</x-m>
+    <y-m>0.0515</y-m>
+    <z-m>0.002</z-m>
+  </offsets>
+  <type>literal</type>
+  <text>IRS</text>
+  <font>helvetica_medium.txf</font>
+  <character-size type="double">0.004</character-size>
+  <alignment>center-center</alignment>
+</text>
+
+<animation>
+  <type>pick</type>
+  <object-name>menu.IRS</object-name>
+    <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU1.changePage(0,"active.irs")</script>
+   </binding>
+  </action>
+</animation>
+
+<text>
+  <name>label.DEPARTURE</name>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+    <pitch-deg>-90</pitch-deg>
+    <x-m>-0.062</x-m>
+    <y-m>0.0515</y-m>
+    <z-m>0.002</z-m>
+  </offsets>
+  <type>literal</type>
+  <text>DEPARTURE</text>
+  <font>helvetica_medium.txf</font>
+  <character-size type="double">0.004</character-size>
+  <alignment>center-center</alignment>
+</text>
+
+<animation>
+  <type>pick</type>
+  <object-name>menu.DEPARTURE</object-name>
+    <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU1.changePage(0,"active.departure.dep")</script>
+   </binding>
+  </action>
+</animation>
+
+<text>
+  <name>label.NAVAIDS</name>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+    <pitch-deg>-90</pitch-deg>
+    <x-m>-0.053</x-m>
+    <y-m>0.0515</y-m>
+    <z-m>0.002</z-m>
+  </offsets>
+  <type>literal</type>
+  <text>NAVAIDS</text>
+  <font>helvetica_medium.txf</font>
+  <character-size type="double">0.004</character-size>
+  <alignment>center-center</alignment>
+</text>
+
+<animation>
+  <type>pick</type>
+  <object-name>menu.NAVAIDS</object-name>
+    <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU1.changePage(0,"active.navaids")</script>
+   </binding>
+  </action>
+</animation>
+
+<text>
+  <name>label.FUEL_LOAD</name>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+    <pitch-deg>-90</pitch-deg>
+    <x-m>-0.044</x-m>
+    <y-m>0.0515</y-m>
+    <z-m>0.002</z-m>
+  </offsets>
+  <type>literal</type>
+  <text>FUEL &amp; LOAD</text>
+  <font>helvetica_medium.txf</font>
+  <character-size type="double">0.004</character-size>
+  <alignment>center-center</alignment>
+</text>
+
+<animation>
+  <type>pick</type>
+  <object-name>menu.FUEL_LOAD</object-name>
+    <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU1.changePage(0,"active.fuel_load")</script>
+   </binding>
+  </action>
+</animation>
+
+<text>
+  <name>label.TO_PERF</name>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+    <pitch-deg>-90</pitch-deg>
+    <x-m>-0.035</x-m>
+    <y-m>0.0515</y-m>
+    <z-m>0.002</z-m>
+  </offsets>
+  <type>literal</type>
+  <text>T.O PERF</text>
+  <font>helvetica_medium.txf</font>
+  <character-size type="double">0.004</character-size>
+  <alignment>center-center</alignment>
+</text>
+
+<animation>
+  <type>pick</type>
+  <object-name>menu.TO_PERF</object-name>
+    <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU1.changePage(0,"active.to_perf")</script>
+   </binding>
+  </action>
+</animation>
+
+
+
+<!-- active.departure (dep and arv) labels -->
+
+<text>
+   <name>label.APT</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.15</x-m>
+      <y-m>0.025</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text>APT</text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>right-bottom</alignment>
+</text>
+
+<text>
+    <name>label.SID</name>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.139</x-m>
+      <y-m>0.095</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text>SID</text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+<text>
+  <name>label.STAR</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.139</x-m>
+      <y-m>0.095</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text>STAR</text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+<animation>
+  <type>pick</type>
+  <object-name>menu.SID</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU1.changePage(0,"active.departure.sid")</script>
+   </binding>
+  </action>
+</animation>
+
+<animation>
+  <type>pick</type>
+  <object-name>menu.STAR</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU1.changePage(0,"active.departure.star")</script>
+   </binding>
+  </action>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>menu.rwy-more</object-name>
+  <object-name>menu.rwy-less</object-name>
+  <condition>
+   <and>
+    <greater-than>
+      <property>/instrumentation/mcdu[0]/opt-size</property>
+      <value>8</value>
+    </greater-than>
+    <or>
+    <equals>
+      <property>/instrumentation/mcdu[0]/page</property>
+      <value>active.departure.dep</value>
+    </equals>
+    <equals>
+      <property>/instrumentation/mcdu[0]/page</property>
+      <value>active.departure.arv</value>
+    </equals>
+    <equals>
+      <property>/instrumentation/mcdu[0]/page</property>
+      <value>active.departure.star</value>
+    </equals>
+    </or>
+   </and>
+  </condition>
+</animation>
+
+<animation>
+  <type>pick</type>
+  <object-name>menu.rwy-more</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU1.scrollRwy(0,"more")</script>
+   </binding>
+  </action>
+</animation>
+
+<animation>
+  <type>pick</type>
+  <object-name>menu.rwy-less</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU1.scrollRwy(0,"less")</script>
+   </binding>
+  </action>
+</animation>
+
+<!--  active.departure.sid labels -->
+
+
+
+
+<!--  active.departure.star labels -->
+
+
+<!-- active.perf labels -->
+
+<text>
+   <name>label.menu.t_o</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.161</x-m>
+      <y-m>0.012</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text>T.O</text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+<animation>
+  <type>pick</type>
+  <object-name>menu.t_o</object-name>
+    <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU1.changePage(0,"active.to_perf")</script>
+   </binding>
+  </action>
+</animation>
+
+<animation>
+  <type>pick</type>
+  <object-name>menu.clb</object-name>
+    <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU1.changePage(0,"active.clb_perf")</script>
+   </binding>
+  </action>
+</animation>
+
+<animation>
+  <type>pick</type>
+  <object-name>menu.crz</object-name>
+    <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU1.changePage(0,"active.crz_perf")</script>
+   </binding>
+  </action>
+</animation>
+
+<animation>
+  <type>pick</type>
+  <object-name>menu.des</object-name>
+    <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU1.changePage(0,"active.des_perf")</script>
+   </binding>
+  </action>
+</animation>
+
+<animation>
+  <type>pick</type>
+  <object-name>menu.appr</object-name>
+    <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU1.changePage(0,"active.appr_perf")</script>
+   </binding>
+  </action>
+</animation>
+
+<animation>
+  <type>pick</type>
+  <object-name>menu.ga</object-name>
+    <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU1.changePage(0,"active.ga_perf")</script>
+   </binding>
+  </action>
+</animation>
+
+<text>
+   <name>label.menu.clb</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.161</x-m>
+      <y-m>0.035</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text>CLB</text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+<text>
+   <name>label.menu.crz</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.161</x-m>
+      <y-m>0.058</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text>CRZ</text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+<text>
+   <name>label.menu.des</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.161</x-m>
+      <y-m>0.082</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text>DES</text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+<text>
+   <name>label.menu.appr</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.161</x-m>
+      <y-m>0.105</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text>APPR</text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+<text>
+   <name>label.menu.ga</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.161</x-m>
+      <y-m>0.134</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text>GA</text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+<text>
+  <name>label.to_perf.crz</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.176</x-m>
+      <y-m>0.020</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text>CRZ</text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+
+<!-- active.perf.to_perf labels -->
+
+<text>
+  <name>label.to_perf.rwy</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.150</x-m>
+      <y-m>0.010</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text>RWY</text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+<text>
+  <name>label.to_perf.v1</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.139</x-m>
+      <y-m>0.020</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text>V1</text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>right-bottom</alignment>
+</text>
+
+<text>
+  <name>label.to_perf.vr</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.129</x-m>
+      <y-m>0.020</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text>VR</text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>right-bottom</alignment>
+</text>
+
+<text>
+  <name>label.to_perf.v2</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.119</x-m>
+      <y-m>0.020</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text>V2</text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>right-bottom</alignment>
+</text>
+
+<text>
+  <name>label.to_perf.F-speed</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.139</x-m>
+      <y-m>0.060</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text>F</text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>right-bottom</alignment>
+</text>
+
+<text>
+  <name>label.to_perf.S-speed</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.129</x-m>
+      <y-m>0.060</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text>S</text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>right-bottom</alignment>
+</text>
+
+<text>
+  <name>label.to_perf.thr_red</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.0885</x-m>
+      <y-m>0.035</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text>THR RED</text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.0044</character-size>
+    <alignment>right-bottom</alignment>
+</text>
+
+<text>
+  <name>label.to_perf.thr_accel</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.078</x-m>
+      <y-m>0.035</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text>ACCEL</text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.0044</character-size>
+    <alignment>right-bottom</alignment>
+</text>
+
+<text>
+  <name>label.to_perf.eo_accel</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.078</x-m>
+      <y-m>0.098</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text>EO ACCEL</text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.0044</character-size>
+    <alignment>right-bottom</alignment>
+</text>
+
+<text>
+  <name>label.to_perf.flaps</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.106</x-m>
+      <y-m>0.022</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text>FLAPS</text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.0044</character-size>
+    <alignment>right-bottom</alignment>
+</text>
+
+<text>
+  <name>label.to_perf.ths_for</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.106</x-m>
+      <y-m>0.0615</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text>THS FOR</text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.0044</character-size>
+    <alignment>right-bottom</alignment>
+</text>
+
+<text>
+  <name>label.to_perf.to_shift</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.106</x-m>
+      <y-m>0.117</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text>T.O SHIFT</text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.0044</character-size>
+    <alignment>right-bottom</alignment>
+</text>
+
+<text>
+  <name>label.to_perf.trans_alt</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.051</x-m>
+      <y-m>0.035</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text>TRANS</text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.0044</character-size>
+    <alignment>right-bottom</alignment>
+</text>
+
+
+
+
+<!--   input fields -->
+
+<!--  active.init fields -->
+
+<text>
+    <name>field.FLT_NBR</name>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.1725</x-m>
+      <y-m>0.0357</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">text-value</type>
+    <property type="string">/instrumentation/afs/FLT_NBR</property>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+</text>
+
+<animation>
+  <type>pick</type>
+  <object-name>input.FLT_NBR</object-name>
+    <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU1.selectField("FLT_NBR")</script>
+   </binding>
+  </action>
+</animation>
+
+<text>
+    <name>field.FROM</name>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.16</x-m>
+      <y-m>0.03725</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">text-value</type>
+    <property type="string">/instrumentation/afs/FROM</property>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+</text>
+
+<animation>
+  <type>pick</type>
+  <object-name>input.FROM</object-name>
+    <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU1.selectField("FROM")</script>
+   </binding>
+  </action>
+</animation>
+
+<text>
+    <name>field.TO</name>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.16</x-m>
+      <y-m>0.0715</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">text-value</type>
+    <property type="string">/instrumentation/afs/TO</property>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+</text>
+
+<animation>
+  <type>pick</type>
+  <object-name>input.TO</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU1.selectField("TO")</script>
+   </binding>
+  </action>
+</animation>
+
+<text>
+    <name>field.CRZ_FL</name>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.118</x-m>
+      <y-m>0.038</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">number-value</type>
+    <property type="string">/instrumentation/afs/CRZ_FL</property>
+    <offset type="double">0.01</offset>
+    <format>%3.0f</format>
+    <truncate type="bool">true</truncate>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+</text>
+
+<animation>
+  <type>pick</type>
+  <object-name>input.CRZ_FL</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU1.selectField("CRZ_FL")</script>
+   </binding>
+  </action>
+</animation>
+
+
+<!--  active.departure field -->
+
+<text>
+  <name>error.no_db</name>
+  <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.155</x-m>
+      <y-m>0.027</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">text-value</type>
+    <property type="string">/instrumentation/mcdu[0]/opt-error</property>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.0065</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+
+<text>
+   <name>label.DEPARTURE.dep</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.167</x-m>
+      <y-m>0.025</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text>DEPARTURE</text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+<animation>
+  <type>pick</type>
+  <object-name>menu.DEPARTURE.dep</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU1.changePage(0,"active.departure.dep")</script>
+   </binding>
+  </action>
+</animation>
+
+<text>
+   <name>label.DEPARTURE.arv</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.167</x-m>
+      <y-m>0.085</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text>ARRIVAL</text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+<animation>
+  <type>pick</type>
+  <object-name>menu.DEPARTURE.arv</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU1.changePage(0,"active.departure.arv")</script>
+   </binding>
+  </action>
+</animation>
+
+<text>
+   <name>field.APT.dep</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.15</x-m>
+      <y-m>0.027</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">text-value</type>
+    <property type="string">/instrumentation/afs/FROM</property>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+<text>
+   <name>field.APT.arv</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.15</x-m>
+      <y-m>0.027</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">text-value</type>
+    <property type="string">/instrumentation/afs/TO</property>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+<text>
+   <name>label.COURSE</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.15</x-m>
+      <y-m>0.065</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text type="string">HEADING: </text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+<text>
+   <name>value.COURSE</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.15</x-m>
+      <y-m>0.097</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">number-value</type>
+    <property type="string">/instrumentation/afs/dep-course</property>
+    <format type="string">%3.1f deg</format>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+
+<text>
+   <name>field.runway.dep</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.15</x-m>
+      <y-m>0.047</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">text-value</type>
+    <property type="string">/instrumentation/afs/dep-rwy</property>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+<text>
+   <name>field.runway.arv</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.15</x-m>
+      <y-m>0.047</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">text-value</type>
+    <property type="string">/instrumentation/afs/arv-rwy</property>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+<!-- RWY01 -->
+<text>
+    <name>field.RWY01</name>
+    <condition>
+      <greater-than>
+          <property>/instrumentation/mcdu[0]/opt-size</property>
+	  <value>0</value>
+      </greater-than>
+    </condition>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.139</x-m>
+      <y-m>0.026</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">text-value</type>
+    <property type="string">/instrumentation/mcdu[0]/opt01</property>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>center-bottom</alignment>
+</text>
+
+<animation>
+  <type>pick</type>
+  <object-name>input.RWY01</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU1.dispatchAction("opt01",0)</script>
+   </binding>
+  </action>
+</animation>
+
+<text>
+    <name>value.RWYLEN01</name>
+    <condition>
+      <greater-than>
+          <property>/instrumentation/mcdu[0]/opt-size</property>
+	  <value>0</value>
+      </greater-than>
+    </condition>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.139</x-m>
+      <y-m>0.045</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">text-value</type>
+    <property type="string">/instrumentation/mcdu[0]/col01-opt01</property>
+    <!-- format type="string">%5.0f</format -->
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+<text>
+    <name>value.RwyHdg01</name>
+    <condition>
+      <greater-than>
+          <property>/instrumentation/mcdu[0]/opt-size</property>
+	  <value>0</value>
+      </greater-than>
+    </condition>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.139</x-m>
+      <y-m>0.065</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">text-value</type>
+    <property type="string">/instrumentation/mcdu[0]/col02-opt01</property>
+    <!-- format type="string">%3.0f</format -->
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+<text>
+    <name>value.SidTrans01</name>
+    <condition>
+      <and>
+      <greater-than>
+          <property>/instrumentation/mcdu[0]/opt-size</property>
+	  <value>0</value>
+      </greater-than>
+      <or>
+      <equals>
+          <property>/instrumentation/mcdu[0]/page</property>
+	  <value>active.departure.sid</value>
+      </equals>
+      <equals>
+          <property>/instrumentation/mcdu[0]/page</property>
+	  <value>active.departure.star</value>
+      </equals>
+      </or>
+      </and>
+    </condition>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.139</x-m>
+      <y-m>0.065</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">text-value</type>
+    <property type="string">/instrumentation/mcdu[0]/col02-opt01</property>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+<!-- RWY02 -->
+<text>
+    <name>field.RWY02</name>
+    <condition>
+      <greater-than>
+          <property>/instrumentation/mcdu[0]/opt-size</property>
+	  <value>1</value>
+      </greater-than>
+    </condition>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.13</x-m>
+      <y-m>0.026</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">text-value</type>
+    <property type="string">/instrumentation/mcdu[0]/opt02</property>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>center-bottom</alignment>
+</text>
+
+<animation>
+  <type>pick</type>
+  <object-name>input.RWY02</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU1.dispatchAction("opt02",0)</script>
+   </binding>
+  </action>
+</animation>
+
+<text>
+    <name>value.RWYLEN02</name>
+    <condition>
+      <greater-than>
+          <property>/instrumentation/mcdu[0]/opt-size</property>
+	  <value>1</value>
+      </greater-than>
+    </condition>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.13</x-m>
+      <y-m>0.045</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">text-value</type>
+    <property type="string">/instrumentation/mcdu[0]/col01-opt02</property>
+    <!-- format type="string">%5.0f</format -->
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+<text>
+    <name>value.RwyHdg02</name>
+    <condition>
+      <greater-than>
+          <property>/instrumentation/mcdu[0]/opt-size</property>
+	  <value>1</value>
+      </greater-than>
+    </condition>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.13</x-m>
+      <y-m>0.065</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">text-value</type>
+    <property type="string">/instrumentation/mcdu[0]/col02-opt02</property>
+    <!-- format type="string">%3.0f</format -->
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+<text>
+    <name>value.SidTrans02</name>
+    <condition>
+      <and>
+      <greater-than>
+          <property>/instrumentation/mcdu[0]/opt-size</property>
+	  <value>1</value>
+      </greater-than>
+      <or>
+      <equals>
+          <property>/instrumentation/mcdu[0]/page</property>
+	  <value>active.departure.sid</value>
+      </equals>
+      <equals>
+          <property>/instrumentation/mcdu[0]/page</property>
+	  <value>active.departure.star</value>
+      </equals>
+      </or>
+      </and>
+    </condition>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.13</x-m>
+      <y-m>0.065</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">text-value</type>
+    <property type="string">/instrumentation/mcdu[0]/col02-opt02</property>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+<!-- RWY03 -->
+<text>
+    <name>field.RWY03</name>
+    <condition>
+      <greater-than>
+          <property>/instrumentation/mcdu[0]/opt-size</property>
+	  <value>2</value>
+      </greater-than>
+    </condition>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.12</x-m>
+      <y-m>0.026</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">text-value</type>
+    <property type="string">/instrumentation/mcdu[0]/opt03</property>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>center-bottom</alignment>
+</text>
+
+<animation>
+  <type>pick</type>
+  <object-name>input.RWY03</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU1.dispatchAction("opt03",0)</script>
+   </binding>
+  </action>
+</animation>
+
+<text>
+    <name>value.RWYLEN03</name>
+    <condition>
+      <greater-than>
+          <property>/instrumentation/mcdu[0]/opt-size</property>
+	  <value>2</value>
+      </greater-than>
+    </condition>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.12</x-m>
+      <y-m>0.045</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">text-value</type>
+    <property type="string">/instrumentation/mcdu[0]/col01-opt03</property>
+    <!-- format type="string">%5.0f</format -->
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+<text>
+    <name>value.RwyHdg03</name>
+    <condition>
+      <greater-than>
+          <property>/instrumentation/mcdu[0]/opt-size</property>
+	  <value>2</value>
+      </greater-than>
+    </condition>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.12</x-m>
+      <y-m>0.065</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">text-value</type>
+    <property type="string">/instrumentation/mcdu[0]/col02-opt03</property>
+    <!-- format type="string">%3.0f</format -->
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+<text>
+    <name>value.SidTrans03</name>
+    <condition>
+      <and>
+      <greater-than>
+          <property>/instrumentation/mcdu[0]/opt-size</property>
+	  <value>2</value>
+      </greater-than>
+      <or>
+      <equals>
+          <property>/instrumentation/mcdu[0]/page</property>
+	  <value>active.departure.sid</value>
+      </equals>
+      <equals>
+          <property>/instrumentation/mcdu[0]/page</property>
+	  <value>active.departure.star</value>
+      </equals>
+      </or>
+      </and>
+    </condition>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.12</x-m>
+      <y-m>0.065</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">text-value</type>
+    <property type="string">/instrumentation/mcdu[0]/col02-opt03</property>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+<!-- RWY04 -->
+<text>
+    <name>field.RWY04</name>
+    <condition>
+      <greater-than>
+          <property>/instrumentation/mcdu[0]/opt-size</property>
+	  <value>3</value>
+      </greater-than>
+    </condition>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.112</x-m>
+      <y-m>0.026</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">text-value</type>
+    <property type="string">/instrumentation/mcdu[0]/opt04</property>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>center-bottom</alignment>
+</text>
+
+<animation>
+  <type>pick</type>
+  <object-name>input.RWY04</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU1.dispatchAction("opt04",0)</script>
+   </binding>
+  </action>
+</animation>
+
+<text>
+    <name>value.RWYLEN04</name>
+    <condition>
+      <greater-than>
+          <property>/instrumentation/mcdu[0]/opt-size</property>
+	  <value>3</value>
+      </greater-than>
+    </condition>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.112</x-m>
+      <y-m>0.045</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">text-value</type>
+    <property type="string">/instrumentation/mcdu[0]/col01-opt04</property>
+    <!-- format type="string">%5.0f</format -->
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+<text>
+    <name>value.RwyHdg04</name>
+    <condition>
+      <greater-than>
+          <property>/instrumentation/mcdu[0]/opt-size</property>
+	  <value>3</value>
+      </greater-than>
+    </condition>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.112</x-m>
+      <y-m>0.065</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">text-value</type>
+    <property type="string">/instrumentation/mcdu[0]/col02-opt04</property>
+    <!-- format type="string">%3.0f</format -->
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+<text>
+    <name>value.SidTrans04</name>
+    <condition>
+      <and>
+      <greater-than>
+          <property>/instrumentation/mcdu[0]/opt-size</property>
+	  <value>3</value>
+      </greater-than>
+      <or>
+      <equals>
+          <property>/instrumentation/mcdu[0]/page</property>
+	  <value>active.departure.sid</value>
+      </equals>
+      <equals>
+          <property>/instrumentation/mcdu[0]/page</property>
+	  <value>active.departure.star</value>
+      </equals>
+      </or>
+      </and>
+    </condition>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.112</x-m>
+      <y-m>0.065</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">text-value</type>
+    <property type="string">/instrumentation/mcdu[0]/col02-opt04</property>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+<!-- RWY05 -->
+<text>
+    <name>field.RWY05</name>
+    <condition>
+      <greater-than>
+          <property>/instrumentation/mcdu[0]/opt-size</property>
+	  <value>4</value>
+      </greater-than>
+    </condition>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.103</x-m>
+      <y-m>0.026</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">text-value</type>
+    <property type="string">/instrumentation/mcdu[0]/opt05</property>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>center-bottom</alignment>
+</text>
+
+<animation>
+  <type>pick</type>
+  <object-name>input.RWY05</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU1.dispatchAction("opt05",0)</script>
+   </binding>
+  </action>
+</animation>
+
+<text>
+    <name>value.RWYLEN05</name>
+    <condition>
+      <greater-than>
+          <property>/instrumentation/mcdu[0]/opt-size</property>
+	  <value>4</value>
+      </greater-than>
+    </condition>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.103</x-m>
+      <y-m>0.045</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">text-value</type>
+    <property type="string">/instrumentation/mcdu[0]/col01-opt05</property>
+    <!-- format type="string">%5.0f</format -->
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+<text>
+    <name>value.RwyHdg05</name>
+    <condition>
+      <greater-than>
+          <property>/instrumentation/mcdu[0]/opt-size</property>
+	  <value>4</value>
+      </greater-than>
+    </condition>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.103</x-m>
+      <y-m>0.065</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">text-value</type>
+    <property type="string">/instrumentation/mcdu[0]/col02-opt05</property>
+    <!-- format type="string">%3.0f</format -->
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+<text>
+    <name>value.SidTrans05</name>
+    <condition>
+      <and>
+      <greater-than>
+          <property>/instrumentation/mcdu[0]/opt-size</property>
+	  <value>4</value>
+      </greater-than>
+      <or>
+      <equals>
+          <property>/instrumentation/mcdu[0]/page</property>
+	  <value>active.departure.sid</value>
+      </equals>
+      <equals>
+          <property>/instrumentation/mcdu[0]/page</property>
+	  <value>active.departure.star</value>
+      </equals>
+      </or>
+      </and>
+    </condition>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.103</x-m>
+      <y-m>0.065</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">text-value</type>
+    <property type="string">/instrumentation/mcdu[0]/col02-opt05</property>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+<!-- RWY 06 -->
+<text>
+    <name>field.RWY06</name>
+    <condition>
+      <greater-than>
+          <property>/instrumentation/mcdu[0]/opt-size</property>
+	  <value>5</value>
+      </greater-than>
+    </condition>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.095</x-m>
+      <y-m>0.026</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">text-value</type>
+    <property type="string">/instrumentation/mcdu[0]/opt06</property>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>center-bottom</alignment>
+</text>
+
+<animation>
+  <type>pick</type>
+  <object-name>input.RWY06</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU1.dispatchAction("opt06",0)</script>
+   </binding>
+  </action>
+</animation>
+
+<text>
+    <name>value.RWYLEN06</name>
+    <condition>
+      <greater-than>
+          <property>/instrumentation/mcdu[0]/opt-size</property>
+	  <value>5</value>
+      </greater-than>
+    </condition>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.095</x-m>
+      <y-m>0.045</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">text-value</type>
+    <property type="string">/instrumentation/mcdu[0]/col01-opt06</property>
+    <!-- format type="string">%5.0f</format -->
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+<text>
+    <name>value.RwyHdg06</name>
+    <condition>
+      <greater-than>
+          <property>/instrumentation/mcdu[0]/opt-size</property>
+	  <value>5</value>
+      </greater-than>
+    </condition>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.095</x-m>
+      <y-m>0.065</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">text-value</type>
+    <property type="string">/instrumentation/mcdu[0]/col02-opt06</property>
+    <!-- format type="string">%3.0f</format -->
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+<text>
+    <name>value.SidTrans06</name>
+    <condition>
+      <and>
+      <greater-than>
+          <property>/instrumentation/mcdu[0]/opt-size</property>
+	  <value>5</value>
+      </greater-than>
+      <or>
+      <equals>
+          <property>/instrumentation/mcdu[0]/page</property>
+	  <value>active.departure.sid</value>
+      </equals>
+      <equals>
+          <property>/instrumentation/mcdu[0]/page</property>
+	  <value>active.departure.star</value>
+      </equals>
+      </or>
+      </and>
+    </condition>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.095</x-m>
+      <y-m>0.065</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">text-value</type>
+    <property type="string">/instrumentation/mcdu[0]/col02-opt06</property>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+<!-- RWY07 -->
+<text>
+    <name>field.RWY07</name>
+    <condition>
+      <greater-than>
+          <property>/instrumentation/mcdu[0]/opt-size</property>
+	  <value>6</value>
+      </greater-than>
+    </condition>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.0855</x-m>
+      <y-m>0.026</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">text-value</type>
+    <property type="string">/instrumentation/mcdu[0]/opt07</property>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>center-bottom</alignment>
+</text>
+
+<animation>
+  <type>pick</type>
+  <object-name>input.RWY07</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU1.dispatchAction("opt07",0)</script>
+   </binding>
+  </action>
+</animation>
+
+<text>
+    <name>value.RWYLEN07</name>
+    <condition>
+      <greater-than>
+          <property>/instrumentation/mcdu[0]/opt-size</property>
+	  <value>6</value>
+      </greater-than>
+    </condition>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.0855</x-m>
+      <y-m>0.045</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">text-value</type>
+    <property type="string">/instrumentation/mcdu[0]/col01-opt07</property>
+    <!-- format type="string">%5.0f</format -->
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+<text>
+    <name>value.RwyHdg07</name>
+    <condition>
+      <greater-than>
+          <property>/instrumentation/mcdu[0]/opt-size</property>
+	  <value>6</value>
+      </greater-than>
+    </condition>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.0855</x-m>
+      <y-m>0.065</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">text-value</type>
+    <property type="string">/instrumentation/mcdu[0]/col02-opt07</property>
+    <!-- format type="string">%3.0f</format -->
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+<text>
+    <name>value.SidTrans07</name>
+    <condition>
+      <and>
+      <greater-than>
+          <property>/instrumentation/mcdu[0]/opt-size</property>
+	  <value>6</value>
+      </greater-than>
+      <or>
+      <equals>
+          <property>/instrumentation/mcdu[0]/page</property>
+	  <value>active.departure.sid</value>
+      </equals>
+      <equals>
+          <property>/instrumentation/mcdu[0]/page</property>
+	  <value>active.departure.star</value>
+      </equals>
+      </or>
+      </and>
+    </condition>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.0855</x-m>
+      <y-m>0.065</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">text-value</type>
+    <property type="string">/instrumentation/mcdu[0]/col02-opt07</property>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+<!-- RWY08 -->
+<text>
+    <name>field.RWY08</name>
+    <condition>
+      <greater-than>
+          <property>/instrumentation/mcdu[0]/opt-size</property>
+	  <value>7</value>
+      </greater-than>
+    </condition>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.077</x-m>
+      <y-m>0.026</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">text-value</type>
+    <property type="string">/instrumentation/mcdu[0]/opt08</property>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>center-bottom</alignment>
+</text>
+
+<animation>
+  <type>pick</type>
+  <object-name>input.RWY08</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU1.dispatchAction("opt08",0)</script>
+   </binding>
+  </action>
+</animation>
+
+<text>
+    <name>value.RWYLEN08</name>
+    <condition>
+      <greater-than>
+          <property>/instrumentation/mcdu[0]/opt-size</property>
+	  <value>7</value>
+      </greater-than>
+    </condition>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.077</x-m>
+      <y-m>0.045</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">text-value</type>
+    <property type="string">/instrumentation/mcdu[0]/col01-opt08</property>
+    <!-- format type="string">%5.0f</format -->
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+<text>
+    <name>value.RwyHdg08</name>
+    <condition>
+      <and>
+      <greater-than>
+          <property>/instrumentation/mcdu[0]/opt-size</property>
+	  <value>7</value>
+      </greater-than>
+      <or>
+      <equals>
+          <property>/instrumentation/mcdu[0]/page</property>
+	  <value>active.departure.dep</value>
+      </equals>
+      <equals>
+          <property>/instrumentation/mcdu[0]/page</property>
+	  <value>active.departure.arv</value>
+      </equals>
+      </or>
+      </and>
+    </condition>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.077</x-m>
+      <y-m>0.065</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">text-value</type>
+    <property type="string">/instrumentation/mcdu[0]/col02-opt08</property>
+    <!-- format type="string">%3.0f</format -->
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+<text>
+    <name>value.SidTrans08</name>
+    <condition>
+      <and>
+      <greater-than>
+          <property>/instrumentation/mcdu[0]/opt-size</property>
+	  <value>7</value>
+      </greater-than>
+      <or>
+      <equals>
+          <property>/instrumentation/mcdu[0]/page</property>
+	  <value>active.departure.sid</value>
+      </equals>
+      <equals>
+          <property>/instrumentation/mcdu[0]/page</property>
+	  <value>active.departure.star</value>
+      </equals>
+      </or>
+      </and>
+    </condition>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.077</x-m>
+      <y-m>0.065</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">text-value</type>
+    <property type="string">/instrumentation/mcdu[0]/col02-opt08</property>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+
+<!--   active.departure.sid/star fields -->
+
+<!-- active.perf top  fields -->
+
+<text>
+  <name>value.perf.crz</name>
+  <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.176</x-m>
+      <y-m>0.038</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">number-value</type>
+    <property type="string">/instrumentation/afs/CRZ_FL</property>
+    <offset type="double">0.01</offset>
+    <format>%3.0f</format>
+    <truncate type="bool">true</truncate>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+</text>
+
+<!-- active.perf.to_perf fields -->
+
+<text>
+  <name>value.to_perf.rwy</name>
+  <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.150</x-m>
+      <y-m>0.028</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">text-value</type>
+    <property type="string">/instrumentation/afs/dep-rwy</property>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+<text>
+  <name>value.to_perf.v1</name>
+  <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.139</x-m>
+      <y-m>0.030</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">number-value</type>
+    <property type="string">/instrumentation/afs/V1</property>
+    <format>%3.0f</format>
+    <truncate type="bool">true</truncate>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+</text>
+
+<text>
+  <name>value.to_perf.vr</name>
+  <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.129</x-m>
+      <y-m>0.030</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">number-value</type>
+    <property type="string">/instrumentation/afs/VR</property>
+    <format>%3.0f</format>
+    <truncate type="bool">true</truncate>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+</text>
+
+<text>
+  <name>value.to_perf.v2</name>
+  <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.119</x-m>
+      <y-m>0.030</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">number-value</type>
+    <property type="string">/instrumentation/afs/V2</property>
+    <format>%3.0f</format>
+    <truncate type="bool">true</truncate>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+</text>
+
+<text>
+  <name>value.to_perf.f-speed</name>
+  <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.139</x-m>
+      <y-m>0.060</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">number-value</type>
+    <property type="string">/instrumentation/afs/to-F</property>
+    <format>%3.0f</format>
+    <truncate type="bool">true</truncate>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+</text>
+
+<text>
+  <name>value.to_perf.s-speed</name>
+  <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.129</x-m>
+      <y-m>0.060</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">number-value</type>
+    <property type="string">/instrumentation/afs/to-S</property>
+    <format>%3.0f</format>
+    <truncate type="bool">true</truncate>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+</text>
+
+<text>
+  <name>value.to_perf.green-dot</name>
+  <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.119</x-m>
+      <y-m>0.060</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">number-value</type>
+    <property type="string">/instrumentation/afs/to-greendot</property>
+    <format>%3.0f</format>
+    <truncate type="bool">true</truncate>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+</text>
+
+<text>
+  <name>value.to_perf.thr_red</name>
+  <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.0887</x-m>
+      <y-m>0.045</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">number-value</type>
+    <property type="string">/instrumentation/afs/thrust-reduce-alt</property>
+    <format>%5.0f</format>
+    <truncate type="bool">true</truncate>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+</text>
+
+<animation>
+  <type>pick</type>
+  <object-name>input.ths_red</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU1.selectField("thrust-reduce-alt")</script>
+   </binding>
+  </action>
+</animation>
+
+<text>
+  <name>value.to_perf.thr_accel</name>
+  <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.078</x-m>
+      <y-m>0.045</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">number-value</type>
+    <property type="string">/instrumentation/afs/thrust-accel-alt</property>
+    <format>%5.0f</format>
+    <truncate type="bool">true</truncate>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+</text>
+
+<animation>
+  <type>pick</type>
+  <object-name>input.ths_accel</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU1.selectField("thrust-accel-alt")</script>
+   </binding>
+  </action>
+</animation>
+
+<text>
+  <name>value.to_perf.trans_ft</name>
+  <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.051</x-m>
+      <y-m>0.045</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">number-value</type>
+    <property type="string">/instrumentation/afs/transition-ft</property>
+    <format>%5.0f</format>
+    <truncate type="bool">true</truncate>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+</text>
+
+<animation>
+  <type>pick</type>
+  <object-name>input.trans_level</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU1.selectField("transition-ft")</script>
+   </binding>
+  </action>
+</animation>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <!--  LABEL Material   -->
+  <animation>
+    <type>material</type>
+    <object-name>label.active</object-name>
+    <object-name>label.FLT_NBR</object-name>
+    <object-name>label.FROM</object-name>
+    <object-name>label.TO</object-name>
+    <object-name>label.CPY_RTE</object-name>
+    <object-name>label.ALT_RTE</object-name>
+    <object-name>label.CRZ_FL</object-name>
+    <object-name>label.CRZ_TEMP</object-name>
+    <object-name>label.IRS</object-name>
+    <object-name>label.DEPARTURE</object-name>
+    <object-name>label.NAVAIDS</object-name>
+    <object-name>label.FUEL_LOAD</object-name>
+    <object-name>label.TO_PERF</object-name>
+    <object-name>label.DEPARTURE.dep</object-name>
+    <object-name>label.DEPARTURE.arv</object-name>
+    <object-name>label.APT</object-name>
+    <object-name>label.DEPARTURE.dep</object-name>
+    <object-name>label.DEPARTURE.arv</object-name>
+    <object-name>field.APT.dep</object-name>
+    <object-name>field.APT.arv</object-name>
+    <object-name>field.RWY01</object-name>
+    <object-name>field.RWY02</object-name>
+    <object-name>field.RWY03</object-name>
+    <object-name>field.RWY04</object-name>
+    <object-name>field.RWY05</object-name>
+    <object-name>field.RWY06</object-name>
+    <object-name>field.RWY07</object-name>
+    <object-name>field.RWY08</object-name>
+    <object-name>value.RWYLEN01</object-name>
+    <object-name>value.RWYLEN02</object-name>
+    <object-name>value.RWYLEN03</object-name>
+    <object-name>value.RWYLEN04</object-name>
+    <object-name>value.RWYLEN05</object-name>
+    <object-name>value.RWYLEN06</object-name>
+    <object-name>value.RWYLEN07</object-name>
+    <object-name>value.RWYLEN08</object-name>
+    <object-name>value.RwyHdg01</object-name>
+    <object-name>value.RwyHdg02</object-name>
+    <object-name>value.RwyHdg03</object-name>
+    <object-name>value.RwyHdg04</object-name>
+    <object-name>value.RwyHdg05</object-name>
+    <object-name>value.RwyHdg06</object-name>
+    <object-name>value.RwyHdg07</object-name>
+    <object-name>value.RwyHdg08</object-name>
+    <object-name>value.SidTrans01</object-name>
+    <object-name>value.SidTrans02</object-name>
+    <object-name>value.SidTrans03</object-name>
+    <object-name>value.SidTrans04</object-name>
+    <object-name>value.SidTrans05</object-name>
+    <object-name>value.SidTrans06</object-name>
+    <object-name>value.SidTrans07</object-name>
+    <object-name>value.SidTrans08</object-name>
+    <object-name>field.runway.dep</object-name>
+    <object-name>field.runway.arv</object-name>
+    <object-name>label.SID</object-name>
+    <object-name>label.STAR</object-name>
+    <object-name>value.COURSE</object-name>
+    <object-name>label.COURSE</object-name>
+    <object-name>label.to_perf.crz</object-name>
+    <object-name>label.to_perf.rwy</object-name>
+    <object-name>label.to_perf.v1</object-name>
+    <object-name>label.to_perf.vr</object-name>
+    <object-name>label.to_perf.v2</object-name>
+    <object-name>label.to_perf.F-speed</object-name>
+    <object-name>label.to_perf.S-speed</object-name>
+    <object-name>label.to_perf.thr_red</object-name>
+    <object-name>label.to_perf.thr_accel</object-name>
+    <object-name>label.to_perf.eo_accel</object-name>
+    <object-name>label.to_perf.flaps</object-name>
+    <object-name>label.to_perf.ths_for</object-name>
+    <object-name>label.to_perf.to_shift</object-name>
+    <object-name>label.to_perf.trans_alt</object-name>
+    <object-name>label.menu.t_o</object-name>
+    <object-name>label.menu.clb</object-name>
+    <object-name>label.menu.crz</object-name>
+    <object-name>label.menu.des</object-name>
+    <object-name>label.menu.appr</object-name>
+    <object-name>label.menu.ga</object-name>
+    <emission>
+      <red>0.9</red>
+      <green>0.9</green>
+      <blue>0.9</blue>
+    </emission>
+    <shininess>0.0</shininess>
+    <transparency><alpha>0.7</alpha></transparency>
+  </animation>
+
+  <!--  Field Material  -->
+  <animation>
+    <type>material</type>
+    <object-name>field.FLT_NBR</object-name>
+    <object-name>field.FROM</object-name>
+    <object-name>field.TO</object-name>
+    <object-name>field.CRZ_FL</object-name>
+    <object-name>value.to_perf.v2</object-name>
+    <object-name>value.to_perf.vr</object-name>
+    <object-name>value.to_perf.v1</object-name>
+    <object-name>value.to_perf.rwy</object-name>
+    <object-name>value.perf.crz</object-name>
+    
+    <object-name>value.to_perf.thr_accel</object-name>
+    <object-name>value.to_perf.trans_ft</object-name>
+    <object-name>value.to_perf.thr_red</object-name>
+    <object-name>value.to_perf.green-dot</object-name>
+    <object-name>value.to_perf.s-speed</object-name>
+    <object-name>value.to_perf.f-speed</object-name>
+    <ambient>
+      <red>0.0</red>
+      <green>0.0</green>
+      <blue>0.8</blue>
+    </ambient>
+    <emission>
+      <red>0.25</red>
+      <green>0.5</green>
+      <blue>0.8</blue>
+    </emission>
+    <diffuse>
+      <red>0.25</red>
+      <green>0.5</green>
+      <blue>0.8</blue>
+    </diffuse>
+    <specular>
+      <red>0.0</red>
+      <green>0.0</green>
+      <blue>0.0</blue>
+    </specular>
+    <shininess>0.0</shininess>
+    <transparency><alpha>0.7</alpha></transparency>
+  </animation>
+  
+  <!-- error RED -->
+  <animation>
+    <condition>
+      <equals>
+        <property>/instrumentation/mcdu[0]/opt-error-display</property>
+	<value>3</value>
+      </equals>
+    </condition>
+    <type>material</type>
+    <object-name>error.no_db</object-name>
+    <ambient>
+      <red>0.5</red>
+      <green>0.1</green>
+      <blue>0.1</blue>
+    </ambient>
+    <emission>
+      <red>0.5</red>
+      <green>0.1</green>
+      <blue>0.1</blue>
+    </emission>
+    <diffuse>
+      <red>0.5</red>
+      <green>0.1</green>
+      <blue>0.1</blue>
+    </diffuse>
+    <specular>
+      <red>0.0</red>
+      <green>0.0</green>
+      <blue>0.0</blue>
+    </specular>
+    <shininess>0.0</shininess>
+    <transparency><alpha>0.7</alpha></transparency>
+  </animation>
+
+<!-- error CYAN -->
+  <animation>
+    <condition>
+      <equals>
+        <property>/instrumentation/mcdu[0]/opt-error-display</property>
+	<value>1</value>
+      </equals>
+    </condition>
+    <type>material</type>
+    <object-name>error.no_db</object-name>
+    <ambient>
+      <red>0.1</red>
+      <green>0.4</green>
+      <blue>0.4</blue>
+    </ambient>
+    <emission>
+      <red>0.1</red>
+      <green>0.4</green>
+      <blue>0.4</blue>
+    </emission>
+    <diffuse>
+      <red>0.1</red>
+      <green>0.4</green>
+      <blue>0.4</blue>
+    </diffuse>
+    <specular>
+      <red>0.0</red>
+      <green>0.0</green>
+      <blue>0.0</blue>
+    </specular>
+    <shininess>0.0</shininess>
+    <transparency><alpha>0.7</alpha></transparency>
+  </animation>
+  
+<!-- error AMBER -->
+  <animation>
+    <condition>
+      <equals>
+        <property>/instrumentation/mcdu[0]/opt-error-display</property>
+	<value>2</value>
+      </equals>
+    </condition>
+    <type>material</type>
+    <object-name>error.no_db</object-name>
+    <ambient>
+      <red>0.4</red>
+      <green>0.3</green>
+      <blue>0.1</blue>
+    </ambient>
+    <emission>
+      <red>0.4</red>
+      <green>0.3</green>
+      <blue>0.1</blue>
+    </emission>
+    <diffuse>
+      <red>0.4</red>
+      <green>0.3</green>
+      <blue>0.2</blue>
+    </diffuse>
+    <specular>
+      <red>0.0</red>
+      <green>0.0</green>
+      <blue>0.0</blue>
+    </specular>
+    <shininess>0.0</shininess>
+    <transparency><alpha>0.7</alpha></transparency>
+  </animation>
+<!--   Only display what is on the current page -->
+
+ <animation>
+  <type>select</type>
+  <object-name>label.FLT_NBR</object-name>
+  <object-name>label.FROM</object-name>
+  <object-name>label.TO</object-name>
+  <object-name>label.CPY_RTE</object-name>
+  <object-name>label.ALT_RTE</object-name>
+  <object-name>label.CRZ_FL</object-name>
+  <object-name>label.CRZ_TEMP</object-name>
+  <object-name>label.IRS</object-name>
+  <object-name>label.DEPARTURE</object-name>
+  <object-name>label.NAVAIDS</object-name>
+  <object-name>label.FUEL_LOAD</object-name>
+  <object-name>label.TO_PERF</object-name>
+  
+  <!--object-name>input.FLT_NBR</object-name>
+  <object-name>input.FROM</object-name>
+  <object-name>input.TO</object-name>
+  <object-name>input.ALTN</object-name>
+  <object-name>input.CO_RTE</object-name>
+  <object-name>input.ALTN_RTE</object-name>
+  <object-name>input.CRZ_FL</object-name>
+  <object-name>input.CRZ_TEMP</object-name -->
+  
+  <object-name>field.FLT_NBR</object-name>
+  <object-name>field.FROM</object-name>
+  <object-name>field.TO</object-name>
+  <object-name>field.CPY_RTE</object-name>
+  <object-name>field.ALT_RTE</object-name>
+  <object-name>field.CRZ_FL</object-name>
+  <object-name>field.CRZ_TEMP</object-name>
+  
+  <!-- object-name>menu.RTE_SELECT</object-name>
+  <object-name>menu.ALT_RTE_SELECT</object-name>
+  <object-name>menu.IRS</object-name>
+  <object-name>menu.DEPARTURE</object-name>
+  <object-name>menu.NAVAIDS</object-name>
+  <object-name>menu.FUEL_LOAD</object-name>
+  <object-name>menu.TO_PERF</object-name>
+  <object-name>menu.RTE_SUMM</object-name -->
+  
+  <object-name>page.INIT</object-name>
+  <condition>
+    <equals>
+      <property>/instrumentation/mcdu[0]/page</property>
+      <value>active.init</value>
+    </equals>
+  </condition>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>page.TO_PERF</object-name>
+    <object-name>value.to_perf.v2</object-name>
+    <object-name>value.to_perf.vr</object-name>
+    <object-name>value.to_perf.v1</object-name>
+    <object-name>value.to_perf.rwy</object-name>
+    <object-name>value.perf.crz</object-name>
+    <object-name>value.to_perf.thr_accel</object-name>
+    <object-name>value.to_perf.trans_ft</object-name>
+    <object-name>value.to_perf.thr_red</object-name>
+    <object-name>value.to_perf.green-dot</object-name>
+    <object-name>value.to_perf.s-speed</object-name>
+    <object-name>value.to_perf.f-speed</object-name>
+    <object-name>label.to_perf.crz</object-name>
+    <object-name>label.to_perf.rwy</object-name>
+    <object-name>label.to_perf.v1</object-name>
+    <object-name>label.to_perf.vr</object-name>
+    <object-name>label.to_perf.v2</object-name>
+    <object-name>label.to_perf.F-speed</object-name>
+    <object-name>label.to_perf.S-speed</object-name>
+    <object-name>label.to_perf.thr_red</object-name>
+    <object-name>label.to_perf.thr_accel</object-name>
+    <object-name>label.to_perf.eo_accel</object-name>
+    <object-name>label.to_perf.flaps</object-name>
+    <object-name>label.to_perf.ths_for</object-name>
+    <object-name>label.to_perf.to_shift</object-name>
+    <object-name>label.to_perf.trans_alt</object-name>
+  <condition>
+    <equals>
+      <property>/instrumentation/mcdu[0]/page</property>
+      <value>active.to_perf</value>
+    </equals>
+  </condition>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>page.perf</object-name>
+  <object-name>label.menu.t_o</object-name>
+  <object-name>label.menu.clb</object-name>
+  <object-name>label.menu.crz</object-name>
+  <object-name>label.menu.des</object-name>
+  <object-name>label.menu.appr</object-name>
+  <object-name>label.menu.ga</object-name>
+  <condition>
+    <or>
+      <equals>
+        <property>/instrumentation/mcdu[0]/page</property>
+        <value>active.to_perf</value>
+      </equals>
+      <equals>
+        <property>/instrumentation/mcdu[0]/page</property>
+        <value>active.clb_perf</value>
+      </equals>
+      <equals>
+        <property>/instrumentation/mcdu[0]/page</property>
+        <value>active.crz_perf</value>
+      </equals>
+      <equals>
+        <property>/instrumentation/mcdu[0]/page</property>
+        <value>active.des_perf</value>
+      </equals>  
+      <equals>
+        <property>/instrumentation/mcdu[0]/page</property>
+        <value>active.appr_perf</value>
+      </equals> 
+      <equals>
+        <property>/instrumentation/mcdu[0]/page</property>
+        <value>active.ga_perf</value>
+      </equals> 
+    </or>
+  </condition>
+</animation>
+
+<!-- animation>
+  <type>select</type>
+  <object-name>menu.clb</object-name>
+  <object-name>menu.crz</object-name>
+  <object-name>menu.des</object-name>
+  <object-name>menu.appr</object-name>
+  <object-name>menu.ga</object-name>
+  <condition>
+    <equals>
+        <property>/instrumentation/mcdu[0]/page</property>
+        <value>active.to_perf</value>
+    </equals>
+  </condition>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>menu.t_o</object-name>
+  <object-name>menu.crz</object-name>
+  <object-name>menu.des</object-name>
+  <object-name>menu.appr</object-name>
+  <object-name>menu.ga</object-name>
+  <condition>
+    <equals>
+        <property>/instrumentation/mcdu[0]/page</property>
+        <value>active.clb_perf</value>
+    </equals>
+  </condition>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>menu.t_o</object-name>
+  <object-name>menu.clb</object-name>
+  <object-name>menu.des</object-name>
+  <object-name>menu.appr</object-name>
+  <object-name>menu.ga</object-name>
+  <condition>
+    <equals>
+        <property>/instrumentation/mcdu[0]/page</property>
+        <value>active.crz_perf</value>
+    </equals>
+  </condition>
+</animation -->
+
+<animation>
+  <type>select</type>
+  <object-name>label.APT</object-name>
+  <object-name>input.RWY01</object-name>
+  <object-name>input.RWY02</object-name>
+  <object-name>input.RWY03</object-name>
+  <object-name>input.RWY04</object-name>
+  <object-name>input.RWY05</object-name>
+  <object-name>input.RWY06</object-name>
+  <object-name>input.RWY07</object-name>
+  <object-name>input.RWY08</object-name>
+  <object-name>field.RWY01</object-name>
+  <object-name>field.RWY02</object-name>
+  <object-name>field.RWY03</object-name>
+  <object-name>field.RWY04</object-name>
+  <object-name>field.RWY05</object-name>
+  <object-name>field.RWY06</object-name>
+  <object-name>field.RWY07</object-name>
+  <object-name>field.RWY08</object-name>
+  <object-name>value.RWYLEN01</object-name>
+  <object-name>value.RWYLEN02</object-name>
+  <object-name>value.RWYLEN03</object-name>
+  <object-name>value.RWYLEN04</object-name>
+  <object-name>value.RWYLEN05</object-name>
+  <object-name>value.RWYLEN06</object-name>
+  <object-name>value.RWYLEN07</object-name>
+  <object-name>value.RWYLEN08</object-name>
+  <object-name>value.COURSE</object-name>
+  <object-name>label.COURSE</object-name>
+  <condition>
+    <or>
+    <equals>
+      <property>/instrumentation/mcdu[0]/page</property>
+      <value>active.departure.dep</value>
+    </equals>
+    <equals>
+      <property>/instrumentation/mcdu[0]/page</property>
+      <value>active.departure.arv</value>
+    </equals>
+    <equals>
+      <property>/instrumentation/mcdu[0]/page</property>
+      <value>active.departure.sid</value>
+    </equals>
+    <equals>
+      <property>/instrumentation/mcdu[0]/page</property>
+      <value>active.departure.star</value>
+    </equals>
+    <equals>
+      <property>/instrumentation/mcdu[0]/page</property>
+      <value>active.departure.sid.trans</value>
+    </equals>
+    </or>
+  </condition>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>field.APT.dep</object-name>
+  <object-name>field.runway.dep</object-name>
+  <object-name>menu.DEPARTURE.arv</object-name>
+  <object-name>label.DEPARTURE.arv</object-name>
+  <condition>
+  <or>
+   <equals>
+      <property>/instrumentation/mcdu[0]/page</property>
+      <value>active.departure.dep</value>
+    </equals>
+    <equals>
+      <property>/instrumentation/mcdu[0]/page</property>
+      <value>active.departure.sid</value>
+    </equals>
+    </or>
+  </condition>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>field.APT.arv</object-name>
+  <object-name>field.runway.arv</object-name>
+  <object-name>menu.DEPARTURE.dep</object-name>
+  <object-name>label.DEPARTURE.dep</object-name>
+  <condition>
+  <or>
+   <equals>
+      <property>/instrumentation/mcdu[0]/page</property>
+      <value>active.departure.arv</value>
+    </equals>
+    <equals>
+      <property>/instrumentation/mcdu[0]/page</property>
+      <value>active.departure.star</value>
+    </equals>
+    </or>
+  </condition>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>label.SID</object-name>
+  <object-name>menu.SID</object-name>
+  <condition>
+    <and>
+    <equals>
+      <property>/instrumentation/mcdu[0]/sid-arm</property>
+      <value>1</value>
+    </equals>
+    <equals>
+      <property>/instrumentation/mcdu[0]/page</property>
+      <value>active.departure.dep</value>
+    </equals>
+    </and>
+  </condition>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>label.STAR</object-name>
+  <object-name>menu.STAR</object-name>
+  <condition>
+    <and>
+    <equals>
+      <property>/instrumentation/mcdu[0]/star-arm</property>
+      <value>1</value>
+    </equals>
+    <equals>
+      <property>/instrumentation/mcdu[0]/page</property>
+      <value>active.departure.arv</value>
+    </equals>
+    </and>
+  </condition>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>value.RwyHdg01</object-name>
+  <object-name>value.RwyHdg02</object-name>
+  <object-name>value.RwyHdg03</object-name>
+  <object-name>value.RwyHdg04</object-name>
+  <object-name>value.RwyHdg05</object-name>
+  <object-name>value.RwyHdg06</object-name>
+  <object-name>value.RwyHdg07</object-name>
+  <object-name>value.RwyHdg08</object-name>
+  <condition>
+    <or>
+    <equals>
+      <property>/instrumentation/mcdu[0]/page</property>
+      <value>active.departure.dep</value>
+    </equals>
+    <equals>
+      <property>/instrumentation/mcdu[0]/page</property>
+      <value>active.departure.arv</value>
+    </equals>
+    <equals>
+      <property>/instrumentation/mcdu[0]/page</property>
+      <value>active.departure.dep</value>
+    </equals>
+    </or>
+  </condition>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>value.SidTrans01</object-name>
+  <object-name>value.SidTrans02</object-name>
+  <object-name>value.SidTrans03</object-name>
+  <object-name>value.SidTrans04</object-name>
+  <object-name>value.SidTrans05</object-name>
+  <object-name>value.SidTrans06</object-name>
+  <object-name>value.SidTrans07</object-name>
+  <object-name>value.SidTrans08</object-name>
+  <condition>
+    <or>
+    <equals>
+      <property>/instrumentation/mcdu[0]/page</property>
+      <value>active.departure.sid</value>
+    </equals>
+    <equals>
+      <property>/instrumentation/mcdu[0]/page</property>
+      <value>active.departure.star</value>
+    </equals>
+    </or>
+  </condition>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>error.no_db</object-name>
+  <condition>
+    <greater-than>
+      <property>/instrumentation/mcdu[0]/opt-error-display</property>
+      <value>0</value>
+    </greater-than>
+  </condition>
+</animation>
+
+
+</PropertyList>

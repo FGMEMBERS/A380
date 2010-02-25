@@ -14,7 +14,7 @@
 <turbine_engine name="TRENT-900">
   <milthrust> 80000 </milthrust>
   <bypassratio>    8.0 </bypassratio>
-  <tsfc>           0.5 </tsfc>
+  <tsfc>           0.2 </tsfc>            <!-- for stated better fuel efficiency. was 0.5 SAH 28-NOV-2009 -->
   <idlen1>        20.0 </idlen1>
   <idlen2>        60.0 </idlen2>
   <maxn1>        100.0 </maxn1>

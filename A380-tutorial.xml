@@ -1,431 +1,41 @@
 <PropertyList>
   <tutorial>
-    <name>Take-off</name>
+    <name>Pre-flight</name>
     <description>
-This tutorial starts from San Francisco Intl.(KSFO), in clear, still, weather.
+This tutorial will start off at Sydney Intl (YSSY), we will first adjust the fuel and weight (use the Menu) to achieve the correct balance, then we will start the APU, enter our flight plan, start the engines, adjust the flaps and release the parking park. At that point you are ready to move to the next tutorial where we will start the take off roll through to reaching cruise level.
 
-Take-off and climb out at 600fpm (about 70 kts), continuing on the runway heading. Level off at 1000ft to complete the tutorial.
+
+Before starting the tutorial, take some time to read over this introduction to the cockpit and make sure you understand where each display or panel is.
+
+P E D E S T A L
+The thrust levers can be used to directly control the thrust applied to the running engines, there is also 4 detents (use SHIFT + Page Up/Down) that will enable the Auto Thrust. Directly below the thrust levers are the engine master switches, pushing the switches down (away from thrust levers) will cut off the engines.
+Below the engine master switches are fourteen buttons to change the current ECAM page in the System Display. To the right (First Officers side) is the Flaps lever, there are four positions. To the left is the speedbrake and parking brake.
+
+M A I N   I N S T R U M E N T   P A N E L
+Directly above the thrust levers is the System Display (SD). It is divided into the ECAM pages in the top half, and the permanent data area across the middle.  
+The ECAM should be displaying the DOORS page, it will automatically change to the appropriate page when needed, for example the ENGINES page will display once you start the engines.  The permanent data area of the System Display has three columns and shows temperature, current UTC time, Gross Weight in kilograms, Centre of Gravity as a percentage and total Fuel On Board (FOB) in kilograms.
+
+To the left and right of the System Display are two Multi Function Displays (MFD), these are used to enter your Flight Plan and set various performance characteristics. 
+Use the keyboard directly below the MFD to change data in the MFD after clicking in the input box on the MFD screen, you can not use your computer keyboard.
+
+
+Above the System Display is the Engine/Warning Display (E/WD), this has the four; engine thrust gauges, N1 and Exhaust Gas Temperature gauges in the top half, there is a message box in the bottom half of the E/WD.
+
+In front of the Capt and First Officer is a Navigation Display (ND) and a Primary Flight Display (PFD). The Navigation Display is the inner display and the PFD is the outer display. You control what is displayed on the Navigation Display from the EFIS on the glareshield.
+
+G L A R E S H I E L D
+On the glareshield, in the middle is the Auto Flight System Control Panel (AFS CP) used to set the flight guidance values for (from left to right); Speed (SPD), Heading (HDG), Alitutde (ALT) and Vertical Speed (V/S). Use your centre mouse scrollwheel scrolling up or down to change the values. If no value is displayed then that flight guidance parameter is in "managed" mode, if it is showing a value then that flight guidance parameter is in "selected" mode. In selected mode the Auto Flight System will attain and hold the value that you set. In "managed" mode, the Auto Flight System will be directed by the Flight Management Computer which takes into account, the phase of flight the aircraft is in and the flight plan as entered on the MFD and the performance characteristics as entered on the MFD.
+
+When one of the flight guidance parameters is in "managed" mode, you can use the mouse scrollwheel to change the selected value without it effecting the current "managed" mode, once you change to "selected" mode for that parameter, the Auto Flight System will change to the selected value. 
+
+To the left and right of the AFS CP, there is a Captain and First Officer Electronic Flight Instrument System (EFIS), this has a dial for the current altitude (either in inHg or kPa) and controls the display of information on the Navigation Display (ND) and Primary Flight Display (PFD).
     </description>
     <audio-dir>Aircraft/A380/tutorial</audio-dir>
-    <timeofday>morning</timeofday>
-    <presets>
-      <airport-id>KHAF</airport-id>
-      <on-ground>1</on-ground>
-      <runway>12</runway>
-      <altitude-ft>-9999</altitude-ft>
-      <latitude-deg>-9999</latitude-deg>
-      <longitude-deg>-9999</longitude-deg>
-      <heading-deg>0</heading-deg>
-      <airspeed-kt>0</airspeed-kt>
-      <glideslope-deg>0</glideslope-deg>
-      <offset-azimuth>0</offset-azimuth>
-      <offset-distance>0</offset-distance>
-    </presets>
-
-    <init>
-      <set>
-        <property>/controls/gear/brake-parking</property>
-        <value>1</value>
-      </set>
-      <set>
-        <property>/controls/flight/flaps</property>
-        <value>0.0</value>
-      </set>
-      <set>
-        <property>/controls/engines/engine/magnetos</property>
-        <value>3</value>
-      </set>
-      <set>
-        <property>/controls/engines/engine/throttle</property>
-        <value>0.5</value>
-      </set>
-      <set>
-        <property>/engines/engine/running</property>
-        <value>true</value>
-      </set>
-      <set>
-        <property>/instrumentation/adf/frequencies/selected-khz</property>
-        <value>340</value>
-      </set>
-      <set>
-        <property>/environment/weather-scenario</property>
-        <value>Fair weather</value>
-      </set>
-      <set>
-        <property>/controls/flight/elevator-trim</property>
-        <value>0.17</value>
-      </set>
-    </init>
-
-    <step>
-      <message>Release the parking brakes, smoothly apply full power and start your take-off.</message>
-      <error>
-        <message>Apply full throttle for take-off.</message>
-        <condition>
-          <less-than>
-            <property>/controls/engines/engine/throttle</property>
-            <value>0.95</value>
-          </less-than>
-        </condition>
-      </error>
-      <error>
-        <message>Release the parking brake using Shift B</message>
-        <condition>
-          <equals>
-            <property>/controls/gear/brake-parking</property>
-            <value>1</value>
-          </equals>
-        </condition>
-      </error>
-      <exit>
-        <condition>
-          <greater-than>
-            <property>/velocities/airspeed-kt</property>
-            <value>5.0</value>
-          </greater-than>
-        </condition>
-      </exit>
-    </step>
-
-    <step>
-      <message>Stay on the center-line of the runway using the rudder.</message>
-      <exit>
-        <condition>
-          <greater-than>
-            <property>/velocities/airspeed-kt</property>
-            <value>45.0</value>
-          </greater-than>
-        </condition>
-      </exit>
-    </step>
-
-    <step>
-      <message>Rotate at 65 knots and climb straight out on heading 120 at 600 feet per minute.</message>
-      <exit>
-         <condition>
-          <greater-than>
-            <property>/instrumentation/vertical-speed-indicator/indicated-speed-fpm</property>
-            <value>300</value>
-          </greater-than>
-        </condition>
-      </exit>
-    </step>
-
-    <step>
-      <message>Continue your climb on heading 120 at 600 feet per minute to 1000 feet.</message>
-      <error>
-        <message>Your climb angle is too shallow - raise the nose slightly to increase your climb rate.</message>
-        <condition>
-          <less-than>
-            <property>/instrumentation/vertical-speed-indicator/indicated-speed-fpm</property>
-            <value>400</value>
-          </less-than>
-        </condition>
-      </error>
-      <error>
-        <message>Your climb angle is too great - lower the nose slightly to decrease your climb rate.</message>
-        <condition>
-          <greater-than>
-            <property>/instrumentation/vertical-speed-indicator/indicated-speed-fpm</property>
-            <value>900</value>
-          </greater-than>
-        </condition>
-      </error>
-      <error>
-        <message>You are heading too far left, Turn right slightly to heading 120.</message>
-        <condition>
-          <less-than>
-            <property>/instrumentation/heading-indicator/indicated-heading-deg</property>
-            <value>110</value>
-          </less-than>
-        </condition>
-      </error>
-      <error>
-        <message>You are heading too far right, Turn left slightly to heading 120.</message>
-        <condition>
-          <greater-than>
-            <property>/instrumentation/heading-indicator/indicated-heading-deg</property>
-            <value>130</value>
-          </greater-than>
-        </condition>
-      </error>
-      <error>
-        <message>You are in danger of being "behind the power curve". Drop the nose to speed up to 70 knots.</message>
-        <condition>
-          <less-than>
-            <property>/velocities/airspeed-kt</property>
-            <value>69.0</value>
-          </less-than>
-        </condition>
-      </error>
-      <exit>
-       <condition>
-         <greater-than>
-           <property>/instrumentation/altimeter/indicated-altitude-ft</property>
-           <value>1000</value>
-         </greater-than>
-       </condition>
-      </exit>
-    </step>
-
-    <step>
-      <message>Level off at between 1000 and 1100 feet.</message>
-      <error>
-        <message>You are too low</message>
-        <condition>
-          <less-than>
-            <property>/instrumentation/altimeter/indicated-altitude-ft</property>
-            <value>1000</value>
-          </less-than>
-        </condition>
-      </error>
-      <error>
-        <message>You are too high</message>
-        <condition>
-          <greater-than>
-            <property>/instrumentation/altimeter/indicated-altitude-ft</property>
-            <value>1100</value>
-          </greater-than>
-        </condition>
-      </error>
-      <exit>
-        <condition>
-          <and>
-            <greater-than>
-              <property>/instrumentation/altimeter/indicated-altitude-ft</property>
-              <value>1000</value>
-            </greater-than>
-            <less-than>
-              <property>/instrumentation/altimeter/indicated-altitude-ft</property>
-              <value>1100</value>
-            </less-than>
-            <less-than>
-              <property>instrumentation/vertical-speed-indicator/indicated-speed-fpm</property>
-              <value>150</value>
-            </less-than>
-            <greater-than>
-              <property>instrumentation/vertical-speed-indicator/indicated-speed-fpm</property>
-              <value>-150</value>
-            </greater-than>
-          </and>
-        </condition>
-      </exit>
-    </step>
-
-    <end>
-      <message>Congratulations, you've successfully taken off. Now try landing!</message>
-    </end>
-  </tutorial>
-
-
-
-  <tutorial>
-    <name>Straight-in Landing</name>
-    <description>Landings are not optional...
-
-Land the aircraft from an altitude of 1000ft on runway 30 at KHAF on a calm morning.
-
-Unlike normal flight, when landing you use power alone to control descent rate. The runway should stay in the same position throughout the descent - about a third of the distance above the glare-shield.
-
-KHAF has a VASI to the left of runway 30, a series of lights designed to help you judge your approach. Simply put, the VASI will display red lights if you are descending too fast (indicating that you need to increase power), and white lights if you are too high (indicating that you need to decrease power). If you are descending at the right angle, you will see 3 red lights and 3 white.
-
-You start the tutorial cruising at around 1000ft and 90kts. To begin your descent, you will need to reduce power and drop one notch flaps. You are aiming to approach at 80kts and 300fpm. As you get closer, you will need to reduce power further and drop more flaps, aiming to touch down "on the numbers" at 65kts.
-    </description>
     <timeofday>afternoon</timeofday>
     <presets>
-      <airport-id>KSFO</airport-id>
-      <on-ground>0</on-ground>
-      <runway>28R</runway>
-      <altitude-ft>2000</altitude-ft>
-      <latitude-deg>-9999</latitude-deg>
-      <longitude-deg>-9999</longitude-deg>
-      <heading-deg>282.0</heading-deg>
-      <airspeed-kt>250</airspeed-kt>
-      <glideslope-deg>0</glideslope-deg>
-      <offset-azimuth>0</offset-azimuth>
-      <offset-distance>8</offset-distance>
-      <ndb-id>0</ndb-id>
-      <vor-id>0</vor-id>
-      <fix>0</fix>
-    </presets>
-
-    <init>
-      <set>
-        <property>/controls/flight/flaps</property>
-        <value>0.0</value>
-      </set>
-      <set>
-        <property>/controls/engines/engine[0]/magnetos</property>
-        <value>6</value>
-      </set>
-
- <set>
-        <property>/controls/engines/engine[1]/magnetos</property>
-        <value>6</value>
-      </set>
-
-      <set>
-        <property>/controls/engines/engine[0]/throttle</property>
-        <value>0.5</value>
-      </set>
-     <set>
-        <property>/controls/engines/engine[1]/throttle</property>
-        <value>0.5</value>
-      </set>
-  
-     <set>
-        <property>/engines/engine[0]/running</property>
-        <value>true</value>
-      </set>
-    
-
-     <set>
-        <property>/engines/engine[1]/running</property>
-        <value>true</value>
-      </set>
-  <set>
-        <property>/instrumentation/adf/frequencies/selected-khz</property>
-        <value>340</value>
-      </set>
-      <set>
-        <property>/environment/weather-scenario</property>
-        <value>none</value>
-      </set>
-    </init>
-
-    <step>
-      <message>Reduce throttle to 50%. Apply one degree of flaps.
-                   Start your descent, staying lined up with the runway a hands-width above the glare-shield.
-                   You are aiming to descend at around 500 feet per minute and 80 knots.
-      </message>
-      <error>
-        <message>You are going too fast. Reduce power and pitch up to reduce your airspeed to 80 knots.</message>
-        <condition>
-          <greater-than>
-            <property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
-            <value>80.0</value>
-          </greater-than>
-        </condition>
-      </error>
-      <error>
-        <message>Reduce throttle to 50%</message>
-        <condition>
-          <greater-than>
-            <property>/controls/engines/engine/throttle</property>
-            <value>0.5</value>
-          </greater-than>
-        </condition>
-      </error>
-      <exit>
-        <condition>
-          <greater-than>
-            <property>/position/latitude-deg</property>
-            <value>37.48</value>
-          </greater-than>
-        </condition>
-      </exit>
-    </step>
-
-    <step>
-      <message>Let down the second step of flaps and use the VASI to check your descent rate.
-                   White - too high. Red - too low, Red and white - just right.
-                   Use throttle to control your descent rate rather than attitude.
-     </message>
-      <exit>
-        <condition>
-          <greater-than>
-            <property>/position/latitude-deg</property>
-            <value>37.495</value>
-          </greater-than>
-        </condition>
-      </exit>
-    </step>
-
-    <step>
-      <message>Let down your final set of flaps and continue to follow the VASI glideslope.
-                   Stay lined up with the middle of the runway.
-      </message>
-      <exit>
-        <condition>
-          <greater-than>
-            <property>/position/latitude-deg</property>
-            <value>37.506</value>
-          </greater-than>
-        </condition>
-      </exit>
-    </step>
-
-    <step>
-      <message>Reduce power to idle. When you are about 10 feet above the ground,
-                   smoothly bring the nose up so it is level with the horizon.
-      </message>
-      <exit>
-        <condition>
-          <less-than>
-            <property>/position/altitude-agl-ft</property>
-            <value>7.0</value>
-          </less-than>
-        </condition>
-      </exit>
-    </step>
-
-    <step>
-      <message>Keep tracking straight down the runway and let the aircraft land on the main gear.</message>
-      <exit>
-        <condition>
-          <less-than>
-            <property>/velocities/airspeed-kt</property>
-            <value>45.0</value>
-          </less-than>
-        </condition>
-      </exit>
-    </step>
-
-    <step>
-      <message>Lower the nose wheel, continue to track down the runway and gently brake to a stop.</message>
-      <exit>
-        <condition>
-          <less-than>
-            <property>/velocities/airspeed-kt</property>
-            <value>5.0</value>
-          </less-than>
-        </condition>
-      </exit>
-    </step>
-
-    <end>
-      <message>Congratulations on a successful landing.</message>
-    </end>
-  </tutorial>
-
-
-
-  <tutorial>
-  <name>Flying the Pattern</name>
-    <description>
-Take-off from KHAF, fly a left-hand traffic pattern and land.
-
-The traffic pattern is used as a method to stop aircraft crashing into each other when near an airport.
-
-The pattern is a rectangular flight path with the runway forming one of the long sides.
-
-It consists of the following sections:
-- Upwind.    Once we've taken off, we flying straight ahead on the runway heading to 500ft.
-- Crosswind. Once at 500ft, we turn left 90 degrees and continue climbing until we get to 1000ft.
-- Downwind.  When we reach 1000ft, we turn left again so we are parallel to the runway, reduce power and fly at 100kts. When we are "abeam the numbers" (opposite the number on the runway we intend to land on), we reduce power to 50%, drop one notch of flat and descend 100ft at 90kts.
-- Base       We now make another left-hand turn, add another notch of flaps, and let speed continue to dissipate.
-- Final      At the correct moment (based on visual queues),we make a final left turn to line up with the runway. We drop our final lot of flaps, descend and land.
-
-As before, we'll be flying at KHAF, on runway 12, on a clear day.
-
-Runway 12 does not have a VASI. Instead you will need to judge whether you are too low or too high by the view of the runway. If the runway is going away from you, you will land short. If the runway is coming towards you, you will over-shoot. Remember, you should aim to have the runway about a third of the way above the glare-shield, and adjust your rate of descent using power.
-    </description>
-    <audio-dir>Aircraft/787/tutorial</audio-dir>
-    <timeofday>morning</timeofday>
-    <presets>
-      <airport-id>KHAF</airport-id>
+      <airport-id>YSSY</airport-id>
       <on-ground>1</on-ground>
-      <runway>12</runway>
+      <runway>34L</runway>
       <altitude-ft>-9999</altitude-ft>
       <latitude-deg>-9999</latitude-deg>
       <longitude-deg>-9999</longitude-deg>
@@ -438,24 +48,20 @@ Runway 12 does not have a VASI. Instead you will need to judge whether you are t
 
     <init>
       <set>
-        <property>/controls/flight/flaps</property>
-        <value>0.0</value>
+        <property>/instrumentation/afs/FROM</property>
+	<value>YSSY</value>
       </set>
       <set>
         <property>/controls/gear/brake-parking</property>
         <value>1</value>
       </set>
       <set>
-        <property>/controls/engines/engine/magnetos</property>
-        <value>3</value>
+        <property>/controls/flight/flaps</property>
+        <value>0.0</value>
       </set>
       <set>
         <property>/controls/engines/engine/throttle</property>
-        <value>0.5</value>
-      </set>
-      <set>
-        <property>/engines/engine/running</property>
-        <value>true</value>
+        <value>0.0</value>
       </set>
       <set>
         <property>/instrumentation/adf/frequencies/selected-khz</property>
@@ -466,22 +72,749 @@ Runway 12 does not have a VASI. Instead you will need to judge whether you are t
         <value>Fair weather</value>
       </set>
       <set>
+        <property>/sim/sound/enabled</property>
+	<value>1</value>
+      </set>
+      <set>
         <property>/controls/flight/elevator-trim</property>
-        <value>0.17</value>
+        <value>0.0</value>
+      </set>
+      <set>
+        <property>/consumables/fuel/tank[0]/level-gal_us</property>
+	<value>0</value>
+      </set>
+      <set>
+        <property>/consumables/fuel/tank[0]/level-lbs</property>
+	<value>0</value>
+      </set>
+      <set>
+        <property>/consumables/fuel/tank[3]/level-gal_us</property>
+	<value>0</value>
+      </set>
+      <set>
+        <property>/consumables/fuel/tank[3]/level-lbs</property>
+	<value>0</value>
+      </set>
+      <set>
+        <property>/consumables/fuel/tank[4]/level-gal_us</property>
+	<value>0</value>
+      </set>
+      <set>
+        <property>/consumables/fuel/tank[4]/level-lbs</property>
+	<value>0</value>
+      </set>
+      <set>
+        <property>/consumables/fuel/tank[5]/level-gal_us</property>
+	<value>0</value>
+      </set>
+      <set>
+        <property>/consumables/fuel/tank[5]/level-lbs</property>
+	<value>0</value>
+      </set>
+      <set>
+        <property>/consumables/fuel/tank[10]/level-gal_us</property>
+	<value>0</value>
+      </set>
+      <set>
+        <property>/consumables/fuel/tank[10]/level-lbs</property>
+	<value>0</value>
+      </set>
+      <set>
+        <property>/sim/current-view/heading-offset-deg</property>
+	<value>324</value>
+      </set>
+      <set>
+        <property>/sim/current-view/field-of-view</property>
+	<value>36</value>
+      </set>
+      <set>
+        <property>/sim/current-view/pitch-offset-deg</property>
+	<value>-36</value>
       </set>
     </init>
 
     <step>
-      <message>Release the parking brakes, smoothly apply full power and start your take-off.</message>
+      <message>Set fuel to around 94100 kg and payload less than 480 500kg with 33% CG on the System Display</message>
       <error>
-        <message>Apply full throttle for take-off</message>
+       <message>Under the Equipment Menu is the Fuel and Payload dialog</message>
+       <condition>
+         <and>
+	   <equals>
+	     <property>/consumables/fuel/tank[0]/level-lbs</property>
+	     <value>0</value>
+	   </equals>
+	   <equals>
+	     <property>/consumables/fuel/tank[3]/level-lbs</property>
+	     <value>0</value>
+	   </equals>
+	   <equals>
+	     <property>/consumables/fuel/tank[4]/level-lbs</property>
+	     <value>0</value>
+	   </equals>
+	   <equals>
+	     <property>/consumables/fuel/tank[5]/level-lbs</property>
+	     <value>0</value>
+	   </equals>
+	   <equals>
+	     <property>/consumables/fuel/tank[10]/level-lbs</property>
+	     <value>0</value>
+	   </equals>
+	 </and>
+       </condition>
+      </error>
+      <error>
+        <message>Adjust tanks 0 and 3 to around 16700 lbs</message>
+	<condition>
+	<and>
+	  <greater-than>
+	     <property>/consumables/fuel/tank[0]/level-lbs</property>
+	     <value>16780</value>
+	  </greater-than>
+	  <less-than>
+	    <property>/consumables/fuel/tank[0]/level-lbs</property>
+	     <value>15000</value>
+	  </less-than>
+	  <greater-than>
+	     <property>/consumables/fuel/tank[3]/level-lbs</property>
+	     <value>16780</value>
+	  </greater-than>
+	  <less-than>
+	    <property>/consumables/fuel/tank[3]/level-lbs</property>
+	     <value>15000</value>
+	  </less-than>
+	</and>
+	</condition>
+      </error>
+      <error>
+        <message>Adjust tanks 4 and 5 to around 18100 lbs</message>
+	<condition>
+	<and>
+	  <greater-than>
+	     <property>/consumables/fuel/tank[4]/level-lbs</property>
+	     <value>18100</value>
+	  </greater-than>
+	  <less-than>
+	    <property>/consumables/fuel/tank[4]/level-lbs</property>
+	     <value>15000</value>
+	  </less-than>
+	  <greater-than>
+	     <property>/consumables/fuel/tank[5]/level-lbs</property>
+	     <value>18100</value>
+	  </greater-than>
+	  <less-than>
+	    <property>/consumables/fuel/tank[5]/level-lbs</property>
+	     <value>15000</value>
+	  </less-than>
+	</and>
+	</condition>
+      </error>
+      <error>
+        <message>Adjust tank 10 to around 14770 lbs</message>
+	<condition>
+	<and>
+	  <greater-than>
+	     <property>/consumables/fuel/tank[10]/level-lbs</property>
+	     <value>14770</value>
+	  </greater-than>
+	  <less-than>
+	    <property>/consumables/fuel/tank[10]/level-lbs</property>
+	     <value>5000</value>
+	  </less-than>
+	</and>
+	</condition>
+      </error>
+      <error>
+        <message>Ensure matching tanks are the same value</message>
+	<condition>
+	<or>
+	  <not-equals>
+	    <property>/consumables/fuel/tank[0]/level-gal_us</property>
+	    <property>/consumables/fuel/tank[3]/level-gal_us</property>
+	  </not-equals>
+	  <not-equals>
+	    <property>/consumables/fuel/tank[4]/level-gal_us</property>
+	    <property>/consumables/fuel/tank[5]/level-gal_us</property>
+	  </not-equals>
+	</or>
+	</condition>
+      </error>
+      <error>
+        <message>Adjust tanks and payload to achieve 33% CG on System Display</message>
+	<condition>
+	  <or>
+	    <less-than>
+	      <property>/fdm/jsbsim/inertia/gwcg</property>
+	      <value>28.0</value>
+	    </less-than>
+	    <greater-than>
+	      <property>/fdm/jsbsim/inertia/gwcg</property>
+	      <value>34.0</value>
+	    </greater-than>
+	  </or>
+	</condition>
+      </error>
+      <exit>
         <condition>
-          <less-than>
-            <property>/controls/engines/engine/throttle</property>
-            <value>0.95</value>
-          </less-than>
+	  <and>
+	    <greater-than>
+	      <property>/fdm/jsbsim/inertia/gwcg</property>
+	      <value>29</value>
+	    </greater-than>
+	    <less-than>
+	      <property>/fdm/jsbsim/inertia/gwcg</property>
+	      <value>34</value>
+	    </less-than>
+	    <greater-than>
+	      <property>/fdm/jsbsim/inertia/weight-kg</property>
+	      <value>440000</value>
+	    </greater-than>
+	    <less-than>
+	      <property>/fdm/jsbsim/inertia/weight-kg</property>
+	      <value>480900</value>
+	    </less-than>
+	  </and>
+	</condition>
+      </exit>
+    </step>
+    
+    <step>
+      <view>
+        <heading-offset-deg>310.419</heading-offset-deg>  positive is left
+        <pitch-offset-deg>10.897</pitch-offset-deg>      positive is up
+        <roll-offset-deg>0</roll-offset-deg>         positive is roll right
+        <x-offset-m>-0.55</x-offset-m>                 positive is move right
+        <y-offset-m>-1.56</y-offset-m>                 positive is move up
+        <z-offset-m>-19.5</z-offset-m>                 positive is move back
+        <field-of-view>36</field-of-view>            default: 55; smaller zooms in
+      </view>  
+      <message>Start APU and turn on NAV lights</message>
+      <error>
+        <message>Press the APU MASTER button on the overhead</message>
+        <condition>
+	<equals>
+	  <property>/engines/engine[4]/off-start-run</property>
+	  <value>0</value>
+	</equals>
+	</condition>
+      </error>
+      <error>
+        <message>Watch APU page on System Display</message>
+	<condition>
+	  <equals>
+	    <property>/engines/engine[4]/off-start-run</property>
+	    <value>1</value>
+	  </equals>
+	</condition>
+      </error>
+      <error>
+        <message>Flick NAV light switch next to APU master button</message>
+	<condition>
+	  <and>
+	  <equals>
+	    <property>/controls/switches/nav-lights</property>
+	      <value>0</value>
+	  </equals>
+	  <equals>
+	    <property>/engines/engine[4]/off-start-run</property>
+	    <value>2</value>
+	  </equals>
+	  </and>
+	</condition>
+      </error>
+      <exit>
+        <condition>
+	  <and>
+	    <equals>
+	      <property>/engines/engine[4]/off-start-run</property>
+	      <value>2</value>
+	    </equals>
+	    <equals>
+	      <property>/controls/switches/nav-lights</property>
+	      <value>1</value>
+	    </equals>
+	  </and>
+	</condition>
+      </exit>
+    </step>
+    
+    <step>
+      <view>
+        <heading-offset-deg>330.467</heading-offset-deg>  positive is left
+        <pitch-offset-deg>-40.321</pitch-offset-deg>      positive is up
+        <roll-offset-deg>0</roll-offset-deg>         positive is roll right
+        <x-offset-m>-0.55</x-offset-m>                 positive is move right
+        <y-offset-m>-1.56</y-offset-m>                 positive is move up
+        <z-offset-m>-19.5</z-offset-m>                 positive is move back
+        <field-of-view>33</field-of-view>            default: 55; smaller zooms in
+      </view>
+      <message>Enter Flight Number, YMML destination and Cruise FL 320 on MFD</message>
+      <error>
+        <message>Click your mouse inside the FLT NBR box on the MFD next to the System Display</message>
+	<condition>
+	  <and>
+	  <equals>
+	    <property>/instrumentation/afs/FLT_NBR</property>
+	  </equals>
+	  <not-equals>
+	    <property>/instrumentation/afs/TO</property>
+	    <value>YMML</value>
+	  </not-equals>
+	  <equals>
+	    <property>/instrumentation/afs/CRZ_FL</property>
+	    <value>300</value>
+	  </equals>
+	  </and>
+	</condition>
+      </error>
+      <error>
+        <message>Click your mouse inside the TO box, then click on the MFD keyboard to enter YMML</message>
+	<condition>
+	  <not-equals>
+	    <property>/instrumentation/afs/TO</property>
+	    <value>YMML</value>
+	  </not-equals>
+	</condition>
+      </error>
+      <error>
+        <message>Click your mouse inside the CRZ FL box, then click on the CLR button several times and enter 320</message>
+	<condition>
+	  <and>
+	  <equals>
+	    <property>/instrumentation/afs/TO</property>
+	    <value>YMML</value>
+	  </equals>
+	  <not-equals>
+	    <property>/instrumentation/afs/CRZ_FL</property>
+	    <value>320</value>
+	  </not-equals>
+	  </and>
+	</condition>
+      </error>
+      <exit>
+        <condition>
+	  <and>
+	    <equals>
+	      <property>/instrumentation/afs/TO</property>
+	      <value>YMML</value>
+	    </equals>
+	    <equals>
+	      <property>/instrumentation/afs/CRZ_FL</property>
+	      <value>320</value>
+	    </equals>
+	  </and>
+	</condition>
+      </exit>
+    </step>
+    
+    <step>
+      <message>Click on Departures and select 34L runway, then select KAT1 SID</message>
+      <error>
+        <message>Click on the DEPARTURES button on the MFD and then click on 34L</message>
+	<condition>
+	  <and>
+	    <not-equals>
+	      <property>/instrumentation/mcdu[0]/page</property>
+	      <value>active.departure.dep</value>
+	    </not-equals>
+	    <not-equals>
+	      <property>/instrumentation/afs/dep-rwy</property>
+	      <value>34L</value>
+	    </not-equals>
+	  </and>
+	</condition>
+      </error>
+      <error>
+        <message>Click on SID and select KAT1</message>
+	<condition>
+	  <and>
+	    <not-equals>
+	      <property>/instrumentation/mcdu[0]/page</property>
+	      <value>active.departure.sid</value>
+	    </not-equals>
+	    <equals>
+	      <property>/instrumentation/afs/dep-rwy</property>
+	      <value>34L</value>
+	    </equals>
+	    <not-equals>
+	      <property>/instrumentation/afs/sid</property>
+	      <value>KAT1</value>
+	    </not-equals>
+	  </and>
+	</condition>
+      </error>
+      <exit>
+        <condition>
+	  <and>
+	    <equals>
+	      <property>/instrumentation/afs/dep-rwy</property>
+	      <value>34L</value>
+	    </equals>
+	    <equals>
+	      <property>/instrumentation/afs/sid</property>
+	      <value>KAT1</value>
+	    </equals>
+	  </and>
+	</condition>
+      </exit>
+    </step>
+    
+    <step>
+      <message>In the ARRIVALS page, select runway 16 and ARBEY2 STAR</message>
+      <error>
+        <message>Select ARBEY2 STAR</message>
+	<condition>
+	  <not-equals>
+	    <property>/instrumentation/afs/star</property>
+	    <value>ARBEY2</value>
+	  </not-equals>
+	</condition>
+      </error>
+      <exit>
+        <condition>
+	  <and>
+	    <equals>
+	      <property>/instrumentation/afs/star</property>
+	      <value>ARBEY2</value>
+	    </equals>
+	  </and>
+	</condition>
+      </exit>
+    </step>
+    
+    <step>
+      <message>Change to the 'T.O. Perf' Page</message>
+      <error>
+        <message>Click on ACTIVE first</message>
+	<condition>
+	<and>
+	 <not-equals>
+	  <property>/instrumentation/mcdu[0]/page</property>
+	  <value>active.init</value>
+	  </not-equals>
+	  <not-equals>
+	  <property>/instrumentation/mcdu[0]/page</property>
+	  <value>active.to_perf</value>
+	  </not-equals>
+	  </and>
+	</condition>
+      </error>
+      <error>
+        <message>Click on T.O. Perf at the bottom of the page</message>
+	<condition>
+	  <equals>
+	  <property>/instrumentation/mcdu[0]/page</property>
+	  <value>active.init</value>
+	  </equals>
+	</condition>
+      </error>
+      <exit>
+        <condition>
+	<equals>
+	  <property>/instrumentation/mcdu[0]/page</property>
+	  <value>active.to_perf</value>
+	  </equals>
+	</condition>
+      </exit>
+    </step>
+    
+    <step>
+      <message>Change THR RED to 900ft</message>
+      <error>
+        <message>Click inside the 'THR RED' box, then click 'CLR' several times</message>
+	<condition>
+	<greater-than>
+	  <property>/instrumentation/afs/thrust-reduce-alt</property>
+	  <value>900</value>
+	  </greater-than>
+	</condition>
+      </error>
+      <exit>
+      <condition>
+	<equals>
+	  <property>/instrumentation/afs/thrust-reduce-alt</property>
+	  <value>900</value>
+	  </equals>
+	</condition>
+      </exit>
+    </step>
+
+    <step>
+      <message>Change Transition Alt to 10 000ft</message>
+      <error>
+        <message>Click inside the 'TRANS' box, then click 'CLR' several times</message>
+	<condition>
+	<and>
+	  <less-than>
+	  <property>/instrumentation/afs/transition-ft</property>
+	  <value>10000</value>
+	  </less-than>
+	  <greater-than>
+	  <property>/instrumentation/afs/transition-ft</property>
+	  <value>800</value>  
+	  </greater-than>
+	  </and>
+	</condition>
+      </error>
+      <exit>
+      <condition>
+	<equals>
+	  <property>/instrumentation/afs/transition-ft</property>
+	  <value>10000</value>
+	  </equals>
+	</condition>
+      </exit>
+    </step>
+
+    <step>
+      <message>Close all doors</message>
+      <error>
+        <message>Press 'd' and 'D' to close cargo doors</message>
+        <condition>
+          <equals>
+	    <property>/instrumentation/doors/forward-cargo/position-norm</property>
+	    <value>1</value>
+	  </equals>
         </condition>
       </error>
+      <error>
+        <message>Press '!' to close passenger door</message>
+        <condition>
+          <equals>
+	    <property>/instrumentation/doors/lower-left-pax1/position-norm</property>
+	    <value>1</value>
+	  </equals>
+        </condition>
+      </error>
+      <exit>
+        <condition>
+	  <and>
+	    <equals>
+	      <property>/instrumentation/doors/lower-left-pax1/position-norm</property>
+	      <value>0</value>
+	    </equals>
+	    <equals>
+	      <property>/instrumentation/doors/forward-cargo/position-norm</property>
+	      <value>0</value>
+	    </equals>
+	  </and>
+	</condition>
+      </exit>
+    </step>
+    
+    <step>
+      <view>
+        <heading-offset-deg>310.419</heading-offset-deg>  positive is left
+        <pitch-offset-deg>10.897</pitch-offset-deg>      positive is up
+        <roll-offset-deg>0</roll-offset-deg>         positive is roll right
+        <x-offset-m>-0.55</x-offset-m>                 positive is move right
+        <y-offset-m>-1.56</y-offset-m>                 positive is move up
+        <z-offset-m>-19.5</z-offset-m>                 positive is move back
+        <field-of-view>36</field-of-view>            default: 55; smaller zooms in
+      </view> 
+      <message>Turn on strobe, beacon, seat-belts, no-smoking and switch engine master to IGN/START</message>
+      <error>
+        <message>Flick strobe switch once on the overhead</message>
+	<condition>
+	  <equals>
+	    <property>/controls/switches/strobe</property>
+	    <value>0</value>
+	  </equals>
+	</condition>
+      </error>
+      <error>
+        <message>Flick beacon switch once on the overhead</message>
+	<condition>
+	  <not-equals>
+	    <property>/controls/switches/beacon</property>
+	    <value>1</value>
+	  </not-equals>
+	</condition>
+      </error>
+      <error>
+        <message>Flick seat-belt switch once on the overhead</message>
+	<condition>
+	  <not-equals>
+	    <property>/controls/switches/seat-belt</property>
+	    <value>1</value>
+	  </not-equals>
+	</condition>
+      </error>
+      <error>
+        <message>Flick no-smoking switch once on the overhead</message>
+	<condition>
+	  <not-equals>
+	    <property>/controls/switches/no-smoking</property>
+	    <value>1</value>
+	  </not-equals>
+	</condition>
+      </error>
+      <error>
+        <message>Turn Engine knob to IGN/START on the overhead</message>
+	<condition>
+	  <not-equals>
+	    <property>/controls/engines/ign-start</property>
+	    <value>1</value>
+	  </not-equals>
+	</condition>
+      </error>
+      <exit>
+        <condition>
+	  <and>
+	  <equals>
+	    <property>/controls/switches/beacon</property>
+	    <value>1</value>
+	  </equals>
+	  <greater-than>
+	    <property>/controls/switches/strobe</property>
+	    <value>0</value>
+	  </greater-than>
+	  <greater-than>
+	    <property>/controls/switches/smoking</property>
+	    <value>0</value>
+	  </greater-than>
+	  <greater-than>
+	    <property>/controls/switches/seat-belt</property>
+	    <value>0</value>
+	  </greater-than>
+	  <equals>
+	    <property>/controls/engines/ign-start</property>
+	    <value>1</value>
+	  </equals>
+	  </and>
+	</condition>
+      </exit>
+    </step>
+    
+    <step>
+      <view>
+        <heading-offset-deg>317.964</heading-offset-deg>  positive is left
+        <pitch-offset-deg>-39.889</pitch-offset-deg>      positive is up
+        <roll-offset-deg>0</roll-offset-deg>         positive is roll right
+        <x-offset-m>-0.55</x-offset-m>                 positive is move right
+        <y-offset-m>-1.56</y-offset-m>                 positive is move up
+        <z-offset-m>-19.5</z-offset-m>                 positive is move back
+        <field-of-view>41.7</field-of-view>            default: 55; smaller zooms in
+      </view>
+      <message>Start the engines in pairs on the pedestal, starting with the middle pair then outboard pair, waiting for N2 to reach 18%</message>
+      <error>
+        <message>Switch Engine Master for engine 2 and 3</message>
+	<condition>
+	  <and>
+	  <not-equals>
+	    <property>/controls/engines/engine[1]/master</property>
+	    <value>1</value>
+	  </not-equals>
+	  <not-equals>
+	    <property>/controls/engines/engine[2]/master</property>
+	    <value>1</value>
+	  </not-equals>
+	  </and>
+	</condition>
+      </error>
+      <error>
+        <message>Switch Engine Master for engine 1 and 4</message>
+	<condition>
+	 <and>
+	  <not-equals>
+	    <property>/controls/engines/engine[0]/master</property>
+	    <value>1</value>
+	  </not-equals>
+	  <not-equals>
+	     <property>/controls/engines/engine[3]/master</property>
+	    <value>1</value>
+	  </not-equals>
+	  <greater-than>
+	    <property>/engines/engine[1]/n2</property>
+	    <value>18</value>
+	  </greater-than>
+	  <greater-than>
+	    <property>/engines/engine[2]/n2</property>
+	    <value>18</value>
+	  </greater-than>
+	  </and>
+	</condition>
+      </error>
+      <exit>
+        <condition>
+	  <and>
+	    <equals>
+	      <property>/engines/engine[0]/running</property>
+	      <value>1</value>
+	    </equals>
+	    <equals>
+	      <property>/engines/engine[1]/running</property>
+	      <value>1</value>
+	    </equals>
+	    <equals>
+	      <property>/engines/engine[2]/running</property>
+	      <value>1</value>
+	    </equals>
+	    <equals>
+	      <property>/engines/engine[3]/running</property>
+	      <value>1</value>
+	    </equals>
+	  </and>
+	</condition>
+      </exit>
+    </step>
+    
+    
+    <step>
+      <view>
+        <heading-offset-deg>308.910</heading-offset-deg>  positive is left
+        <pitch-offset-deg>13.249</pitch-offset-deg>      positive is up
+        <roll-offset-deg>0</roll-offset-deg>         positive is roll right
+        <x-offset-m>-0.55</x-offset-m>                 positive is move right
+        <y-offset-m>-1.56</y-offset-m>                 positive is move up
+        <z-offset-m>-19.5</z-offset-m>                 positive is move back
+        <field-of-view>41.7</field-of-view>            default: 55; smaller zooms in
+      </view>
+      <message>Turn off APU on overhead and turn on landing lights</message>
+      <exit>
+        <condition>
+	  <and>
+	    <equals>
+	      <property>/engines/engine[4]/off-start-run</property>
+	      <value>0</value>
+	    </equals>
+	    <equals>
+	      <property>/controls/switches/landing-light</property>
+	      <value>1</value>
+	    </equals>
+	  </and>
+	</condition>
+      </exit>
+    </step>
+    
+    <step>
+     <view>
+        <heading-offset-deg>358.70</heading-offset-deg>  positive is left
+        <pitch-offset-deg>-17.205</pitch-offset-deg>      positive is up
+        <roll-offset-deg>0</roll-offset-deg>         positive is roll right
+        <x-offset-m>-0.55</x-offset-m>                 positive is move right
+        <y-offset-m>-1.56</y-offset-m>                 positive is move up
+        <z-offset-m>-19.5</z-offset-m>                 positive is move back
+        <field-of-view>89.80</field-of-view>            default: 55; smaller zooms in
+      </view>
+      <message>Adjust your view towards the runway</message>
+      <exit>
+        <condition>
+	  <or>
+	    <less-than>
+	      <property>/sim/current-view/heading-offset-deg</property>
+	      <value>10.9</value>
+	    </less-than>
+	    <greater-than>
+	      <property>/sim/current-view/heading-offset-deg</property>
+	      <value>350.0</value>
+	    </greater-than>
+	  </or>
+	</condition>
+      </exit>
+    </step>
+    
+    <step>
+      <message>Release the parking brakes and set flaps to 2</message>
       <error>
         <message>Release the parking brake using Shift B</message>
         <condition>
@@ -491,572 +824,307 @@ Runway 12 does not have a VASI. Instead you will need to judge whether you are t
           </equals>
         </condition>
       </error>
-      <exit>
-        <condition>
-          <greater-than>
-            <property>/velocities/airspeed-kt</property>
-            <value>5.0</value>
-          </greater-than>
-        </condition>
-      </exit>
-    </step>
-
-    <step>
-      <message>Stay on the center-line of the runway using the rudder.</message>
-      <exit>
-        <condition>
-          <greater-than>
-            <property>/velocities/airspeed-kt</property>
-            <value>45.0</value>
-          </greater-than>
-        </condition>
-      </exit>
-    </step>
-
-    <step>
-      <message>Take-off at 65 knots and climb straight out on heading 120 at 600 feet per minute (about 70 knots).</message>
-      <exit>
-         <condition>
-          <greater-than>
-            <property>/instrumentation/vertical-speed-indicator/indicated-speed-fpm</property>
-            <value>300</value>
-          </greater-than>
-        </condition>
-      </exit>
-    </step>
-
-    <step>
-      <message>Continue your climb on heading 120 at 600 feet per minute to 500 feet.</message>
       <error>
-        <message>Your climb angle is too shallow - raise the nose slightly to increase your climb rate.</message>
-        <condition>
-          <less-than>
-            <property>/instrumentation/vertical-speed-indicator/indicated-speed-fpm</property>
-            <value>400</value>
-          </less-than>
-        </condition>
+        <message>Increment flaps with ]</message>
+	<condition>
+	  <less-than>
+	     <property>/controls/flight/flaps</property>
+	     <value>0.5150</value>
+	  </less-than>
+	</condition>
       </error>
-      <error>
-        <message>Your climb angle is too great - lower the nose slightly to decrease your climb rate.</message>
-        <condition>
-          <greater-than>
-            <property>/instrumentation/vertical-speed-indicator/indicated-speed-fpm</property>
-            <value>900</value>
-          </greater-than>
-        </condition>
-      </error>
-      <error>
-        <message>You are heading too far left, Turn right slightly to heading 120.</message>
-        <condition>
-          <less-than>
-            <property>/instrumentation/heading-indicator/indicated-heading-deg</property>
-            <value>110</value>
-          </less-than>
-        </condition>
-      </error>
-      <error>
-        <message>You are heading too far right, Turn left slightly to heading 120.</message>
-        <condition>
-          <greater-than>
-            <property>/instrumentation/heading-indicator/indicated-heading-deg</property>
-            <value>130</value>
-          </greater-than>
-        </condition>
-      </error>
-      <error>
-        <message>You are in danger of being "behind the power curve". Drop the nose to speed up to 70 knots.</message>
-        <condition>
-          <less-than>
-            <property>/velocities/airspeed-kt</property>
-            <value>69</value>
-          </less-than>
-        </condition>
-      </error>
-      <exit>
-       <condition>
-         <greater-than>
-           <property>/instrumentation/altimeter/indicated-altitude-ft</property>
-           <value>500</value>
-         </greater-than>
-       </condition>
-      </exit>
-    </step>
-
-    <step>
-      <message>Make a left turn to crosswind (heading 030) and continue climbing to 1000 feet.</message>
       <exit>
         <condition>
           <and>
-            <greater-than>
-              <property>/instrumentation/altimeter/indicated-altitude-ft</property>
-              <value>900</value>
-            </greater-than>
-            <greater-than>
-              <property>/instrumentation/heading-indicator/indicated-heading-deg</property>
-              <value>020</value>
-            </greater-than>
-            <less-than>
-              <property>/instrumentation/heading-indicator/indicated-heading-deg</property>
-              <value>040</value>
-            </less-than>
-          </and>
+	    <greater-than>
+	      <property>/controls/flight/flaps</property>
+	      <value>0.515</value>
+	    </greater-than>
+	    <equals>
+	      <property>/controls/gear/brake-parking</property>
+	      <value>0</value>
+	    </equals>
+	  </and>
         </condition>
       </exit>
     </step>
-
-    <step>
-      <message>Level off at 1000 feet and make another left turn to downwind (heading 300).</message>
-      <exit>
-        <condition>
-          <and>
-            <greater-than>
-              <property>/instrumentation/altimeter/indicated-altitude-ft</property>
-              <value>950</value>
-            </greater-than>
-            <greater-than>
-              <property>/instrumentation/heading-indicator/indicated-heading-deg</property>
-              <value>290</value>
-            </greater-than>
-            <less-than>
-              <property>/instrumentation/heading-indicator/indicated-heading-deg</property>
-              <value>310</value>
-            </less-than>
-          </and>
-        </condition>
-      </exit>
-    </step>
-
-    <step>
-      <message>Reduce power to 60%, and trim for level flight. Continue flying parallel to the runway.</message>
-      <error>
-        <message>You are heading too far left, Turn right slightly to heading 300.</message>
-        <condition>
-          <less-than>
-            <property>/instrumentation/heading-indicator/indicated-heading-deg</property>
-            <value>290</value>
-          </less-than>
-        </condition>
-      </error>
-      <error>
-        <message>You are heading too far right, Turn left slightly to heading 300.</message>
-        <condition>
-          <greater-than>
-            <property>/instrumentation/heading-indicator/indicated-heading-deg</property>
-            <value>310</value>
-          </greater-than>
-        </condition>
-      </error>
-      <error>
-        <message>You are too high. Pattern altitude is 1000 feet.</message>
-        <condition>
-          <greater-than>
-            <property>/instrumentation/altimeter/indicated-altitude-ft</property>
-            <value>1100</value>
-          </greater-than>
-        </condition>
-      </error>
-      <error>
-        <message>You are too low. Pattern altitude is 1000 feet.</message>
-        <condition>
-          <less-than>
-            <property>/instrumentation/altimeter/indicated-altitude-ft</property>
-            <value>900</value>
-          </less-than>
-        </condition>
-      </error>
-      <exit>
-        <condition>
-          <greater-than>
-            <property>/position/latitude-deg</property>
-            <value>37.528</value>
-          </greater-than>
-        </condition>
-      </exit>
-    </step>
-
-    <step>
-      <message>You are now opposite the end of the runway. Reduce power to 50%, set flaps to 10.</message>
-      <exit>
-        <condition>
-          <and>
-            <greater-than>
-              <property>/controls/flight/flaps</property>
-              <value>0.3</value>
-            </greater-than>
-            <less-than>
-              <property>/controls/engines/engine/throttle</property>
-              <value>0.55</value>
-            </less-than>
-          </and>
-        </condition>
-      </exit>
-    </step>
-
-    <step>
-      <message>Let the aircraft descend and slow. Continue flying a heading of 300.</message>
-      <error>
-        <message>You are heading too far left, Turn right slightly to heading 300.</message>
-        <condition>
-          <less-than>
-            <property>/instrumentation/heading-indicator/indicated-heading-deg</property>
-            <value>290</value>
-          </less-than>
-        </condition>
-      </error>
-      <error>
-        <message>You are heading too far right, Turn left slightly to heading 300.</message>
-        <condition>
-          <greater-than>
-            <property>/instrumentation/heading-indicator/indicated-heading-deg</property>
-            <value>310</value>
-          </greater-than>
-        </condition>
-      </error>
-      <error>
-        <message>You are too high. You should be descending to around 850 feet.</message>
-        <condition>
-          <greater-than>
-            <property>/instrumentation/altimeter/indicated-altitude-ft</property>
-            <value>1100</value>
-          </greater-than>
-        </condition>
-      </error>
-      <exit>
-       <condition>
-         <less-than>
-           <property>/instrumentation/altimeter/indicated-altitude-ft</property>
-           <value>900</value>
-         </less-than>
-       </condition>
-      </exit>
-    </step>
-
-    <step>
-      <message>Turn left to base (heading 210), and set flaps to 20.
-                   Continue to descend at around 500 feet per minute.</message>
-      <exit>
-        <condition>
-          <less-than>
-            <property>/position/longitude-deg</property>
-            <value>-122.520</value>
-          </less-than>
-        </condition>
-      </exit>
-    </step>
-
-    <step>
-      <message>Turn onto final (heading 120), and line up with the runway.</message>
-      <exit>
-        <condition>
-          <and>
-            <less-than>
-              <property>/instrumentation/heading-indicator/indicated-heading-deg</property>
-              <value>140</value>
-            </less-than>
-            <greater-than>
-              <property>/instrumentation/heading-indicator/indicated-heading-deg</property>
-              <value>100</value>
-            </greater-than>
-            <less-than>
-              <property>/position/latitude-deg</property>
-              <value>37.545</value>
-            </less-than>
-          </and>
-        </condition>
-      </exit>
-    </step>
-
-    <step>
-      <message>Set flaps to 30. Control your descent rate using the throttle.</message>
-      <exit>
-        <condition>
-          <less-than>
-            <property>/position/latitude-deg</property>
-            <value>37.525</value>
-          </less-than>
-        </condition>
-      </exit>
-    </step>
-
-    <step>
-      <message>Reduce power to idle. When you are about 10 feet above the ground,
-                   smoothly bring the nose up so it is just above the horizon.</message>
-      <exit>
-        <condition>
-          <less-than>
-            <property>/position/altitude-agl-ft</property>
-            <value>10.0</value>
-          </less-than>
-        </condition>
-      </exit>
-    </step>
-
-    <step>
-      <message>Keep tracking straight down the runway using the rudder
-                   and let the aircraft land on the main gear.</message>
-      <exit>
-        <condition>
-          <less-than>
-            <property>/velocities/airspeed-kt</property>
-            <value>45.0</value>
-          </less-than>
-        </condition>
-      </exit>
-    </step>
-
-    <step>
-      <message>Lower the nose wheel, continue to track down the runway and gently brake to a stop.</message>
-      <exit>
-        <condition>
-          <less-than>
-            <property>/velocities/airspeed-kt</property>
-            <value>5.0</value>
-          </less-than>
-        </condition>
-      </exit>
-    </step>
-
+    
     <end>
-      <message>Congratulations on successfully following the pattern.
-               If you want to practice more landings, you can take off again immediately.
-               Don't forget to lift your flaps though! This is known as a Touch and Go.
-      </message>
+      <message>Congratulations, you've completed the pre-flight startup! You are ready to continue to the Take Off tutorial.</message>
     </end>
   </tutorial>
 
 
   <tutorial>
-    <name>Engine Failure</name>
-    <description>Engine failure is very rare in flight simulators, but a real risk in real life.
-
-
-The tutorial starts with you cruising at 3500ft over the hills of San Francisco. A total engine failure will occur, with no possibility of restart - black smoke, chunks of metal pushed out of the cowling.
-
-Glide the aircraft to the nearest airport and make a successful emergency landing. You must manage your altitude and fly a normal pattern from "abeam the numbers". Don't deploy flaps until you have the runway "made".
-
-The Cessna 172 glides at a ratio of 10:1 at a best glide speed of 90kts IAS. The glide ratio assumes no flaps and a "windmilling" propeller. If you fly any faster or slower, or have flaps deployed, the glide rate will be worse.
-
-Both KSFO (San Francisco International) and KHAF (Half Moon Bay) are within glide distance. In real life, you would opt for the larger of the two airports, but for an extra challenge, try to land at KHAF.
+    <interval>2</interval>
+    <view>
+        <heading-offset-deg>358.70</heading-offset-deg>  positive is left
+        <pitch-offset-deg>-17.205</pitch-offset-deg>      positive is up
+        <roll-offset-deg>0</roll-offset-deg>         positive is roll right
+        <x-offset-m>-0.55</x-offset-m>                 positive is move right
+        <y-offset-m>-1.56</y-offset-m>                 positive is move up
+        <z-offset-m>-19.5</z-offset-m>                 positive is move back
+        <field-of-view>89.80</field-of-view>            default: 55; smaller zooms in
+      </view>
+    <name>Take-off</name>
+    <description>
+    Welcome to the second FlightGear.org tutorial for the A380. For this tutorial you should have the flaps in the take off configuration, flight plan entered, the engines running and parking brake released. 
+    We are now ready to start the take-off roll, use Maximum Continuous Thrust (FLEX/MCT) this will enable Auto Thrust (A/THR), rotate the aircraft, retract the gears, enable the Auto Pilot (AP) and then adjust the flaps during the climb phase through to reaching our cruise flight level.
     </description>
-    <timeofday>evening</timeofday>
-    <presets>
-      <airport-id>KHAF</airport-id>
-      <on-ground>0</on-ground>
-      <runway>30</runway>
-      <altitude-ft>3500</altitude-ft>
-      <latitude-deg>37.5</latitude-deg>
-      <longitude-deg>-122.4</longitude-deg>
-      <heading-deg>010.0</heading-deg>
-      <airspeed-kt>105.0</airspeed-kt>
-      <glideslope-deg>0</glideslope-deg>
-      <offset-azimuth>0</offset-azimuth>
-      <offset-distance>0</offset-distance>
-      <ndb-id>0</ndb-id>
-      <vor-id>0</vor-id>
-      <fix>0</fix>
-    </presets>
-
-    <init>
-      <set>
-        <property>/controls/flight/flaps</property>
-        <value>0.0</value>
-      </set>
-      <set>
-        <property>/controls/engines/engine/magnetos</property>
-        <value>3</value>
-      </set>
-      <set>
-        <property>/controls/engines/engine/throttle</property>
-        <value>0.5</value>
-      </set>
-      <set>
-        <property>/engines/engine/running</property>
-        <value>true</value>
-      </set>
-      <set>
-        <property>/instrumentation/adf/frequencies/selected-khz</property>
-        <value>340</value>
-      </set>
-      <set>
-        <property>/environment/weather-scenario</property>
-        <value>Fair weather</value>
-      </set>
-    </init>
-
     <step>
-      <message>We're happily cruising along, enjoying an evenings flight.</message>
-    </step>
-
-    <step>
-      <message>Engine failure! Engine failure! Trim for a best glide speed of 90 knots.</message>
-      <set>
-        <property>/controls/engines/engine/faults/left-magneto-serviceable</property>
-        <value>false</value>
-      </set>
-      <set>
-        <property>/controls/engines/engine/faults/right-magneto-serviceable</property>
-        <value>false</value>
-      </set>
-      <set>
-        <property>/controls/engines/engine/faults/spark-plugs-serviceable</property>
-        <value>false</value>
-      </set>
-      <set>
-        <property>/controls/engines/engine/magnetos</property>
-        <value>0</value>
-      </set>
-    </step>
-
-    <step>
-      <message>Now look around and choose an airport, or emergency landing site. Stay at 90 knots.</message>
-      <set>
-        <property>/engines/engine/running</property>
-        <value>false</value>
-      </set>
+    <view>
+        <heading-offset-deg>358.70</heading-offset-deg>  positive is left
+        <pitch-offset-deg>-17.205</pitch-offset-deg>      positive is up
+        <roll-offset-deg>0</roll-offset-deg>         positive is roll right
+        <x-offset-m>-0.55</x-offset-m>                 positive is move right
+        <y-offset-m>-1.56</y-offset-m>                 positive is move up
+        <z-offset-m>-19.5</z-offset-m>                 positive is move back
+        <field-of-view>89.80</field-of-view>            default: 55; smaller zooms in
+      </view>
+      <message>Push the stick forward so the elevator is up a quarter</message>
       <error>
-        <message>You are too slow. You need to fly at 90 knots IAS for maximum glide.</message>
+        <message>Move the elevator the other way!</message>
         <condition>
-          <less-than>
-            <property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
-            <value>88</value>
-          </less-than>
-        </condition>
+	  <less-than>
+	    <property>/controls/flight/elevator</property>
+	    <value>0.0</value>
+	  </less-than>
+	</condition>
       </error>
       <error>
-        <message>You are too fast. You need to fly at 90 knots IAS for maximum glide.</message>
-        <condition>
-          <greater-than>
-            <property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
-            <value>92</value>
-          </greater-than>
-        </condition>
-      </error>
-      <error>
-        <message>Engine failure is currently simulated by switching off the magnetos.
-                 Please switch them off again to continue the tutorial.</message>
-        <condition>
-          <greater-than>
-            <property>/controls/engines/engine/magnetos</property>
-            <value>0</value>
-          </greater-than>
-        </condition>
-      </error>
-    </step>
-
-    <step>
-      <message>Start maneuvering towards your chosen emergency landing spot,
-                   keeping your speed at 90 knots IAS.</message>
-      <set>
-        <property>/engines/engine/running</property>
-        <value>false</value>
-      </set>
-      <error>
-        <message>You are too slow. You need to fly at 90 knots IAS for maximum glide.</message>
-        <condition>
-          <less-than>
-            <property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
-            <value>88</value>
-          </less-than>
-        </condition>
-      </error>
-      <error>
-        <message>You are too fast. You need to fly at 90 knots IAS for maximum glide.</message>
-        <condition>
-          <greater-than>
-            <property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
-            <value>92</value>
-          </greater-than>
-        </condition>
-      </error>
-      <error>
-        <message>Engine failure is currently simulated by switching off the magnetos.
-                 Please switch them off again to continue the tutorial.</message>
-        <condition>
-          <greater-than>
-            <property>/controls/engines/engine/magnetos</property>
-            <value>0</value>
-          </greater-than>
-        </condition>
-      </error>
-    </step>
-
-    <step>
-      <message>At this point we would radio an emergency/mayday.
-                   Remember - Aviate, Navigate, Communicate - in that order.</message>
-      <set>
-        <property>/engines/engine/running</property>
-        <value>false</value>
-      </set>
-      <error>
-        <message>You are too slow. You need to fly at 90 knots IAS for maximum glide.</message>
-        <condition>
-          <less-than>
-            <property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
-            <value>88</value>
-          </less-than>
-        </condition>
-      </error>
-      <error>
-        <message>You are too fast. You need to fly at 90 knots IAS for maximum glide.</message>
-        <condition>
-          <greater-than>
-            <property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
-            <value>92</value>
-          </greater-than>
-        </condition>
-      </error>
-      <error>
-        <message>Engine failure is currently simulated by switching off the magnetos.
-                 Please switch them off again to continue the tutorial.</message>
-        <condition>
-          <greater-than>
-            <property>/controls/engines/engine/magnetos</property>
-            <value>0</value>
-          </greater-than>
-        </condition>
-      </error>
-    </step>
-
-    <step>
-      <message>Continue flying towards your emergency landing spot.
-                   If we had the spare capacity, we might attempt to restart the engine at this point.</message>
-      <error>
-        <message>Engine failure is currently simulated by switching off the magnetos.
-                 Please switch them off again to continue the tutorial.</message>
-        <condition>
-          <greater-than>
-            <property>/controls/engines/engine/magnetos</property>
-            <value>0</value>
-          </greater-than>
-        </condition>
-      </error>
-    </step>
-
-    <step>
-      <message>Stay a 90 knots for maximum glide. Only use flaps once the runway is "made".</message>
-      <error>
-        <message>Engine failure is currently simulated by switching off the magnetos.
-                 Please switch them off again to continue the tutorial.</message>
-        <condition>
-          <greater-than>
-            <property>/controls/engines/engine/magnetos</property>
-            <value>0</value>
-          </greater-than>
-        </condition>
+        <message>Move the elevator to about quarter up</message>
+	<condition>
+	  <and>
+	    <less-than>
+	    <property>/controls/flight/elevator</property>
+	    <value>0.18</value>
+	  </less-than>
+	  <greater-than>
+	    <property>/controls/flight/elevator</property>
+	    <value>-0.1</value>
+	  </greater-than>
+	  </and>
+	</condition>
       </error>
       <exit>
         <condition>
-          <less-than>
-            <property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
-            <value>10</value>
-          </less-than>
+	  <greater-than>
+	    <property>/controls/flight/elevator</property>
+	    <value>0.18</value>
+	  </greater-than>
+	</condition>
+      </exit>
+    </step>
+    
+    <step>
+      <message>increase thrust to about a third, so N1 is around 50%</message>
+      <error>
+        <message>Use the Page Up key to increase throttle, so N1 is around 50%</message>
+	<condition>
+	  <and>
+	    <less-than>
+	      <property>/engines/engine[0]/n1</property>
+	      <value>45</value>
+	    </less-than>
+	    <less-than>
+	      <property>/engines/engine[1]/n1</property>
+	      <value>45</value>
+	    </less-than>
+	    <less-than>
+	      <property>/engines/engine[2]/n1</property>
+	      <value>45</value>
+	    </less-than>
+	    <less-than>
+	      <property>/engines/engine[3]/n1</property>
+	      <value>45</value>
+	    </less-than>
+	  </and>
+	</condition>
+      </error>
+      <exit>
+        <condition>
+	  <and>
+	    <greater-than>
+	      <property>/controls/engines/engine[0]/throttle</property>
+	      <value>0.35</value>
+	    </greater-than>
+	    <greater-than>
+	      <property>/controls/engines/engine[1]/throttle</property>
+	      <value>0.35</value>
+	    </greater-than>
+	    <greater-than>
+	      <property>/controls/engines/engine[2]/throttle</property>
+	      <value>0.35</value>
+	    </greater-than>
+	    <greater-than>
+	      <property>/controls/engines/engine[3]/throttle</property>
+	      <value>0.35</value>
+	    </greater-than>
+	  </and>
+	</condition>
+      </exit>
+    </step>
+    
+    <step>
+      <interval>1</interval>
+      <message>Stay on the centre-line of the runway using the rudder.</message>
+      <exit>
+        <condition>
+          <greater-than>
+            <property>/velocities/airspeed-kt</property>
+            <value>5.0</value>
+          </greater-than>
         </condition>
+      </exit>
+    </step>
+    
+    
+    <step>
+      <interval>1</interval>
+      <message>Use SHIFT+Page Up, to set throttle to FLEX (2nd detent)</message>
+      <error>
+        <message>Press SHIFT+Page Up, so throttle is 1/4 from the top</message>
+	<condition>
+	  <less-than>
+	    <property>/instrumentation/flightdirector/athr</property>
+	    <value>2</value>
+	  </less-than>
+	</condition>
+      </error>
+      <error>
+        <message>Press SHIFT+Page Down, to reduce throttle to FLEX detent</message>
+	<condition>
+	  <greater-than>
+	  <property>/instrumentation/flightdirector/athr</property>
+	  <value>2</value>
+	  </greater-than>
+	</condition>
+      </error>
+      <exit>
+        <condition>
+	 <equals>
+	  <property>/instrumentation/flightdirector/athr</property>
+	  <value>2</value>
+	 </equals>
+	</condition>
+      </exit>
+    </step>
+
+    <step>
+      <message>Start the rotate at 130 knots and climb straight out on heading 340 at 1800 feet per minute.</message>
+      <exit>
+         <condition>
+          <greater-than>
+            <property>/instrumentation/vertical-speed-indicator/indicated-speed-fpm</property>
+            <value>500</value>
+          </greater-than>
+        </condition>
+      </exit>
+    </step>
+    
+    <step>
+      <message>Retract gears, this will enable SRS mode</message>
+      <exit>
+        <condition>
+	  <less-than>
+	    <property>/gear/gear[0]/position-norm</property>
+	    <value>1</value>
+	  </less-than>
+	</condition>
+      </exit>
+    </step>
+    
+    <step>
+      <message>Enable AP1 and push HDG button for managed mode</message>
+      <error>
+        <message>Push the AP 1 button</message>
+	<condition>
+	  <not-equals>
+	    <property>/instrumentation/flightdirector/autopilot-on</property>
+	    <value>1</value>
+	  </not-equals>
+	</condition>
+      </error>
+      <error>
+        <message>Push the HDG button</message>
+	<condition>
+	  <not-equals>
+	    <property>/instrumentation/flightdirector/lnav</property>
+	    <value>4</value>
+	  </not-equals>
+	</condition>
+      </error>
+      <exit>
+        <condition>
+	  <and>
+	    <equals>
+	      <property>/instrumentation/flightdirector/autopilot-on</property>
+	      <value>1</value>
+	    </equals>
+	    <equals>
+	      <property>/instrumentation/flightdirector/lnav</property>
+	      <value>4</value>
+	    </equals>
+	  </and>
+	</condition>
+      </exit>
+    </step>
+
+    <step>
+      <message>THR LVR indicates you need to reduce thrust to CL detent</message>
+      <error>
+        <message>use SHIFT + Page Down to reduce thrust to CL</message>
+	<condition>
+	  <and>
+	    <greater-than>
+	      <property>/instrumentation/altimeter/indicated-altitude-ft</property>
+	      <value>800</value>
+	    </greater-than>
+	    <not-equals>
+	     <property>/instrumentation/flightdirector/athr</property>
+	     <value>1</value>
+	   </not-equals>
+	  </and>
+	</condition>
+      </error>
+      <exit>
+        <condition>
+	 <equals>
+	   <property>/instrumentation/flightdirector/athr</property>
+	   <value>1</value>
+	 </equals>
+	</condition>
+      </exit>
+    </step>
+    
+    <step>
+      <message>Between 5000ft and 5500ft retract flaps fully</message>
+      <error>
+        <message>Retract flaps to clean configuration</message>
+	<condition>
+	  <and>
+	    <greater-than>
+	      <property>/instrumentation/altimeter/indicated-altitude-ft</property>
+	      <value>4900</value>
+	    </greater-than>
+	    <greater-than>
+	     <property>/controls/flight/flaps</property>
+	     <value>0.0</value>
+	   </greater-than>
+	  </and>
+	</condition>
+      </error>
+      <exit>
+        <greater-than>
+	     <property>/controls/flight/flaps</property>
+	     <value>0.0</value>
+	   </greater-than>
       </exit>
     </step>
 
     <end>
-      <message>Assuming the aircraft is upright and you landed on a runway,
-               you walked away from a total engine failure - well done!</message>
+      <message>You can leave the aircraft in managed mode until ILS interception...</message>
     </end>
+
   </tutorial>
 </PropertyList>

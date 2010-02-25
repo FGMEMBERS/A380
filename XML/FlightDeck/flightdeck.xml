@@ -2,20 +2,8 @@
 
 <PropertyList>
 
-	<path>../../Models/FlightDeck/flightdeck.3ds</path> 
+	<path>../../Models/FlightDeck/flightdeck.ac</path> 
 	<texture-path>../../Textures/Common</texture-path>
-
-	<model>
-		<path>Aircraft/A380/XML/FlightDeck/cabin.xml</path>
-		<offsets>
-<x-m>0</x-m>
-			<!--<z-m>0</z-m>-->
-		
-	<!--<x-m>0.83864</x-m>
-			<z-m>0.62594</z-m>-->
-			<!--<pitch-deg>80.0</pitch-deg>-->
-		</offsets>
-	</model>
 
 <!-- Load the front panel -->
 	<model>
@@ -56,11 +44,10 @@
         <type>material</type>
         <object-name>Object03</object-name>
         <emission>
-<red>0.31</red>
+		<red>0.31</red>
             <green>0.47</green>
             <blue>0.47</blue>
-    <factor-prop>controls/lighting/panel-norm[0]</factor-prop>	
-
+    		<factor-prop>controls/lighting/panel-norm[0]</factor-prop>	
         </emission>
     </animation>
 

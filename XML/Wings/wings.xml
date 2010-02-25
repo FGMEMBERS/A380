@@ -3,12 +3,31 @@
 <PropertyList>
 	
 	<path>../../Models/Wings/wings.3ds</path> 
+<texture-path>../../Textures/Livery/</texture-path>
 	
 	<offsets>
 		<x-m>31.496</x-m>
 		<z-m>4.65804</z-m>
 		<pitch-deg>0.0</pitch-deg>
 	</offsets>
+
+<!-- MP Livery Update -->
+<nasal> 
+<load> var livery_update = aircraft.livery_update.new("Aircraft/A380/XML/Liveries"); </load> 
+<unload> 
+livery_update.stop(); 
+</unload> 
+</nasal> 
+
+<animation> <type>material</type> 
+<object-name>left</object-name> 
+<object-name>right</object-name> 
+<property-base>sim/model/livery</property-base> 
+<texture-prop>texture</texture-prop> 
+<texture>A380.png</texture> 
+</animation> 
+
+
 	
 	<model>
 		<path>Aircraft/A380/XML/Wings/pylon1.xml</path>
@@ -1283,4 +1302,6 @@
 			<z>0.09</z>
 		</axis>
 	</animation>
+
+<!--Wing flex-->
 </PropertyList>

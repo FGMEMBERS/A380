@@ -5,178 +5,7 @@ MATERIAL "ac3dmat12" rgb 0.266667 0.266667 0.266667  amb 0.2 0.2 0.2  emis 0 0 0
 MATERIAL "ac3dmat13" rgb 0.533333 0.533333 0.533333  amb 0.2 0.2 0.2  emis 0 0 0  spec 0.2 0.2 0.2  shi 128  trans 0
 MATERIAL "Flat.002" rgb 1 1 1  amb 0 0 0  emis 0 0 0  spec 0 0 0  shi 0  trans 0
 OBJECT world
-kids 12
-OBJECT poly
-name "box"
-loc 4.17964 -0.748284 0.650503
-crease 45.000000
-numvert 8
--0.116115 -0.105559 -0.367178
-0.116115 -0.105559 -0.367178
-0.116115 -0.105559 0.367178
--0.116115 -0.105559 0.367178
--0.116115 0.105559 0.367178
-0.116115 0.105559 0.367178
-0.116115 0.105559 -0.367178
--0.116115 0.105559 -0.367178
-numsurf 6
-SURF 0x30
-mat 0
-refs 4
-5 0 0
-2 1 0
-1 1 1
-6 0 1
-SURF 0x30
-mat 0
-refs 4
-7 0 0
-0 1 0
-3 1 1
-4 0 1
-SURF 0x30
-mat 0
-refs 4
-6 0 0
-1 1 0
-0 1 1
-7 0 1
-SURF 0x30
-mat 0
-refs 4
-4 0 0
-3 1 0
-2 1 1
-5 0 1
-SURF 0x30
-mat 0
-refs 4
-7 0 0
-4 1 0
-5 1 1
-6 0 1
-SURF 0x30
-mat 0
-refs 4
-0 0 0
-1 1 0
-2 1 1
-3 0 1
-kids 0
-OBJECT poly
-name "box"
-loc 3.94762 -0.535078 0.650503
-crease 45.000000
-numvert 8
--0.116115 0.105559 -0.367178
-0.116115 0.105559 -0.367178
-0.116115 0.105559 0.367178
--0.116115 0.105559 0.367178
--0.116115 -0.105559 0.367178
-0.116115 -0.105559 0.367178
-0.116115 -0.105559 -0.367178
--0.116115 -0.105559 -0.367178
-numsurf 6
-SURF 0x30
-mat 0
-refs 4
-7 0 0
-6 1 0
-5 1 1
-4 0 1
-SURF 0x30
-mat 0
-refs 4
-0 0 0
-3 1 0
-2 1 1
-1 0 1
-SURF 0x30
-mat 0
-refs 4
-3 0 0
-4 1 0
-5 1 1
-2 0 1
-SURF 0x30
-mat 0
-refs 4
-1 0 0
-6 1 0
-7 1 1
-0 0 1
-SURF 0x30
-mat 0
-refs 4
-0 0 0
-7 1 0
-4 1 1
-3 0 1
-SURF 0x30
-mat 0
-refs 4
-2 0 0
-5 1 0
-6 1 1
-1 0 1
-kids 0
-OBJECT poly
-name "box"
-loc 3.71539 -0.323962 0.650503
-crease 45.000000
-numvert 8
--0.116115 -0.105559 -0.367178
-0.116115 -0.105559 -0.367178
-0.116115 -0.105559 0.367178
--0.116115 -0.105559 0.367178
--0.116115 0.105559 0.367178
-0.116115 0.105559 0.367178
-0.116115 0.105559 -0.367178
--0.116115 0.105559 -0.367178
-numsurf 6
-SURF 0x30
-mat 0
-refs 4
-5 0 0
-2 1 0
-1 1 1
-6 0 1
-SURF 0x30
-mat 0
-refs 4
-7 0 0
-0 1 0
-3 1 1
-4 0 1
-SURF 0x30
-mat 0
-refs 4
-6 0 0
-1 1 0
-0 1 1
-7 0 1
-SURF 0x30
-mat 0
-refs 4
-4 0 0
-3 1 0
-2 1 1
-5 0 1
-SURF 0x30
-mat 0
-refs 4
-7 0 0
-4 1 0
-5 1 1
-6 0 1
-SURF 0x30
-mat 0
-refs 4
-0 0 0
-1 1 0
-2 1 1
-3 0 1
-kids 0
+kids 7
 OBJECT group
 name "group"
 loc 2.85566 0.849361 -1.19915
@@ -184,7 +13,7 @@ kids 9
 OBJECT poly
 name "box"
 loc -0.0282433 0.00544864 -0.013026
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
 crease 45.000000
 numvert 8
 0.0076654 0.0274396 0.0600395
@@ -246,7 +75,7 @@ kids 5
 OBJECT poly
 name "cylinder"
 loc 0.000247002 0.179649 -0.201547
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
 crease 45.000000
 numvert 26
 -0.0329776 0 -0.0529768
@@ -508,7 +337,7 @@ kids 0
 OBJECT poly
 name "box"
 loc -0.00011301 -0.126989 -0.174526
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
 crease 45.000000
 numvert 8
 0.0333374 -0.309193 -0.135551
@@ -566,7 +395,7 @@ kids 0
 OBJECT poly
 name "box"
 loc -0.000113249 -0.126439 0.227883
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
 crease 45.000000
 numvert 8
 0.0333376 -0.309193 -0.0244455
@@ -624,7 +453,7 @@ kids 0
 OBJECT poly
 name "cylinder"
 loc 0.000246763 0.180199 0.200862
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
 crease 45.000000
 numvert 26
 -0.0329773 0 0
@@ -886,7 +715,7 @@ kids 0
 OBJECT poly
 name "box"
 loc -0.000268221 -0.106421 -0.0526714
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
 texrep 1 5
 crease 45.000000
 numvert 8
@@ -945,7 +774,7 @@ kids 0
 OBJECT poly
 name "box"
 loc 2.43187e-005 -0.198644 -0.01278
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
 crease 45.000000
 numvert 8
 0.035969 -0.276561 0.316814
@@ -1003,7 +832,7 @@ kids 0
 OBJECT poly
 name "box"
 loc 0.0429716 -0.194657 -0.0107433
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
 crease 45.000000
 numvert 40
 0.0586252 -0.630636 -0.322613
@@ -1181,7 +1010,7 @@ kids 5
 OBJECT poly
 name "cylinder"
 loc 0.000169992 0.0284357 -0.201547
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
 crease 45.000000
 numvert 52
 0.0227118 0.00343227 -0.151834
@@ -1697,7 +1526,7 @@ kids 0
 OBJECT poly
 name "box"
 loc -7.79629e-005 -0.0201006 -0.174526
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
 crease 45.000000
 numvert 16
 0.0229597 0.0489408 -0.135551
@@ -1805,7 +1634,7 @@ kids 0
 OBJECT poly
 name "box"
 loc -7.79629e-005 -0.0200136 0.227883
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
 crease 45.000000
 numvert 16
 0.0229597 0.0489407 -0.0244455
@@ -1913,7 +1742,7 @@ kids 0
 OBJECT poly
 name "cylinder"
 loc 0.000169992 0.0285226 0.200862
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
 crease 45.000000
 numvert 52
 0.0227118 0.00343239 0.0458794
@@ -2429,7 +2258,7 @@ kids 0
 OBJECT poly
 name "box"
 loc -0.000184774 -0.0168451 -0.0526714
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
 texrep 1 5
 crease 45.000000
 numvert 12
@@ -2534,7 +2363,7 @@ kids 0
 OBJECT poly
 name "box"
 loc -0.0390558 0.00544864 0.0448792
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
 crease 45.000000
 numvert 8
 0.0180914 -0.0274397 0.00213456
@@ -2592,7 +2421,7 @@ kids 0
 OBJECT poly
 name "box"
 loc -0.0390558 0.00544864 -0.0711091
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
 crease 45.000000
 numvert 8
 0.0180914 0.0274396 0.00213456
@@ -2650,7 +2479,7 @@ kids 0
 OBJECT poly
 name "box"
 loc -0.0389721 0.0300921 -0.013026
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
 crease 45.000000
 numvert 8
 0.0180058 -0.00279629 0.0600395
@@ -2708,7 +2537,7 @@ kids 0
 OBJECT poly
 name "box"
 loc -0.0389721 -0.0195851 -0.013026
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
 crease 45.000000
 numvert 8
 0.0180058 0.00198901 0.0600395
@@ -2770,7 +2599,7 @@ kids 9
 OBJECT poly
 name "box"
 loc -0.0264969 0.00544864 -0.013026
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
 crease 45.000000
 numvert 8
 0.00719142 -0.0274397 0.0600395
@@ -2832,7 +2661,7 @@ kids 5
 OBJECT poly
 name "cylinder"
 loc 0.000231743 0.179649 -0.201547
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
 crease 45.000000
 numvert 26
 0.0309381 0.0216851 -0.151834
@@ -3094,7 +2923,7 @@ kids 0
 OBJECT poly
 name "box"
 loc -0.000106096 -0.126989 -0.174526
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
 crease 45.000000
 numvert 8
 0.031276 0.309193 -0.135551
@@ -3152,7 +2981,7 @@ kids 0
 OBJECT poly
 name "box"
 loc -0.000106096 -0.126439 0.227883
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
 crease 45.000000
 numvert 8
 0.031276 0.309194 -0.0244455
@@ -3210,7 +3039,7 @@ kids 0
 OBJECT poly
 name "cylinder"
 loc 0.000231504 0.180199 0.200862
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
 crease 45.000000
 numvert 26
 0.0309384 0.0216849 0.0458794
@@ -3472,7 +3301,7 @@ kids 0
 OBJECT poly
 name "box"
 loc -0.00025177 -0.106421 -0.0526714
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
 texrep 1 5
 crease 45.000000
 numvert 8
@@ -3531,7 +3360,7 @@ kids 0
 OBJECT poly
 name "box"
 loc 2.28882e-005 -0.198644 -0.01278
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
 crease 45.000000
 numvert 8
 0.00259542 0.281132 0.316814
@@ -3589,7 +3418,7 @@ kids 0
 OBJECT poly
 name "box"
 loc 0.0403142 -0.194657 -0.0107433
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
 crease 45.000000
 numvert 40
 0.0536087 -0.610198 0.323249
@@ -3767,7 +3596,7 @@ kids 5
 OBJECT poly
 name "cylinder"
 loc 0.000159502 0.0284357 -0.201547
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
 crease 45.000000
 numvert 52
 -0.0213072 -0.195026 -0.0529771
@@ -4283,7 +4112,7 @@ kids 0
 OBJECT poly
 name "box"
 loc -7.29561e-005 -0.0201006 -0.174526
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
 crease 45.000000
 numvert 16
 0.0215399 -0.0490136 -0.135551
@@ -4391,7 +4220,7 @@ kids 0
 OBJECT poly
 name "box"
 loc -7.29561e-005 -0.0200136 0.227883
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
 crease 45.000000
 numvert 16
 0.0215399 -0.0491877 -0.0244455
@@ -4499,7 +4328,7 @@ kids 0
 OBJECT poly
 name "cylinder"
 loc 0.000159502 0.0285225 0.200862
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
 crease 45.000000
 numvert 52
 -0.0213072 -0.195201 0
@@ -5015,7 +4844,7 @@ kids 0
 OBJECT poly
 name "box"
 loc -0.000173092 -0.0168452 -0.0526714
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
 texrep 1 5
 crease 45.000000
 numvert 12
@@ -5120,7 +4949,7 @@ kids 0
 OBJECT poly
 name "box"
 loc -0.0366409 0.00544864 0.0448792
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
 crease 45.000000
 numvert 8
 0.0169728 0.0274396 0.00213456
@@ -5178,7 +5007,7 @@ kids 0
 OBJECT poly
 name "box"
 loc -0.0366409 0.00544864 -0.0711091
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
 crease 45.000000
 numvert 8
 0.0169728 -0.0274397 0.00213456
@@ -5236,7 +5065,7 @@ kids 0
 OBJECT poly
 name "box"
 loc -0.0365622 0.0300921 -0.013026
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
 crease 45.000000
 numvert 8
 0.0168924 0.00279617 0.0600395
@@ -5294,7 +5123,7 @@ kids 0
 OBJECT poly
 name "box"
 loc -0.0365622 -0.0195851 -0.013026
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
 crease 45.000000
 numvert 8
 0.0168924 -0.00198889 0.0600395
@@ -5352,7 +5181,7 @@ kids 0
 OBJECT poly
 name "Object03"
 loc 6.21783 -0.102274 1.49529
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/floor.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/floor.rgb"
 texrep 100 25
 crease 45.000000
 numvert 22
@@ -5511,7 +5340,7 @@ kids 15
 OBJECT poly
 name "box"
 loc 0.0547943 0.0873165 4.70877e-005
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
 crease 45.000000
 numvert 8
 -0.0228572 0.00202584 -0.0271978
@@ -5569,7 +5398,7 @@ kids 0
 OBJECT poly
 name "box"
 loc 0.021656 0.0703309 4.70877e-005
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
 crease 45.000000
 numvert 8
 0.010282 0.0190191 -0.0271978
@@ -5627,7 +5456,7 @@ kids 0
 OBJECT poly
 name "box"
 loc -0.0247655 -0.0735924 -0.000101261
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
 crease 45.000000
 numvert 46
 0.0013833 -0.00588089 -0.0155301
@@ -6029,7 +5858,7 @@ kids 0
 OBJECT poly
 name "box"
 loc -0.00348902 0.0039404 4.70877e-005
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
 crease 45.000000
 numvert 8
 -0.0149331 -0.0466818 -0.0271978
@@ -6087,7 +5916,7 @@ kids 0
 OBJECT poly
 name "box"
 loc 0.0547943 0.0873165 4.70877e-005
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
 crease 45.000000
 numvert 8
 0.0206671 0.00194001 -0.0271978
@@ -6145,7 +5974,7 @@ kids 0
 OBJECT poly
 name "box"
 loc 0.021656 0.0703309 4.70877e-005
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
 crease 45.000000
 numvert 8
 -0.0147514 -0.0185379 -0.0271978
@@ -6203,7 +6032,7 @@ kids 0
 OBJECT poly
 name "box"
 loc -0.0247655 -0.0735924 -0.000101261
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
 crease 45.000000
 numvert 46
 0.00543499 0.0313268 -0.0282109
@@ -6605,7 +6434,7 @@ kids 0
 OBJECT poly
 name "box"
 loc -0.00348902 0.0039404 4.70877e-005
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
 crease 45.000000
 numvert 8
 0.0104084 0.0478941 -0.0271978
@@ -6663,7 +6492,7 @@ kids 0
 OBJECT poly
 name "rect"
 loc -0.0144014 -0.0274969 -0.0178344
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
 crease 45.000000
 numvert 4
 -0.00411463 -0.015357 0.00892913
@@ -6682,7 +6511,7 @@ kids 0
 OBJECT poly
 name "rect"
 loc -0.0143251 -0.0272126 -0.0182011
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
 crease 45.000000
 numvert 4
 0.00407171 0.0151952 0.0087567
@@ -6701,7 +6530,7 @@ kids 0
 OBJECT poly
 name "rect"
 loc -0.0143628 -0.0273536 0.000113487
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
 crease 45.000000
 numvert 4
 0.00399828 0.0149227 -0.00924527
@@ -6720,7 +6549,7 @@ kids 0
 OBJECT poly
 name "rect"
 loc -0.014287 -0.0270693 -0.000253133
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
 crease 45.000000
 numvert 4
 -0.00405884 -0.0151479 -0.00930423
@@ -6739,7 +6568,7 @@ kids 0
 OBJECT poly
 name "rect"
 loc -0.0144014 -0.0274969 0.0182097
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
 crease 45.000000
 numvert 4
 -0.00411463 -0.015357 0.00892919
@@ -6758,7 +6587,7 @@ kids 0
 OBJECT poly
 name "rect"
 loc -0.0143251 -0.0272126 0.0178431
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
 crease 45.000000
 numvert 4
 0.00407171 0.0151952 0.00875669
@@ -6777,7 +6606,7 @@ kids 0
 OBJECT poly
 name "rect"
 loc -0.0102887 -0.0121492 4.19021e-005
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
 crease 45.000000
 numvert 4
 7.67708e-005 0.00028652 -0.0270701
@@ -6800,7 +6629,7 @@ kids 15
 OBJECT poly
 name "box"
 loc 0.0547943 0.0873165 4.70877e-005
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
 crease 45.000000
 numvert 8
 0.0206671 0.00194001 -0.0271978
@@ -6858,7 +6687,7 @@ kids 0
 OBJECT poly
 name "box"
 loc 0.021656 0.0703309 4.70877e-005
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
 crease 45.000000
 numvert 8
 -0.0147514 -0.0185379 -0.0271978
@@ -6916,7 +6745,7 @@ kids 0
 OBJECT poly
 name "box"
 loc -0.0247655 -0.0735924 -0.000101328
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
 crease 45.000000
 numvert 46
 0.00543499 0.0313268 -0.0282109
@@ -7318,7 +7147,7 @@ kids 0
 OBJECT poly
 name "box"
 loc -0.00348902 0.0039404 4.70877e-005
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
 crease 45.000000
 numvert 8
 0.0104084 0.0478941 -0.0271978
@@ -7376,7 +7205,7 @@ kids 0
 OBJECT poly
 name "box"
 loc 0.0547943 0.0873165 4.70877e-005
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
 crease 45.000000
 numvert 8
 -0.0228572 0.00202584 -0.0271978
@@ -7434,7 +7263,7 @@ kids 0
 OBJECT poly
 name "box"
 loc 0.021656 0.0703309 4.70877e-005
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
 crease 45.000000
 numvert 8
 0.0102825 0.0190191 -0.0271978
@@ -7492,7 +7321,7 @@ kids 0
 OBJECT poly
 name "box"
 loc -0.0247655 -0.0735924 -0.000101328
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
 crease 45.000000
 numvert 46
 0.00138378 -0.00588089 -0.01553
@@ -7894,7 +7723,7 @@ kids 0
 OBJECT poly
 name "box"
 loc -0.00348902 0.0039404 4.70877e-005
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
 crease 45.000000
 numvert 8
 -0.0149331 -0.0466818 -0.0271978
@@ -7952,7 +7781,7 @@ kids 0
 OBJECT poly
 name "rect"
 loc -0.0144014 -0.0274969 -0.0178344
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
 crease 45.000000
 numvert 4
 0.00399876 0.0149227 -0.00924534
@@ -7971,7 +7800,7 @@ kids 0
 OBJECT poly
 name "rect"
 loc -0.0143251 -0.0272126 -0.0182011
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
 crease 45.000000
 numvert 4
 -0.00405884 -0.0151479 -0.00930417
@@ -7990,7 +7819,7 @@ kids 0
 OBJECT poly
 name "rect"
 loc -0.0143628 -0.0273536 0.000113487
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
 crease 45.000000
 numvert 4
 -0.0041151 -0.015357 0.00892913
@@ -8009,7 +7838,7 @@ kids 0
 OBJECT poly
 name "rect"
 loc -0.0142865 -0.0270693 -0.000253201
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
 crease 45.000000
 numvert 4
 0.00407124 0.0151952 0.00875676
@@ -8028,7 +7857,7 @@ kids 0
 OBJECT poly
 name "rect"
 loc -0.0144014 -0.0274969 0.0182097
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
 crease 45.000000
 numvert 4
 0.00399876 0.0149227 -0.00924528
@@ -8047,7 +7876,7 @@ kids 0
 OBJECT poly
 name "rect"
 loc -0.0143251 -0.0272126 0.017843
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
 crease 45.000000
 numvert 4
 -0.00405884 -0.0151479 -0.00930417
@@ -8066,7 +7895,7 @@ kids 0
 OBJECT poly
 name "rect"
 loc -0.0102887 -0.0121492 4.18425e-005
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
 crease 45.000000
 numvert 4
 7.67708e-005 0.00028652 0.0270702
@@ -8091,7 +7920,7 @@ name "Seats"
 loc 8.61257 -0.778332 0.0813429
 data 10
 Mesh.11250
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
 texrep 1 6
 crease 50.000000
 numvert 8
@@ -8124,7 +7953,7 @@ name "Seats"
 loc 8.61257 -0.778332 0.0813429
 data 10
 Mesh.11250
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
 texrep 1 6
 crease 50.000000
 numvert 8
@@ -8157,7 +7986,7 @@ name "Seats"
 loc 8.61257 -0.778332 0.0813429
 data 10
 Mesh.11250
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
 texrep 1 6
 crease 50.000000
 numvert 8
@@ -8190,7 +8019,7 @@ name "Seats"
 loc 7.97957 -0.778332 0.0813429
 data 10
 Mesh.11250
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
 texrep 1 6
 crease 50.000000
 numvert 8
@@ -8223,7 +8052,7 @@ name "Seats"
 loc 8.61257 -0.778332 0.0813429
 data 10
 Mesh.11250
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
 texrep 1 6
 crease 50.000000
 numvert 68
@@ -8662,7 +8491,7 @@ name "Seats"
 loc 8.62567 -0.779082 0.0832599
 data 10
 Mesh.11250
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
 texrep 1 6
 crease 50.000000
 numvert 24
@@ -8809,7 +8638,7 @@ name "Seats"
 loc 8.11008 -0.773282 0.0813429
 data 10
 Mesh.11250
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
 texrep 1 5
 crease 50.000000
 numvert 100
@@ -9672,7 +9501,7 @@ name "Seats"
 loc 7.97957 -0.778332 0.0813429
 data 10
 Mesh.11250
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
 crease 50.000000
 numvert 68
 -21.1677 2.0753 -1.62329
@@ -10068,7 +9897,7 @@ kids 0
 OBJECT poly
 name "cylinder"
 loc -13.3862 1.23802 -0.346152
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
 crease 45.000000
 numvert 52
 -0.186953 0.000327706 -0.679108
@@ -10584,7 +10413,7 @@ kids 0
 OBJECT poly
 name "box"
 loc -13.3862 1.25922 -0.345734
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
 crease 45.000000
 numvert 16
 -0.199854 -0.00652564 -0.680047
@@ -10692,7 +10521,7 @@ kids 0
 OBJECT poly
 name "box"
 loc -13.3862 1.22076 -0.345734
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
 crease 45.000000
 numvert 16
 -0.199854 -0.0219142 -0.680047
@@ -11013,7 +10842,7 @@ kids 0
 OBJECT poly
 name "poly"
 loc -13.4933 1.25218 0.19248
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
 crease 45.000000
 numvert 20
 0.0470912 0.000237584 -1.70079
@@ -11071,7 +10900,7 @@ kids 13
 OBJECT poly
 name "poly"
 loc -13.4933 1.25218 0.19248
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
 crease 45.000000
 numvert 20
 0.178173 0.000237584 -1.7053
@@ -11338,7 +11167,7 @@ kids 0
 OBJECT poly
 name "box"
 loc -13.3862 1.22076 -0.345734
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
 crease 45.000000
 numvert 16
 -0.199854 0.00609243 -0.680047
@@ -11446,7 +11275,7 @@ kids 0
 OBJECT poly
 name "box"
 loc -13.3862 1.25922 -0.345734
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
 crease 45.000000
 numvert 16
 -0.199854 -0.0345324 -0.680047
@@ -11554,7 +11383,7 @@ kids 0
 OBJECT poly
 name "cylinder"
 loc -13.3862 1.23802 -0.346152
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
 crease 45.000000
 numvert 52
 -0.200067 -0.0135734 -0.71434
@@ -12072,7 +11901,7 @@ name "Seats"
 loc 7.97956 -0.778332 0.0813429
 data 10
 Mesh.11250
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
 crease 50.000000
 numvert 68
 -21.4018 1.87446 -1.13597
@@ -12470,7 +12299,7 @@ name "Seats"
 loc 8.11007 -0.773282 0.0813429
 data 10
 Mesh.11250
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
 texrep 1 5
 crease 50.000000
 numvert 100
@@ -13333,7 +13162,7 @@ name "Seats"
 loc 8.62566 -0.779082 0.0832599
 data 10
 Mesh.11250
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
 texrep 1 6
 crease 50.000000
 numvert 24
@@ -13480,7 +13309,7 @@ name "Seats"
 loc 8.61256 -0.778332 0.0813429
 data 10
 Mesh.11250
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
 texrep 1 6
 crease 50.000000
 numvert 68
@@ -13919,7 +13748,7 @@ name "Seats"
 loc 7.97956 -0.778332 0.0813429
 data 10
 Mesh.11250
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
 texrep 1 6
 crease 50.000000
 numvert 8
@@ -13952,7 +13781,7 @@ name "Seats"
 loc 8.61256 -0.778332 0.0813429
 data 10
 Mesh.11250
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
 texrep 1 6
 crease 50.000000
 numvert 8
@@ -13985,7 +13814,7 @@ name "Seats"
 loc 8.61256 -0.778332 0.0813429
 data 10
 Mesh.11250
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
 texrep 1 6
 crease 50.000000
 numvert 8
@@ -14018,7 +13847,7 @@ name "Seats"
 loc 8.61256 -0.778332 0.0813429
 data 10
 Mesh.11250
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
 texrep 1 6
 crease 50.000000
 numvert 8
@@ -14055,7 +13884,7 @@ name "Seats"
 loc 8.61256 -0.778332 0.0813429
 data 10
 Mesh.11250
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
 texrep 1 6
 crease 50.000000
 numvert 8
@@ -14092,7 +13921,7 @@ name "Seats"
 loc 0.846228 -0.0602024 0.00610965
 data 10
 Mesh.11250
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
 texrep 1 6
 crease 50.000000
 numvert 34
@@ -14317,7 +14146,7 @@ name "Seats"
 loc 0.213226 -0.0602024 0.00610965
 data 10
 Mesh.11250
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
 crease 50.000000
 numvert 34
 -21.4018 1.87446 -0.415741
@@ -14521,7 +14350,7 @@ name "Seats"
 loc 0.343739 -0.0551524 0.00610965
 data 10
 Mesh.11250
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
 texrep 1 5
 crease 50.000000
 numvert 50
@@ -14958,7 +14787,7 @@ name "Seats"
 loc 0.859327 -0.0609524 0.00802666
 data 10
 Mesh.11250
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
 texrep 1 6
 crease 50.000000
 numvert 12
@@ -15037,7 +14866,7 @@ name "Seats"
 loc 0.846228 -0.0602024 0.00610965
 data 10
 Mesh.11250
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
 texrep 1 6
 crease 50.000000
 numvert 4
@@ -15059,7 +14888,7 @@ name "Seats"
 loc 0.846228 -0.0602024 0.00610965
 data 10
 Mesh.11250
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
 texrep 1 6
 crease 50.000000
 numvert 4
@@ -15081,7 +14910,7 @@ name "Seats"
 loc 0.846228 -0.0602024 0.00610965
 data 10
 Mesh.11250
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
 texrep 1 6
 crease 50.000000
 numvert 4
@@ -15103,7 +14932,7 @@ name "Seats"
 loc 0.213226 -0.0602024 0.00610965
 data 10
 Mesh.11250
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
 texrep 1 6
 crease 50.000000
 numvert 4
@@ -15129,7 +14958,7 @@ name "Seats"
 loc 8.61256 -0.778332 0.0813429
 data 10
 Mesh.11250
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
 texrep 1 6
 crease 50.000000
 numvert 4
@@ -15151,7 +14980,7 @@ name "Seats"
 loc 0.213226 -0.0602024 0.00610965
 data 10
 Mesh.11250
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
 texrep 1 6
 crease 50.000000
 numvert 4
@@ -15173,7 +15002,7 @@ name "Seats"
 loc 0.846228 -0.0602024 0.00610965
 data 10
 Mesh.11250
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
 texrep 1 6
 crease 50.000000
 numvert 4
@@ -15195,7 +15024,7 @@ name "Seats"
 loc 0.846228 -0.0602024 0.00610965
 data 10
 Mesh.11250
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
 texrep 1 6
 crease 50.000000
 numvert 4
@@ -15217,7 +15046,7 @@ name "Seats"
 loc 0.846228 -0.0602024 0.00610965
 data 10
 Mesh.11250
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/Seat.rgb"
 texrep 1 6
 crease 50.000000
 numvert 4
@@ -15245,7 +15074,7 @@ kids 15
 OBJECT poly
 name "box"
 loc 0.0547943 0.0873165 4.70877e-005
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
 crease 45.000000
 numvert 16
 0.0206671 0.00194013 -0.0271978
@@ -15353,7 +15182,7 @@ kids 0
 OBJECT poly
 name "box"
 loc 0.021656 0.0703309 4.70877e-005
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
 crease 45.000000
 numvert 16
 -0.0147514 -0.0185379 -0.0271978
@@ -15461,7 +15290,7 @@ kids 0
 OBJECT poly
 name "box"
 loc -0.0247655 -0.0735924 -0.000101268
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
 crease 45.000000
 numvert 92
 0.00543499 0.0313268 -0.0282109
@@ -16257,7 +16086,7 @@ kids 0
 OBJECT poly
 name "box"
 loc -0.00348902 0.0039404 4.70877e-005
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
 crease 45.000000
 numvert 16
 0.0104084 0.0478941 -0.0271978
@@ -16365,7 +16194,7 @@ kids 0
 OBJECT poly
 name "box"
 loc 0.0547943 0.0873165 4.70877e-005
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
 crease 45.000000
 numvert 16
 -0.0228572 0.00202584 -0.0271978
@@ -16473,7 +16302,7 @@ kids 0
 OBJECT poly
 name "box"
 loc 0.021656 0.0703309 4.70877e-005
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
 crease 45.000000
 numvert 16
 0.0102823 0.0190191 -0.0271978
@@ -16581,7 +16410,7 @@ kids 0
 OBJECT poly
 name "box"
 loc -0.0247655 -0.0735924 -0.000101268
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
 crease 45.000000
 numvert 92
 0.00138354 -0.00588089 -0.01553
@@ -17377,7 +17206,7 @@ kids 0
 OBJECT poly
 name "box"
 loc -0.00348902 0.0039404 4.70877e-005
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
 crease 45.000000
 numvert 16
 -0.0149331 -0.0466818 -0.0271978
@@ -17485,7 +17314,7 @@ kids 0
 OBJECT poly
 name "rect"
 loc -0.0144014 -0.0274969 -0.0178344
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
 crease 45.000000
 numvert 8
 0.00399876 0.0149227 -0.00924534
@@ -17515,7 +17344,7 @@ kids 0
 OBJECT poly
 name "rect"
 loc -0.0143251 -0.0272126 -0.0182011
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
 crease 45.000000
 numvert 8
 -0.00405884 -0.0151479 -0.00930417
@@ -17545,7 +17374,7 @@ kids 0
 OBJECT poly
 name "rect"
 loc -0.0143628 -0.0273536 0.000113487
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
 crease 45.000000
 numvert 8
 -0.0041151 -0.015357 0.00892919
@@ -17575,7 +17404,7 @@ kids 0
 OBJECT poly
 name "rect"
 loc -0.0142868 -0.0270693 -0.000253141
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
 crease 45.000000
 numvert 8
 0.00407147 0.0151952 0.0087567
@@ -17605,7 +17434,7 @@ kids 0
 OBJECT poly
 name "rect"
 loc -0.0144014 -0.0274969 0.0182097
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
 crease 45.000000
 numvert 8
 0.00399876 0.0149227 -0.00924528
@@ -17635,7 +17464,7 @@ kids 0
 OBJECT poly
 name "rect"
 loc -0.0143251 -0.0272126 0.0178431
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
 crease 45.000000
 numvert 8
 -0.00405884 -0.0151479 -0.00930423
@@ -17665,7 +17494,7 @@ kids 0
 OBJECT poly
 name "rect"
 loc -0.0102887 -0.0121492 4.19021e-005
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
 crease 45.000000
 numvert 8
 7.67708e-005 0.00028652 0.0270702
@@ -17699,7 +17528,7 @@ kids 15
 OBJECT poly
 name "box"
 loc 0.0547943 0.0873165 4.70877e-005
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
 crease 45.000000
 numvert 16
 -0.0228572 0.00202584 -0.0271978
@@ -17807,7 +17636,7 @@ kids 0
 OBJECT poly
 name "box"
 loc 0.021656 0.0703309 4.70877e-005
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
 crease 45.000000
 numvert 16
 0.0102825 0.0190191 -0.0271978
@@ -17915,7 +17744,7 @@ kids 0
 OBJECT poly
 name "box"
 loc -0.0247655 -0.0735924 -0.000101328
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
 crease 45.000000
 numvert 92
 0.00138378 -0.00588089 -0.01553
@@ -18711,7 +18540,7 @@ kids 0
 OBJECT poly
 name "box"
 loc -0.00348902 0.0039404 4.70877e-005
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
 crease 45.000000
 numvert 16
 -0.0149331 -0.0466818 -0.0271978
@@ -18819,7 +18648,7 @@ kids 0
 OBJECT poly
 name "box"
 loc 0.0547943 0.0873165 4.70877e-005
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
 crease 45.000000
 numvert 16
 0.0206671 0.00194013 -0.0271978
@@ -18927,7 +18756,7 @@ kids 0
 OBJECT poly
 name "box"
 loc 0.021656 0.0703309 4.70877e-005
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
 crease 45.000000
 numvert 16
 -0.0147514 -0.0185379 -0.0271978
@@ -19035,7 +18864,7 @@ kids 0
 OBJECT poly
 name "box"
 loc -0.0247655 -0.0735924 -0.000101328
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
 crease 45.000000
 numvert 92
 0.00543499 0.0313268 -0.0282109
@@ -19831,7 +19660,7 @@ kids 0
 OBJECT poly
 name "box"
 loc -0.00348902 0.0039404 4.70877e-005
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/plastic.rgb"
 crease 45.000000
 numvert 16
 0.0104084 0.0478941 -0.0271978
@@ -19939,7 +19768,7 @@ kids 0
 OBJECT poly
 name "rect"
 loc -0.0144012 -0.0274969 -0.0178344
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
 crease 45.000000
 numvert 8
 -0.00411487 -0.015357 0.0089291
@@ -19969,7 +19798,7 @@ kids 0
 OBJECT poly
 name "rect"
 loc -0.0143251 -0.0272126 -0.0182011
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
 crease 45.000000
 numvert 8
 0.00407171 0.0151952 0.00875673
@@ -19999,7 +19828,7 @@ kids 0
 OBJECT poly
 name "rect"
 loc -0.0143628 -0.0273536 0.000113487
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
 crease 45.000000
 numvert 8
 0.00399852 0.0149227 -0.00924528
@@ -20029,7 +19858,7 @@ kids 0
 OBJECT poly
 name "rect"
 loc -0.0142865 -0.0270693 -0.000253201
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
 crease 45.000000
 numvert 8
 -0.00405884 -0.0151479 -0.00930417
@@ -20059,7 +19888,7 @@ kids 0
 OBJECT poly
 name "rect"
 loc -0.0144012 -0.0274969 0.0182097
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
 crease 45.000000
 numvert 8
 -0.00411487 -0.015357 0.00892913
@@ -20089,7 +19918,7 @@ kids 0
 OBJECT poly
 name "rect"
 loc -0.0143251 -0.0272126 0.017843
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
 crease 45.000000
 numvert 8
 0.00407171 0.0151952 0.00875676
@@ -20119,7 +19948,7 @@ kids 0
 OBJECT poly
 name "rect"
 loc -0.0102887 -0.0121492 4.18425e-005
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
+texture "D:/FlightGear/data/Aircraft/A380/Textures/Common/metal.rgb"
 crease 45.000000
 numvert 8
 7.67708e-005 0.00028652 -0.0270701
@@ -20145,97 +19974,4 @@ refs 4
 5 1 0
 6 1 1
 7 0 1
-kids 0
-OBJECT poly
-name "deck2"
-loc 28.8293 -0.890494 0.0239346
-texture "C:/Program Files/FlightGear/data/Aircraft/A380/Textures/Common/floor.rgb"
-texrep 100 25
-crease 45.000000
-numvert 12
--25.8849 0 2.17297
--23.9074 0 2.53126
--20.7898 0 2.91281
--14.4384 0 3.17803
-15.704 0 3.17803
-25.8802 0 2.68481
-25.8849 0 -2.71738
-15.704 0 -3.17803
--14.4291 0 -3.17803
--20.7852 0 -2.91281
--23.9074 0 -2.5173
--25.8849 0 -2.22416
-numsurf 1
-SURF 0x30
-mat 0
-refs 12
-11 4.14482e-008 0.849927
-10 0.0381989 0.896047
-9 0.098508 0.958272
-8 0.221284 1
-7 0.803344 1
-6 1 0.927526
-5 0.99991 0.0775989
-4 0.803344 5.96046e-008
-3 0.221104 5.96046e-008
-2 0.0984181 0.0417277
-1 0.0381988 0.101757
-0 0 0.158126
-kids 0
-OBJECT poly
-name "box"
-loc 3.433 -0.113371 0.650503
-crease 45.000000
-numvert 8
--0.166281 0.105559 -0.367178
-0.166281 0.105559 -0.367178
-0.166281 0.105559 0.367178
--0.166281 0.105559 0.367178
--0.166281 -0.105559 0.367178
-0.166281 -0.105559 0.367178
-0.166281 -0.105559 -0.367178
--0.166281 -0.105559 -0.367178
-numsurf 6
-SURF 0x30
-mat 0
-refs 4
-7 0 0
-6 1 0
-5 1 1
-4 0 1
-SURF 0x30
-mat 0
-refs 4
-0 0 0
-3 1 0
-2 1 1
-1 0 1
-SURF 0x30
-mat 0
-refs 4
-3 0 0
-4 1 0
-5 1 1
-2 0 1
-SURF 0x30
-mat 0
-refs 4
-1 0 0
-6 1 0
-7 1 1
-0 0 1
-SURF 0x30
-mat 0
-refs 4
-0 0 0
-7 1 0
-4 1 1
-3 0 1
-SURF 0x30
-mat 0
-refs 4
-2 0 0
-5 1 0
-6 1 1
-1 0 1
 kids 0

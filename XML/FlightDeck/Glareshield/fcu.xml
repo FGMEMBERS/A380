@@ -1,12 +1,853 @@
 <?xml version="1.0"?>
 
+<!--
+    The Glareshield FCU
+    
+    
+    Author: S. Hamilton - Aug 2009
+
+-->
+
 <PropertyList>
 
-	<path>../../../Models/FlightDeck/Glareshield/fcu.3ds</path> 
+	<path>../../../Models/FlightDeck/Glareshield/fcu_02.ac</path> 
 	<texture-path>../../../Textures/Common</texture-path>
 	<offsets>
 		<z-m>0.25</z-m>
 	</offsets>
+	
+	
+	
+<!-- ALT -->
+<!-- Altitude readout and knob -->
+ <animation>
+   <type>textranslate</type>
+   <object-name>FCU ALT mesh1</object-name>
+   <property>/instrumentation/afs/target-altitude-ft</property>
+   <factor>0.00001</factor>
+   <step>10000.0</step>
+   <axis>
+     <x>0</x>
+     <y>1</y>
+     <z>0</z>
+   </axis>
+ </animation>
+
+ <animation>
+   <type>textranslate</type>
+   <object-name>FCU ALT mesh2</object-name>
+   <property>/instrumentation/afs/target-altitude-ft</property>
+   <factor>0.0001</factor>
+   <step>1000.0</step>
+   <axis>
+     <x>0</x>
+     <y>1</y>
+     <z>0</z>
+   </axis>
+ </animation>
+
+ <animation>
+   <type>textranslate</type>
+   <object-name>FCU ALT mesh3</object-name>
+   <property>/instrumentation/afs/target-altitude-ft</property>
+   <factor>0.001</factor>
+   <step>100.0</step>
+   <axis>
+     <x>0</x>
+     <y>1</y>
+     <z>0</z>
+   </axis>
+ </animation>
+
+ <animation>
+   <type>textranslate</type>
+   <object-name>FCU ALT mesh4</object-name>
+   <property>/instrumentation/afs/target-altitude-ft</property>
+   <factor>0.01</factor>
+   <step>10.0</step>
+   <axis>
+     <x>0</x>
+     <y>1</y>
+     <z>0</z>
+   </axis>
+ </animation>
+
+ <animation>
+   <type>textranslate</type>
+   <object-name>FCU ALT mesh5</object-name>
+   <property>/instrumentation/afs/target-altitude-ft</property>
+   <factor>0.1</factor>
+   <step>1.0</step>
+   <axis>
+     <x>0</x>
+     <y>1</y>
+     <z>0</z>
+   </axis>
+ </animation>
+ 
+  <animation>
+  <type>pick</type>
+  <object-name>ALT knob</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>FCU.toggle_alt_select(-1)</script>
+   </binding>
+  </action>
+  <action>
+   <button>1</button>
+   <repeatable>false</repeatable>
+   <binding>
+    <command>nasal</command>
+    <script>FCU.toggle_alt_select(1)</script>
+   </binding>
+  </action>
+  <!--  scrollwheel -->
+  <action>
+    <button>3</button>
+    <repeatable>true</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>FCU.increment_alt()</script>
+    </binding>
+  </action>
+  <!-- scrollwheel -->
+    <action>
+    <button>4</button>
+    <repeatable>true</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>FCU.decrement_alt()</script>
+    </binding>
+  </action>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>ALT group</object-name>
+  <condition>
+    <equals>   
+      <property>/instrumentation/afs/vertical-alt-display</property>
+      <value>0</value>
+    </equals>
+  </condition>
+</animation>
+
+
+<!-- SPD -->
+<!--  Autothrottle SPD readout and knob -->
+<animation>
+   <type>textranslate</type>
+   <object-name>FCU SPD mesh1</object-name>
+   <property>/instrumentation/afs/target-speed-kt</property>
+   <factor>0.001</factor>
+   <step>100.0</step>
+   <axis>
+     <x>0</x>
+     <y>1</y>
+     <z>0</z>
+   </axis>
+ </animation>
+
+ <animation>
+   <type>textranslate</type>
+   <object-name>FCU SPD mesh2</object-name>
+   <property>/instrumentation/afs/target-speed-kt</property>
+   <factor>0.01</factor>
+   <step>10.0</step>
+   <axis>
+     <x>0</x>
+     <y>1</y>
+     <z>0</z>
+   </axis>
+ </animation>
+
+ <animation>
+   <type>textranslate</type>
+   <object-name>FCU SPD mesh3</object-name>
+   <property>/instrumentation/afs/target-speed-kt</property>
+   <factor>0.1</factor>
+   <step>1.0</step>
+   <axis>
+     <x>0</x>
+     <y>1</y>
+     <z>0</z>
+   </axis>
+ </animation>
+ 
+ 
+ <animation>
+  <type>pick</type>
+  <object-name>SPD knob</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+     <command>nasal</command>
+     <script>FCU.toggle_spd_select(-1)</script>
+   </binding>
+  </action>
+  <action>
+   <button>1</button>
+   <repeatable>false</repeatable>
+   <binding>
+     <command>nasal</command>
+     <script>FCU.toggle_spd_select(1)</script>
+   </binding>
+  </action>
+  <action>
+   <button>3</button>
+   <repeatable>false</repeatable>
+   <binding>
+    <command>nasal</command>
+    <script>FCU.increment_spd()</script>
+   </binding>
+  </action>
+  <action>
+   <button>4</button>
+   <repeatable>false</repeatable>
+   <binding>
+    <command>nasal</command>
+    <script>FCU.decrement_spd()</script>
+   </binding>
+  </action>
+</animation>
+ 
+<animation>
+  <type>translate</type>
+  <object-name>SPD knob</object-name>
+  <property>instrumentation/afs/speed-mode</property>
+  <factor>0.005</factor>
+  <axis>
+     <x>0</x>
+     <y>0</y>
+     <z>0.5</z>
+  </axis> 
+</animation>
+ 
+<animation>
+  <type>select</type>
+  <object-name>SPD group</object-name>
+  <condition>
+    <equals>   
+      <property>/instrumentation/afs/spd-display</property>
+      <value>0</value>
+    </equals>
+  </condition>
+</animation>
+ 
+ 
+<!-- VS -->
+<!-- Vertical Speed readout and knob -->
+
+ <animation>
+   <type>textranslate</type>
+   <object-name>FCU VS mesh1</object-name>
+   <property>/instrumentation/afs/vertical-speed-fpm</property>
+   <factor>0.0001</factor>
+   <step>1000.0</step>
+   <axis>
+     <x>0</x>
+     <y>1</y>
+     <z>0</z>
+   </axis>
+ </animation>
+
+ <animation>
+   <type>textranslate</type>
+   <object-name>FCU VS mesh2</object-name>
+   <property>/instrumentation/afs/vertical-speed-fpm</property>
+   <factor>0.001</factor>
+   <step>100.0</step>
+   <axis>
+     <x>0</x>
+     <y>1</y>
+     <z>0</z>
+   </axis>
+ </animation>
+
+ <animation>
+   <type>textranslate</type>
+   <object-name>FCU VS mesh3</object-name>
+   <property>/instrumentation/afs/vertical-speed-fpm</property>
+   <factor>0.01</factor>
+   <step>10.0</step>
+   <axis>
+     <x>0</x>
+     <y>1</y>
+     <z>0</z>
+   </axis>
+</animation>
+
+ <animation>
+   <type>textranslate</type>
+   <object-name>FCU VS mesh4</object-name>
+   <property>/instrumentation/afs/vertical-speed-fpm</property>
+   <factor>0.1</factor>
+   <step>1.0</step>
+   <axis>
+     <x>0</x>
+     <y>1</y>
+     <z>0</z>
+   </axis>
+ </animation>
+ 
+ 
+ 
+ <animation>
+  <type>pick</type>
+  <object-name>VS knob</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>FCU.toggle_vs_select(-1)</script>
+   </binding>
+  </action>
+  <action>
+   <button>1</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>FCU.toggle_vs_select(1)</script>
+   </binding>
+  </action>
+  <action>
+   <button>3</button>
+   <repeatable>true</repeatable>
+   <binding>
+     <command>nasal</command>
+     <script>FCU.increment_vs()</script>
+   </binding>
+  </action>
+  <action>
+   <button>4</button>
+   <repeatable>true</repeatable>
+   <binding>
+    <command>nasal</command>
+    <script>FCU.decrement_vs()</script>
+   </binding>
+  </action>
+</animation>
+
+<animation>
+  <type>translate</type>
+  <object-name>VS knob</object-name>
+  <property>/instrumentation/afs/vertical-vs-mode</property>
+  <factor>0.005</factor>
+  <axis>
+     <x>0</x>
+     <y>0</y>
+     <z>0.5</z>
+  </axis>  
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>VS group</object-name>
+  <condition>
+    <equals>   
+      <property>/instrumentation/afs/vertical-vs-display</property>
+      <value>0</value>
+    </equals>
+  </condition>
+</animation>
+
+
+<!-- HDG -->
+<!-- heading readout and dial -->
+
+ <animation>
+   <type>textranslate</type>
+   <object-name>FCU HDG mesh1</object-name>
+   <property>/instrumentation/afs/heading-bug-deg</property>
+   <factor>0.001</factor>
+   <step>100.0</step>
+   <axis>
+     <x>0</x>
+     <y>1</y>
+     <z>0</z>
+   </axis>
+ </animation>
+ <animation>
+   <type>textranslate</type>
+   <object-name>FCU HDG mesh2</object-name>
+   <property>/instrumentation/afs/heading-bug-deg</property>
+   <factor>0.01</factor>
+   <step>10.0</step>
+   <axis>
+     <x>0</x>
+     <y>1</y>
+     <z>0</z>
+   </axis>
+ </animation>
+ <animation>
+   <type>textranslate</type>
+   <object-name>FCU HDG mesh3</object-name>
+   <property>/instrumentation/afs/heading-bug-deg</property>
+   <factor>0.1</factor>
+   <step>1.0</step>
+   <axis>
+     <x>0</x>
+     <y>1</y>
+     <z>0</z>
+   </axis>
+ </animation>
+
+<animation>
+  <type>select</type>
+  <object-name>HDG group</object-name>
+  <condition>
+    <equals>   
+      <property>/instrumentation/afs/lateral-display</property>
+      <value>0</value>
+    </equals>
+  </condition>
+</animation>
+
+  <animation>
+  <type>pick</type>
+  <object-name>HDG knob</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+     <command>nasal</command>
+     <script>FCU.toggle_hdg_select(-1);</script>
+   </binding>
+  </action>
+  <action>
+   <button>1</button>
+   <repeatable>false</repeatable>
+   <binding>
+    <command>nasal</command>
+    <script>FCU.toggle_hdg_select(1);</script>
+   </binding>
+  </action>
+  <action>
+   <button>3</button>
+   <repeatable>true</repeatable>
+   <binding>
+     <command>nasal</command>
+     <script>FCU.increment_hdg()</script>
+   </binding>
+  </action>
+  <action>
+   <button>4</button>
+   <repeatable>true</repeatable>
+   <binding>
+    <command>nasal</command>
+    <script>FCU.decrement_hdg()</script>
+   </binding>
+  </action>
+</animation>
+
+<animation>
+  <type>translate</type>
+  <object-name>HDG knob</object-name>
+  <property>instrumentation/afs/lateral-mode</property>
+  <factor>0.005</factor>
+  <axis>
+     <x>0</x>
+     <y>0</y>
+     <z>0.5</z>
+  </axis>  
+</animation>
+ 
+<!--  toggle buttons and illuminations -->
+
+
+<!-- Flight Director -->
+
+<animation>
+  <type>pick</type>
+  <object-name>FD</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>FCU.toggle_fd();</script>
+   </binding>
+ </action>
+</animation>
+
+
+<animation>
+  <type>textranslate</type>
+  <object-name>FD.toggle</object-name>
+  <property>/autopilot/locks/passive-mode</property>
+  <factor>50</factor>
+  <axis>
+    <x>0</x>
+    <y>-1</y>
+    <z>-1</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>material</type>
+  <object-name>FD.toggle</object-name>
+  <emission>
+    <red>0.0</red>
+    <green>0.2</green>
+    <blue>0.0</blue>
+    <factor-prop>/autopilot/locks/passive-mode</factor-prop>
+  </emission>
+</animation>
+
+
+<!-- Autopilot 1 -->
+
+<animation>
+  <type>pick</type>
+  <object-name>AP1</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+     <command>nasal</command>
+     <script>
+      FCU.toggle_ap(0);
+     </script>
+   </binding>
+ </action>
+</animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>AP1.toggle</object-name>
+  <property>/controls/autoflight/autopilot[0]/engage</property>
+  <factor>60</factor>
+  <axis>
+    <x>0</x>
+    <y>-1</y>
+    <z>-1</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>material</type>
+  <object-name>AP1.toggle</object-name>
+  <emission>
+    <red>0.0</red>
+    <green>0.2</green>
+    <blue>0.0</blue>
+    <factor-prop>/controls/autoflight/autopilot[0]/engage</factor-prop>
+  </emission>
+</animation>
+
+
+<animation>
+  <type>pick</type>
+  <object-name>AP2</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+     <command>nasal</command>
+     <script>
+      FCU.toggle_ap(1);
+     </script>
+   </binding>
+ </action>
+</animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>AP2.toggle</object-name>
+  <property>/controls/autoflight/autopilot[1]/engage</property>
+  <factor>60</factor>
+  <axis>
+    <x>0</x>
+    <y>-1</y>
+    <z>-1</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>material</type>
+  <object-name>AP2.toggle</object-name>
+  <emission>
+    <red>0.0</red>
+    <green>0.2</green>
+    <blue>0.0</blue>
+    <factor-prop>/controls/autoflight/autopilot[1]/engage</factor-prop>
+  </emission>
+</animation>
+
+
+
+<!-- first LOC toggle -->
+
+<animation>
+<type>pick</type>
+  <object-name>LOC</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+     <command>nasal</command>
+    <script>
+      FCU.toggle_loc();
+    </script>
+   </binding>
+ </action>
+</animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>LOC.toggle</object-name>
+  <property>/controls/autoflight/lateral-mode</property>
+  <condition>
+    <or>
+    <equals>
+       <property>/controls/autoflight/lateral-mode</property>
+       <value>2</value>
+    </equals>
+    <equals>
+       <property>/controls/autoflight/lateral-mode</property>
+       <value>0</value>
+    </equals>
+    </or>
+  </condition>
+  <factor>25</factor>
+  <axis>
+    <x>0</x>
+    <y>-1</y>
+    <z>-1</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>material</type>
+  <object-name>LOC.toggle</object-name>
+    <condition>
+    <or>
+      <equals>
+       <property>/controls/autoflight/lateral-mode</property>
+       <value>2</value>
+      </equals>
+      <equals>
+       <property>/controls/autoflight/lateral-mode</property>
+       <value>0</value>
+      </equals>
+    </or>
+  </condition>
+  <emission>
+    <red>0.0</red>
+    <green>0.2</green>
+    <blue>0.0</blue>
+    <factor-prop>/controls/autoflight/lateral-mode</factor-prop>
+  </emission>
+</animation>
+
+
+<!-- second ALT toggle -->
+
+<animation>
+<type>pick</type>
+  <object-name>ALT</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>   
+   <binding>
+     <command>nasal</command>
+     <script>
+       FCU.toggle_alt();
+     </script>
+   </binding>
+ </action>
+</animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>ALT.toggle</object-name>
+  <property>/controls/autoflight/vertical-mode</property>
+  <condition>
+      <equals>
+       <property>/instrumentation/flightdirector/vnav</property>
+       <value>11</value>
+      </equals>
+  </condition>
+  <factor>50</factor>
+  <axis>
+    <x>0</x>
+    <y>-1</y>
+    <z>-1</z>
+  </axis>
+</animation>
+
+
+<animation>
+  <type>material</type>
+  <object-name>ALT.toggle</object-name>
+    <condition>
+    <or>
+      <equals>
+       <property>/controls/autoflight/vertical-mode</property>
+       <value>1</value>
+      </equals>
+      <equals>
+       <property>/controls/autoflight/vertical-mode</property>
+       <value>0</value>
+      </equals>
+    </or>
+  </condition>
+  <emission>
+    <red>0.0</red>
+    <green>0.2</green>
+    <blue>0.0</blue>
+    <factor-prop>/controls/autoflight/vertical-mode</factor-prop>
+  </emission>
+</animation>
+
+<animation>
+  <type>translate</type>
+  <object-name>ALT knob</object-name>
+  <property>instrumentation/afs/vertical-alt-mode</property>
+  <factor>0.005</factor>
+  <axis>
+     <x>0</x>
+     <y>0</y>
+     <z>0.5</z>
+  </axis> 
+</animation>
+
+
+<!-- third APPR toggle -->
+
+<animation>
+<type>pick</type>
+  <object-name>APPR</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+     <command>nasal</command>
+     <script>
+       FCU.toggle_appr();
+     </script>
+   </binding>
+ </action>
+</animation>
+
+<!-- animation>
+  <type>select</type>
+  <object-name>APPR.toggle</object-name>
+  <condition>
+    <equals>   
+      <property>instrumentation/flightdirector/lnav</property>
+      <value>3</value>
+    </equals>
+  </condition>
+</animation -->
+
+<animation>
+  <type>textranslate</type>
+  <object-name>APPR.toggle</object-name>
+  <property>/instrumentation/flightdirector/lnav</property>
+  <condition>
+   <or>
+    <equals>
+       <property>/instrumentation/flightdirector/lnav</property>
+       <value>3</value>
+    </equals>
+    <equals>
+       <property>/instrumentation/flightdirector/lnav</property>
+       <value>0</value>
+    </equals>
+    </or>
+  </condition>
+  <factor>20</factor>
+  <axis>
+    <x>0</x>
+    <y>-1</y>
+    <z>-1</z>
+  </axis>
+</animation>
+
+
+
+
+<animation>
+<type>pick</type>
+  <object-name>A/THR</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+     <command>nasal</command>
+     <script>
+       FCU.toggle_spd();
+     </script>
+   </binding>   
+ </action>
+</animation>
+
+<!-- animation>
+  <type>select</type>
+  <object-name>A/THR.toggle</object-name>
+  <condition>
+    <equals>   
+      <property>/autopilot/locks/speed</property>
+      <value type="string">speed-with-throttle</value>
+    </equals>
+  </condition>
+</animation -->
+
+<animation>
+  <type>textranslate</type>
+  <object-name>A/THR.toggle</object-name>
+  <property>/instrumentation/flightdirector/at-on</property>
+  <factor>60</factor>
+  <axis>
+    <x>0</x>
+    <y>-1</y>
+    <z>-1</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>material</type>
+  <object-name>A/THR.toggle</object-name>
+  <emission>
+    <red>0.0</red>
+    <green>0.2</green>
+    <blue>0.0</blue>
+    <factor-prop>/instrumentation/flightdirector/at-on</factor-prop>
+  </emission>
+</animation>
+
+
+ <!--  managed/selected HDG,TRK and V/S,FPA -->
+ <animation>
+	 <type>pick</type>
+	 <object-name>HDG VS select</object-name>
+	 <action>
+		 <button>0</button>
+		 <repeatable>0</repeatable>
+		 <binding>
+			 <command>nasal</command>
+			 <script>
+				 FCU.toggle_hdg_select(1);
+			 </script>
+		 </binding>
+	 </action>
+	 <action>
+		 <button>1</button>
+		 <repeatable>0</repeatable>
+		 <binding>
+			 <command>nasal</command>
+			 <script>
+				 FCU.toggle_hdg_select(-1);
+			 </script>
+		 </binding>
+	 </action>
+ </animation>
 
 </PropertyList> 
  

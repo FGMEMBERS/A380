@@ -2,8 +2,8 @@
 
 <PropertyList>
 
-	<path>../../../Models/FlightDeck/Overhead/apu_adirs.3ds</path> 
-	<texture-path>../../../Textures/Common</texture-path>
+	<path>../../../Models/FlightDeck/Overhead/apu_adirs.ac</path> 
+	<texture-path>../../../Textures/Instruments</texture-path>
 
 </PropertyList> 
  

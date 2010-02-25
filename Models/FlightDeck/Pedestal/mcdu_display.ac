@@ -1,0 +1,1737 @@
+AC3Db
+MATERIAL "ac3dmat13" rgb 0 0 0  amb 0.2 0.2 0.2  emis 0 0 0  spec 0.2 0.2 0.2  shi 128  trans 0
+MATERIAL "ac3dmat1" rgb 1 1 1  amb 0.2 0.2 0.2  emis 0 0 0  spec 0.2 0.2 0.2  shi 128  trans 0
+MATERIAL "ac3dmat13" rgb 0.533 0.533 0.533  amb 0.2 0.2 0.2  emis 0.129 0.129 0.129  spec 0.2 0.2 0.2  shi 128  trans 0
+MATERIAL "ac3dmat0" rgb 0 0 0  amb 0 0 0  emis 0 0 0  spec 0 0 0  shi 0  trans 0
+MATERIAL "ac3dmat14" rgb 0.29 0.29 0.29  amb 0.29 0.29 0.29  emis 0.29 0.29 0.29  spec 0.2 0.2 0.2  shi 128  trans 0
+MATERIAL "1 - Default" rgb 0.439216 0.564706 0.564706  amb 0.313726 0.376471 0.376471  emis 0 0 0  spec 0.564706 0.627451 0.627451  shi 12.8  trans 0
+MATERIAL "2 - Default" rgb 0 0 0  amb 0 0 0  emis 0 0 0  spec 0.0627451 0 0.25098  shi 32  trans 0.05
+MATERIAL "3 - Default" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0.898039 0.898039 0.898039  shi 12.8  trans 0
+OBJECT world
+kids 13
+OBJECT poly
+name "menu.config"
+loc -0.0456061 0.000499049 -0.167929
+crease 45.000000
+numvert 4
+-0.152104 0 0.0431601
+-0.152104 0 0.0139101
+-0.142542 0 0.0139101
+-0.142542 0 0.0431601
+numsurf 1
+SURF 0x30
+mat 4
+refs 4
+3 0 0
+2 1 0
+1 1 1
+0 0 1
+kids 0
+OBJECT poly
+name "menu.data"
+loc -0.0753271 0.000499049 -0.167929
+crease 45.000000
+numvert 4
+-0.11282 0 0.0728811
+-0.112821 0 0.0436311
+-0.122383 0 0.0436311
+-0.122383 0 0.0728811
+numsurf 1
+SURF 0x30
+mat 4
+refs 4
+0 0 0
+1 1 0
+2 1 1
+3 0 1
+kids 0
+OBJECT poly
+name "menu.sec"
+loc -0.105049 0.000499049 -0.167929
+crease 45.000000
+numvert 4
+-0.0926612 0 0.102603
+-0.0926612 0 0.073353
+-0.0830987 0 0.073353
+-0.0830987 0 0.102603
+numsurf 1
+SURF 0x30
+mat 4
+refs 4
+3 0 0
+2 1 0
+1 1 1
+0 0 1
+kids 0
+OBJECT poly
+name "menu.position"
+loc -0.13477 0.000499049 -0.167929
+crease 45.000000
+numvert 4
+-0.0533777 0 0.132324
+-0.0533775 0 0.103074
+-0.0629399 0 0.103074
+-0.0629402 0 0.132324
+numsurf 1
+SURF 0x30
+mat 4
+refs 4
+0 0 0
+1 1 0
+2 1 1
+3 0 1
+kids 0
+OBJECT poly
+name "backlight"
+loc -0.185 0 0.0249999
+crease 45.000000
+numvert 8
+-0.02 0 -0.03
+-0.02 0 -0.18
+0.18 0 -0.03
+0.18 0 -0.18
+0.18 -0.005 -0.18
+-0.02 -0.005 -0.18
+0.18 -0.005 -0.03
+-0.02 -0.005 -0.03
+numsurf 10
+SURF 0x10
+mat 7
+refs 3
+0 0 0
+2 0 0
+7 0 0
+SURF 0x10
+mat 7
+refs 3
+6 0 0
+7 0 0
+2 0 0
+SURF 0x10
+mat 7
+refs 3
+1 0 0
+0 0 0
+5 0 0
+SURF 0x10
+mat 7
+refs 3
+7 0 0
+5 0 0
+0 0 0
+SURF 0x10
+mat 7
+refs 3
+3 0 0
+1 0 0
+4 0 0
+SURF 0x10
+mat 7
+refs 3
+5 0 0
+4 0 0
+1 0 0
+SURF 0x10
+mat 7
+refs 3
+2 0 0
+3 0 0
+6 0 0
+SURF 0x10
+mat 7
+refs 3
+4 0 0
+6 0 0
+3 0 0
+SURF 0x10
+mat 7
+refs 3
+4 0 0
+5 0 0
+6 0 0
+SURF 0x10
+mat 7
+refs 3
+7 0 0
+6 0 0
+5 0 0
+kids 0
+OBJECT poly
+name "casing"
+loc -0.185 0 0.0249999
+crease 45.000000
+numvert 8
+-0.025 0 -0.025
+-0.025 0 -0.185
+0.185 0 -0.025
+0.185 0 -0.185
+-0.025 -0.03 -0.025
+-0.025 -0.03 -0.185
+0.185 -0.03 -0.025
+0.185 -0.03 -0.185
+numsurf 10
+SURF 0x10
+mat 5
+refs 3
+4 0 0
+6 0 0
+0 0 0
+SURF 0x10
+mat 5
+refs 3
+2 0 0
+0 0 0
+6 0 0
+SURF 0x10
+mat 5
+refs 3
+5 0 0
+4 0 0
+1 0 0
+SURF 0x10
+mat 5
+refs 3
+0 0 0
+1 0 0
+4 0 0
+SURF 0x10
+mat 5
+refs 3
+7 0 0
+5 0 0
+3 0 0
+SURF 0x10
+mat 5
+refs 3
+1 0 0
+3 0 0
+5 0 0
+SURF 0x10
+mat 5
+refs 3
+6 0 0
+7 0 0
+2 0 0
+SURF 0x10
+mat 5
+refs 3
+3 0 0
+2 0 0
+7 0 0
+SURF 0x10
+mat 5
+refs 3
+4 0 0
+5 0 0
+6 0 0
+SURF 0x10
+mat 5
+refs 3
+7 0 0
+6 0 0
+5 0 0
+kids 0
+OBJECT poly
+name "glass"
+loc -0.185 0 0.0249999
+crease 45.000000
+numvert 4
+-0.025 0 -0.025
+-0.025 0 -0.185
+0.185 0 -0.185
+0.185 0 -0.025
+numsurf 2
+SURF 0x10
+mat 6
+refs 3
+1 0 0
+0 0 0
+3 0 0
+SURF 0x10
+mat 6
+refs 3
+3 0 0
+2 0 0
+1 0 0
+kids 0
+OBJECT poly
+name "menu.active"
+loc -0.164518 0.000499049 -0.167929
+crease 45.000000
+numvert 4
+-0.0331922 0 0.162072
+-0.0331922 0 0.132822
+-0.0236298 0 0.132822
+-0.0236298 0 0.162072
+numsurf 1
+SURF 0x30
+mat 4
+refs 4
+3 0 0
+2 1 0
+1 1 1
+0 0 1
+kids 0
+OBJECT group
+name "page.INIT"
+loc -0.09767 0.000270458 -0.0954761
+kids 16
+OBJECT poly
+name "menu.TO_PERF"
+loc -0.039216 0.000228591 0.0851056
+crease 45.000000
+numvert 4
+0.104683 0 -0.019631
+0.104683 0 -0.055856
+0.0983481 0 -0.055856
+0.0983481 0 -0.019631
+numsurf 1
+SURF 0x30
+mat 4
+refs 4
+0 0 0
+1 1 0
+2 1 1
+3 0 1
+kids 0
+OBJECT poly
+name "menu.FUEL_LOAD"
+loc -0.039216 0.000228591 0.076182
+crease 45.000000
+numvert 4
+0.0894245 0 -0.0107074
+0.0894245 0 -0.0469324
+0.0957595 0 -0.0469324
+0.0957595 0 -0.0107074
+numsurf 1
+SURF 0x30
+mat 4
+refs 4
+3 0 0
+2 1 0
+1 1 1
+0 0 1
+kids 0
+OBJECT poly
+name "menu.NAVAIDS"
+loc -0.039216 0.000228591 0.0672584
+crease 45.000000
+numvert 4
+0.0868359 0 -0.00178381
+0.0868359 0 -0.0380088
+0.0805009 0 -0.0380088
+0.0805009 0 -0.00178381
+numsurf 1
+SURF 0x30
+mat 4
+refs 4
+0 0 0
+1 1 0
+2 1 1
+3 0 1
+kids 0
+OBJECT poly
+name "menu.DEPARTURE"
+loc -0.039216 0.000228591 0.0581172
+crease 45.000000
+numvert 4
+0.0713597 0 0.00735741
+0.0713597 0 -0.0288676
+0.0776947 0 -0.0288676
+0.0776947 0 0.00735739
+numsurf 1
+SURF 0x30
+mat 4
+refs 4
+3 0 0
+2 1 0
+1 1 1
+0 0 1
+kids 0
+OBJECT poly
+name "menu.IRS"
+loc -0.039216 0.000228591 0.048976
+crease 45.000000
+numvert 4
+0.0685535 0 0.0164986
+0.0685535 0 -0.0197264
+0.0622185 0 -0.0197264
+0.0622185 0 0.0164986
+numsurf 1
+SURF 0x30
+mat 4
+refs 4
+0 0 0
+1 1 0
+2 1 1
+3 0 1
+kids 0
+OBJECT poly
+name "menu.RTE_SUMM"
+loc 0.0044885 0.000228591 0.0585525
+crease 45.000000
+numvert 4
+0.0280905 0 -0.0367825
+0.0280905 0 -0.0730075
+0.0344255 0 -0.0730075
+0.0344255 0 -0.0367825
+numsurf 1
+SURF 0x30
+mat 4
+refs 4
+3 0 0
+2 1 0
+1 1 1
+0 0 1
+kids 0
+OBJECT poly
+name "menu.RTE_SELECT"
+loc 0.0028903 0.000228591 -0.0290193
+crease 45.000000
+numvert 4
+-0.057883 0 0.0523875
+-0.0578831 0 0.0161625
+-0.0515483 0 0.0161625
+-0.051548 0 0.0523875
+numsurf 1
+SURF 0x30
+mat 4
+refs 4
+3 0 0
+2 1 0
+1 1 1
+0 0 1
+kids 0
+OBJECT poly
+name "menu.ALT_RTE_SELECT"
+loc 0.0028903 0.000228591 -0.0174063
+crease 45.000000
+numvert 4
+-0.0399351 0 0.0407745
+-0.0399351 0 0.0045495
+-0.0462701 0 0.0045495
+-0.04627 0 0.0407745
+numsurf 1
+SURF 0x30
+mat 4
+refs 4
+0 0 0
+1 1 0
+2 1 1
+3 0 1
+kids 0
+OBJECT group
+name "input.ALTN"
+loc 0.0260346 -0.000228591 -0.0422951
+kids 2
+OBJECT poly
+name "mesh"
+loc 2.79993e-05 -4.18667e-05 -1.63913e-05
+crease 180.000000
+numvert 4
+-0.0880053 0 0.0150502
+-0.0880053 0 0.0337396
+-0.0943549 0 0.0150502
+-0.0943547 0 0.0337396
+numsurf 2
+SURF 0x30
+mat 3
+refs 3
+0 1 0
+3 0 1
+1 0 0
+SURF 0x30
+mat 3
+refs 3
+0 1 0
+2 1 1
+3 0 1
+kids 0
+OBJECT poly
+name "BOX"
+loc -2.90126e-05 4.18676e-05 1.56164e-05
+crease 180.000000
+numvert 4
+-0.0942343 0 0.0339093
+-0.0942345 0 0.0149305
+-0.0879477 0 0.0339093
+-0.0879477 0 0.0149304
+numsurf 1
+SURF 0x1
+mat 1
+refs 4
+3 1 0
+1 1 1
+0 0 1
+2 0 0
+kids 0
+OBJECT group
+name "input.FROM"
+loc -0.0430297 -0.000228591 -0.0422951
+kids 2
+OBJECT poly
+name "mesh"
+loc -1.99825e-05 -4.18667e-05 -1.63913e-05
+crease 180.000000
+numvert 4
+-0.018893 0 0.0841624
+-0.018893 0 0.102852
+-0.0252425 0 0.0841624
+-0.0252426 0 0.102852
+numsurf 2
+SURF 0x30
+mat 3
+refs 3
+0 1 0
+3 0 1
+1 0 0
+SURF 0x30
+mat 3
+refs 3
+0 1 0
+2 1 1
+3 0 1
+kids 0
+OBJECT poly
+name "BOX"
+loc 1.92076e-05 4.18676e-05 1.56164e-05
+crease 180.000000
+numvert 4
+-0.0189316 0 0.0840651
+-0.0189316 0 0.102807
+-0.0252181 0 0.0840651
+-0.0252184 0 0.102807
+numsurf 1
+SURF 0x1
+mat 1
+refs 4
+0 1 0
+2 1 1
+3 0 1
+1 0 0
+kids 0
+OBJECT group
+name "input.TO"
+loc -0.00850475 -0.000228591 -0.0422951
+kids 2
+OBJECT poly
+name "mesh"
+loc 2.78503e-05 -4.18667e-05 -1.63317e-05
+crease 180.000000
+numvert 4
+-0.0598153 0 0.0682789
+-0.0598153 0 0.0495896
+-0.0534657 0 0.068279
+-0.0534657 0 0.0495896
+numsurf 2
+SURF 0x30
+mat 3
+refs 3
+3 1 0
+1 1 1
+0 0 1
+SURF 0x30
+mat 3
+refs 3
+3 1 0
+0 0 1
+2 0 0
+kids 0
+OBJECT poly
+name "BOX"
+loc -2.91541e-05 4.18676e-05 1.56611e-05
+crease 180.000000
+numvert 4
+-0.0534082 0 0.0494699
+-0.0534082 0 0.0684487
+-0.0596949 0 0.0494699
+-0.0596949 0 0.0684487
+numsurf 1
+SURF 0x1
+mat 1
+refs 4
+0 1 0
+2 1 1
+3 0 1
+1 0 0
+kids 0
+OBJECT group
+name "input.FLT_NBR"
+loc -0.0378438 -0.000228591 -0.0541161
+kids 2
+OBJECT poly
+name "mesh"
+loc 4.69387e-06 -4.18667e-05 2.57194e-05
+crease 180.000000
+numvert 4
+-0.0422321 0 0.114364
+-0.0422321 0 0.085787
+-0.0358825 0 0.114364
+-0.0358825 0 0.085787
+numsurf 2
+SURF 0x30
+mat 3
+refs 3
+3 1 0
+1 1 1
+0 0 1
+SURF 0x30
+mat 3
+refs 3
+3 1 0
+0 0 1
+2 0 0
+kids 0
+OBJECT poly
+name "BOX"
+loc -7.30157e-06 4.18676e-05 -2.53022e-05
+crease 180.000000
+numvert 4
+-0.0359529 0 0.0856078
+-0.0359529 0 0.114669
+-0.0422397 0 0.0856078
+-0.0422397 0 0.114669
+numsurf 1
+SURF 0x31
+mat 1
+refs 4
+0 1 0
+2 1 1
+3 0 1
+1 0 0
+kids 0
+OBJECT group
+name "input.CRZ_FL"
+loc -0.0434468 -0.000228591 -0.00549503
+kids 2
+OBJECT poly
+name "mesh"
+loc 0.000396758 -4.18667e-05 0.00604533
+crease 180.000000
+numvert 4
+0.0239692 0 0.041301
+0.0239692 0 0.0599905
+0.0176196 0 0.041301
+0.0176196 0 0.0599905
+numsurf 2
+SURF 0x30
+mat 3
+refs 3
+0 1 0
+3 0 1
+1 0 0
+SURF 0x30
+mat 3
+refs 3
+0 1 0
+2 1 1
+3 0 1
+kids 0
+OBJECT poly
+name "BOX"
+loc -0.000397846 4.18676e-05 -0.00604755
+crease 45.000000
+numvert 4
+0.0247639 0 0.0721906
+0.0247642 0 0.0531805
+0.0184288 0 0.0532006
+0.0184291 0 0.0721906
+numsurf 1
+SURF 0x31
+mat 1
+refs 4
+3 0 0.851852
+2 0.948052 1
+1 1 0.148148
+0 0.0259739 0
+kids 0
+OBJECT group
+name "input.ALTN_RTE"
+loc -0.0386047 -0.000228591 -0.0236861
+kids 2
+OBJECT poly
+name "mesh"
+loc 0.000635207 -4.18667e-05 0.00604589
+crease 180.000000
+numvert 4
+0.00069809 0 0.0494672
+0.00069809 0 0.0780441
+-0.0056515 0 0.0494672
+-0.00565153 0 0.0780441
+numsurf 2
+SURF 0x30
+mat 3
+refs 3
+0 1 0
+3 0 1
+1 0 0
+SURF 0x30
+mat 3
+refs 3
+0 1 0
+2 1 1
+3 0 1
+kids 0
+OBJECT poly
+name "BOX"
+loc -0.0006354 4.18676e-05 -0.006047
+crease 45.000000
+numvert 4
+-0.00427414 0 0.0903805
+-0.0042737 0 0.0612921
+0.0019688 0 0.0612925
+0.00194581 0 0.0903805
+numsurf 1
+SURF 0x31
+mat 1
+refs 4
+0 0 0.851852
+1 0.948052 1
+2 1 0.148148
+3 0.0259739 0
+kids 0
+OBJECT group
+name "input.CO_RTE"
+loc -0.0386708 -0.000228591 -0.0352991
+kids 2
+OBJECT poly
+name "mesh"
+loc 0.000568002 -4.18667e-05 0.00604701
+crease 180.000000
+numvert 4
+-0.0171301 0 0.0897893
+-0.0171299 0 0.0612124
+-0.0107805 0 0.0897893
+-0.0107805 0 0.0612124
+numsurf 2
+SURF 0x30
+mat 3
+refs 3
+3 1 0
+1 1 1
+0 0 1
+SURF 0x30
+mat 3
+refs 3
+3 1 0
+0 0 1
+2 0 0
+kids 0
+OBJECT poly
+name "BOX"
+loc -0.000569001 4.18676e-05 -0.00604641
+crease 45.000000
+numvert 4
+-0.00966682 0 0.101993
+-0.0096439 0 0.0729046
+-0.0158862 0 0.0729042
+-0.0158869 0 0.101993
+numsurf 1
+SURF 0x31
+mat 1
+refs 4
+3 0 0.851852
+2 0.948052 1
+1 1 0.148148
+0 0.0259739 0
+kids 0
+OBJECT group
+name "input.CRZ_TEMP"
+loc 0.0187427 -0.000228591 -0.00549606
+kids 2
+OBJECT poly
+name "mesh"
+loc 0.000415839 -4.18667e-05 0.00604677
+crease 180.000000
+numvert 4
+-0.038239 0 -0.020908
+-0.038239 0 -0.00221849
+-0.0445886 0 -0.020908
+-0.0445886 0 -0.00221849
+numsurf 2
+SURF 0x30
+mat 3
+refs 3
+0 1 0
+3 0 1
+1 0 0
+SURF 0x30
+mat 3
+refs 3
+0 1 0
+2 1 1
+3 0 1
+kids 0
+OBJECT poly
+name "BOX"
+loc -0.000415266 4.18676e-05 -0.00604628
+crease 45.000000
+numvert 4
+-0.0437427 0 0.0100183
+-0.043743 0 -0.00897168
+-0.0374077 0 -0.00899178
+-0.037408 0 0.0100183
+numsurf 1
+SURF 0x31
+mat 1
+refs 4
+0 0 0.851852
+1 0.948052 1
+2 1 0.148148
+3 0.0259739 0
+kids 0
+OBJECT group
+name "page.DEPARTURE"
+loc -0.160642 0.000499049 -0.0855401
+kids 4
+OBJECT poly
+name "menu.STAR"
+loc 0.0810767 0 -0.0311978
+crease 45.000000
+numvert 4
+-0.0590051 0 0.0294156
+-0.0590051 0 -0.00680938
+-0.0653401 0 -0.00680938
+-0.06534 0 0.0294156
+numsurf 1
+SURF 0x30
+mat 4
+refs 4
+0 0 0
+1 1 0
+2 1 1
+3 0 1
+kids 0
+OBJECT poly
+name "menu.SID"
+loc 0.0810767 0 -0.0311978
+crease 45.000000
+numvert 4
+-0.06534 0 0.0294156
+-0.0653401 0 -0.00680938
+-0.0590051 0 -0.00680938
+-0.0590051 0 0.0294156
+numsurf 1
+SURF 0x30
+mat 4
+refs 4
+3 0 0
+2 1 0
+1 1 1
+0 0 1
+kids 0
+OBJECT poly
+name "menu.DEPARTURE.arv"
+loc 0.0816697 0 -0.0595539
+crease 45.000000
+numvert 4
+-0.0942892 0 0.0692341
+-0.0942892 0 0.00889853
+-0.0879542 0 0.00889853
+-0.0879541 0 0.0692341
+numsurf 1
+SURF 0x30
+mat 4
+refs 4
+3 0 0
+2 1 0
+1 1 1
+0 0 1
+kids 0
+OBJECT poly
+name "menu.DEPARTURE.dep"
+loc 0.0207997 0 -0.0595539
+crease 45.000000
+numvert 4
+-0.0270842 0 0.130104
+-0.0270841 0 0.0697685
+-0.0334192 0 0.0697685
+-0.0334192 0 0.130104
+numsurf 1
+SURF 0x30
+mat 4
+refs 4
+0 0 0
+1 1 0
+2 1 1
+3 0 1
+kids 0
+OBJECT group
+name "option-list"
+loc -0.102453 7.18711e-05 -0.0294032
+kids 10
+OBJECT poly
+name "menu.rwy-less"
+loc -0.0459059 -7.18711e-05 -0.0156781
+texture "mcdu_icons.png"
+crease 45.000000
+numvert 4
+0.0807749 0 0.0125427
+0.0807749 0 0.00433755
+0.0757805 0 0.00433755
+0.0757805 0 0.0125427
+numsurf 1
+SURF 0x30
+mat 1
+refs 4
+0 0.285 0.56
+1 0.395 0.56
+2 0.395 0.68
+3 0.285 0.68
+kids 0
+OBJECT group
+name "input.RWY08"
+loc 0.0221344 -3.00035e-05 -0.000187665
+kids 2
+OBJECT poly
+name "BOX"
+loc -0.0750682 4.18667e-05 -0.0258503
+crease 180.000000
+numvert 4
+0.0780891 0 0.0112972
+0.0780891 0 0.0403586
+0.0718023 0 0.0112972
+0.0718023 0 0.0403586
+numsurf 1
+SURF 0x31
+mat 1
+refs 4
+0 1 0
+2 1 1
+3 0 1
+1 0 0
+kids 0
+OBJECT poly
+name "mesh"
+loc -0.0751132 -4.18676e-05 -0.0256056
+crease 180.000000
+numvert 4
+0.0720508 0 0.0401589
+0.0720508 0 0.0110975
+0.0784199 0 0.0401589
+0.07842 0 0.0110975
+numsurf 2
+SURF 0x30
+mat 0
+refs 3
+3 1 0
+1 1 1
+0 0 1
+SURF 0x30
+mat 0
+refs 3
+3 1 0
+0 0 1
+2 0 0
+kids 0
+OBJECT group
+name "input.RWY07"
+loc 0.0135506 -3.00035e-05 5.76228e-05
+kids 2
+OBJECT poly
+name "BOX"
+loc -0.0667291 4.18667e-05 -0.0346794
+crease 180.000000
+numvert 4
+0.0634632 0 0.0491871
+0.0634632 0 0.0201257
+0.06975 0 0.0491871
+0.06975 0 0.0201257
+numsurf 1
+SURF 0x31
+mat 1
+refs 4
+3 1 0
+1 1 1
+0 0 1
+2 0 0
+kids 0
+OBJECT poly
+name "mesh"
+loc -0.0667751 -4.18676e-05 -0.0344347
+crease 180.000000
+numvert 4
+0.0700819 0 0.019927
+0.0700819 0 0.0489884
+0.0637127 0 0.019927
+0.0637127 0 0.0489884
+numsurf 2
+SURF 0x30
+mat 0
+refs 3
+0 1 0
+3 0 1
+1 0 0
+SURF 0x30
+mat 0
+refs 3
+0 1 0
+2 1 1
+3 0 1
+kids 0
+OBJECT group
+name "input.RWY06"
+loc 0.005212 -3.00035e-05 5.76228e-05
+kids 2
+OBJECT poly
+name "BOX"
+loc -0.0583905 4.18667e-05 -0.043018
+crease 180.000000
+numvert 4
+0.0614114 0 0.0284643
+0.0614114 0 0.0575257
+0.0551246 0 0.0284643
+0.0551246 0 0.0575257
+numsurf 1
+SURF 0x31
+mat 1
+refs 4
+0 1 0
+2 1 1
+3 0 1
+1 0 0
+kids 0
+OBJECT poly
+name "mesh"
+loc -0.0584365 -4.18676e-05 -0.0427734
+crease 180.000000
+numvert 4
+0.055374 0 0.0573271
+0.055374 0 0.0282657
+0.0617432 0 0.0573271
+0.0617432 0 0.0282657
+numsurf 2
+SURF 0x30
+mat 0
+refs 3
+3 1 0
+1 1 1
+0 0 1
+SURF 0x30
+mat 0
+refs 3
+3 1 0
+0 0 1
+2 0 0
+kids 0
+OBJECT group
+name "input.RWY05"
+loc -0.003127 -3.00035e-05 5.76228e-05
+kids 2
+OBJECT poly
+name "BOX"
+loc -0.0500515 4.18667e-05 -0.051357
+crease 180.000000
+numvert 4
+0.0467856 0 0.0658647
+0.0467856 0 0.0368033
+0.0530724 0 0.0658647
+0.0530724 0 0.0368033
+numsurf 1
+SURF 0x31
+mat 1
+refs 4
+3 1 0
+1 1 1
+0 0 1
+2 0 0
+kids 0
+OBJECT poly
+name "mesh"
+loc -0.0500975 -4.18676e-05 -0.0511123
+crease 180.000000
+numvert 4
+0.0534043 0 0.0366046
+0.0534043 0 0.065666
+0.0470351 0 0.0366046
+0.0470351 0 0.065666
+numsurf 2
+SURF 0x30
+mat 0
+refs 3
+0 1 0
+3 0 1
+1 0 0
+SURF 0x30
+mat 0
+refs 3
+0 1 0
+2 1 1
+3 0 1
+kids 0
+OBJECT group
+name "input.RWY04"
+loc -0.011956 -3.00035e-05 5.76228e-05
+kids 2
+OBJECT poly
+name "BOX"
+loc -0.0412225 4.18667e-05 -0.060186
+crease 180.000000
+numvert 4
+0.0442434 0 0.0456323
+0.0442434 0 0.0746937
+0.0379566 0 0.0456323
+0.0379566 0 0.0746937
+numsurf 1
+SURF 0x31
+mat 1
+refs 4
+0 1 0
+2 1 1
+3 0 1
+1 0 0
+kids 0
+OBJECT poly
+name "mesh"
+loc -0.0412685 -4.18676e-05 -0.0599413
+crease 180.000000
+numvert 4
+0.0382061 0 0.074495
+0.0382061 0 0.0454336
+0.0445753 0 0.074495
+0.0445753 0 0.0454336
+numsurf 2
+SURF 0x30
+mat 0
+refs 3
+3 1 0
+1 1 1
+0 0 1
+SURF 0x30
+mat 0
+refs 3
+3 1 0
+0 0 1
+2 0 0
+kids 0
+OBJECT group
+name "input.RWY03"
+loc -0.02103 -3.00035e-05 5.76228e-05
+kids 2
+OBJECT poly
+name "BOX"
+loc -0.0321485 4.18667e-05 -0.06926
+crease 180.000000
+numvert 4
+0.0288826 0 0.0837677
+0.0288827 0 0.0547063
+0.0351694 0 0.0837677
+0.0351694 0 0.0547063
+numsurf 1
+SURF 0x31
+mat 1
+refs 4
+3 1 0
+1 1 1
+0 0 1
+2 0 0
+kids 0
+OBJECT poly
+name "mesh"
+loc -0.0321945 -4.18676e-05 -0.0690153
+crease 180.000000
+numvert 4
+0.0355012 0 0.0545076
+0.0355013 0 0.083569
+0.0291321 0 0.0545076
+0.0291321 0 0.083569
+numsurf 2
+SURF 0x30
+mat 0
+refs 3
+0 1 0
+3 0 1
+1 0 0
+SURF 0x30
+mat 0
+refs 3
+0 1 0
+2 1 1
+3 0 1
+kids 0
+OBJECT group
+name "input.RWY02"
+loc -0.030104 -3.00035e-05 5.766e-05
+kids 2
+OBJECT poly
+name "BOX"
+loc -0.0230745 4.18667e-05 -0.0783341
+crease 180.000000
+numvert 4
+0.0260953 0 0.0637803
+0.0260953 0 0.0928417
+0.0198086 0 0.0637803
+0.0198085 0 0.0928417
+numsurf 1
+SURF 0x31
+mat 1
+refs 4
+0 1 0
+2 1 1
+3 0 1
+1 0 0
+kids 0
+OBJECT poly
+name "mesh"
+loc -0.0231205 -4.18676e-05 -0.0780893
+crease 180.000000
+numvert 4
+0.0200582 0 0.0926429
+0.0200582 0 0.0635815
+0.0264274 0 0.0926429
+0.0264274 0 0.0635815
+numsurf 2
+SURF 0x30
+mat 0
+refs 3
+3 1 0
+1 1 1
+0 0 1
+SURF 0x30
+mat 0
+refs 3
+3 1 0
+0 0 1
+2 0 0
+kids 0
+OBJECT group
+name "input.RWY01"
+loc -0.039424 -3.00035e-05 5.766e-05
+kids 2
+OBJECT poly
+name "BOX"
+loc -0.0137545 4.18667e-05 -0.087654
+crease 180.000000
+numvert 4
+0.0104886 0 0.102162
+0.0104886 0 0.0731002
+0.0167754 0 0.102162
+0.0167754 0 0.0731002
+numsurf 1
+SURF 0x31
+mat 1
+refs 4
+3 1 0
+1 1 1
+0 0 1
+2 0 0
+kids 0
+OBJECT poly
+name "mesh"
+loc -0.0138005 -4.18676e-05 -0.0874094
+crease 180.000000
+numvert 4
+0.0171073 0 0.0729016
+0.0171073 0 0.101963
+0.0107381 0 0.0729016
+0.0107381 0 0.101963
+numsurf 2
+SURF 0x30
+mat 0
+refs 3
+0 1 0
+3 0 1
+1 0 0
+SURF 0x30
+mat 0
+refs 3
+0 1 0
+2 1 1
+3 0 1
+kids 0
+OBJECT poly
+name "menu.rwy-more"
+loc -0.0601661 0.000311901 -0.0156781
+texture "mcdu_icons.png"
+crease 45.000000
+numvert 4
+0.0900406 0 0.0268028
+0.0900407 0 0.0185978
+0.0950351 0 0.0185978
+0.0950351 0 0.0268028
+numsurf 1
+SURF 0x30
+mat 1
+refs 4
+3 0.163333 0.543333
+2 0.296667 0.543333
+1 0.296667 0.666667
+0 0.163333 0.666667
+kids 0
+OBJECT group
+name "page.TO_PERF"
+loc -0.125642 0.000121191 -0.0685521
+kids 13
+OBJECT poly
+name "rect"
+loc 0.0732007 -0.000121191 -0.014348
+crease 45.000000
+numvert 4
+-0.0587975 0 -0.0373057
+-0.0587974 0 -0.0620119
+-0.0521201 0 -0.0620119
+-0.0521201 0 -0.0373057
+numsurf 1
+SURF 0x31
+mat 1
+refs 4
+3 0 0
+2 1 0
+1 1 1
+0 0 1
+kids 0
+OBJECT poly
+name "rect"
+loc 0.0141174 -0.000121191 -0.014348
+crease 45.000000
+numvert 4
+0.00696318 0 0.0217776
+0.00696318 0 -0.00292859
+0.000285819 0 -0.00292859
+0.000285819 0 0.0217776
+numsurf 1
+SURF 0x31
+mat 1
+refs 4
+0 0 0
+1 1 0
+2 1 1
+3 0 1
+kids 0
+OBJECT poly
+name "rect"
+loc -0.0252757 -0.000121191 -0.0277026
+crease 45.000000
+numvert 4
+0.0263243 0 0.0721882
+0.0263243 0 0.0521562
+0.0330017 0 0.0521562
+0.0330017 0 0.0721882
+numsurf 1
+SURF 0x31
+mat 1
+refs 4
+3 0 0
+2 1 0
+1 1 1
+0 0 1
+kids 0
+OBJECT poly
+name "rect"
+loc -0.0252757 -0.000121191 -0.0377187
+crease 45.000000
+numvert 4
+0.0229856 0 0.0822043
+0.0229856 0 0.0621723
+0.0163082 0 0.0621723
+0.0163082 0 0.0822043
+numsurf 1
+SURF 0x31
+mat 1
+refs 4
+0 0 0
+1 1 0
+2 1 1
+3 0 1
+kids 0
+OBJECT poly
+name "rect"
+loc 0.020261 -0.000121191 -0.0024074
+crease 45.000000
+numvert 4
+-0.0540926 0 0.0656329
+-0.0540926 0 -0.0829523
+0.0729356 0 -0.0829523
+0.0729356 0 0.0656329
+numsurf 1
+SURF 0x31
+mat 2
+refs 4
+3 0 0
+2 1 0
+1 1 1
+0 0 1
+kids 0
+OBJECT poly
+name "rect"
+loc -0.0252757 -0.000121191 -0.0477347
+crease 45.000000
+numvert 4
+0.00629221 0 0.0922203
+0.00629221 0 0.0721883
+0.0129696 0 0.0721883
+0.0129696 0 0.0922203
+numsurf 1
+SURF 0x31
+mat 1
+refs 4
+3 0 0
+2 1 0
+1 1 1
+0 0 1
+kids 0
+OBJECT poly
+name "line"
+loc 0.0193487 -0.000121191 -0.0554136
+crease 45.000000
+numvert 2
+-0.0416708 0 0.114536
+-0.0416708 0 -0.0246864
+numsurf 1
+SURF 0x32
+mat 2
+refs 2
+0 0 0
+1 1 1
+kids 0
+OBJECT poly
+name "line"
+loc 0.0260213 -0.000121191 -0.0403896
+crease 45.000000
+numvert 2
+-0.0483434 0 0.0237291
+-0.0202986 0 0.023708
+numsurf 1
+SURF 0x32
+mat 2
+refs 2
+0 0 1
+1 1 0
+kids 0
+OBJECT group
+name "input.to_flaps"
+loc 0.0176853 -0.000121191 0.0395242
+kids 2
+OBJECT poly
+name "mesh"
+loc -0.0465002 0 -0.0539849
+crease 180.000000
+numvert 4
+0.0499066 0 0.0460638
+0.0499066 0 0.0588752
+0.0429816 0 0.0460638
+0.0429816 0 0.0588752
+numsurf 2
+SURF 0x30
+mat 0
+refs 3
+0 1 0
+3 0 1
+1 0 0
+SURF 0x30
+mat 0
+refs 3
+0 1 0
+2 1 1
+3 0 1
+kids 0
+OBJECT poly
+name "rect"
+loc -0.0462992 0 -0.0538721
+crease 45.000000
+numvert 4
+0.0496946 0 0.0584992
+0.0496946 0 0.0458122
+0.0430172 0 0.0458122
+0.0430172 0 0.0584992
+numsurf 1
+SURF 0x31
+mat 1
+refs 4
+0 0 0
+1 1 0
+2 1 1
+3 0 1
+kids 0
+OBJECT group
+name "input.ths_red"
+loc 0.0331297 -0.000121191 0.0163281
+kids 2
+OBJECT poly
+name "rect"
+loc -0.0406375 0 -0.0152821
+crease 45.000000
+numvert 4
+0.0439823 0 0.030042
+0.0439824 0 0.0012694
+0.037305 0 0.0012694
+0.037305 0 0.0300419
+numsurf 1
+SURF 0x31
+mat 1
+refs 4
+0 0 0
+1 1 0
+2 1 1
+3 0 1
+kids 0
+OBJECT poly
+name "mesh"
+loc -0.040659 0 -0.015294
+crease 180.000000
+numvert 4
+0.0442024 0 0.001233
+0.0442024 0 0.0301452
+0.0371042 0 0.001233
+0.0371042 0 0.0301452
+numsurf 2
+SURF 0x30
+mat 0
+refs 3
+0 1 0
+3 0 1
+1 0 0
+SURF 0x30
+mat 0
+refs 3
+0 1 0
+2 1 1
+3 0 1
+kids 0
+OBJECT group
+name "input.ths_accel"
+loc 0.0447817 -0.000121191 0.0163281
+kids 2
+OBJECT poly
+name "rect"
+loc -0.0522894 0 -0.003664
+crease 45.000000
+numvert 4
+0.0556004 0 0.0184238
+0.0556004 0 -0.0103488
+0.048923 0 -0.0103488
+0.048923 0 0.0184238
+numsurf 1
+SURF 0x31
+mat 1
+refs 4
+0 0 0
+1 1 0
+2 1 1
+3 0 1
+kids 0
+OBJECT poly
+name "mesh"
+loc -0.0523109 0 -0.003608
+crease 180.000000
+numvert 4
+0.0556286 0 -0.0104531
+0.0556286 0 0.0184591
+0.0490498 0 -0.0104531
+0.0490498 0 0.0184591
+numsurf 2
+SURF 0x30
+mat 0
+refs 3
+0 1 0
+3 0 1
+1 0 0
+SURF 0x30
+mat 0
+refs 3
+0 1 0
+2 1 1
+3 0 1
+kids 0
+OBJECT group
+name "input.eo_accel"
+loc 0.0447817 -0.000121191 -0.0426276
+kids 2
+OBJECT poly
+name "rect"
+loc 0.0106724 0 0.0552917
+crease 45.000000
+numvert 4
+-0.0140388 0 -0.0445381
+-0.0140388 0 -0.0733106
+-0.00736141 0 -0.0733106
+-0.00736141 0 -0.0445381
+numsurf 1
+SURF 0x31
+mat 1
+refs 4
+3 0 0
+2 1 0
+1 1 1
+0 0 1
+kids 0
+OBJECT poly
+name "mesh"
+loc 0.0106386 0 0.0553477
+crease 180.000000
+numvert 4
+-0.00714774 0 -0.073316
+-0.00714776 0 -0.044577
+-0.0140728 0 -0.073316
+-0.0140728 0 -0.044577
+numsurf 2
+SURF 0x30
+mat 0
+refs 3
+0 1 0
+3 0 1
+1 0 0
+SURF 0x30
+mat 0
+refs 3
+0 1 0
+2 1 1
+3 0 1
+kids 0
+OBJECT group
+name "input.trans_level"
+loc 0.0726601 -0.000121191 0.016835
+kids 2
+OBJECT poly
+name "rect"
+loc -0.0807488 0 0.0237128
+crease 45.000000
+numvert 4
+0.0773877 0 -0.0088789
+0.0773877 0 -0.0376515
+0.0840651 0 -0.0376515
+0.0840651 0 -0.0088789
+numsurf 1
+SURF 0x31
+mat 1
+refs 4
+3 0 0
+2 1 0
+1 1 1
+0 0 1
+kids 0
+OBJECT poly
+name "mesh"
+loc -0.0806222 0 0.0237588
+crease 180.000000
+numvert 4
+0.0839352 0 -0.0378073
+0.0839352 0 -0.0090683
+0.0773564 0 -0.0378073
+0.0773564 0 -0.00906828
+numsurf 2
+SURF 0x30
+mat 0
+refs 3
+0 1 0
+3 0 1
+1 0 0
+SURF 0x30
+mat 0
+refs 3
+0 1 0
+2 1 1
+3 0 1
+kids 0
+OBJECT group
+name "page.perf"
+loc -0.105633 0.000383772 -0.138924
+kids 6
+OBJECT poly
+name "menu.t_o"
+loc -0.0618268 0 7.80821e-06
+crease 45.000000
+numvert 4
+-0.000869974 0 0.132569
+-0.000869974 0 0.110183
+0.00795679 0 0.108784
+0.00795679 0 0.133533
+numsurf 1
+SURF 0x30
+mat 2
+refs 4
+3 0 0
+2 1 0
+1 1 1
+0 0 1
+kids 0
+OBJECT poly
+name "menu.clb"
+loc -0.0371355 0 7.80821e-06
+crease 45.000000
+numvert 4
+-0.0167345 0 0.108842
+-0.0167345 0 0.0840925
+-0.0255613 0 0.0854916
+-0.0255613 0 0.107877
+numsurf 1
+SURF 0x30
+mat 2
+refs 4
+0 0 0
+1 1 0
+2 1 1
+3 0 1
+kids 0
+OBJECT poly
+name "menu.crz"
+loc -0.0124172 0 7.80821e-06
+crease 45.000000
+numvert 4
+-0.0502796 0 0.0831591
+-0.0502796 0 0.0607733
+-0.0414528 0 0.0593742
+-0.0414528 0 0.0841233
+numsurf 1
+SURF 0x30
+mat 2
+refs 4
+3 0 0
+2 1 0
+1 1 1
+0 0 1
+kids 0
+OBJECT poly
+name "menu.des"
+loc 0.0123291 0 7.80821e-06
+crease 45.000000
+numvert 4
+-0.0661991 0 0.0593769
+-0.0661991 0 0.0346279
+-0.0750259 0 0.036027
+-0.0750258 0 0.0584128
+numsurf 1
+SURF 0x30
+mat 2
+refs 4
+0 0 0
+1 1 0
+2 1 1
+3 0 1
+kids 0
+OBJECT poly
+name "menu.appr"
+loc 0.0371574 0 -2.19047e-05
+crease 45.000000
+numvert 4
+-0.0998838 0 0.0336142
+-0.0998838 0 0.0112284
+-0.0910571 0 0.00982931
+-0.0910571 0 0.0345784
+numsurf 1
+SURF 0x30
+mat 2
+refs 4
+3 0 0
+2 1 0
+1 1 1
+0 0 1
+kids 0
+OBJECT poly
+name "menu.ga"
+loc 0.0618929 0 -9.38773e-06
+crease 45.000000
+numvert 4
+-0.11578 0 0.00983027
+-0.11578 0 -0.0149187
+-0.124607 0 -0.0135196
+-0.124607 0 0.00886619
+numsurf 1
+SURF 0x30
+mat 2
+refs 4
+0 0 0
+1 1 0
+2 1 1
+3 0 1
+kids 0

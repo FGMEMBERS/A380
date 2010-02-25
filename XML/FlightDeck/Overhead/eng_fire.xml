@@ -2,8 +2,20 @@
 
 <PropertyList>
 
-	<path>../../../Models/FlightDeck/Overhead/eng_fire.3ds</path> 
-	<texture-path>../../../Textures/Common</texture-path>
+	<path>../../../Models/FlightDeck/Overhead/eng_fire.ac</path> 
+	<texture-path>../../../Textures/Instruments</texture-path>
+
+<animation>
+        <type>material</type>
+        <object-name>ENG_FIRE</object-name>
+        <emission>
+<red>1</red>
+            <green>1</green>
+            <blue>1</blue>
+    <factor-prop>controls/lighting/panel-norm[0]</factor-prop>	
+
+        </emission>
+    </animation>
 
 </PropertyList> 
  

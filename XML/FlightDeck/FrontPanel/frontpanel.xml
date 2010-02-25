@@ -20,10 +20,10 @@
         <type>material</type>
         <object-name>PANEL</object-name>
         <emission>
-<red>0.31</red>
-            <green>0.47</green>
-            <blue>0.47</blue>
-    <factor-prop>controls/lighting/panel-norm[0]</factor-prop>	
+            <red>1.0</red>
+            <green>0.96</green>
+            <blue>0.86</blue>
+            <factor-prop>controls/lighting/panel-norm[0]</factor-prop>	
 
         </emission>
     </animation>
@@ -33,7 +33,7 @@
 	<!-- Load flight displays. -->
 	<model>
 		<path>Aircraft/A380/XML/FlightDeck/FrontPanel/default.xml</path>
-		<name>pfd_cb</name>
+		<name>pfd_fo</name>   <!-- was pfd_cb  SAH 2009-05-27 -->
 		<offsets>
 			<x-m>-0.015</x-m>
 			<y-m>-0.63</y-m>
@@ -41,31 +41,33 @@
 		</offsets>
 	</model>
 	<model>
-		<path>Aircraft/A380/XML/FlightDeck/FrontPanel/default.xml</path>
+		<path>Aircraft/A380/XML/FlightDeck/FrontPanel/nd_fo.xml</path>
 		<name>nd_cb</name>
 		<offsets>
-			<!--
-			<x-m>-0.015</x-m>
+			<!--  uncommented SAH 2009-05-27 -->
+			<!-- x-m>-0.015</x-m>
 			<y-m>-0.42625</y-m>
-			<z-m>-0.0075</z-m>
-			-->
+			<z-m>-0.0075</z-m -->
+			<!--   Commented SAH 2009-05-27 -->
 			<x-m>-0.015</x-m>
-			<y-m>-0.44125</y-m>
+			<y-m>0.2903</y-m>
 			<z-m>-0.0075</z-m>
+			<!-- ends -->
 		</offsets>
 	</model>
 	<model>
 		<name>pdf_fob</name>
-		<path>Aircraft/A380/XML/FlightDeck/FrontPanel/default.xml</path>
+		<path>Aircraft/A380/XML/FlightDeck/FrontPanel/pfd_fo.xml</path>
 		<offsets>
-			<!--
+			<!-- uncomment SAH 2009-05-27 -->
 			<x-m>-0.015</x-m>
 			<y-m>0.45625</y-m>
 			<z-m>-0.0075</z-m>
-			-->
+			<!-- commented SAH 2009-05-27
 			<x-m>-0.015</x-m>
 			<y-m>-0.08</y-m>
 			<z-m>-0.0075</z-m>
+			-->
 		</offsets>
 	</model>
 	<model>
@@ -97,17 +99,17 @@
 		</offsets>
 	</model>
 
-<model>
+	<model>
 		<name>eicas</name>
 		<path>Aircraft/A380/XML/FlightDeck/FrontPanel/eicas.xml</path>
-	  <offsets>
-		<x-m>-0.015</x-m>
-			<y-m>-0.08</y-m>
-			<z-m>-0.0075</z-m>
-  </offsets>
+		<offsets>
+		    <x-m>-0.015</x-m>
+	            <y-m>-0.08</y-m>
+	            <z-m>-0.0075</z-m>
+		</offsets>
 	</model>
 	
-<model>
+	<model>
 		<path>Aircraft/A380/XML/FlightDeck/FrontPanel/pfd_c.xml</path>
 		<name>pfd_c</name>
 		<offsets>
