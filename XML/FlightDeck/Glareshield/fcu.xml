@@ -10,8 +10,8 @@
 
 <PropertyList>
 
-	<path>../../../Models/FlightDeck/Glareshield/fcu_02.ac</path> 
-	<texture-path>../../../Textures/Common</texture-path>
+	<path>../../../Models/FlightDeck/Glareshield/fcu_03.ac</path> 
+	<texture-path>../../../Textures/Instruments</texture-path>
 	<offsets>
 		<z-m>0.25</z-m>
 	</offsets>
@@ -20,71 +20,68 @@
 	
 <!-- ALT -->
 <!-- Altitude readout and knob -->
- <animation>
-   <type>textranslate</type>
-   <object-name>FCU ALT mesh1</object-name>
-   <property>/instrumentation/afs/target-altitude-ft</property>
-   <factor>0.00001</factor>
-   <step>10000.0</step>
-   <axis>
-     <x>0</x>
-     <y>1</y>
-     <z>0</z>
-   </axis>
- </animation>
-
- <animation>
-   <type>textranslate</type>
-   <object-name>FCU ALT mesh2</object-name>
-   <property>/instrumentation/afs/target-altitude-ft</property>
-   <factor>0.0001</factor>
-   <step>1000.0</step>
-   <axis>
-     <x>0</x>
-     <y>1</y>
-     <z>0</z>
-   </axis>
- </animation>
-
- <animation>
-   <type>textranslate</type>
-   <object-name>FCU ALT mesh3</object-name>
-   <property>/instrumentation/afs/target-altitude-ft</property>
-   <factor>0.001</factor>
-   <step>100.0</step>
-   <axis>
-     <x>0</x>
-     <y>1</y>
-     <z>0</z>
-   </axis>
- </animation>
-
- <animation>
-   <type>textranslate</type>
-   <object-name>FCU ALT mesh4</object-name>
-   <property>/instrumentation/afs/target-altitude-ft</property>
-   <factor>0.01</factor>
-   <step>10.0</step>
-   <axis>
-     <x>0</x>
-     <y>1</y>
-     <z>0</z>
-   </axis>
- </animation>
-
- <animation>
-   <type>textranslate</type>
-   <object-name>FCU ALT mesh5</object-name>
-   <property>/instrumentation/afs/target-altitude-ft</property>
-   <factor>0.1</factor>
-   <step>1.0</step>
-   <axis>
-     <x>0</x>
-     <y>1</y>
-     <z>0</z>
-   </axis>
- </animation>
  
+  <text>
+    <name>FCU.alt.ft</name>
+    <axis-alignment>yz-plane</axis-alignment>
+    <alignment>right-bottom</alignment>
+    <offsets>
+      <pitch-deg>-90.0</pitch-deg>
+      <x-m>-0.068</x-m>
+      <y-m>0.06</y-m>
+      <z-m>-0.0009</z-m>
+    </offsets>
+    <type>number-value</type>
+    <property type="string">/instrumentation/afs/target-altitude-ft</property>
+    <format type="string">%5.0f</format>
+    <font>led.txf</font>
+    <character-size type="double">0.009</character-size>
+    <font-resolution>
+      <width type="int">32</width>
+      <height type="int">32</height>
+    </font-resolution>
+  </text>
+  <text>
+    <name>FCU.alt.dashes</name>
+    <axis-alignment>yz-plane</axis-alignment>
+    <alignment>right-bottom</alignment>
+    <offsets>
+      <pitch-deg>-90.0</pitch-deg>
+      <x-m>-0.068</x-m>
+      <y-m>0.06</y-m>
+      <z-m>-0.0009</z-m>
+    </offsets>
+    <type>literal</type>
+    <text type="string">-----</text>
+    <font>led.txf</font>
+    <character-size type="double">0.009</character-size>
+    <font-resolution>
+      <width type="int">32</width>
+      <height type="int">32</height>
+    </font-resolution>
+  </text>  
+
+<animation>
+  <type>select</type>
+  <object-name>FCU.alt.ft</object-name>
+  <condition>
+    <equals>   
+      <property>/instrumentation/afs/vertical-alt-display</property>
+      <value>0</value>
+    </equals>
+  </condition>
+</animation>
+<animation>
+  <type>select</type>
+  <object-name>FCU.alt.dashes</object-name>
+  <condition>
+    <equals>   
+      <property>/instrumentation/afs/vertical-alt-display</property>
+      <value>-1</value>
+    </equals>
+  </condition>
+</animation>
+
   <animation>
   <type>pick</type>
   <object-name>ALT knob</object-name>
@@ -124,59 +121,62 @@
   </action>
 </animation>
 
+
+<!-- SPD -->
+<!--  Autothrottle SPD readout and knob -->
+
+  <text>
+    <name>FCU.spd.kts</name>
+    <axis-alignment>yz-plane</axis-alignment>
+    <alignment>right-bottom</alignment>
+    <offsets>
+      <pitch-deg>-90.0</pitch-deg>
+      <x-m>-0.068</x-m>
+      <y-m>-0.08</y-m>
+      <z-m>-0.0009</z-m>
+    </offsets>
+    <type>number-value</type>
+    <property type="string">/instrumentation/afs/target-speed-kt</property>
+    <format type="string">%3.0f</format>
+    <font>led.txf</font>
+    <character-size type="double">0.009</character-size>
+  </text>
+  <text>
+    <name>FCU.spd.dashes</name>
+    <axis-alignment>yz-plane</axis-alignment>
+    <alignment>right-bottom</alignment>
+    <offsets>
+      <pitch-deg>-90.0</pitch-deg>
+      <x-m>-0.068</x-m>
+      <y-m>-0.08</y-m>
+      <z-m>-0.0009</z-m>
+    </offsets>
+    <type>literal</type>
+    <text type="string">---</text>
+    <font>led.txf</font>
+    <character-size type="double">0.009</character-size>
+  </text>
+
 <animation>
   <type>select</type>
-  <object-name>ALT group</object-name>
+  <object-name>FCU.spd.kts</object-name>
   <condition>
     <equals>   
-      <property>/instrumentation/afs/vertical-alt-display</property>
+      <property>/instrumentation/afs/spd-display</property>
       <value>0</value>
     </equals>
   </condition>
 </animation>
-
-
-<!-- SPD -->
-<!--  Autothrottle SPD readout and knob -->
 <animation>
-   <type>textranslate</type>
-   <object-name>FCU SPD mesh1</object-name>
-   <property>/instrumentation/afs/target-speed-kt</property>
-   <factor>0.001</factor>
-   <step>100.0</step>
-   <axis>
-     <x>0</x>
-     <y>1</y>
-     <z>0</z>
-   </axis>
- </animation>
-
- <animation>
-   <type>textranslate</type>
-   <object-name>FCU SPD mesh2</object-name>
-   <property>/instrumentation/afs/target-speed-kt</property>
-   <factor>0.01</factor>
-   <step>10.0</step>
-   <axis>
-     <x>0</x>
-     <y>1</y>
-     <z>0</z>
-   </axis>
- </animation>
-
- <animation>
-   <type>textranslate</type>
-   <object-name>FCU SPD mesh3</object-name>
-   <property>/instrumentation/afs/target-speed-kt</property>
-   <factor>0.1</factor>
-   <step>1.0</step>
-   <axis>
-     <x>0</x>
-     <y>1</y>
-     <z>0</z>
-   </axis>
- </animation>
- 
+  <type>select</type>
+  <object-name>FCU.spd.dashes</object-name>
+  <condition>
+    <equals>   
+      <property>/instrumentation/afs/spd-display</property>
+      <value>-1</value>
+    </equals>
+  </condition>
+</animation>
  
  <animation>
   <type>pick</type>
@@ -227,75 +227,63 @@
   </axis> 
 </animation>
  
-<animation>
-  <type>select</type>
-  <object-name>SPD group</object-name>
-  <condition>
-    <equals>   
-      <property>/instrumentation/afs/spd-display</property>
-      <value>0</value>
-    </equals>
-  </condition>
-</animation>
- 
  
 <!-- VS -->
 <!-- Vertical Speed readout and knob -->
 
- <animation>
-   <type>textranslate</type>
-   <object-name>FCU VS mesh1</object-name>
-   <property>/instrumentation/afs/vertical-speed-fpm</property>
-   <factor>0.0001</factor>
-   <step>1000.0</step>
-   <axis>
-     <x>0</x>
-     <y>1</y>
-     <z>0</z>
-   </axis>
- </animation>
+  <text>
+    <name>FCU.vs.fpm</name>
+    <axis-alignment>yz-plane</axis-alignment>
+    <alignment>right-bottom</alignment>
+    <offsets>
+      <pitch-deg>-90.0</pitch-deg>
+      <x-m>-0.068</x-m>
+      <y-m>0.0935</y-m>
+      <z-m>-0.0009</z-m>
+    </offsets>
+    <type>number-value</type>
+    <property type="string">/instrumentation/afs/vertical-speed-fpm</property>
+    <format type="string">%4.0f</format>
+    <font>led.txf</font>
+    <character-size type="double">0.009</character-size>
+  </text>
+  <text>
+    <name>FCU.vs.dashes</name>
+    <axis-alignment>yz-plane</axis-alignment>
+    <alignment>right-bottom</alignment>
+    <offsets>
+      <pitch-deg>-90.0</pitch-deg>
+      <x-m>-0.068</x-m>
+      <y-m>0.0935</y-m>
+      <z-m>-0.0009</z-m>
+    </offsets>
+    <type>literal</type>
+    <text type="string">----</text>
+    <font>led.txf</font>
+    <character-size type="double">0.009</character-size>
+  </text>
 
- <animation>
-   <type>textranslate</type>
-   <object-name>FCU VS mesh2</object-name>
-   <property>/instrumentation/afs/vertical-speed-fpm</property>
-   <factor>0.001</factor>
-   <step>100.0</step>
-   <axis>
-     <x>0</x>
-     <y>1</y>
-     <z>0</z>
-   </axis>
- </animation>
-
- <animation>
-   <type>textranslate</type>
-   <object-name>FCU VS mesh3</object-name>
-   <property>/instrumentation/afs/vertical-speed-fpm</property>
-   <factor>0.01</factor>
-   <step>10.0</step>
-   <axis>
-     <x>0</x>
-     <y>1</y>
-     <z>0</z>
-   </axis>
+<animation>
+  <type>select</type>
+  <object-name>FCU.vs.fpm</object-name>
+  <condition>
+    <equals>   
+      <property>/instrumentation/afs/vertical-vs-display</property>
+      <value>0</value>
+    </equals>
+  </condition>
+</animation>
+<animation>
+  <type>select</type>
+  <object-name>FCU.vs.dashes</object-name>
+  <condition>
+    <equals>   
+      <property>/instrumentation/afs/vertical-vs-display</property>
+      <value>-1</value>
+    </equals>
+  </condition>
 </animation>
 
- <animation>
-   <type>textranslate</type>
-   <object-name>FCU VS mesh4</object-name>
-   <property>/instrumentation/afs/vertical-speed-fpm</property>
-   <factor>0.1</factor>
-   <step>1.0</step>
-   <axis>
-     <x>0</x>
-     <y>1</y>
-     <z>0</z>
-   </axis>
- </animation>
- 
- 
- 
  <animation>
   <type>pick</type>
   <object-name>VS knob</object-name>
@@ -345,61 +333,46 @@
   </axis>  
 </animation>
 
-<animation>
-  <type>select</type>
-  <object-name>VS group</object-name>
-  <condition>
-    <equals>   
-      <property>/instrumentation/afs/vertical-vs-display</property>
-      <value>0</value>
-    </equals>
-  </condition>
-</animation>
 
 
 <!-- HDG -->
 <!-- heading readout and dial -->
 
- <animation>
-   <type>textranslate</type>
-   <object-name>FCU HDG mesh1</object-name>
-   <property>/instrumentation/afs/heading-bug-deg</property>
-   <factor>0.001</factor>
-   <step>100.0</step>
-   <axis>
-     <x>0</x>
-     <y>1</y>
-     <z>0</z>
-   </axis>
- </animation>
- <animation>
-   <type>textranslate</type>
-   <object-name>FCU HDG mesh2</object-name>
-   <property>/instrumentation/afs/heading-bug-deg</property>
-   <factor>0.01</factor>
-   <step>10.0</step>
-   <axis>
-     <x>0</x>
-     <y>1</y>
-     <z>0</z>
-   </axis>
- </animation>
- <animation>
-   <type>textranslate</type>
-   <object-name>FCU HDG mesh3</object-name>
-   <property>/instrumentation/afs/heading-bug-deg</property>
-   <factor>0.1</factor>
-   <step>1.0</step>
-   <axis>
-     <x>0</x>
-     <y>1</y>
-     <z>0</z>
-   </axis>
- </animation>
+  <text>
+    <name>FCU.hdg.degs</name>
+    <axis-alignment>yz-plane</axis-alignment>
+    <alignment>right-bottom</alignment>
+    <offsets>
+      <pitch-deg>-90.0</pitch-deg>
+      <x-m>-0.068</x-m>
+      <y-m>-0.035</y-m>
+      <z-m>-0.0009</z-m>
+    </offsets>
+    <type>number-value</type>
+    <property type="string">/instrumentation/afs/heading-bug-deg</property>
+    <format type="string">%03.0f</format>
+    <font>led.txf</font>
+    <character-size type="double">0.009</character-size>
+  </text>
+  <text>
+    <name>FCU.hdg.dashes</name>
+    <axis-alignment>yz-plane</axis-alignment>
+    <alignment>right-bottom</alignment>
+    <offsets>
+      <pitch-deg>-90.0</pitch-deg>
+      <x-m>-0.068</x-m>
+      <y-m>-0.035</y-m>
+      <z-m>-0.0009</z-m>
+    </offsets>
+    <type>literal</type>
+    <text type="string">---</text>
+    <font>led.txf</font>
+    <character-size type="double">0.009</character-size>
+  </text>
 
 <animation>
   <type>select</type>
-  <object-name>HDG group</object-name>
+  <object-name>FCU.hdg.degs</object-name>
   <condition>
     <equals>   
       <property>/instrumentation/afs/lateral-display</property>
@@ -407,7 +380,16 @@
     </equals>
   </condition>
 </animation>
-
+<animation>
+  <type>select</type>
+  <object-name>FCU.hdg.dashes</object-name>
+  <condition>
+    <equals>   
+      <property>/instrumentation/afs/lateral-display</property>
+      <value>-1</value>
+    </equals>
+  </condition>
+</animation>
   <animation>
   <type>pick</type>
   <object-name>HDG knob</object-name>
@@ -456,6 +438,55 @@
      <z>0.5</z>
   </axis>  
 </animation>
+
+<!--  FCU text display material -->
+
+  <animation>
+    <type>material</type>
+    <object-name>FCU.spd.kts</object-name>
+    <object-name>FCU.spd.dashes</object-name>
+    <object-name>FCU.hdg.degs</object-name>
+    <object-name>FCU.hdg.dashes</object-name>
+    <object-name>FCU.alt.ft</object-name>
+    <object-name>FCU.alt.dashes</object-name>
+    <object-name>FCU.vs.fpm</object-name>
+    <object-name>FCU.vs.dashes</object-name>
+    <diffuse>
+      <red>0.898</red>
+      <green>0.898</green>
+      <blue>1.0</blue>
+    </diffuse>
+    <ambient>
+      <red>0.898</red>
+      <green>0.898</green>
+      <blue>1.0</blue>
+    </ambient>
+    <emission>
+      <red>0.0</red>
+      <green>0.0</green>
+      <blue>0.663</blue>
+    </emission>
+    <specular>
+      <red>0.0</red>
+      <green>0.0</green>
+      <blue>0.0</blue>
+    </specular>
+    <shininess>128.0</shininess>
+    <transparency><alpha>0.7</alpha></transparency>
+  </animation>
+  <!-- 0.898, 0.898. 1.0 / 0.0, 0.0, 0.663  -->
+  
+  <animation>
+    <type>noshadow</type>
+    <object-name>FCU.spd.kts</object-name>
+    <object-name>FCU.spd.dashes</object-name>
+    <object-name>FCU.hdg.degs</object-name>
+    <object-name>FCU.hdg.dashes</object-name>
+    <object-name>FCU.alt.ft</object-name>
+    <object-name>FCU.alt.dashes</object-name>
+    <object-name>FCU.vs.fpm</object-name>
+    <object-name>FCU.vs.dashes</object-name>
+ </animation>
  
 <!--  toggle buttons and illuminations -->
 

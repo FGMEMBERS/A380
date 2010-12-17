@@ -56,42 +56,39 @@
 	<file type="string">House</file> 
     </livery> 
     <pushback>
-  	<kp type="double">100</kp>
-	<ki type="double">25</ki>
+  	<kp type="double">900</kp>
+	<ki type="double">100</ki>  <!-- was 25 -->
 	<kd type="double">0</kd>
 	<position-norm type="double">0</position-norm>
-	</pushback>
+     </pushback>
    </model>
 
          
-<view n="0">
+   <view n="0">
       <name>Captain Cockpit</name>
       <type>lookfrom</type>
       <internal type="bool">true</internal>
       <config>
         <x-offset-m type="double">-0.55</x-offset-m>
-        <y-offset-m type="double">-1.55</y-offset-m>
+        <y-offset-m type="double">-1.57</y-offset-m>  <!-- -1.55 -->
         <z-offset-m type="double">-19.50</z-offset-m>
         <pitch-offset-deg>-10</pitch-offset-deg>
-        <default-field-of-view-deg type="double">60.0</default-field-of-view-deg>
+        <default-field-of-view-deg type="double">90.0</default-field-of-view-deg>
       </config>
     </view>
     <view n="1">
       <config>
-        <z-offset-m archive="y" type="double">75.0</z-offset-m>
-	 
+        <z-offset-m archive="y" type="double">-100.0</z-offset-m>
       </config>
     </view>
     <view n="2">
       <config>
-        <z-offset-m archive="y" type="double">75.0</z-offset-m>
-	 
+        <z-offset-m archive="y" type="double">-100.0</z-offset-m>
       </config>
     </view>
     <view n="5">
       <config>
-        <z-offset-m archive="y" type="double">75.0</z-offset-m>
-	
+        <z-offset-m archive="y" type="double">-100.0</z-offset-m>
       </config>
      </view>
 
@@ -103,9 +100,9 @@
       <from-model type="bool">true</from-model>
       <from-model-idx type="int">0</from-model-idx>
       <ground-level-nearplane-m type="double">0.01f</ground-level-nearplane-m>
-      <default-field-of-view-deg type="double">55</default-field-of-view-deg>
-      <pitch-offset-deg>-8.0</pitch-offset-deg>
-      <heading-offset-deg type="double">90</heading-offset-deg> <!-- parallel to the panel -->
+      <default-field-of-view-deg type="double">107</default-field-of-view-deg>
+      <pitch-offset-deg>-29.8</pitch-offset-deg>
+      <heading-offset-deg type="double">95.1</heading-offset-deg> <!-- parallel to the panel -->
       <x-offset-m archive="y"> -2.0 </x-offset-m> <!--Left/Right-->
       <y-offset-m archive="y"> 1.31 </y-offset-m> <!--Up/Down-->
       <z-offset-m archive="y"> 9.67 </z-offset-m> <!--Fdw/Back-->
@@ -121,26 +118,18 @@
        <from-model-idx type="int">0</from-model-idx>
        <!-- ground-level-nearplane-m type="double">6f</ground-level-nearplane-m -->
        <x-offset-m type="double">0.55</x-offset-m>  <!-- 0.55 -->
-       <y-offset-m type="double">-1.55</y-offset-m>  <!-- 3.75 -->
+       <y-offset-m type="double">-1.57</y-offset-m>  <!-- 3.75 / -1.55 -->
        <z-offset-m type="double">-19.50</z-offset-m> <!-- -23.15 -->
        <pitch-offset-deg>-10</pitch-offset-deg>   <!-- -15 -->
-       <default-field-of-view-deg type="double">60.0</default-field-of-view-deg>  <!-- 70.0 -->
+       <default-field-of-view-deg type="double">90.0</default-field-of-view-deg>  <!-- 70.0 -->
+       <heading-offset-deg type="double">358.0</heading-offset-deg>
       </config>
       <dynamic>
         <enabled type="bool">false</enabled>
        </dynamic>
      </view>
-     <view n="103">
-       <name>Walk View</name>
-       <type>lookfrom</type>
-       <internal type="bool">true</internal>
-       <config>
-         <x-offset-m type="double">-0.55</x-offset-m>
-         <y-offset-m type="double">-1.65</y-offset-m>
-         <z-offset-m type="double">-19.50</z-offset-m>
-         <pitch-offset-deg>-9</pitch-offset-deg>
-         <default-field-of-view-deg type="double">60.0</default-field-of-view-deg>
-       </config>
+     <view n="102">
+       <enabled type="bool">false</enabled>
      </view>
      <chase-distance-m>-100</chase-distance-m> <!-- -75 -->
   
@@ -195,6 +184,7 @@
 	      <path>Aircraft/A380/A380-autopilot.xml</path>
       </autopilot>
     </systems>
+    
     <!-- sound>
      <path>Aircraft/A380/Sounds/A380-sound.xml</path>
 	 <switch type = "bool"></switch>
@@ -218,11 +208,11 @@
       </key>
       <key>
         <name>k</name>
-	<desc>increase speedbrake</desc>
+	<desc>increase spoiler</desc>
       </key>
       <key>
         <name>j</name>
-	<desc>decrease speedbrake</desc>
+	<desc>decrease spoilers</desc>
       </key>
       <key>
         <name>Shift-PG UP</name>
@@ -245,20 +235,28 @@
 	<desc>Aft cargo door</desc>
       </key>
       <key>
-	<name>!</name>
+	<name>! (shift+1)</name>
 	<desc>Pax Lower Left door 1</desc>
       </key>
       <key>
-	<name>@</name>
-	<desc>Pax Left Upper door 1</desc>
+	<name>@ (shift+2)</name>
+	<desc>Pax Upper Left door 1</desc>
       </key>
       <key>
-	<name>#</name>
-	<desc>Pax Right Lower door 1</desc>
+	<name># (shift+3)</name>
+	<desc>Pax Lower Right door 1</desc>
       </key>
       <key>
-	<name>$</name>
-	<desc>Pax Right Upper door 1</desc>
+	<name>$ (shift+4)</name>
+	<desc>Pax Upper Right door 1</desc>
+      </key>
+      <key>
+	<name>% (shift+5)</name>
+	<desc>Pax Lower Left door 2</desc>
+      </key>
+      <key>
+	<name>^ (shift+6)</name>
+	<desc>Pax Lower Right door 2</desc>
       </key>
       <text>
 Use the mouse scrollwheel to increment and decrement dial values. Use the tutorial to understand all the major areas of the cockpit.
@@ -343,7 +341,12 @@ The A380 Aircraft is released under GPL as part of the FlightGear.org project.
             </menu>
         </default>
     </menubar>
-
+    <instrumentation>
+    <mk-viii>
+       <name>mk-viii</name>
+       <number>0</number>
+    </mk-viii>
+  </instrumentation>
   </sim>
 
 <payload>
@@ -418,6 +421,30 @@ The A380 Aircraft is released under GPL as part of the FlightGear.org project.
       <rpm>1000</rpm>
     </engine>    
   </engines>
+  
+
+<aircraft>
+ <jetway-pos>
+  <x-tra>-2</x-tra>
+  <y-rot>2</y-rot>
+  <z-rot>18</z-rot>
+  <hood-rot>0</hood-rot>
+ </jetway-pos>
+ <jetway2-pos>
+  <x-tra>2.5</x-tra>
+  <y-rot>2.5</y-rot>
+  <z-rot>45</z-rot>
+  <hood-rot>0</hood-rot>
+ </jetway2-pos>
+ <jetway3-pos>
+  <x-tra>4</x-tra>
+  <y-rot>5</y-rot>
+  <z-rot>47</z-rot>
+  <hood-rot>3</hood-rot>
+ </jetway3-pos>
+</aircraft>
+
+
 
   <input>
     <keyboard>
@@ -429,7 +456,7 @@ The A380 Aircraft is released under GPL as part of the FlightGear.org project.
           <script>reversethrust.togglereverser()</script>
         </binding>
       </key>
- <!-- key n="40">
+ <key n="40">
   <name>[</name>
   <desc>Decrease flaps</desc>
   <binding>
@@ -457,7 +484,7 @@ The A380 Aircraft is released under GPL as part of the FlightGear.org project.
     <script>controls.flapsDown(0)</script>
    </binding>
   </mod-up>
- </key -->
+ </key>
  
   <key n="106">
   <name>j</name>
@@ -560,6 +587,22 @@ The A380 Aircraft is released under GPL as part of the FlightGear.org project.
     <script>DOORS.doorsystem.paxRightUp1()</script>
   </binding>
 </key>
+<key n="37">
+  <name>%</name>
+  <desc>Pax Left Lower door 2</desc>
+  <binding>
+    <command>nasal</command>
+    <script>DOORS.doorsystem.paxLeftLow2()</script>
+  </binding>
+</key>
+<key n="94">
+  <name>^</name>
+  <desc>Pax Right Lower door 2</desc>
+  <binding>
+    <command>nasal</command>
+    <script>DOORS.doorsystem.paxRightLow2()</script>
+  </binding>
+</key>
 
 
    <key n="9">
@@ -607,6 +650,20 @@ The A380 Aircraft is released under GPL as part of the FlightGear.org project.
      </mod-shift>
    </key>
 
+<key n="261">
+ <name>F5</name>
+ <repeatable type="bool">true</repeatable>
+ <mod-shift>
+  <desc>Reload autopilot configuration</desc>
+  <binding>
+   <command>nasal</command>
+   <script>
+    fgcommand('reinit', props.Node.new({ subsystem: "xml-autopilot" }));
+    print("xml-autopilot reinitialized!");
+   </script>
+  </binding>
+ </mod-shift>
+</key>
 
    
  </keyboard>
@@ -628,6 +685,7 @@ The A380 Aircraft is released under GPL as part of the FlightGear.org project.
   </flight>
 
   <switches>
+    <panel-lights type="bool">0</panel-lights>
     <landing-lights type="bool">0</landing-lights> 
     <taxi-lights type="bool">0</taxi-lights>
     <wing-lights type="bool">0</wing-lights>
@@ -638,9 +696,12 @@ The A380 Aircraft is released under GPL as part of the FlightGear.org project.
     <smoking type="double">0.0</smoking>
     <nav-lights type="bool">0</nav-lights>
     <logo-light type="double">0.0</logo-light>
-    <cabin-lights>0.8</cabin-lights>
-    <map-lights>0</map-lights>
+    <cabin-lights type="double">0.8</cabin-lights>
+    <map-lights type="double">0.0</map-lights>
     <master-panel type="bool">1</master-panel>
+    <smoking type="double">0</smoking>
+    <seat-belt type="double">0</seat-belt>
+    <storm type="bool">1</storm>
   </switches>
   <engines>
     <engine n="0">
@@ -659,6 +720,16 @@ The A380 Aircraft is released under GPL as part of the FlightGear.org project.
 </controls>
 
 <instrumentation>
+	<efis>
+	  <mfd>
+	    <display-mode>MAP</display-mode>
+	  </mfd>
+	  <inputs>
+	    <lh-vor-adf>1</lh-vor-adf>
+	    <rh-vor-adf>1</rh-vor-adf>
+	    <nd-centred>0</nd-centred>
+	  </inputs>
+	</efis>
         <radar>
             <switch type="string" archive="y">on</switch>
             <mode-control type="int" archive="y">1</mode-control>
@@ -672,7 +743,6 @@ The A380 Aircraft is released under GPL as part of the FlightGear.org project.
             </display-controls>
             <serviceable type="bool">true</serviceable>
             <range type="int" archive="y">10</range>
-            <reference-range-nm type="double" archive="y">640</reference-range-nm>
             <mode type="string" archive="y">WX</mode>
             <font>
                 <color>
@@ -687,8 +757,6 @@ The A380 Aircraft is released under GPL as part of the FlightGear.org project.
             </font>
             <lightning type="bool" archive="y">true</lightning>
             <display-mode type="string" archive="y">arc</display-mode>
-            <radar-texture-path type="string" archive="y">Aircraft/777-200/Models/Instruments/MFD/od_wxradar.png</radar-texture-path>
-            <echo-texture-path type="string" archive="y">Aircraft/777-200/Models/Instruments/MFD/wxecho.png</echo-texture-path>
             <minimized type="bool" archive="y">false</minimized>
             <heading-marker type="bool" archive="y">true</heading-marker>
             <limit-deg type="int">360</limit-deg>
@@ -697,21 +765,33 @@ The A380 Aircraft is released under GPL as part of the FlightGear.org project.
             <id type="string">YSSY</id>
             <range type="double">1.2</range>
         </groundradar>
-        <mk-viii>                                    <!-- http://wiki.flightgear.org/index.php/GPWS -->
-            <serviceable>true</serviceable>          <!-- EGPWS_ENABLE -->
+        <mk-viii>
+            <serviceable>true</serviceable>
+            
             <configuration-module>
-                <category-1> 255 </category-1>       <!-- AIRCRAFT_MODE_TYPE_SELECT -->
+              <category-1>  255 </category-1>  <!-- AIRCRAFT_MODE_TYPE_SELECT -->
+              <category-3>   2 </category-3>  <!-- POSITION_INPUT_SELECT -->
+              <category-4>   9 </category-4>  <!-- ALTITUDE_CALLOUTS -->
+              <category-5>   0 </category-5>  <!-- AUDIO_MENU_SELECT -->
+              <category-6>   1 </category-6>  <!-- TERRAIN_DISPLAY_SELECT -->
+              <category-7>  64 </category-7>  <!-- OPTIONS_SELECT_GROUP_1 -->
+              <category-8>   2 </category-8>  <!-- RADIO_ALTITUDE_INPUT_SELECT -->
+              <category-9>   3 </category-9>  <!-- NAVIGATION_INPUT_SELECT -->
+              <category-10>  6 </category-10> <!-- ATTITUDE_INPUT_SELECT -->
+              <category-13>  7 </category-13> <!-- INPUT_OUTPUT_DISCRETE_TYPE_SELECT -->
+              <category-14>  0 </category-14> <!-- AUDIO_OUTPUT_LEVEL -->
             </configuration-module>
-            <inputs>                                 <!-- Module I/O -->
-                <arinc429>
-                    <decision-height-ncd> false </decision-height-ncd>
-                    <decision-height> 200 </decision-height>
-                </arinc429>
-            </inputs>
-            <speaker>                                <!-- Speaker Configuration -->
-                <max-dist> 2 </max-dist>             <!-- Max. distance where speaker is heard -->
-                <reference-dist> 1 </reference-dist> <!-- Distance to pilot -->
-                <volume> 0.4 </volume>               <!-- Volume at reference distance -->
+            
+            <arinc429>
+              <decision-height-ncd> false </decision-height-ncd> 
+              <decision-height> 200 </decision-height>
+            </arinc429>
+
+
+            <speaker>
+                <max-dist>2</max-dist>
+                <reference-dist>1</reference-dist>
+                <volume>0.4</volume>
             </speaker>
         </mk-viii>
         <adf n="1">
@@ -738,12 +818,23 @@ The A380 Aircraft is released under GPL as part of the FlightGear.org project.
   <lightning type="bool" archive="y">false</lightning>
   <display-mode archive="y">arc</display-mode>
  </wxradar>
+ <nav n="2">
+    <serviceable type="bool">true</serviceable>
+    <operable type="bool">true</operable>
+    <power-btn type="bool">true</power-btn>
+    <frequencies>
+      <selected-mhz>110.1</selected-mhz>
+      <standby-mhz>109.3</standby-mhz>
+    </frequencies>
+ </nav>
 
 </instrumentation>
 
 <nasal>
     <A380>
       <file>Aircraft/A380/Nasal/electrical.nas</file>
+      <file>Aircraft/A380/Nasal/TextRegion.nas</file>
+      <file>Aircraft/A380/Nasal/AirbusFMS.nas</file>
       <file>Aircraft/A380/Nasal/system.nas</file>
       <file>Aircraft/A380/Nasal/Airbus_fg.nas</file>
       <file>Aircraft/Generic/limits.nas</file>
@@ -764,6 +855,7 @@ The A380 Aircraft is released under GPL as part of the FlightGear.org project.
 
     <FCU>
       <file>Aircraft/A380/Nasal/afs_cp.nas</file>
+      <file>Aircraft/A380/Nasal/AirbusFMS.nas</file>
     </FCU>
     
     <MCDU1>

@@ -4,6 +4,8 @@
     <description>
 This tutorial will start off at Sydney Intl (YSSY), we will first adjust the fuel and weight (use the Menu) to achieve the correct balance, then we will start the APU, enter our flight plan, start the engines, adjust the flaps and release the parking park. At that point you are ready to move to the next tutorial where we will start the take off roll through to reaching cruise level.
 
+NOTE: Ensure you unpacked the YSSY.xml and YMML.xml Level-D FMS files in the FMS/ folder, the README.txt file in that folder lists the latest websites to download the FMS files for free or for a fee.
+
 
 Before starting the tutorial, take some time to read over this introduction to the cockpit and make sure you understand where each display or panel is.
 
@@ -643,7 +645,7 @@ To the left and right of the AFS CP, there is a Captain and First Officer Electr
         <message>Flick no-smoking switch once on the overhead</message>
 	<condition>
 	  <not-equals>
-	    <property>/controls/switches/no-smoking</property>
+	    <property>/controls/switches/smoking</property>
 	    <value>1</value>
 	  </not-equals>
 	</condition>

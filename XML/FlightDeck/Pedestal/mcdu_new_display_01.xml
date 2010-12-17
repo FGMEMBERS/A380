@@ -401,18 +401,22 @@
       <value>8</value>
     </greater-than>
     <or>
-    <equals>
-      <property>/instrumentation/mcdu[0]/page</property>
-      <value>active.departure.dep</value>
-    </equals>
-    <equals>
-      <property>/instrumentation/mcdu[0]/page</property>
-      <value>active.departure.arv</value>
-    </equals>
-    <equals>
-      <property>/instrumentation/mcdu[0]/page</property>
-      <value>active.departure.star</value>
-    </equals>
+      <equals>
+	<property>/instrumentation/mcdu[0]/page</property>
+	<value>active.departure.dep</value>
+      </equals>
+      <equals>
+	<property>/instrumentation/mcdu[0]/page</property>
+	<value>active.departure.arv</value>
+      </equals>
+      <equals>
+	<property>/instrumentation/mcdu[0]/page</property>
+	<value>active.departure.sid</value>
+      </equals>
+      <equals>
+	<property>/instrumentation/mcdu[0]/page</property>
+	<value>active.departure.star</value>
+      </equals>
     </or>
    </and>
   </condition>
@@ -855,6 +859,170 @@
     <alignment>right-bottom</alignment>
 </text>
 
+
+
+<!-- active.perf.crz_perf labels -->
+
+<text>
+  <name>label.crz_perf.mode</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.110</x-m>
+      <y-m>0.015</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text>MODE</text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.0044</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+<text>
+  <name>label.crz_perf.mach</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.110</x-m>
+      <y-m>0.040</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text>MACH</text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.0044</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+<text>
+  <name>label.crz_perf.spd</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.110</x-m>
+      <y-m>0.065</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text>SPD</text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.0044</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+<text>
+  <name>label.crz_perf.step_at</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.120</x-m>
+      <y-m>0.100</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text>AT</text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.0044</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+<text>
+  <name>label.crz_perf.step_to</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.110</x-m>
+      <y-m>0.095</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text>STEP TO</text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.0044</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+<text>
+  <name>label.crz_perf.lrc</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.085</x-m>
+      <y-m>0.039</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text>LRC</text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.0044</character-size>
+    <alignment>right-bottom</alignment>
+</text>
+
+<text>
+  <name>label.crz_perf.max_turb</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.075</x-m>
+      <y-m>0.039</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text>MAX TURB</text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.0044</character-size>
+    <alignment>right-bottom</alignment>
+</text>
+
+<text>
+  <name>label.crz_perf.dest</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.020</x-m>
+      <y-m>0.010</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text>DEST</text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.004</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+<text>
+  <name>label.crz_perf.step_alt</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.020</x-m>
+      <y-m>0.120</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text>STEP ALT</text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.004</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+
+<text>
+  <name>label.crz_perf.ci</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.150</x-m>
+      <y-m>0.010</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text>CI</text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.004</character-size>
+    <alignment>left-bottom</alignment>
+</text>
 
 
 
@@ -2161,7 +2329,7 @@
       <z-m>0.002</z-m>
     </offsets>
     <type type="string">number-value</type>
-    <property type="string">/instrumentation/afs/VR</property>
+    <property type="string">/instrumentation/afs/Vr</property>
     <format>%3.0f</format>
     <truncate type="bool">true</truncate>
     <font>helvetica_medium.txf</font>
@@ -2328,6 +2496,63 @@
 
 
 
+<!-- active.to_perf.crz  values -->
+
+<text>
+  <name>value.to_perf.crz_mach</name>
+  <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.093</x-m>
+      <y-m>0.046</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">number-value</type>
+    <property type="string">/instrumentation/afs/crz_mach</property>
+    <format>%.2f</format>
+    <!-- truncate type="bool">true</truncate -->
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.0044</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+<text>
+  <name>value.to_perf.lrc_mach</name>
+  <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.086</x-m>
+      <y-m>0.0454</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">number-value</type>
+    <property type="string">/velocities/Mra</property>
+    <format>%.2f</format>
+    <!-- truncate type="bool">true</truncate -->
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.0044</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+<text>
+  <name>value.to_perf.turb_mach</name>
+  <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.076</x-m>
+      <y-m>0.046</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">number-value</type>
+    <property type="string">/velocities/Mb</property>
+    <format>%.2f</format>
+    <!-- truncate type="bool">true</truncate -->
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.0044</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+
 
 
 
@@ -2415,6 +2640,16 @@
     <object-name>label.to_perf.ths_for</object-name>
     <object-name>label.to_perf.to_shift</object-name>
     <object-name>label.to_perf.trans_alt</object-name>
+    <object-name>label.crz_perf.ci</object-name>
+    <object-name>label.crz_perf.dest</object-name>
+    <object-name>label.crz_perf.max_turb</object-name>
+    <object-name>label.crz_perf.lrc</object-name>
+    <object-name>label.crz_perf.step_to</object-name>
+    <object-name>label.crz_perf.step_at</object-name>
+    <object-name>label.crz_perf.spd</object-name>
+    <object-name>label.crz_perf.mach</object-name>
+    <object-name>label.crz_perf.mode</object-name>
+    <object-name>label.crz_perf.step_alt</object-name>
     <object-name>label.menu.t_o</object-name>
     <object-name>label.menu.clb</object-name>
     <object-name>label.menu.crz</object-name>
@@ -2442,7 +2677,6 @@
     <object-name>value.to_perf.v1</object-name>
     <object-name>value.to_perf.rwy</object-name>
     <object-name>value.perf.crz</object-name>
-    
     <object-name>value.to_perf.thr_accel</object-name>
     <object-name>value.to_perf.trans_ft</object-name>
     <object-name>value.to_perf.thr_red</object-name>
@@ -2463,6 +2697,36 @@
       <red>0.25</red>
       <green>0.5</green>
       <blue>0.8</blue>
+    </diffuse>
+    <specular>
+      <red>0.0</red>
+      <green>0.0</green>
+      <blue>0.0</blue>
+    </specular>
+    <shininess>0.0</shininess>
+    <transparency><alpha>0.7</alpha></transparency>
+  </animation>
+  
+  <!--   green values -->
+  <animation>
+    <type>material</type>
+    <object-name>value.to_perf.crz_mach</object-name>
+    <object-name>value.to_perf.lrc_mach</object-name>
+    <object-name>value.to_perf.turb_mach</object-name>
+    <ambient>
+      <red>0.1</red>
+      <green>0.8</green>
+      <blue>0.1</blue>
+    </ambient>
+    <emission>
+      <red>0.1</red>
+      <green>0.8</green>
+      <blue>0.1</blue>
+    </emission>
+    <diffuse>
+      <red>0.1</red>
+      <green>0.8</green>
+      <blue>0.1</blue>
     </diffuse>
     <specular>
       <red>0.0</red>
@@ -2658,6 +2922,33 @@
     <equals>
       <property>/instrumentation/mcdu[0]/page</property>
       <value>active.to_perf</value>
+    </equals>
+  </condition>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>page.PERF_CRZ</object-name>
+    <object-name>label.crz_perf.ci</object-name>
+    <object-name>label.crz_perf.dest</object-name>
+    <object-name>label.crz_perf.max_turb</object-name>
+    <object-name>label.crz_perf.lrc</object-name>
+    <object-name>label.crz_perf.step_to</object-name>
+    <object-name>label.crz_perf.step_at</object-name>
+    <object-name>label.crz_perf.spd</object-name>
+    <object-name>label.crz_perf.mach</object-name>
+    <object-name>label.crz_perf.mode</object-name>
+    <object-name>label.crz_perf.step_alt</object-name>
+    <object-name>input.crz.econ.mach</object-name>
+    <object-name>input.crz.lrc.mach</object-name>
+    <object-name>input.crz.turb.mach</object-name>
+    <object-name>value.to_perf.crz_mach</object-name>
+    <object-name>value.to_perf.lrc_mach</object-name>
+    <object-name>value.to_perf.turb_mach</object-name>
+  <condition>
+    <equals>
+      <property>/instrumentation/mcdu[0]/page</property>
+      <value>active.crz_perf</value>
     </equals>
   </condition>
 </animation>

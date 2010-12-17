@@ -89,15 +89,15 @@
       <prop>/autopilot/internal/target-roll-deg</prop>
     </output>
     <config>
-      <Kp>-1.0</Kp>        <!-- proportional gain -->
+      <Kp>-1.0</Kp>        <!-- proportional gain --> <!-- was -0.5 SAH 2010-12-11 -->
       <beta>1.0</beta>     <!-- input value weighing factor -->
       <alpha>0.1</alpha>   <!-- low pass filter weighing factor -->
       <gamma>0.0</gamma>   <!-- input value weighing factor for -->
                            <!-- unfiltered derivative error -->
-      <Ti>10.0</Ti>        <!-- integrator time -->
+      <Ti>30.0</Ti>        <!-- integrator time --> <!-- was 20 SAH 2010-12-11 -->
       <Td>0.00001</Td>     <!-- derivator time -->
-      <u_min>-20.0</u_min> <!-- minimum output clamp -->
-      <u_max>20.0</u_max>  <!-- maximum output clamp -->
+      <u_min>-30.0</u_min> <!-- minimum output clamp -->
+      <u_max>30.0</u_max>  <!-- maximum output clamp -->
     </config>
   </pid-controller>
 
@@ -116,20 +116,22 @@
       <prop>/autopilot/internal/target-roll-deg</prop>
     </reference>
     <output>
-      <prop>/controls/flight/aileron</prop>
+      <prop>/autopilot/internal/target-roll-deg-cmd</prop>
     </output>
     <config>
-      <Kp>0.1</Kp>        <!-- proportional gain -->
-      <beta>1.0</beta>    <!-- input value weighing factor -->
-      <alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
-      <gamma>0.0</gamma>  <!-- input value weighing factor for -->
-                          <!-- unfiltered derivative error -->
-      <Ti>10.0</Ti>       <!-- integrator time -->
-      <Td>0.00001</Td>    <!-- derivator time -->
-      <u_min>-0.5</u_min> <!-- minimum output clamp -->
-      <u_max>0.5</u_max>  <!-- maximum output clamp -->
+      <Kp>0.1</Kp>        
+      <beta>1.0</beta>    
+      <alpha>0.1</alpha> 
+      <gamma>0.0</gamma>  
+      <Ti>10.0</Ti>       <!-- was 20 SAH 2010-12-13 -->
+      <Td>0.00001</Td>    
+      <u_min>-1.0</u_min> 
+      <u_max>1.0</u_max> 
     </config>
   </pid-controller>
+  
+  
+  
 
   <!-- True Heading hold.  2 stage cascade controller. -->
 
@@ -139,8 +141,18 @@
     <name>True Heading Hold (DG based) Stage 1</name>
     <debug>false</debug>
     <enable>
-      <prop>/autopilot/locks/heading</prop>
-      <value>true-heading-hold</value>
+      <condition>
+        <and>
+          <equals>
+            <property>/autopilot/locks/heading</property>
+            <value>true-heading-hold</value>
+          </equals>
+          <greater-than>
+            <property>/autopilot/route-manager/wp[0]/dist</property>
+            <value>0.5</value>
+          </greater-than>
+        </and>
+      </condition>
     </enable>
     <input>
       <prop>/autopilot/internal/true-heading-error-deg</prop>
@@ -152,15 +164,15 @@
       <prop>/autopilot/internal/target-roll-deg</prop>
     </output>
     <config>
-      <Kp>-1.5</Kp>        <!-- proportional gain -->
+      <Kp>-1.0</Kp>        <!-- proportional gain --> <!-- was -1.5 SAH 2010-12-13 -->
       <beta>1.0</beta>     <!-- input value weighing factor -->
       <alpha>0.1</alpha>   <!-- low pass filter weighing factor -->
       <gamma>0.0</gamma>   <!-- input value weighing factor for -->
                            <!-- unfiltered derivative error -->
       <Ti>30.0</Ti>        <!-- integrator time -->
       <Td>0.00001</Td>     <!-- derivator time -->
-      <u_min>-20.0</u_min> <!-- minimum output clamp -->
-      <u_max>20.0</u_max>  <!-- maximum output clamp -->
+      <u_min>-30.0</u_min> <!-- minimum output clamp -->
+      <u_max>30.0</u_max>  <!-- maximum output clamp -->
     </config>
   </pid-controller>
 
@@ -179,18 +191,17 @@
       <prop>/autopilot/internal/target-roll-deg</prop>
     </reference>
     <output>
-      <prop>/controls/flight/aileron</prop>
+      <prop>/autopilot/internal/target-roll-deg-cmd</prop>
     </output>
     <config>
-      <Kp>1.0</Kp>        <!-- proportional gain -->
-      <beta>1.0</beta>    <!-- input value weighing factor -->
-      <alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
-      <gamma>0.0</gamma>  <!-- input value weighing factor for -->
-                          <!-- unfiltered derivative error -->
-      <Ti>10.0</Ti>       <!-- integrator time was 25 SAH 5-JUL-2009 -->
-      <Td>0.00001</Td>    <!-- derivator time  was 0.001 SAH 20-jun-2009 -->
-      <u_min>-0.5</u_min> <!-- minimum output clamp -->
-      <u_max>0.5</u_max>  <!-- maximum output clamp -->
+      <Kp>0.1</Kp>     
+      <beta>1.0</beta>    
+      <alpha>0.1</alpha>  
+      <gamma>0.0</gamma>  
+      <Ti>10.0</Ti>       <!-- was 20 SAH 2010-12-13 -->
+      <Td>0.00001</Td>    
+      <u_min>-1.0</u_min>
+      <u_max>1.0</u_max>
     </config>
   </pid-controller>
 
@@ -221,8 +232,8 @@
       <gamma>0.0</gamma>   <!-- input value weighing factor for -->
                            <!-- unfiltered derivative error -->
       <Ti>35.0</Ti>        <!-- integrator time  was 15.0 -->
-      <u_min>-20.0</u_min> <!-- minimum output clamp -->
-      <u_max>20.0</u_max>  <!-- maximum output clamp -->
+      <u_min>-30.0</u_min> <!-- minimum output clamp -->
+      <u_max>30.0</u_max>  <!-- maximum output clamp -->
     <!-- 
       <Kp>-0.75</Kp>    
       <beta>1.0</beta>  
@@ -250,30 +261,87 @@
       <prop>/autopilot/internal/target-roll-deg</prop>
     </reference>
     <output>
-      <prop>/controls/flight/aileron</prop>
+      <prop>/autopilot/internal/target-roll-deg-cmd</prop>
     </output>
     <config>
-      <Kp>1.0</Kp>        <!-- proportional gain -->
-      <beta>1.0</beta>    <!-- input value weighing factor -->
-      <alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
-      <gamma>0.0</gamma>  <!-- input value weighing factor for -->
-                          <!-- unfiltered derivative error -->
-      <Ti>30.0</Ti>       <!-- integrator time was 10.0 -->
-      <Td>0.000000001</Td>    <!-- derivator time -->
-      <u_min>-1.0</u_min> <!-- minimum output clamp -->
-      <u_max>1.0</u_max>  <!-- maximum output clamp -->
-    <!-- 
-      <Kp>1.0</Kp>        
+      <Kp>0.1</Kp>        
       <beta>1.0</beta>    
       <alpha>0.1</alpha>  
       <gamma>0.0</gamma>  
-                         
-      <Ti>10.0</Ti>      
+      <Ti>10.0</Ti>        <!-- was 20 SAH 2010-12-13 -->
       <Td>0.000000001</Td>   
       <u_min>-1.0</u_min> 
-      <u_max>1.0</u_max>   -->
+      <u_max>1.0</u_max>
     </config>
   </pid-controller>
+  
+  <!-- pid-controller>
+    <name>Heading stage 2</name>
+    <debug>true</debug>
+    <enable>
+      <condition>
+          <or>
+            <equals>
+	      <property>/autopilot/locks/heading</property>
+	      <value>dg-heading-hold</value>
+	    </equals>
+	    <equals>
+	      <property>/autopilot/locks/heading</property>
+	      <value>true-heading-hold</value>
+	    </equals>
+	    <equals>
+	      <property>/autopilot/locks/heading</property>
+	      <value>nav1-hold</value>
+	    </equals>
+	  </or>
+	</condition>
+    </enable>
+    <input>
+      <prop>/autopilot/internal/target-roll-deg</prop>
+    </input>
+    <reference>0.0</reference>
+    <output>
+      <prop>/autopilot/internal/target-roll-deg-cmd</prop>
+    </output>
+    <config>
+      <Kp>-1.0</Kp>
+      <Ti>10.0</Ti>
+      <Td>0.0</Td>
+      <u_min>-1.0</u_min>
+      <u_max>1.0</u_max>
+    </config>
+  </pid-controller -->
+
+  
+   <filter>
+      <name>filter-heading</name>
+      <type>noise-spike</type>
+      <debug>false</debug>
+      <feedback-if-disabled>true</feedback-if-disabled>
+      <enable>
+        <condition>
+          <or>
+            <equals>
+	      <property>/autopilot/locks/heading</property>
+	      <value>dg-heading-hold</value>
+	    </equals>
+	    <equals>
+	      <property>/autopilot/locks/heading</property>
+	      <value>true-heading-hold</value>
+	    </equals>
+	    <equals>
+	      <property>/autopilot/locks/heading</property>
+	      <value>nav1-hold</value>
+	    </equals>
+	  </or>
+	</condition>
+      </enable>
+      <input>/autopilot/internal/target-roll-deg-cmd</input>
+      <output>/controls/flight/aileron</output>
+      <max-rate-of-change>0.6</max-rate-of-change>
+      <u_min>-1.0</u_min> 
+      <u_max>1.0</u_max>
+    </filter>
 
 
   <!-- Second Stage #2 drives the rudder. -->
@@ -395,8 +463,14 @@
     <config>
       <Kp>0.15</Kp>          <!-- proportional gain -->
       <Ki>0.0</Ki>          <!-- integral gain -->
-      <u_min>-16.67</u_min> <!-- minimum output clamp -->
-      <u_max>33.33</u_max>   <!-- maximum output clamp -->
+      <u_min>
+        <!-- -16.67 -->
+        <prop>/instrumentation/afs/limit-min-vs-fps</prop>
+      </u_min> <!-- minimum output clamp -->
+      <u_max>
+        <!-- 33.33 -->
+        <prop>/instrumentation/afs/limit-max-vs-fps</prop>
+      </u_max>   <!-- maximum output clamp -->
     </config>
   </pi-simple-controller>
 
@@ -423,7 +497,7 @@
       <alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
       <gamma>0.0</gamma>  <!-- input value weighing factor for -->
                           <!-- unfiltered derivative error -->
-      <Ti>10.0</Ti>       <!-- integrator time -->
+      <Ti>15.0</Ti>       <!-- integrator time -->  <!-- was 10.0 SAH 2010-06-06 -->
       <Td>0.00001</Td>    <!-- derivator time -->
       <u_min>-1.0</u_min> <!-- minimum output clamp -->
       <u_max>1.0</u_max>  <!-- maximum output clamp -->
@@ -465,7 +539,7 @@
 
   <!-- Stage #2 drives the elevator-trim to achieve the desired climb rate. -->
   <pid-controller>
-    <name>Altitude Hold (Altimeter based) Stage 2</name>
+    <name>AGL Hold (Altimeter based) Stage 2</name>
     <debug>false</debug>
     <enable>
       <prop>/autopilot/locks/altitude</prop>
@@ -530,8 +604,6 @@
         <enable> 
 	    <prop>/autopilot/locks/altitude</prop>
             <value>gs1-hold</value>
-            <!--prop>instrumentation/afds/ap-modes/pitch-mode</prop>
-            <value>G/S</value -->
         </enable>
         <input>
             <prop>velocities/vertical-speed-fps</prop>
@@ -541,9 +613,10 @@
         </reference>
         <output>
             <prop>autopilot/internal/elevator-filter</prop>
+            <!-- prop>/controls/flight/elevator-trim</prop -->
         </output>
         <config>
-            <Kp>-0.01</Kp>
+            <Kp>-0.005</Kp>
             <beta>1.0</beta>
             <alpha>0.1</alpha>
             <gamma>0.0</gamma>
@@ -553,6 +626,34 @@
             <u_max>1.0</u_max>
         </config>
     </pid-controller>
+    
+    <filter>
+      <name>GS Filter</name>
+      <debug>false</debug>
+      <enable> 
+        <prop>/autopilot/locks/altitude</prop>
+        <value>gs1-hold</value>
+      </enable>
+      <type>exponential</type>
+      <filter-time>0.08</filter-time>
+      <input>autopilot/internal/elevator-filter</input>
+      <output>/controls/flight/elevator</output>
+    </filter>
+
+    
+    <!-- filter>
+      <name>SERVO-DRIVER:elevator</name>
+      <debug>true</debug>
+      <feedback-if-disabled>true</feedback-if-disabled>
+      <enable>
+	<prop>/autopilot/locks/altitude</prop>
+	<value>gs1-hold</value>
+      </enable>
+      <input>/autopilot/internal/elevator-filter</input>
+      <output>/controls/flight/elevator</output>
+      <type>noise-spike</type>
+      <max-rate-of-change>0.08</max-rate-of-change>
+    </filter -->
 
 
   <!-- vertical speed hold -->
@@ -601,6 +702,7 @@
     </enable>
     <input>
       <prop>/autopilot/internal/lookahead-5-sec-airspeed-kt</prop>
+      <!--prop>/instrumentation/airspeed-indicator/indicated-speed-kt</prop -->
     </input>
     <reference>
       <prop>/autopilot/settings/target-speed-kt</prop>
@@ -612,13 +714,13 @@
       <prop>/controls/engines/engine[3]/throttle</prop>
     </output>
     <config>
-      <Kp>0.1</Kp>        <!-- proportional gain -->
+      <Kp>0.05</Kp>        <!-- proportional gain --> <!-- was 0.1 SAH 2010-06-06 -->
       <beta>1.0</beta>    <!-- input value weighing factor -->
       <alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
       <gamma>0.0</gamma>  <!-- input value weighing factor for -->
                           <!-- unfiltered derivative error -->
-      <Ti>10.0</Ti>       <!-- integrator time -->
-      <Td>0.00001</Td>    <!-- derivator time -->
+      <Ti>25.0</Ti>       <!-- integrator time -->  <!-- was 10.0 SAH 2010-06-06 -->
+      <Td>0.00001</Td>    <!-- derivator time --> <!-- was 0.00001 SAH 2010-06-06 --> 
       <u_min>0.01</u_min>  <!-- minimum output clamp -->
       <u_max>1.0</u_max>  <!-- maximum output clamp -->
     </config>
@@ -634,6 +736,7 @@
     </enable>
     <input>
       <prop>/autopilot/internal/lookahead-5-sec-airspeed-kt</prop>
+      <!-- prop>/instrumentation/airspeed-indicator/indicated-speed-kt</prop -->
     </input>
     <reference>
       <prop>/autopilot/settings/target-speed-kt</prop>
@@ -684,7 +787,6 @@
   </pid-controller>
 
 
-
  <!-- Hold speed by varying pitch (Two stage cascading controller) --> 
  <pid-controller>
     <name>Speed Reference System (vary pitch) Stage #1</name>
@@ -694,34 +796,90 @@
       <value>speed-reference-system</value>
     </enable>
     <input>
-      <prop>/autopilot/internal/lookahead-5-sec-airspeed-kt</prop>
+      <prop>/autopilot/internal/lookahead-10-sec-airspeed-kt</prop>
     </input>
     <reference>
       <prop>/autopilot/settings/target-speed-kt</prop>
     </reference>
     <output>
+      <prop>/autopilot/internal/srs-pitch-deg</prop>
+    </output>
+    <config>
+      <Kp>0.007</Kp>       <!-- proportional gain  was -0.5 SAH 2010-10-19 -->
+      <beta>1.0</beta>    <!-- input value weighing factor -->
+      <alpha>0.1</alpha>  <!-- low pass filter weighing factor was 0.1 SAH 2010-10-19 --><!-- was 0.3 SAH 2010-11-16 -->
+      <gamma>0.0</gamma>  <!-- input value weighing factor for -->
+                          <!-- unfiltered derivative error -->
+      <Ti>30.0</Ti>        <!-- integrator time -->  <!-- was 40.0 SAH 2010-06-06 --> <!-- was 30 SAH 2010-10-19 -->
+      <Td>0.00001</Td>    <!-- derivator time -->
+      <u_min>-0.4</u_min><!-- minimum output clamp -->
+      <u_max>0.25</u_max> <!-- maximum output clamp -->
+    </config>
+  </pid-controller>
+  
+<filter>
+    <name>SERVO-DRIVER:srs</name>
+    <debug>false</debug>
+    <feedback-if-disabled>true</feedback-if-disabled>
+    <enable>
+      <prop>/autopilot/locks/speed</prop>
+      <value>speed-reference-system</value>
+    </enable>
+    <input>/autopilot/internal/srs-pitch-deg</input>
+    <output>/controls/flight/elevator</output>
+    <type>noise-spike</type>
+    <!-- max-rate-of-change>0.16</max-rate-of-change -->
+    <max-rate-of-change>0.22</max-rate-of-change>
+</filter>
+
+ <!-- Hold speed by varying pitch (Two stage cascading controller) --> 
+ <pid-controller>
+    <name>Speed Reference System (vary pitch) Stage #1</name>
+    <debug>false</debug>
+    <enable>
+      <prop>/autopilot/locks/speed</prop>
+      <value>speed-reference-system2</value>
+    </enable>
+    <input>
+      <prop>/autopilot/internal/lookahead-10-sec-airspeed-kt</prop>
+    </input>
+    <reference>
+      <prop>/autopilot/settings/target-speed-kt</prop>
+    </reference>
+    <!-- prop>/autopilot/settings/target-pitch-deg</prop -->
+    <output>
       <prop>/autopilot/settings/target-pitch-deg</prop>
     </output>
     <config>
-      <Kp>-1.0</Kp>       <!-- proportional gain -->
+      <Kp>-0.1</Kp>       <!-- proportional gain  was -0.5 SAH 2010-10-19 -->
       <beta>1.0</beta>    <!-- input value weighing factor -->
-      <alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
+      <alpha>0.1</alpha>  <!-- low pass filter weighing factor was 0.1 SAH 2010-10-19 --><!-- was 0.3 SAH 2010-11-16 -->
       <gamma>0.0</gamma>  <!-- input value weighing factor for -->
                           <!-- unfiltered derivative error -->
-      <Ti>30.0</Ti>        <!-- integrator time -->
+      <Ti>40.0</Ti>        <!-- integrator time -->  <!-- was 40.0 SAH 2010-06-06 --> <!-- was 30 SAH 2010-10-19 -->
+      <Td>0.00001</Td>    <!-- derivator time -->
+      <u_min>-1.0</u_min><!-- minimum output clamp -->
+      <u_max>18.0</u_max> <!-- maximum output clamp -->
+      
+      <!-- Kp>-1.0</Kp -->       <!-- proportional gain -->
+      <!-- beta>1.0</beta -->    <!-- input value weighing factor -->
+      <!-- alpha>0.1</alpha -->  <!-- low pass filter weighing factor -->
+      <!-- gamma>0.0</gamma -->  <!-- input value weighing factor for -->
+                          <!-- unfiltered derivative error -->
+      <!-- Ti>30.0</Ti -->        <!-- integrator time -->
       <!-- Td>0.00001</Td -->    <!-- derivator time -->
-      <Td>0.01</Td>
-      <u_min>-1.0</u_min>   <!-- minimum output clamp -->
-      <u_max>20.0</u_max> <!-- maximum output clamp -->
+      <!-- Td>0.01</Td -->
+      <!-- u_min>-1.0</u_min -->   <!-- minimum output clamp -->
+      <!-- u_max>20.0</u_max --> <!-- maximum output clamp -->
     </config>
   </pid-controller>
-
+  
  <pid-controller>
     <name>Speed Reference System (vary pitch) Stage #2</name>
     <debug>false</debug>
     <enable>
       <prop>/autopilot/locks/speed</prop>
-      <value>speed-reference-system</value>
+      <value>speed-reference-system2</value>
     </enable>
     <input>
       <prop>/orientation/pitch-deg</prop>
@@ -729,26 +887,72 @@
     <reference>
       <prop>/autopilot/settings/target-pitch-deg</prop>
     </reference>
+    <!-- prop>/controls/flight/elevator</prop -->
     <output>
-      <prop>/controls/flight/elevator</prop>
+      <prop>/autopilot/internal/srs-pitch-deg</prop>
     </output>
     <config>
-      <Kp>-0.1</Kp>      <!-- proportional gain -->
+      <Kp>1.0</Kp>      <!-- proportional gain --><!-- was -0.1 SAH 2010-11-16 -->
       <beta>1.0</beta>    <!-- input value weighing factor -->
       <alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
       <gamma>0.0</gamma>  <!-- input value weighing factor for -->
                           <!-- unfiltered derivative error -->
-      <Ti>10.0</Ti>        <!-- integrator time -->
-      <!-- Td>0.00001</Td -->    <!-- derivator time -->
-      <Td>0.1</Td>
+      <Ti>40.0</Ti>        <!-- integrator time -->
+      <Td>0.00001</Td>    <!-- derivator time -->
       <u_min>-0.4</u_min> <!-- minimum output clamp  was -1.0 SAH 10-JUN-09 -->
       <u_max>0.25</u_max>  <!-- maximum output clamp  was 1.0 SAH 10-JUN-09 -->
+    
+      <!-- Kp>-0.1</Kp -->      <!-- proportional gain -->
+      <!-- beta>1.0</beta -->    <!-- input value weighing factor -->
+      <!-- alpha>0.1</alpha -->  <!-- low pass filter weighing factor -->
+      <!-- gamma>0.0</gamma -->  <!-- input value weighing factor for -->
+                          <!-- unfiltered derivative error -->
+      <!-- Ti>10.0</Ti -->        <!-- integrator time -->
+      <!-- Td>0.00001</Td -->    <!-- derivator time -->
+      <!-- Td>0.1</Td -->
+      <!-- u_min>-0.4</u_min --> <!-- minimum output clamp  was -1.0 SAH 10-JUN-09 -->
+      <!-- u_max>0.25</u_max -->  <!-- maximum output clamp  was 1.0 SAH 10-JUN-09 -->
+    </config>
+  </pid-controller>
+  
+  
+  
+  <!-- Auto throttle  mach--> 
+ <pid-controller>
+    <name>Auto Throttle (MACH)</name>
+    <debug>false</debug>
+    <enable>
+      <prop>/autopilot/locks/speed</prop>
+      <value>mach-with-throttle</value>
+    </enable>
+    <input>
+      <prop>/instrumentation/airspeed-indicator/indicated-mach</prop>
+    </input>
+    <reference>
+      <prop>/autopilot/settings/target-speed-mach</prop>
+    </reference>
+    <output>
+      <prop>/controls/engines/engine[0]/throttle</prop>
+      <prop>/controls/engines/engine[1]/throttle</prop>
+      <prop>/controls/engines/engine[2]/throttle</prop>
+      <prop>/controls/engines/engine[3]/throttle</prop>
+    </output>
+    <config>
+      <Kp>10.0</Kp>        <!-- proportional gain --> <!-- was 0.1 SAH 2010-06-06 --><!-- was 0.05 SAH 2010-11-13 -->
+      <beta>1.0</beta>    <!-- input value weighing factor -->
+      <alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
+      <gamma>0.0</gamma>  <!-- input value weighing factor for -->
+                          <!-- unfiltered derivative error -->
+      <Ti>15.0</Ti>       <!-- integrator time -->  <!-- was 10.0 SAH 2010-06-06 -->
+      <Td>0.00001</Td>    <!-- derivator time --> <!-- was 0.00001 SAH 2010-06-06 --> 
+      <u_min>-1.0</u_min>  <!-- minimum output clamp -->
+      <u_max>1.0</u_max>  <!-- maximum output clamp -->
     </config>
   </pid-controller>
 
   <pid-controller>
     <name>THR CL Balance elevator</name>
-    <debug>true</debug>
+    <debug>false</debug>
     <enable>
       <prop>/autopilot/locks/speed</prop>
       <value>acquire_cl_adjust</value>
@@ -776,7 +980,7 @@
 
   <pid-controller>
     <name>THR CL Acquire speed</name>
-    <debug>true</debug>
+    <debug>false</debug>
     <enable>
       <prop>/autopilot/locks/speed</prop>
       <value>acquire_cl_adjust</value>

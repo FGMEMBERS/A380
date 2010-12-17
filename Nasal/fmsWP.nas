@@ -13,7 +13,9 @@ var fmsWP = {
         var me = {parents:[fmsWP]};
 
         me.wp_name = "";
-        me.wp_type = "FIX";   # FIX, NAVAID, Termination Point, transition wp, Final Fix, Appr Fix, RWY transition
+        me.wp_parent_name = "";   # if a SID/STAR WP then the SID/STAR name
+        me.wp_type = "FIX";   # FIX, NAVAID, Termination Point, transition wp, Final Fix, Appr Fix, RWY transition, SID/STAR WP
+        me.fly_type = "FlyOver";  # flyOver, flyBy, Hold, 
         me.action  = "DIRECT";  # direct, trk, intercept, vectors
         me.wp_lat  = 0.0;       # only if not a known fix/navaid
         me.wp_lon  = 0.0;       # only if not a known fix/navaid

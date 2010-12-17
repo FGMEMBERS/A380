@@ -1,5 +1,12 @@
 <?xml version="1.0"?>
 
+<!-- 
+
+    Just contains the three main displays at the top of the pedestal
+
+-->
+
+
 <PropertyList>
 
 	<path>../../../Models/FlightDeck/Pedestal/displayFrame.3ds</path> 

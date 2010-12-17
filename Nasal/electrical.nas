@@ -5,6 +5,7 @@
 battery = nil;
 alternator = nil;
 
+
 last_time = 0.0;
 pwr_src = 0.0;
 
@@ -32,7 +33,7 @@ init_electrical = func {
     setprop("/controls/electric/engine[4]/bus-tie", 0);
     setprop("/controls/electric/engine[4]/generator", 0);
     setprop("/controls/switches/inverter", 1);
- 
+
     settimer(update_electrical, 0);
 }
 
@@ -44,7 +45,7 @@ BatteryClass.new = func {
             ideal_amps : 30.0,
             amp_hours : 12.75,
             charge_percent : 1.0,
-            charge_amps : 7.0 };
+            charge_amps : 12.0 };   ## 7.0
     return obj;
 }
 
@@ -58,7 +59,9 @@ BatteryClass.apply_load = func( amps, dt ) {
     } elsif ( me.charge_percent > 1.0 ) {
         me.charge_percent = 1.0;
     }
-    return me.amp_hours * me.charge_percent;
+    var battAmps = me.amp_hours * me.charge_percent;
+    setprop("/systems/electrical/suppliers/batt/amps", battAmps);
+    return battAmps
 }
 
 
@@ -66,7 +69,9 @@ BatteryClass.get_output_volts = func {
     x = 1.0 - me.charge_percent;
     tmp = -(3.0 * x - 1.0);
     factor = (tmp*tmp*tmp*tmp*tmp + 32) / 32;
-    return me.ideal_volts * factor;
+    var batVolts = me.ideal_volts * factor;
+    setprop("/systems/electrical/suppliers/batt/volts", batVolts);
+    return batVolts;
 }
 
 BatteryClass.get_output_amps = func {
@@ -78,7 +83,7 @@ BatteryClass.get_output_amps = func {
 
 AlternatorClass = {};
 
-AlternatorClass.new = func {
+AlternatorClass.new = func() {
     obj = { parents : [AlternatorClass],
             rpm_source : "/engines/engine[0]/n2",
             rpm_threshold : 40.0,
@@ -99,29 +104,40 @@ AlternatorClass.apply_load = func( amps, dt, src ) {
         factor = 1.0;
     }
     available_amps = me.ideal_amps * factor;
-    return available_amps - amps;
+    var altAvailAmps = available_amps - amps;
+    return altAvailAmps;
 }
 
 
 AlternatorClass.get_output_volts = func( src ) {
-    rpm = getprop(src);
+    rpm = getprop("/engines/engine["~src~"]/n2");
     if (rpm == 0) {
         factor = 0;
     } else {
         factor = math.ln(rpm)/4;
     }
-    return me.ideal_volts * factor;
+    var altVolts = me.ideal_volts * factor;
+    if (altVolts < 0) {
+      altVolts = 0.0;
+    }
+    setprop("/systems/electrical/suppliers/alt["~src~"]/volts", altVolts);
+    return altVolts;
 }
 
 
 AlternatorClass.get_output_amps = func(src ){
-    rpm = getprop( src );
+    rpm = getprop("/engines/engine["~src~"]/n2");
     if (rpm == 0) {
         factor = 0;
     } else {
         factor = math.ln(rpm)/4;
     }
-    return me.ideal_amps * factor;
+    var altAvailAmps = me.ideal_amps * factor;
+    if (altAvailAmps < 0) {
+      altAvailAmps = 0.0;
+    }
+    setprop("/systems/electrical/suppliers/alt["~src~"]/amps-out", altAvailAmps);
+    return altAvailAmps;
 }
 
 
@@ -130,24 +146,24 @@ update_electrical = func {
     dt = time - last_time;
     last_time = time;
     update_virtual_bus( dt );
-    settimer(update_electrical, 0.1);
+    settimer(update_electrical, 1.0);
 }
 
 update_virtual_bus = func( dt ) {
     battery_volts = battery.get_output_volts();
-    alternator_volts = alternator.get_output_volts("/engines/engine[0]/n2");
-    alternator1_volts = alternator.get_output_volts("/engines/engine[1]/n2");
-    alternator2_volts = alternator.get_output_volts("/engines/engine[2]/n2");
-    alternator3_volts = alternator.get_output_volts("/engines/engine[3]/n2");
+    alternator0_volts = alternator.get_output_volts(0);
+    alternator1_volts = alternator.get_output_volts(1);
+    alternator2_volts = alternator.get_output_volts(2);
+    alternator3_volts = alternator.get_output_volts(3);
     external_volts = 0.0;
     load = 0.0;
 
-    master_bat = getprop("/controls/electric/battery-switch");
-    master_alt = getprop("/controls/electric/engine[0]/generator");
+    master_bat  = getprop("/controls/electric/battery-switch");
+    master_alt0 = getprop("/controls/electric/engine[0]/generator");
     master_alt1 = getprop("/controls/electric/engine[1]/generator");
     master_alt2 = getprop("/controls/electric/engine[2]/generator");
     master_alt3 = getprop("/controls/electric/engine[3]/generator");
-    master_apu = getprop("/controls/electric/engine[4]/generator");
+    master_apu  = getprop("/controls/electric/engine[4]/generator");
 
     # determine power source
     bat_bus_volts = 0.0;
@@ -159,7 +175,7 @@ update_virtual_bus = func( dt ) {
     lbus_tie = 1;
 
 #APU generator
-    a_volts = alternator.get_output_volts("/engines/engine[4]/n2");
+    a_volts = alternator.get_output_volts(4);
     if (a_volts < 0) {
       a_volts = 0;
     }
@@ -183,14 +199,16 @@ update_virtual_bus = func( dt ) {
       }
     }
 
-    if ( master_alt and (alternator_volts > bat_bus_volts) ) {
-        Lmain_bus_volts = alternator_volts+alternator2_volts;
-        bat_bus_volts = alternator_volts;
+    if ( master_alt0 and (alternator0_volts > bat_bus_volts) ) {
+        Lmain_bus_volts = alternator0_volts+alternator2_volts;
+        #bat_bus_volts = alternator0_volts;
+        bat_bus_volts = Lmain_bus_volts;
         power_source = "alternator";
     }
     if ( master_alt1 and (alternator1_volts > bat_bus_volts) ) {
         Rmain_bus_volts = alternator1_volts+alternator3_volts;
-        bat_bus_volts = alternator_volts;
+        ##bat_bus_volts = alternator_volts;
+        bat_bus_volts = Rmain_bus_volts;
         power_source = "alternator";
     }
     if ( external_volts > bat_bus_volts ) {
@@ -204,22 +222,24 @@ update_virtual_bus = func( dt ) {
         emerg_bus_volts = apu_volts;
         power_source = "apu";
     }
+    setprop("/systems/electrical/power-source", power_source);
 
     # left starter motor
     starter_switch = getprop("/controls/engines/engine[0]/starter");
     starter_volts = 0.0;
     if ( starter_switch ) {
         starter_volts = bat_bus_volts;
+        setprop("/systems/electrical/outputs/starter[0]", starter_volts);
     }
-    setprop("/systems/electrical/outputs/starter[0]", starter_volts);
+    
 
     # right starter motor
     starter_switch = getprop("/controls/engines/engine[1]/starter");
     starter_volts = 0.0;
     if ( starter_switch ) {
         starter_volts = bat_bus_volts;
+        setprop("/systems/electrical/outputs/starter[1]", starter_volts);
     }
-    setprop("/systems/electrical/outputs/starter[1]", starter_volts);
     setprop("/systems/electrical/outputs/apu-bus", emerg_bus_volts);
 
     load += emergency_bus();
@@ -244,8 +264,11 @@ update_virtual_bus = func( dt ) {
     # charge/discharge the battery
     if ( power_source == "battery" ) {
         battery.apply_load( load, dt );
-    } elsif ( bat_bus_volts > battery_volts ) {
+    } else {
+      ##print("recharge battery - dt: "~dt~", bat_bus_volts: "~bat_bus_volts~", battery_volts: "~battery_volts);
+      if ( bat_bus_volts > battery_volts ) {
         battery.apply_load( -battery.charge_amps, dt );
+      }
     }
 
     # filter ammeter needle pos
@@ -291,13 +314,13 @@ cross_feed_bus = func() {
 #- so no DC power - no hydraulics
 
 Left_Main_bus = func() {
-load = 0.0;
-setprop("/controls/hydraulic/system/engine-pump","false");
-if(Lmain_bus_volts > 0.2){
-setprop("/controls/hydraulic/system/engine-pump","true");
-}
+  load = 0.0;
+  setprop("/controls/hydraulic/system/engine-pump","false");
+  if(Lmain_bus_volts > 0.2){
+    setprop("/controls/hydraulic/system/engine-pump","true");
+  }
 
-setprop("/systems/electrical/outputs/instr-ignition-switch", Lmain_bus_volts);
+  setprop("/systems/electrical/outputs/instr-ignition-switch", Lmain_bus_volts);
 
     if ( getprop("/controls/engines/engine[0]/fuel-pump") ) {
         setprop("/systems/electrical/outputs/fuel-pump", Lmain_bus_volts);
@@ -329,6 +352,7 @@ setprop("/systems/electrical/outputs/instr-ignition-switch", Lmain_bus_volts);
     }
     setprop("/systems/electrical/outputs/flaps",Lmain_bus_volts);
     setprop("/systems/electrical/outputs/turn-coordinator", Lmain_bus_volts);
+    setprop("/systems/electrical/outputs/efis", Lmain_bus_volts);
 
     if ( getprop("/controls/switches/nav-lights" ) ) {
         setprop("/systems/electrical/outputs/nav-lights", Lmain_bus_volts);
@@ -383,15 +407,19 @@ if(master_av){
 }
 
 AC_bus = func() {
-AC_bus_amps = 0.0;
-if(getprop("/controls/switches/inverter") > 0.0){
-if(Rmain_bus_volts > 0.2){AC_bus_amps = 225};
-if(Lmain_bus_volts > 0.2){AC_bus_amps = 225};
-}else{
-setprop("/instrumentation/annunciator/master-caution",1.0);
-}
-    load = 0.0;
-    return load;
+  AC_bus_amps = 0.0;
+  if(getprop("/controls/switches/inverter") > 0.0){
+    if(Rmain_bus_volts > 0.2 ){
+      AC_bus_amps = 225;
+    }
+    if(Lmain_bus_volts > 0.2) {
+      AC_bus_amps = 225;
+    }
+  } else {
+    setprop("/instrumentation/annunciator/master-caution",1.0);
+  }
+  load = 0.0;
+  return load;
 }
 
 

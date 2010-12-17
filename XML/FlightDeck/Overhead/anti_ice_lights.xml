@@ -54,6 +54,17 @@
                 <factor-prop>/controls/APU/run</factor-prop>
           </emission>
     </animation>
+   
+    <animation>
+       <type>material</type>
+       <object-name>backlight</object-name>
+       <emission>
+         <red>0.325</red>
+         <green>0.184</green>
+         <blue>0.001</blue>
+         <factor-prop>/controls/switches/storm-lights</factor-prop>
+       </emission>
+    </animation>
 
     <animation>
            <type>pick</type>
@@ -513,7 +524,7 @@
    </animation>
    
    
-<!-- landing illumination -->
+<!-- landing illumination 
    <animation>
      <type>pick</type>
      <object-name>LAND</object-name>
@@ -559,6 +570,8 @@
       </interpolation>
 
    </animation>
+   
+   -->
 
 <!-- rwy turn illumination -->
    <animation>
@@ -844,6 +857,62 @@
        <x>0.703434</x>
        <y>0.000000</y>
        <z>-0.710761</z>
+      </axis>
+   </animation>
+   
+<!-- cockpit illumination -->
+   <animation>
+     <type>pick</type>
+     <object-name>STORM</object-name>
+     <action>
+       <button>0</button>
+       <binding>
+         <command>property-adjust</command>
+	 <property>/controls/switches/storm-lights</property>
+	 <step>1.0</step>
+         <min>0</min>
+         <max>1</max>
+         <wrap>false</wrap>
+       </binding>
+       <binding>
+        <command>property-toggle</command>
+        <property>/sim/sound/switch</property>
+       </binding>
+     </action>
+     <action>
+       <button>1</button>
+       <binding>
+         <command>property-adjust</command>
+	 <property>/controls/switches/storm-lights</property>
+	 <step>-1.0</step>
+	 <min>0</min>
+	 <max>1</max>
+	 <wrap>false</wrap>
+       </binding>
+       <binding>
+        <command>property-toggle</command>
+        <property>/sim/sound/switch</property>
+       </binding>
+     </action>
+   </animation>
+   
+   <animation>
+     <type>rotate</type>
+     <object-name>STORM</object-name>
+     <property>/controls/switches/storm-lights</property>
+     <interpolation>
+        <entry><ind>0</ind><dep>0</dep></entry>
+        <entry><ind>1</ind><dep>-3</dep></entry>
+      </interpolation>
+      <center>
+       <x-m>-0.06</x-m>
+       <y-m>0.007</y-m>
+       <z-m>-0.22</z-m>
+      </center>
+      <axis>
+       <x>0.000000</x>
+       <y>1.000000</y>
+       <z>0.000000</z>
       </axis>
    </animation>
 

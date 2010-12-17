@@ -1,197 +1,199 @@
 <?xml version="1.0"?>
 
-<PropertyList>
+	<PropertyList>
 
-<path>../Models/a380.ac</path> 
-<texture-path>../Textures/Livery/</texture-path>
-<offsets>
-   <z-m>-8.7</z-m>
-   <y-m>0</y-m>
-   <x-m>-30</x-m>  
-   <pitch-deg>0.0</pitch-deg>
-</offsets>   
+	<path>../Models/a380.ac</path> 
+	<texture-path>../Textures/Livery/House/</texture-path>
+	<offsets>
+  		<z-m>-8.7</z-m>
+   		<y-m>0</y-m>
+   		<x-m>-30</x-m>  
+   		<pitch-deg>0.0</pitch-deg>
+	</offsets>   
  
 
-<!-- Pushback -->
-<model>
- <name>Pushback</name>
- <path>Models/Airport/Pushback/Goldhofert.xml</path>
- <offsets>
-  <x-m>8.15</x-m>
-  <y-m>0</y-m>
-  <z-m>1.0</z-m>
- </offsets>
-</model>
+	<!-- Pushback -->
+	<model>
+ 		<name>Pushback</name>
+ 		<path>Models/Airport/Pushback/Goldhofert.xml</path>
+ 		<offsets>
+  			<x-m>8.15</x-m>
+  			<y-m>0</y-m>
+  			<z-m>1.0</z-m>
+ 		</offsets>
+	</model>
 
-<!-- MP Livery Update -->
-<nasal> 
-<load> var livery_update = aircraft.livery_update.new("Aircraft/A380/XML/Liveries"); </load> 
-<unload> 
-livery_update.stop(); 
-</unload> 
-</nasal> 
+	<!-- MP Livery Update -->
+	<nasal> 
+		<load> var livery_update = aircraft.livery_update.new("Aircraft/A380/XML/Liveries"); </load> 
+		<unload> 
+			livery_update.stop(); 
+		</unload> 
+	</nasal> 
 
-<animation>
-<type>material</type> 
-<object-name>Fuselage</object-name> 
-<object-name>vertstab</object-name> 
-<object-name>lowerrudder</object-name> 
-<object-name>upperrudder</object-name>
-<object-name>ngrhaftdoor</object-name>
-<object-name>nglhaftdoor</object-name>
-<object-name>ngrhfwddoor</object-name>
-<object-name>innerbgdoor</object-name>
-<object-name>midbgdoor</object-name>
-<object-name>outerbgdoor</object-name>
-<object-name>lhwgdoor</object-name>
-<object-name>rhwgdoor</object-name>
-<object-name>rhinnerbgdoor</object-name>
-<object-name>rhmidbgdoor</object-name>
-<object-name>rhouterbgdoor</object-name>
-<object-name>lhbodyfairing</object-name>
-<object-name>rhbodyfairing</object-name>
-<object-name>apu</object-name>
-<object-name>vertstab</object-name>
-<object-name>nglhfwddoor</object-name>
-<object-name>ngrhfwddoor</object-name>
-<object-name>nglhfwddoor.001</object-name>
-<object-name>ngrhfwddoor.001</object-name>
-<object-name>ngrhaftdoor</object-name>
-<object-name>nglhaftdoor</object-name>
-<property-base>sim/model/livery</property-base> 
-<texture-prop>texture</texture-prop> 
-<texture>A380.png</texture> 
-</animation> 
+	<animation>
+		<type>material</type> 
+		<object-name>Fuselage</object-name> 
+		<object-name>vertstab</object-name> 
+		<object-name>lowerrudder</object-name> 
+		<object-name>upperrudder</object-name>
+		<object-name>ngrhaftdoor</object-name>
+		<object-name>nglhaftdoor</object-name>
+		<object-name>ngrhfwddoor</object-name>
+		<object-name>innerbgdoor</object-name>
+		<object-name>midbgdoor</object-name>
+		<object-name>outerbgdoor</object-name>
+		<object-name>lhwgdoor</object-name>
+		<object-name>rhwgdoor</object-name>
+		<object-name>rhinnerbgdoor</object-name>
+		<object-name>rhmidbgdoor</object-name>
+		<object-name>rhouterbgdoor</object-name>
+		<object-name>lhbodyfairing</object-name>
+		<object-name>rhbodyfairing</object-name>
+		<object-name>apu</object-name>
+		<object-name>vertstab</object-name>
+		<object-name>nglhfwddoor</object-name>
+		<object-name>ngrhfwddoor</object-name>
+		<object-name>nglhfwddoor.001</object-name>
+		<object-name>ngrhfwddoor.001</object-name>
+		<object-name>ngrhaftdoor</object-name>
+		<object-name>nglhaftdoor</object-name>
+		<property-base>sim/model/livery</property-base> 
+		<texture-prop>texture</texture-prop> 
+		<texture>A380.png</texture> 
+	</animation> 
 
-<!-- change by Ampere -->
-  <model>
-   <path>Aircraft/A380/XML/Wings/wings.xml</path>
-  </model>
+	<!-- change by Ampere -->
+  	<model>
+   		<path>Aircraft/A380/XML/Wings/wings.xml</path>
+  	</model>
 
-  <model>
-   <path>Aircraft/A380/XML/htp.xml</path>
-   <offsets>
-    <x-m>64.616</x-m>
-    <z-m>7.19884</z-m>
-    <!--<z-m>5.23531</z-m>-->
-   </offsets>
-  </model>
+  	<model>
+   		<path>Aircraft/A380/XML/htp.xml</path>
+   		<offsets>
+    			<x-m>64.616</x-m>
+    			<z-m>7.19884</z-m>
+    			<!--<z-m>5.23531</z-m>-->
+   		</offsets>
+  	</model>
   
-  <model>
-   <path>Aircraft/A380/XML/FlightDeck/flightdeck.xml</path>
-   <offsets>
-    <x-m>8.792</x-m>
-    <z-m>5.919</z-m>
-   </offsets>
-  </model>
+  	<model>
+   		<path>Aircraft/A380/XML/FlightDeck/flightdeck.xml</path>
+   		<offsets>
+    			<x-m>8.792</x-m>
+    			<z-m>5.919</z-m>
+   		</offsets>
+  	</model>
   
-  <!-- Temorary hack 
-  <model>
-   <path>Aircraft/A380/XML/windshield.xml</path>
-  </model>-->
+  	<!-- Temorary hack 
+  	<model>
+   		<path>Aircraft/A380/XML/windshield.xml</path>
+  	</model> -->
 
-<!--
+	<!--
+  	<model>
+  		<path>Aircraft/747/Models/boeing747-400-pfd-jw.xml</path>
+  		<offsets>
+   			<x-m>9.66</x-m>
+   			<y-m>-0.70</y-m>
+   			<z-m>6.63</z-m>
+   			<pitch-deg>-20.0</pitch-deg>
+  		</offsets>
+ 	</model>
 
-
-  <model>
-  <path>Aircraft/747/Models/boeing747-400-pfd-jw.xml</path>
-  <offsets>
-   <x-m>9.66</x-m>
-   <y-m>-0.70</y-m>
-   <z-m>6.63</z-m>
-   <pitch-deg>-20.0</pitch-deg>
-  </offsets>
- </model>
-
- <model>
-  <path>Aircraft/747/Models/boeing747-400-enav-jw.xml</path>
-  <offsets>
-   <x-m> 9.66</x-m>
-   <y-m>-0.45</y-m>
-   <z-m>6.63</z-m>
-   <pitch-deg>-20.0</pitch-deg>
-  </offsets>
- </model>
+ 	<model>
+  		<path>Aircraft/747/Models/boeing747-400-enav-jw.xml</path>
+  		<offsets>
+   			<x-m> 9.66</x-m>
+   			<y-m>-0.45</y-m>
+   			<z-m>6.63</z-m>
+   			<pitch-deg>-20.0</pitch-deg>
+  		</offsets>
+ 	</model>
   
- <model>
-  <path>Aircraft/A380/Models/a380-eicas.xml</path>
-  <offsets>
-   <x-m>9.75</x-m>
-   <y-m>-0.2</y-m>
-   <z-m>6.63</z-m>
-   <pitch-deg>-20.0</pitch-deg>
-  </offsets>
- </model>
--->
-   <animation>
-  <type>rotate</type>
-  <object-name>nouterstrut</object-name>
-  <object-name>rhsteercyl</object-name>
-  <object-name>lhsteercyl</object-name>
-  <object-name>collar</object-name>
-  <object-name>linkupper</object-name>
-  <object-name>linklower</object-name>
-  <object-name>nlowerstrut</object-name>
-  <object-name>noseaxle</object-name>
-  <object-name>tyrern</object-name>
-  <object-name>tyreln</object-name>
-  <property>gear/gear[0]/position-norm</property>
-   <interpolation>
-    <entry>
-      <ind>0.0</ind>
-      <dep>110.0</dep>
-    </entry>
-    <entry>
-      <ind>0.25</ind>
-      <dep>110.0</dep>
-    </entry>
-    <entry>
-      <ind>0.75</ind>
-      <dep>0.0</dep>
-    </entry>
-    <entry>
-      <ind>1.0</ind>
-      <dep>0.0</dep>
-    </entry>
-  </interpolation>
-  <center>
-   <x-m>12.11</x-m>
-   <y-m>0</y-m>
-   <z-m>3.65</z-m>
-  </center>
-  <axis>
-   <x>0</x>
-   <y>1</y>
-   <z>0</z>
-  </axis>
- </animation>
-  <!-- nose wheel stearing-->
-  <animation>
-  <type>rotate</type>   
-  <object-name>collar</object-name>
-  <object-name>linkupper</object-name>
-  <object-name>linklower</object-name>
-  <object-name>nlowerstrut</object-name>
-  <object-name>noseaxle</object-name>
-  <object-name>tyrern</object-name>
-  <object-name>tyreln</object-name>
-  <property>controls/flight/rudder</property>
-  <factor>-30</factor>
-  <offset-deg>0</offset-deg>
-  <min-deg>-30</min-deg>
-  <max-deg>30</max-deg>    
-  <center>
-   <x-m>12.0</x-m>
-   <y-m>0</y-m>
-   <z-m>1.81</z-m>
-  </center>
-  <axis>
-   <x>0</x>
-   <y>0</y>
-   <z>1</z>
-  </axis>
- </animation>
- <!--end nose wheel stearing-->
+ 	<model>
+  		<path>Aircraft/A380/Models/a380-eicas.xml</path>
+  		<offsets>
+   			<x-m>9.75</x-m>
+   			<y-m>-0.2</y-m>
+   			<z-m>6.63</z-m>
+   			<pitch-deg>-20.0</pitch-deg>
+ 		</offsets>
+ 	</model>
+	-->
+
+	<!-- Gear Animation -->
+   	<animation>
+  		<type>rotate</type>
+  		<object-name>nouterstrut</object-name>
+  		<object-name>rhsteercyl</object-name>
+  		<object-name>lhsteercyl</object-name>
+  		<object-name>collar</object-name>
+  		<object-name>linkupper</object-name>
+  		<object-name>linklower</object-name>
+  		<object-name>nlowerstrut</object-name>
+  		<object-name>noseaxle</object-name>
+  		<object-name>tyrern</object-name>
+  		<object-name>tyreln</object-name>
+  		<property>gear/gear[0]/position-norm</property>
+   		<interpolation>
+    		<entry>
+      			<ind>0.0</ind>
+      			<dep>110.0</dep>
+    		</entry>
+    		<entry>
+      			<ind>0.25</ind>
+      			<dep>110.0</dep>
+    		</entry>
+    		<entry>
+      			<ind>0.75</ind>
+     			<dep>0.0</dep>
+   		</entry>
+    		<entry>
+      			<ind>1.0</ind>
+      			<dep>0.0</dep>
+    		</entry>
+  		</interpolation>
+  		<center>
+   			<x-m>12.11</x-m>
+   			<y-m>0</y-m>
+  			<z-m>3.65</z-m>
+  		</center>
+  		<axis>
+   			<x>0</x>
+   			<y>1</y>
+  			<z>0</z>
+  		</axis>
+	</animation>
+
+  	<!-- nose wheel stearing -->
+  	<animation>
+  		<type>rotate</type>   
+  		<object-name>collar</object-name>
+  		<object-name>linkupper</object-name>
+  		<object-name>linklower</object-name>
+  		<object-name>nlowerstrut</object-name>
+  		<object-name>noseaxle</object-name>
+  		<object-name>tyrern</object-name>
+  		<object-name>tyreln</object-name>
+  		<property>controls/flight/rudder</property>
+  		<factor>-30</factor>
+  		<offset-deg>0</offset-deg>
+  		<min-deg>-30</min-deg>
+  		<max-deg>30</max-deg>    
+  		<center>
+   			<x-m>12.0</x-m>
+   			<y-m>0</y-m>
+   			<z-m>1.81</z-m>
+  		</center>
+  		<axis>
+   			<x>0</x>
+   			<y>0</y>
+   			<z>1</z>
+  		</axis>
+ 	</animation>
+
+ <!--end nose wheel stearing -->
  <animation>
   <type>rotate</type>
   <object-name>nglhfwddoor</object-name>
@@ -328,8 +330,8 @@ livery_update.stop();
   </axis>
  </animation>
  
-  <!--END OF NOSE GEAR-->
-  <!--START OF MAIN GEAR LEFT-->
+  <!--END OF NOSE GEAR -->
+  <!--START OF MAIN GEAR LEFT -->
 
   <animation>
   <type>rotate</type>
@@ -673,8 +675,8 @@ livery_update.stop();
   </axis>
  </animation>
 
- <!--END OF MAIN GEAR LEFT-->
- <!--START OF MAIN GEAR RIGHT-->
+ <!--END OF MAIN GEAR LEFT -->
+ <!--START OF MAIN GEAR RIGHT -->
 
  <animation>
   <type>rotate</type>
@@ -1017,7 +1019,7 @@ livery_update.stop();
   </axis>
  </animation>
 
-  <!--END OF MAIN GEAR RIGHT-->
+  <!--END OF MAIN GEAR RIGHT -->
 
  <animation>
   <type>rotate</type>
@@ -1136,70 +1138,8 @@ livery_update.stop();
          <offsets>
              <x-m>28.869</x-m>
              <y-m>-0.009</y-m>
-             <z-m>10.985</z-m>
+             <z-m>10.905</z-m>
          </offsets>
 </model>
 
-<!-- Navigational Lights -->
-
-<model>
-   <path>Aircraft/A380/XML/Lights/RedLight.xml</path>
-   <name>NavLight.L</name>
-         <offsets>
-             <x-m>54.843</x-m>
-             <y-m>-39.183</y-m>
-             <z-m>7.32504</z-m>
-         </offsets>
-</model>
-
-<model>
-   <path>Aircraft/A380/XML/Lights/GreenLight.xml</path>
-   <name>NavLight.R</name>
-         <offsets>
-             <x-m>54.843</x-m>
-             <y-m>39.183</y-m>
-             <z-m>7.32504</z-m>
-         </offsets>
-</model>
-
-<!-- Positional Lights -->
-<model>
-   <path>Aircraft/A380/XML/Lights/position.xml</path>
-   <name>NavLight1.L</name>
-         <offsets>
-             <x-m>57.864</x-m>
-             <y-m>-39.810</y-m>
-             <z-m>7.47704</z-m>
-         </offsets>
-</model>
-
-<model>
-   <path>Aircraft/A380/XML/Lights/position.xml</path>
-   <name>NavLight1.R</name>
-         <offsets>
-             <x-m>57.864</x-m>
-             <y-m>39.810</y-m>
-             <z-m>7.47704</z-m>
-         </offsets>
-</model>
-
-<model>
-  <path>Aircraft/A380/XML/Lights/flash.xml</path>
-  <name>Strobe.L</name>
-  <offsets>
-    <x-m>55.1843</x-m>
-    <y-m>-39.808</y-m>
-    <z-m>7.32504</z-m>
-  </offsets>
-</model>
-
-<model>
-  <path>Aircraft/A380/XML/Lights/flash.xml</path>
-  <name>Strobe.R</name>
-  <offsets>
-    <x-m>55.1843</x-m>
-    <y-m>39.808</y-m>
-    <z-m>7.32504</z-m>
-  </offsets>
-</model>
 </PropertyList>

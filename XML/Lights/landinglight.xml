@@ -57,7 +57,7 @@
 <type>select</type>
 <object-name>Light</object-name>
 <condition>
-<property>/controls/switches/landing-light</property>
+<property>/controls/switches/landing-lights</property>
 </condition>
 </animation>
 

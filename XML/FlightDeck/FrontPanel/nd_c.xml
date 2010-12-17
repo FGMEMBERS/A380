@@ -6264,11 +6264,13 @@
 	</condition>
 </animation -->
 
-<animation>
+
+
+<!-- animation>
 	<type>textranslate</type>
-	<object-name>vor_gspd1</object-name>
+	<object-name>vor_gspd1</object-name -->
 	<!--property>/instrumentation/gps/indicated-ground-speed-kt</property-->
-	<property>/instrumentation/flightdirector/ground-speed-kt</property>
+	<!-- property>/instrumentation/flightdirector/ground-speed-kt</property>
 	<factor>0.10</factor>
 	<step>1</step>
 	<axis>
@@ -6280,9 +6282,9 @@
 
 <animation>
 	<type>textranslate</type>
-	<object-name>vor_gspd2</object-name>
+	<object-name>vor_gspd2</object-name -->
 	<!--property>/instrumentation/gps/indicated-ground-speed-kt</property-->
-        <property>/instrumentation/flightdirector/ground-speed-kt</property>
+        <!-- property>/instrumentation/flightdirector/ground-speed-kt</property>
 	<factor>0.01</factor>
 	<step>10</step>
 	<axis>
@@ -6294,9 +6296,9 @@
 
 <animation>
 	<type>textranslate</type>
-	<object-name>vor_gspd3</object-name>
+	<object-name>vor_gspd3</object-name -->
 	<!--property>/instrumentation/gps/indicated-ground-speed-kt</property-->
-        <property>/instrumentation/flightdirector/ground-speed-kt</property>
+        <!--property>/instrumentation/flightdirector/ground-speed-kt</property>
 	<factor>0.001</factor>
 	<step>100</step>
 	<axis>
@@ -6304,13 +6306,13 @@
 		<y>1</y>
 		<z>0</z>
 	</axis>
-</animation>
+</animation -->
 
-<animation>
+<!-- animation>
 	<type>textranslate</type>
-	<object-name>vor_tas1</object-name>
+	<object-name>vor_tas1</object-name -->
 	<!--property>/instrumentation/gps/indicated-ground-speed-kt</property-->
-<property>/instrumentation/flightdirector/TAS-kt</property>
+<!-- property>/instrumentation/flightdirector/TAS-kt</property>
 <factor>0.10</factor>
 <step>1</step>
 <axis>
@@ -6322,31 +6324,31 @@
 
 <animation>
 	<type>textranslate</type>
-	<object-name>vor_tas2</object-name>
+	<object-name>vor_tas2</object-name -->
 	<!--property>/instrumentation/gps/indicated-ground-speed-kt</property-->
-<property>/instrumentation/flightdirector/TAS-kt</property>
-<factor>0.01</factor>
-<step>10</step>
-<axis>
-	<x>0</x>
-	<y>1</y>
-	<z>0</z>
-</axis>
+	<!-- property>/instrumentation/flightdirector/TAS-kt</property>
+	<factor>0.01</factor>
+	<step>10</step>
+	<axis>
+	  <x>0</x>
+	  <y>1</y>
+	  <z>0</z>
+	</axis>
 </animation>
 
 <animation>
 	<type>textranslate</type>
-	<object-name>vor_tas3</object-name>
+	<object-name>vor_tas3</object-name -->
 	<!--property>/instrumentation/gps/indicated-ground-speed-kt</property-->
-<property>/instrumentation/flightdirector/TAS-kt</property>
-<factor>0.001</factor>
-<step>100</step>
-<axis>
-	<x>0</x>
-	<y>1</y>
-	<z>0</z>
-</axis>
-</animation>
+	<!-- property>/instrumentation/flightdirector/TAS-kt</property>
+	<factor>0.001</factor>
+	<step>100</step>
+	<axis>
+	  <x>0</x>
+	  <y>1</y>
+	  <z>0</z>
+	</axis>
+</animation -->
 
 
 

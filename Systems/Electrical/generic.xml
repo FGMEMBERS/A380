@@ -187,7 +187,7 @@
     <input>Master Bus</input>
     <output>Landing Light Power</output>
     <switch>
-      <prop>/controls/switches/landing-light</prop>
+      <prop>/controls/switches/landing-lights</prop>
     </switch>
   </connector>
 
@@ -235,7 +235,7 @@
     <input>Master Bus</input>
     <output>Strobe Lights Power</output>
     <switch>
-      <prop>/controls/switches/strobe-lights</prop>
+      <prop>/controls/switches/strobe</prop>
     </switch>
   </connector>
 

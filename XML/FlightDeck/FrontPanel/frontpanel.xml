@@ -41,17 +41,14 @@
 		</offsets>
 	</model>
 	<model>
-		<path>Aircraft/A380/XML/FlightDeck/FrontPanel/nd_fo.xml</path>
+		<!-- path>Aircraft/A380/XML/FlightDeck/FrontPanel/nd_fo.xml</path -->
+		<path>Aircraft/A380/Models/Instruments/MFD/ND.xml</path>
 		<name>nd_cb</name>
 		<offsets>
-			<!--  uncommented SAH 2009-05-27 -->
-			<!-- x-m>-0.015</x-m>
-			<y-m>-0.42625</y-m>
-			<z-m>-0.0075</z-m -->
-			<!--   Commented SAH 2009-05-27 -->
-			<x-m>-0.015</x-m>
-			<y-m>0.2903</y-m>
-			<z-m>-0.0075</z-m>
+			<x-m>-0.127</x-m>
+			<y-m>0.3603</y-m>
+			<z-m>-0.013</z-m>
+			<pitch-deg>270.0</pitch-deg>
 			<!-- ends -->
 		</offsets>
 	</model>
@@ -61,7 +58,7 @@
 		<offsets>
 			<!-- uncomment SAH 2009-05-27 -->
 			<x-m>-0.015</x-m>
-			<y-m>0.45625</y-m>
+			<y-m>0.47</y-m>   <!-- was 0.45625 SAH 2010-11-18 -->
 			<z-m>-0.0075</z-m>
 			<!-- commented SAH 2009-05-27
 			<x-m>-0.015</x-m>
@@ -70,20 +67,7 @@
 			-->
 		</offsets>
 	</model>
-	<model>
-		<name>nd_fob</name>
-		<path>Aircraft/A380/XML/FlightDeck/FrontPanel/default.xml</path>
-		<offsets>
-			<!--
-			<x-m>-0.015</x-m>
-			<y-m>0.2775</y-m>
-			<z-m>-0.0075</z-m>
-			-->
-			<x-m>-0.015</x-m>
-			<y-m>0.2825</y-m>
-			<z-m>-0.0075</z-m>
-		</offsets>
-	</model>
+
 	<model>
 		<name>ecamb</name>
 		<path>Aircraft/A380/XML/FlightDeck/FrontPanel/default.xml</path>
@@ -120,12 +104,13 @@
 
 	</model>
 	<model>
-		<path>Aircraft/A380/XML/FlightDeck/FrontPanel/nd_c.xml</path>
+		<path>Aircraft/A380/Models/Instruments/MFD/ND.xml</path>
 		<name>nd_c</name>
 		<offsets>
-			<x-m>-0.015</x-m>
-			<y-m>-0.44125</y-m>
-			<z-m>-0.0075</z-m>
+			<x-m>-0.127</x-m>
+			<y-m>-0.3603</y-m>
+			<z-m>-0.013</z-m>
+			<pitch-deg>270.0</pitch-deg>
 		</offsets>
 	</model>
 

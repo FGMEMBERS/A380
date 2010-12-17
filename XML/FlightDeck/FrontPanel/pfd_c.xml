@@ -2,8 +2,9 @@
 
 <PropertyList>
 
-	<path>../../../Models/FlightDeck/FrontPanel/pfd.ac</path> 
-	<texture-path>../../../Textures/Instruments</texture-path>
+	<path>../../../Models/FlightDeck/FrontPanel/pfd3.ac</path> 
+	<!-- texture-path>../../../Textures/Instruments</texture-path -->
+	<texture-path>../../../Textures/Panels/pfd/</texture-path>
 
 <animation>
    <type>select</type>
@@ -43,8 +44,7 @@
            <value>9</value>
          </equals>
        </or>
-         <property>/instrumentation/nav/has-gs</property>
-         <property>/instrumentation/nav/in-range</property>
+         <property>/instrumentation/nav/gs-in-range</property>
      </and>
    </condition>
  </animation>
@@ -73,19 +73,19 @@
  <animation>
    <type>translate</type>
    <object-name>GSneedle</object-name>
-   <property>/instrumentation/nav/gs-needle-deflection</property>
+   <property>/instrumentation/nav/gs-needle-deflection-norm</property>
    <interpolation>
      <entry>
-       <ind> -10.0</ind>
-       <dep>-0.05</dep>
+       <ind> -1.0</ind>
+       <dep>-0.04</dep>
      </entry>
      <entry>
        <ind> 0.0</ind>
        <dep>0.0</dep>
      </entry>
      <entry>
-       <ind> 10.0</ind>
-       <dep>0.05</dep>
+       <ind> 1.0</ind>
+       <dep>0.04</dep>
      </entry>
   </interpolation>
   <!-- interpolation>
@@ -103,9 +103,9 @@
     </entry>
   </interpolation -->
   <axis>
-   <x>0</x>
+   <x>1</x>
    <y>0</y>
-   <z>1</z>
+   <z>0</z>
   </axis>
  </animation>
  
@@ -154,8 +154,22 @@
  <animation>
    <type>translate</type>
    <object-name>LOCneedle</object-name>
-   <property>/instrumentation/nav/heading-needle-deflection</property>
+   <property>/instrumentation/nav/heading-needle-deflection-norm</property>
    <interpolation>
+    <entry>
+      <ind>-1.0</ind>
+      <dep>-0.035</dep>
+    </entry>
+    <entry>
+      <ind>0.0</ind>
+      <dep>0.0</dep>
+    </entry>
+    <entry>
+      <ind>1.0</ind>
+      <dep>0.035</dep>
+    </entry>
+  </interpolation>
+   <!-- interpolation>
      <entry>
        <ind> -10.0</ind>
        <dep>-0.0253</dep>
@@ -168,7 +182,7 @@
        <ind> 10.0</ind>
        <dep>0.0253</dep>
      </entry>
-  </interpolation> 
+  </interpolation --> 
   <!-- interpolation>
      <entry>
        <ind> -10.0</ind>
@@ -243,6 +257,61 @@
   </condition>
  </animation>
 
+	<!-- animation>
+   		<type>textranslate</type>
+   		<object-name>ASIribbon</object-name>
+   		<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+   		<interpolation>
+     		<entry>
+       			<ind>0.0</ind>
+       			<dep>0.0</dep>
+     		</entry>
+     		<entry>
+       			<ind>100.0</ind>
+       			<dep>0.1350</dep>
+     		</entry>
+     		<entry>
+       			<ind>200.0</ind>
+       			<dep>0.2700</dep>
+     		</entry>
+     		<entry>
+       			<ind>300.0</ind>
+       			<dep>0.4050</dep>
+     		</entry>
+     		<entry>
+       			<ind>400.0</ind>
+		        <dep>0.5400</dep>
+     		</entry>
+     		<entry>
+       			<ind>500.0</ind>
+       			<dep>0.6750</dep>
+     		</entry>
+     		<entry>
+       			<ind>600.0</ind>
+       			<dep>0.8100</dep>
+     		</entry>
+   		</interpolation>
+   		<axis>
+     			<x>0</x>
+     			<y>1</y>
+     			<z>0</z>
+   		</axis>
+	</animation -->
+
+
+
+ <animation>
+   <type>textranslate</type>
+   <object-name>ALTribbon</object-name>
+   <property>/instrumentation/altimeter/indicated-altitude-ft</property>
+   <factor>0.000669</factor>
+   <axis>
+     <x>0</x>
+     <y>1</y>
+     <z>0</z>
+   </axis>
+ </animation>
+
 
   <animation>
    <type>textranslate</type>
@@ -304,6 +373,98 @@
      <z>0</z>
    </axis>
  </animation>
+ 
+ 
+ 
+ <animation>
+   <type>textranslate</type>
+   <object-name>alt_digit1</object-name>
+   <property>/instrumentation/altimeter/indicated-altitude-ft</property>
+   <factor>0.00001</factor>
+   <step>10000.0</step>
+   <axis>
+     <x>0</x>
+     <y>1</y>
+     <z>0</z>
+   </axis>
+ </animation>
+ <animation>
+   <type>textranslate</type>
+   <object-name>alt_digit2</object-name>
+   <property>/instrumentation/altimeter/indicated-altitude-ft</property>
+   <factor>0.0001</factor>
+   <step>1000.0</step>
+   <axis>
+     <x>0</x>
+     <y>1</y>
+     <z>0</z>
+   </axis>
+ </animation>
+ <animation>
+   <type>textranslate</type>
+   <object-name>alt_digit3</object-name>
+   <property>/instrumentation/altimeter/indicated-altitude-ft</property>
+   <factor>0.001</factor>
+   <step>100.0</step>
+   <axis>
+     <x>0</x>
+     <y>1</y>
+     <z>0</z>
+   </axis>
+ </animation>
+ <animation>
+   <type>textranslate</type>
+   <object-name>alt_digit4</object-name>
+   <property>/instrumentation/altimeter/indicated-altitude-ft</property>
+   <factor>0.01</factor>
+   <step>10.0</step>
+   <axis>
+     <x>0</x>
+     <y>1</y>
+     <z>0</z>
+   </axis>
+ </animation>
+ <animation>
+   <type>textranslate</type>
+   <object-name>alt_digit5</object-name>
+   <property>/instrumentation/altimeter/indicated-altitude-ft</property>
+   <factor>0.1</factor>
+   <step>1.0</step>
+   <axis>
+     <x>0</x>
+     <y>1</y>
+     <z>0</z>
+   </axis>
+ </animation> 
+ 
+ 
+ 	<animation>
+   		<type>texmultiple</type>
+   		<object-name>horizon</object-name>
+   		<transform>
+     			<property>/orientation/pitch-deg</property>
+     			<subtype>textranslate</subtype>
+     			<factor>0.0046875</factor>
+     			<axis>
+       				<x>0</x>
+       				<y>1</y>
+       				<z>0</z>
+     			</axis>
+   		</transform>
+   		<transform>
+     			<property>/orientation/roll-deg</property>
+     			<subtype>texrotate</subtype>
+     			<center>
+       				<x>0.25</x>
+       				<y>0.50</y>
+    			</center>
+     			<axis>
+       				<x>0</x>
+       				<y>0</y>
+       				<z>-1</z>
+     			</axis>
+   		</transform>
+ 	</animation>
 
  <!-- animation>
    <type>translate</type>
@@ -373,6 +534,77 @@
      <z-m>0.004</z-m>
    </center>
  </animation>
+ 
+ 
+ <text>
+   <name>ias.kt</name>
+   <axis-alignment>yz-plane</axis-alignment>
+   <offsets>
+    <pitch-deg>-90</pitch-deg>
+    <x-m>-0.065</x-m>
+    <y-m>0.010</y-m>
+    <z-m>0.005</z-m>
+  </offsets>
+  <type type="string">number-value</type>
+    <property type="string">/velocities/airspeed-kt</property>
+    <format>%0.0f</format>
+    <!-- truncate type="bool">true</truncate -->
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.008</character-size>
+    <alignment>left-bottom</alignment>
+ </text>
+ 
+  <text>
+   <name>ias.mach</name>
+   <axis-alignment>yz-plane</axis-alignment>
+   <offsets>
+    <pitch-deg>-90</pitch-deg>
+    <x-m>-0.065</x-m>
+    <y-m>0.010</y-m>
+    <z-m>0.005</z-m>
+  </offsets>
+  <type type="string">number-value</type>
+    <property type="string">/instrumentation/airspeed-indicator/indicated-mach</property>
+    <format>%1.2f</format>
+    <!-- truncate type="bool">true</truncate -->
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.008</character-size>
+    <alignment>left-bottom</alignment>
+ </text>
+ 
+ <animation>
+   <type>select</type>
+   <object-name>ias.kt</object-name>
+   <condition>
+      <and>
+        <equals>
+           <property>/instrumentation/afs/changeover-mode</property>
+           <value>0</value>
+        </equals>
+        <greater-than>
+           <property>/velocities/airspeed-kt</property>
+           <value>10</value>
+        </greater-than>
+      </and>
+   </condition>
+ </animation>
+ 
+  <animation>
+   <type>select</type>
+   <object-name>ias.mach</object-name>
+   <condition>
+      <and>
+        <equals>
+           <property>/instrumentation/afs/changeover-mode</property>
+           <value>1</value>
+        </equals>
+        <greater-than>
+           <property>/velocities/airspeed-kt</property>
+           <value>10</value>
+        </greater-than>
+      </and>
+   </condition>
+ </animation>
 
 <!-- LNAV annun -->
 
@@ -381,14 +613,14 @@
   <axis-alignment>yz-plane</axis-alignment>
   <offsets>
     <pitch-deg>-90</pitch-deg>
-    <x-m>-0.187</x-m>
-    <y-m>0.116</y-m>
-    <z-m>0.015</z-m>
+    <x-m>-0.196</x-m>
+    <y-m>0.096</y-m>
+    <z-m>0.005</z-m>
   </offsets>
   <type>literal</type>
   <text>HDG</text>
   <font>helvetica_bold.txf</font>
-  <character-size type="double">0.008</character-size>
+  <character-size type="double">0.007</character-size>
   <alignment>center-bottom</alignment> 
 </text>
 
@@ -408,14 +640,14 @@
   <axis-alignment>yz-plane</axis-alignment>
   <offsets>
     <pitch-deg>-90</pitch-deg>
-    <x-m>-0.187</x-m>
-    <y-m>0.116</y-m>
-    <z-m>0.015</z-m>
+    <x-m>-0.196</x-m>
+    <y-m>0.096</y-m>
+    <z-m>0.005</z-m>
   </offsets>
   <type>literal</type>
   <text>TRK</text>
   <font>helvetica_bold.txf</font>
-  <character-size type="double">0.008</character-size>
+  <character-size type="double">0.007</character-size>
   <alignment>center-bottom</alignment> 
 </text>
 
@@ -436,14 +668,14 @@
   <axis-alignment>yz-plane</axis-alignment>
   <offsets>
     <pitch-deg>-90</pitch-deg>
-    <x-m>-0.187</x-m>
-    <y-m>0.116</y-m>
-    <z-m>0.015</z-m>
+    <x-m>-0.196</x-m>
+    <y-m>0.096</y-m>
+    <z-m>0.005</z-m>
   </offsets>
   <type>literal</type>
   <text>LOC</text>
   <font>helvetica_bold.txf</font>
-  <character-size type="double">0.008</character-size>
+  <character-size type="double">0.007</character-size>
   <alignment>center-bottom</alignment> 
 </text>
 
@@ -463,14 +695,14 @@
   <axis-alignment>yz-plane</axis-alignment>
   <offsets>
     <pitch-deg>-90</pitch-deg>
-    <x-m>-0.187</x-m>
-    <y-m>0.116</y-m>
-    <z-m>0.015</z-m>
+    <x-m>-0.196</x-m>
+    <y-m>0.096</y-m>
+    <z-m>0.005</z-m>
   </offsets>
   <type>literal</type>
   <text>NAV</text>
   <font>helvetica_bold.txf</font>
-  <character-size type="double">0.008</character-size>
+  <character-size type="double">0.007</character-size>
   <alignment>center-bottom</alignment> 
 </text>
  
@@ -490,14 +722,14 @@
   <axis-alignment>yz-plane</axis-alignment>
   <offsets>
     <pitch-deg>-90</pitch-deg>
-    <x-m>-0.187</x-m>
-    <y-m>0.116</y-m>
-    <z-m>0.015</z-m>
+    <x-m>-0.196</x-m>
+    <y-m>0.096</y-m>
+    <z-m>0.005</z-m>
   </offsets>
   <type>literal</type>
   <text>RWY</text>
   <font>helvetica_bold.txf</font>
-  <character-size type="double">0.008</character-size>
+  <character-size type="double">0.007</character-size>
   <alignment>center-bottom</alignment> 
 </text>
  
@@ -512,20 +744,77 @@
       </condition>
  </animation>
  
+ 
+ 
+  <text>
+  <name>APlnav.loc.arm</name>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+    <pitch-deg>-90</pitch-deg>
+    <x-m>-0.189</x-m>
+    <y-m>0.096</y-m>
+    <z-m>0.005</z-m>
+  </offsets>
+  <type>literal</type>
+  <text>LOC</text>
+  <font>helvetica_bold.txf</font>
+  <character-size type="double">0.007</character-size>
+  <alignment>center-bottom</alignment> 
+</text>
+
+  <animation>
+   <type>select</type>
+     <object-name>APlnav.loc.arm</object-name>
+       <condition>
+         <equals>
+           <property>instrumentation/flightdirector/lnav-arm</property>
+           <value>3</value>
+         </equals>
+      </condition>
+ </animation>
+ 
+ <text>
+  <name>APlnav.nav.arm</name>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+    <pitch-deg>-90</pitch-deg>
+    <x-m>-0.189</x-m>
+    <y-m>0.096</y-m>
+    <z-m>0.005</z-m>
+  </offsets>
+  <type>literal</type>
+  <text>NAV</text>
+  <font>helvetica_bold.txf</font>
+  <character-size type="double">0.007</character-size>
+  <alignment>center-bottom</alignment> 
+</text>
+ 
+  <animation>
+   <type>select</type>
+     <object-name>APlnav.nav.arm</object-name>
+       <condition>
+         <equals>
+           <property>instrumentation/flightdirector/lnav-arm</property>
+           <value>4</value>
+         </equals>
+      </condition>
+ </animation>
+
+ 
  <!-- SPD annun -->
  <text>
   <name>APspd.toga</name>
   <axis-alignment>yz-plane</axis-alignment>
   <offsets>
     <pitch-deg>-90</pitch-deg>
-    <x-m>-0.187</x-m>
-    <y-m>0.032</y-m>
-    <z-m>0.015</z-m>
+    <x-m>-0.196</x-m>
+    <y-m>0.026</y-m>
+    <z-m>0.005</z-m>
   </offsets>
   <type>literal</type>
   <text>THR TOGA</text>
   <font>helvetica_bold.txf</font>
-  <character-size type="double">0.008</character-size>
+  <character-size type="double">0.007</character-size>
   <alignment>center-bottom</alignment> 
 </text>
  
@@ -545,15 +834,15 @@
   <axis-alignment>yz-plane</axis-alignment>
   <offsets>
     <pitch-deg>-90</pitch-deg>
-    <x-m>-0.187</x-m>
-    <y-m>0.032</y-m>
-    <z-m>0.015</z-m>
+    <x-m>-0.196</x-m>
+    <y-m>0.026</y-m>
+    <z-m>0.005</z-m>
   </offsets>
   <type type="string">number-value</type>
   <property type="string">/instrumentation/flightdirector/flex-temp</property>
   <format>FLEX %2.0f</format>
   <font>helvetica_bold.txf</font>
-  <character-size type="double">0.008</character-size>
+  <character-size type="double">0.007</character-size>
   <alignment>center-bottom</alignment> 
 </text>
  
@@ -574,14 +863,14 @@
   <axis-alignment>yz-plane</axis-alignment>
   <offsets>
     <pitch-deg>-90</pitch-deg>
-    <x-m>-0.187</x-m>
-    <y-m>0.032</y-m>
-    <z-m>0.015</z-m>
+    <x-m>-0.196</x-m>
+    <y-m>0.026</y-m>
+    <z-m>0.005</z-m>
   </offsets>
   <type>literal</type>
   <text>THR CLB</text>
   <font>helvetica_bold.txf</font>
-  <character-size type="double">0.008</character-size>
+  <character-size type="double">0.007</character-size>
   <alignment>center-bottom</alignment> 
 </text>
 
@@ -601,14 +890,14 @@
   <axis-alignment>yz-plane</axis-alignment>
   <offsets>
     <pitch-deg>-90</pitch-deg>
-    <x-m>-0.187</x-m>
-    <y-m>0.032</y-m>
-    <z-m>0.015</z-m>
+    <x-m>-0.196</x-m>
+    <y-m>0.026</y-m>
+    <z-m>0.005</z-m>
   </offsets>
   <type>literal</type>
   <text>SPEED</text>
   <font>helvetica_bold.txf</font>
-  <character-size type="double">0.008</character-size>
+  <character-size type="double">0.007</character-size>
   <alignment>center-bottom</alignment> 
 </text>
 
@@ -629,14 +918,14 @@
   <axis-alignment>yz-plane</axis-alignment>
   <offsets>
     <pitch-deg>-90</pitch-deg>
-    <x-m>-0.187</x-m>
-    <y-m>0.032</y-m>
-    <z-m>0.015</z-m>
+    <x-m>-0.196</x-m>
+    <y-m>0.026</y-m>
+    <z-m>0.005</z-m>
   </offsets>
   <type>literal</type>
   <text>MACH</text>
   <font>helvetica_bold.txf</font>
-  <character-size type="double">0.008</character-size>
+  <character-size type="double">0.007</character-size>
   <alignment>center-bottom</alignment> 
 </text>
 
@@ -657,14 +946,14 @@
   <axis-alignment>yz-plane</axis-alignment>
   <offsets>
     <pitch-deg>-90</pitch-deg>
-    <x-m>-0.187</x-m>
-    <y-m>0.032</y-m>
-    <z-m>0.015</z-m>
+    <x-m>-0.196</x-m>
+    <y-m>0.026</y-m>
+    <z-m>0.005</z-m>
   </offsets>
   <type>literal</type>
-  <text>SPEED</text>
+  <text>MACH</text>
   <font>helvetica_bold.txf</font>
-  <character-size type="double">0.008</character-size>
+  <character-size type="double">0.007</character-size>
   <alignment>center-bottom</alignment> 
 </text>
 
@@ -685,14 +974,14 @@
   <axis-alignment>yz-plane</axis-alignment>
   <offsets>
     <pitch-deg>-90</pitch-deg>
-    <x-m>-0.187</x-m>
-    <y-m>0.032</y-m>
-    <z-m>0.015</z-m>
+    <x-m>-0.196</x-m>
+    <y-m>0.026</y-m>
+    <z-m>0.005</z-m>
   </offsets>
   <type>literal</type>
   <text>THR IDL</text>
   <font>helvetica_bold.txf</font>
-  <character-size type="double">0.008</character-size>
+  <character-size type="double">0.007</character-size>
   <alignment>center-bottom</alignment> 
 </text>
 
@@ -713,14 +1002,14 @@
   <axis-alignment>yz-plane</axis-alignment>
   <offsets>
     <pitch-deg>-90</pitch-deg>
-    <x-m>-0.187</x-m>
-    <y-m>0.032</y-m>
-    <z-m>0.015</z-m>
+    <x-m>-0.196</x-m>
+    <y-m>0.026</y-m>
+    <z-m>0.005</z-m>
   </offsets>
   <type>literal</type>
   <text>THR DES</text>
   <font>helvetica_bold.txf</font>
-  <character-size type="double">0.008</character-size>
+  <character-size type="double">0.007</character-size>
   <alignment>center-bottom</alignment> 
 </text>
 
@@ -742,13 +1031,13 @@
   <offsets>
     <pitch-deg>-90</pitch-deg>
     <x-m>-0.177</x-m>
-    <y-m>0.032</y-m>
-    <z-m>0.015</z-m>
+    <y-m>0.026</y-m>
+    <z-m>0.005</z-m>
   </offsets>
   <type>literal</type>
   <text>THR LVR</text>
   <font>helvetica_bold.txf</font>
-  <character-size type="double">0.008</character-size>
+  <character-size type="double">0.007</character-size>
   <alignment>center-bottom</alignment> 
 </text>
 
@@ -762,6 +1051,87 @@
          </equals>
       </condition>
  </animation>
+ 
+<text>
+  <name>APspd.thrdes.arm</name>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+    <pitch-deg>-90</pitch-deg>
+    <x-m>-0.189</x-m>
+    <y-m>0.026</y-m>
+    <z-m>0.005</z-m>
+  </offsets>
+  <type>literal</type>
+  <text>THR DES</text>
+  <font>helvetica_bold.txf</font>
+  <character-size type="double">0.007</character-size>
+  <alignment>center-bottom</alignment> 
+</text>
+
+  <animation>
+   <type>select</type>
+     <object-name>APspd.thrdes.arm</object-name>
+       <condition>
+         <equals>
+           <property>instrumentation/flightdirector/spd-arm</property>
+	   <value>7</value>
+         </equals>
+      </condition>
+ </animation>
+ 
+<text>
+  <name>APspd.crz.arm</name>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+    <pitch-deg>-90</pitch-deg>
+    <x-m>-0.189</x-m>
+    <y-m>0.026</y-m>
+    <z-m>0.005</z-m>
+  </offsets>
+  <type>literal</type>
+  <text>SPEED</text>
+  <font>helvetica_bold.txf</font>
+  <character-size type="double">0.007</character-size>
+  <alignment>center-bottom</alignment> 
+</text>
+
+  <animation>
+   <type>select</type>
+     <object-name>APspd.crz.arm</object-name>
+       <condition>
+         <equals>
+           <property>instrumentation/flightdirector/spd-arm</property>
+           <value>6</value>
+         </equals>
+      </condition>
+ </animation>
+ 
+<text>
+  <name>APspd.thridl.arm</name>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+    <pitch-deg>-90</pitch-deg>
+    <x-m>-0.189</x-m>
+    <y-m>0.026</y-m>
+    <z-m>0.005</z-m>
+  </offsets>
+  <type>literal</type>
+  <text>THR IDL</text>
+  <font>helvetica_bold.txf</font>
+  <character-size type="double">0.007</character-size>
+  <alignment>center-bottom</alignment> 
+</text>
+
+  <animation>
+   <type>select</type>
+     <object-name>APspd.thridl.arm</object-name>
+       <condition>
+         <equals>
+           <property>instrumentation/flightdirector/spd-arm</property>
+	   <value>8</value>
+         </equals>
+      </condition>
+ </animation>
 
  <!-- VNAV annun -->
  
@@ -770,14 +1140,14 @@
   <axis-alignment>yz-plane</axis-alignment>
   <offsets>
     <pitch-deg>-90</pitch-deg>
-    <x-m>-0.187</x-m>
-    <y-m>0.0760</y-m>
-    <z-m>0.015</z-m>
+    <x-m>-0.196</x-m>
+    <y-m>0.0665</y-m>
+    <z-m>0.005</z-m>
   </offsets>
   <type>literal</type>
   <text>ALT</text>
   <font>helvetica_bold.txf</font>
-  <character-size type="double">0.008</character-size>
+  <character-size type="double">0.007</character-size>
   <alignment>center-bottom</alignment> 
 </text>
 
@@ -786,14 +1156,14 @@
   <axis-alignment>yz-plane</axis-alignment>
   <offsets>
     <pitch-deg>-90</pitch-deg>
-    <x-m>-0.187</x-m>
-    <y-m>0.0760</y-m>
-    <z-m>0.015</z-m>
+    <x-m>-0.196</x-m>
+    <y-m>0.0661</y-m>
+    <z-m>0.005</z-m>
   </offsets>
   <type>literal</type>
   <text>ALT CRZ</text>
   <font>helvetica_bold.txf</font>
-  <character-size type="double">0.008</character-size>
+  <character-size type="double">0.007</character-size>
   <alignment>center-bottom</alignment> 
 </text>
 
@@ -824,14 +1194,14 @@
   <axis-alignment>yz-plane</axis-alignment>
   <offsets>
     <pitch-deg>-90</pitch-deg>
-    <x-m>-0.187</x-m>
-    <y-m>0.0760</y-m>
-    <z-m>0.015</z-m>
+    <x-m>-0.196</x-m>
+    <y-m>0.0665</y-m>
+    <z-m>0.005</z-m>
   </offsets>
   <type>literal</type>
   <text>V/S</text>
   <font>helvetica_bold.txf</font>
-  <character-size type="double">0.008</character-size>
+  <character-size type="double">0.007</character-size>
   <alignment>center-bottom</alignment> 
 </text>
  
@@ -851,14 +1221,14 @@
   <axis-alignment>yz-plane</axis-alignment>
   <offsets>
     <pitch-deg>-90</pitch-deg>
-    <x-m>-0.187</x-m>
-    <y-m>0.0760</y-m>
-    <z-m>0.015</z-m>
+    <x-m>-0.196</x-m>
+    <y-m>0.0665</y-m>
+    <z-m>0.005</z-m>
   </offsets>
   <type>literal</type>
   <text>OP CLB</text>
   <font>helvetica_bold.txf</font>
-  <character-size type="double">0.008</character-size>
+  <character-size type="double">0.0065</character-size>
   <alignment>center-bottom</alignment> 
 </text>
 
@@ -878,14 +1248,14 @@
   <axis-alignment>yz-plane</axis-alignment>
   <offsets>
     <pitch-deg>-90</pitch-deg>
-    <x-m>-0.187</x-m>
-    <y-m>0.07860</y-m>
-    <z-m>0.015</z-m>
+    <x-m>-0.196</x-m>
+    <y-m>0.0665</y-m>
+    <z-m>0.005</z-m>
   </offsets>
   <type>literal</type>
   <text>FPA</text>
   <font>helvetica_bold.txf</font>
-  <character-size type="double">0.008</character-size>
+  <character-size type="double">0.007</character-size>
   <alignment>center-bottom</alignment> 
 </text>
 
@@ -905,14 +1275,14 @@
   <axis-alignment>yz-plane</axis-alignment>
   <offsets>
     <pitch-deg>-90</pitch-deg>
-    <x-m>-0.187</x-m>
-    <y-m>0.0760</y-m>
-    <z-m>0.015</z-m>
+    <x-m>-0.196</x-m>
+    <y-m>0.0665</y-m>
+    <z-m>0.005</z-m>
   </offsets>
   <type>literal</type>
   <text>OP DES</text>
   <font>helvetica_bold.txf</font>
-  <character-size type="double">0.008</character-size>
+  <character-size type="double">0.0065</character-size>
   <alignment>center-bottom</alignment> 
 </text>
 
@@ -932,14 +1302,14 @@
   <axis-alignment>yz-plane</axis-alignment>
   <offsets>
     <pitch-deg>-90</pitch-deg>
-    <x-m>-0.187</x-m>
-    <y-m>0.0760</y-m>
-    <z-m>0.015</z-m>
+    <x-m>-0.196</x-m>
+    <y-m>0.0665</y-m>
+    <z-m>0.005</z-m>
   </offsets>
   <type>literal</type>
   <text>CLB</text>
   <font>helvetica_bold.txf</font>
-  <character-size type="double">0.008</character-size>
+  <character-size type="double">0.007</character-size>
   <alignment>center-bottom</alignment> 
 </text>
 
@@ -960,14 +1330,14 @@
   <axis-alignment>yz-plane</axis-alignment>
   <offsets>
     <pitch-deg>-90</pitch-deg>
-    <x-m>-0.187</x-m>
-    <y-m>0.0760</y-m>
-    <z-m>0.015</z-m>
+    <x-m>-0.196</x-m>
+    <y-m>0.0665</y-m>
+    <z-m>0.005</z-m>
   </offsets>
   <type>literal</type>
   <text>DES</text>
   <font>helvetica_bold.txf</font>
-  <character-size type="double">0.008</character-size>
+  <character-size type="double">0.007</character-size>
   <alignment>center-bottom</alignment> 
 </text>
 
@@ -988,14 +1358,14 @@
   <axis-alignment>yz-plane</axis-alignment>
   <offsets>
     <pitch-deg>-90</pitch-deg>
-    <x-m>-0.187</x-m>
-    <y-m>0.0760</y-m>
-    <z-m>0.015</z-m>
+    <x-m>-0.196</x-m>
+    <y-m>0.0665</y-m>
+    <z-m>0.005</z-m>
   </offsets>
   <type>literal</type>
   <text>G/S</text>
   <font>helvetica_bold.txf</font>
-  <character-size type="double">0.008</character-size>
+  <character-size type="double">0.007</character-size>
   <alignment>center-bottom</alignment> 
 </text>
 
@@ -1015,14 +1385,14 @@
   <axis-alignment>yz-plane</axis-alignment>
   <offsets>
     <pitch-deg>-90</pitch-deg>
-    <x-m>-0.187</x-m>
-    <y-m>0.0760</y-m>
-    <z-m>0.015</z-m>
+    <x-m>-0.196</x-m>
+    <y-m>0.0665</y-m>
+    <z-m>0.005</z-m>
   </offsets>
   <type>literal</type>
   <text>SRS</text>
   <font>helvetica_bold.txf</font>
-  <character-size type="double">0.008</character-size>
+  <character-size type="double">0.007</character-size>
   <alignment>center-bottom</alignment> 
 </text>
 
@@ -1036,6 +1406,143 @@
          </equals>
       </condition>
  </animation>
+ 
+  <text>
+  <name>APvnav.clb.arm</name>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+    <pitch-deg>-90</pitch-deg>
+    <x-m>-0.189</x-m>
+    <y-m>0.0665</y-m>
+    <z-m>0.005</z-m>
+  </offsets>
+  <type>literal</type>
+  <text>CLB</text>
+  <font>helvetica_bold.txf</font>
+  <character-size type="double">0.007</character-size>
+  <alignment>center-bottom</alignment> 
+</text>
+
+  <animation>
+   <type>select</type>
+     <object-name>APvnav.clb.arm</object-name>
+       <condition>
+         <equals>
+           <property>instrumentation/flightdirector/vnav-arm</property>
+           <value>6</value>
+         </equals>
+      </condition>
+ </animation>
+
+  <text>
+  <name>APvnav.des.arm</name>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+    <pitch-deg>-90</pitch-deg>
+    <x-m>-0.189</x-m>
+    <y-m>0.0665</y-m>
+    <z-m>0.005</z-m>
+  </offsets>
+  <type>literal</type>
+  <text>DES</text>
+  <font>helvetica_bold.txf</font>
+  <character-size type="double">0.007</character-size>
+  <alignment>center-bottom</alignment> 
+</text>
+
+  <animation>
+   <type>select</type>
+     <object-name>APvnav.des.arm</object-name>
+       <condition>
+         <equals>
+           <property>instrumentation/flightdirector/vnav-arm</property>
+           <value>8</value>
+         </equals>
+      </condition>
+ </animation>
+ 
+ <text>
+  <name>APvnav.alt.arm</name>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+    <pitch-deg>-90</pitch-deg>
+    <x-m>-0.189</x-m>
+    <y-m>0.0665</y-m>
+    <z-m>0.005</z-m>
+  </offsets>
+  <type>literal</type>
+  <text>ALT</text>
+  <font>helvetica_bold.txf</font>
+  <character-size type="double">0.007</character-size>
+  <alignment>center-bottom</alignment> 
+</text>
+
+ <text>
+  <name>APvnav.altcrz.arm</name>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+    <pitch-deg>-90</pitch-deg>
+    <x-m>-0.189</x-m>
+    <y-m>0.0665</y-m>
+    <z-m>0.005</z-m>
+  </offsets>
+  <type>literal</type>
+  <text>ALT CRZ</text>
+  <font>helvetica_bold.txf</font>
+  <character-size type="double">0.0065</character-size>
+  <alignment>center-bottom</alignment> 
+</text>
+
+  <animation>
+   <type>select</type>
+     <object-name>APvnav.alt.arm</object-name>
+       <condition>
+         <equals>
+           <property>instrumentation/flightdirector/vnav-arm</property>
+           <value>1</value>
+         </equals>
+      </condition>
+ </animation>
+ 
+   <animation>
+   <type>select</type>
+     <object-name>APvnav.altcrz.arm</object-name>
+       <condition>
+	 <equals>
+	   <property>instrumentation/flightdirector/vnav-arm</property>
+           <value>7</value>
+	 </equals>
+      </condition>
+ </animation> 
+ 
+  <text>
+  <name>APvnav.gs.arm</name>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+    <pitch-deg>-90</pitch-deg>
+    <x-m>-0.189</x-m>
+    <y-m>0.0665</y-m>
+    <z-m>0.005</z-m>
+  </offsets>
+  <type>literal</type>
+  <text>G/S</text>
+  <font>helvetica_bold.txf</font>
+  <character-size type="double">0.007</character-size>
+  <alignment>center-bottom</alignment> 
+</text>
+
+  <animation>
+   <type>select</type>
+     <object-name>APvnav.gs.arm</object-name>
+       <condition>
+         <equals>
+           <property>instrumentation/flightdirector/vnav-arm</property>
+           <value>9</value>
+         </equals>
+      </condition>
+ </animation>
+ 
+ 
 
 <animation>
    <type>material</type>
@@ -1057,11 +1564,13 @@
    <object-name>APvnav.vs</object-name>
    <object-name>APvnav.opclb</object-name>
    <object-name>APvnav.fpa</object-name>
-   <object-name>APvnav.opsdes</object-name>
+   <object-name>APvnav.opdes</object-name>
    <object-name>APvnav.clb</object-name>
    <object-name>APvnav.des</object-name>
    <object-name>APvnav.gs</object-name>
    <object-name>APvnav.srs</object-name>
+   <object-name>ias.kt</object-name>
+   <object-name>ias.mach</object-name>
    <emission>
      <red>0.2</red>
      <green>0.6</green>
@@ -1077,7 +1586,43 @@
       <green>0.6</green>
       <blue>0.2</blue>
    </diffuse>
+   <shininess>128.0</shininess>
+    <transparency><alpha>0.7</alpha></transparency>
 </animation>
+
+
+<animation>
+   <type>material</type>>
+   <object-name>APlnav.loc.arm</object-name>
+   <object-name>APlnav.nav.arm</object-name>
+   <!-- object-name>APlnav.rwy.arm</object-name -->
+   <object-name>APspd.crz.arm</object-name>
+   <object-name>APspd.thridl.arm</object-name>
+   <object-name>APspd.thrdes.arm</object-name>
+   <object-name>APvnav.altcrz.arm</object-name>
+   <object-name>APvnav.alt.arm</object-name>
+   <object-name>APvnav.clb.arm</object-name>
+   <object-name>APvnav.des.arm</object-name>
+   <object-name>APvnav.gs.arm</object-name>
+   <emission>
+     <red>0.12</red>
+     <green>0.63</green>
+     <blue>0.94</blue>
+   </emission>
+   <ambient>
+      <red>0.12</red>
+      <green>0.63</green>
+      <blue>0.94</blue>
+   </ambient>
+   <diffuse>
+      <red>0.12</red>
+      <green>0.63</green>
+      <blue>0.94</blue>
+   </diffuse>
+   <shininess>128.0</shininess>
+   <transparency><alpha>0.7</alpha></transparency>
+</animation>
+
 
 <animation>
    <type>material</type>
@@ -1097,9 +1642,8 @@
       <green>0.6</green>
       <blue>0.6</blue>
    </diffuse>
+   <shininess>128.0</shininess>
+   <transparency><alpha>0.7</alpha></transparency>
 </animation>
 
- 
-
 </PropertyList> 
- 

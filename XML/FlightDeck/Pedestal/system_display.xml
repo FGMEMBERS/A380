@@ -13,7 +13,7 @@
 	<!-- path>../../../Models/FlightDeck/FrontPanel/display1.3ds</path -->
 	
 	<!-- path>../../../Models/FlightDeck/Pedestal/ecam/sdisplay.ac</path -->
-	<path>../../../../Textures/Panels/ecam/sdisplay.ac</path>
+	<path>../../../Textures/Panels/ecam/sdisplay.ac</path>
 	<texture-path>../../../Textures/Panels/ecam</texture-path>
 
 
@@ -148,87 +148,173 @@
   <condition>
      <greater-than>
        <property>/instrumentation/doors/forward-cargo/position-norm</property>
-       <value>0.0</value>
+       <value>0</value>
      </greater-than>
   </condition>
 </animation>
-
 <animation>
   <type>select</type>
+  <object-name>door.cargo.forward.close</object-name>
+  <condition>
+     <less-than>
+       <property>/instrumentation/doors/forward-cargo/position-norm</property>
+       <value>0.001</value>
+     </less-than>
+  </condition>
+</animation>
+
+  <!-- aft cargo door -->
+<animation>
+  <type>select</type>
+  <object-name>door.cargo.aft.open</object-name>
   <condition>
      <greater-than>
        <property>/instrumentation/doors/aft-cargo/position-norm</property>
-       <value>0.0</value>
+       <value>0</value>
      </greater-than>
   </condition>
-  <object-name>door.cargo.aft.open</object-name>
+</animation>
+<animation>
+  <type>select</type>
+  <object-name>door.cargo.aft.close</object-name>
+  <condition>
+     <less-than>
+       <property>/instrumentation/doors/aft-cargo/position-norm</property>
+       <value>0.001</value>
+     </less-than>
+  </condition>
 </animation>
 
   <!-- passenger doors -->
 <animation>
   <type>select</type>
+  <object-name>door.paxL.low1.open</object-name>
   <condition>
      <greater-than>
        <property>/instrumentation/doors/lower-left-pax1/position-norm</property>
        <value>0.0</value>
      </greater-than>
   </condition>
-  <object-name>door.paxL.low1.open</object-name>
 </animation>
+<animation>
+  <type>select</type>
+  <object-name>door.paxL.low1.close</object-name>
+  <condition>
+     <less-than>
+       <property>/instrumentation/doors/lower-left-pax1/position-norm</property>
+       <value>0.001</value>
+     </less-than>
+  </condition>
+</animation>
+
 
 <animation>
   <type>select</type>
+  <object-name>door.paxR.low1.open</object-name>
   <condition>
      <greater-than>
        <property>/instrumentation/doors/lower-right-pax1/position-norm</property>
        <value>0.0</value>
      </greater-than>
   </condition>
-  <object-name>door.paxR.low1.open</object-name>
 </animation>
+<animation>
+  <type>select</type>
+  <object-name>door.paxR.low1.close</object-name>
+  <condition>
+     <less-than>
+       <property>/instrumentation/doors/lower-right-pax1/position-norm</property>
+       <value>0.001</value>
+     </less-than>
+  </condition>
+</animation>
+
 
 <animation>
   <type>select</type>
+  <object-name>door.paxL.low2.open</object-name>
   <condition>
      <greater-than>
        <property>/instrumentation/doors/lower-left-pax2/position-norm</property>
        <value>0.0</value>
      </greater-than>
   </condition>
-  <object-name>door.paxL.low2.open</object-name>
 </animation>
+<animation>
+  <type>select</type>
+  <object-name>door.paxL.low2.close</object-name>
+  <condition>
+     <less-than>
+       <property>/instrumentation/doors/lower-left-pax2/position-norm</property>
+       <value>0.001</value>
+     </less-than>
+  </condition>
+</animation>
+
 
 <animation>
   <type>select</type>
+  <object-name>door.paxR.low2.open</object-name>
   <condition>
      <greater-than>
        <property>/instrumentation/doors/lower-right-pax2/position-norm</property>
        <value>0.0</value>
      </greater-than>
   </condition>
-  <object-name>door.paxR.low2.open</object-name>
 </animation>
+<animation>
+  <type>select</type>
+  <object-name>door.paxR.low2.close</object-name>
+  <condition>
+     <less-than>
+       <property>/instrumentation/doors/lower-right-pax2/position-norm</property>
+       <value>0.001</value>
+     </less-than>
+  </condition>
+</animation>
+
 
 <animation>
   <type>select</type>
+  <object-name>door.paxR.up1.open</object-name>
   <condition>
      <greater-than>
        <property>/instrumentation/doors/upper-right-pax1/position-norm</property>
        <value>0.0</value>
      </greater-than>
   </condition>
-  <object-name>door.paxR.up1.open</object-name>
 </animation>
+<animation>
+  <type>select</type>
+  <object-name>door.paxR.up1.close</object-name>
+  <condition>
+     <less-than>
+       <property>/instrumentation/doors/upper-right-pax1/position-norm</property>
+       <value>0.001</value>
+     </less-than>
+  </condition>
+</animation>
+
 
 <animation>
   <type>select</type>
+  <object-name>door.paxL.up1.open</object-name>
   <condition>
      <greater-than>
        <property>/instrumentation/doors/upper-left-pax1/position-norm</property>
        <value>0.0</value>
      </greater-than>
   </condition>
-  <object-name>door.paxL.up1.open</object-name>
+</animation>
+<animation>
+  <type>select</type>
+  <object-name>door.paxL.up1.close</object-name>
+  <condition>
+     <less-than>
+       <property>/instrumentation/doors/upper-left-pax1/position-norm</property>
+       <value>0.001</value>
+     </less-than>
+  </condition>
 </animation>
 
 
@@ -1430,6 +1516,14 @@
  
  
  
+ <!--
+
+      COND page stuff
+      
+      -->
+
+ 
+ 
  <!-- 
  
       WHEEL page stuff 
@@ -1437,6 +1531,258 @@
       -->
     
     
+    
+<!--
+
+      PRESSURE page stuff
+      
+      -->
+    
+
+
+
+<!--
+
+      BLEED page stuff
+      
+      -->
+
+
+
+<!--
+
+      ELEC AC page stuff
+      
+      -->
+
+
+
+
+<!--
+
+      ELEC DC page stuff
+      
+      -->
+
+
+
+
+<!--
+
+      FUEL page stuff
+      
+      -->
+
+<text>
+    <name>value.FEED0</name>
+    <axis-alignment>yz-plane</axis-alignment>
+    <alignment>right-bottom</alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.133</x-m>
+      <y-m>0.042</y-m>
+      <z-m>0.0007</z-m>
+    </offsets>
+    <type>number-value</type>
+    <property type="string">/consumables/fuel/tank[0]/level-kg</property>
+    <format type="string">%6.0f</format>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+</text>
+
+
+<text>
+    <name>value.FEED1</name>
+    <axis-alignment>yz-plane</axis-alignment>
+    <alignment>right-bottom</alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.139</x-m>
+      <y-m>0.070</y-m>
+      <z-m>0.0007</z-m>
+    </offsets>
+    <type>number-value</type>
+    <property type="string">/consumables/fuel/tank[1]/level-kg</property>
+    <format type="string">%6.0f</format>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+</text>
+
+
+<text>
+    <name>value.FEED2</name>
+    <axis-alignment>yz-plane</axis-alignment>
+    <alignment>right-bottom</alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.139</x-m>
+      <y-m>0.111</y-m>
+      <z-m>0.0007</z-m>
+    </offsets>
+    <type>number-value</type>
+    <property type="string">/consumables/fuel/tank[2]/level-kg</property>
+    <format type="string">%6.0f</format>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+</text>
+
+
+<text>
+    <name>value.FEED3</name>
+    <axis-alignment>yz-plane</axis-alignment>
+    <alignment>right-bottom</alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.133</x-m>
+      <y-m>0.140</y-m>
+      <z-m>0.0007</z-m>
+    </offsets>
+    <type>number-value</type>
+    <property type="string">/consumables/fuel/tank[3]/level-kg</property>
+    <format type="string">%6.0f</format>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+</text>
+
+
+<text>
+    <name>value.innerL</name>
+    <axis-alignment>yz-plane</axis-alignment>
+    <alignment>right-bottom</alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.120</x-m>
+      <y-m>0.069</y-m>
+      <z-m>0.0007</z-m>
+    </offsets>
+    <type>number-value</type>
+    <property type="string">/consumables/fuel/tank[4]/level-kg</property>
+    <format type="string">%6.0f</format>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+</text>
+
+
+<text>
+    <name>value.innerR</name>
+    <axis-alignment>yz-plane</axis-alignment>
+    <alignment>right-bottom</alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.120</x-m>
+      <y-m>0.1095</y-m>
+      <z-m>0.0007</z-m>
+    </offsets>
+    <type>number-value</type>
+    <property type="string">/consumables/fuel/tank[5]/level-kg</property>
+    <format type="string">%6.0f</format>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+</text>
+
+
+<text>
+    <name>value.midL</name>
+    <axis-alignment>yz-plane</axis-alignment>
+    <alignment>right-bottom</alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.120</x-m>
+      <y-m>0.050</y-m>
+      <z-m>0.0007</z-m>
+    </offsets>
+    <type>number-value</type>
+    <property type="string">/consumables/fuel/tank[6]/level-kg</property>
+    <format type="string">%6.0f</format>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+</text>
+
+
+<text>
+    <name>value.midR</name>
+    <axis-alignment>yz-plane</axis-alignment>
+    <alignment>right-bottom</alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.120</x-m>
+      <y-m>0.130</y-m>
+      <z-m>0.0007</z-m>
+    </offsets>
+    <type>number-value</type>
+    <property type="string">/consumables/fuel/tank[7]/level-kg</property>
+    <format type="string">%6.0f</format>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+</text>
+
+
+<text>
+    <name>value.outerL</name>
+    <axis-alignment>yz-plane</axis-alignment>
+    <alignment>right-bottom</alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.120</x-m>
+      <y-m>0.031</y-m>
+      <z-m>0.0007</z-m>
+    </offsets>
+    <type>number-value</type>
+    <property type="string">/consumables/fuel/tank[8]/level-kg</property>
+    <format type="string">%6.0f</format>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+</text>
+
+
+<text>
+    <name>value.outerR</name>
+    <axis-alignment>yz-plane</axis-alignment>
+    <alignment>right-bottom</alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.120</x-m>
+      <y-m>0.149</y-m>
+      <z-m>0.0007</z-m>
+    </offsets>
+    <type>number-value</type>
+    <property type="string">/consumables/fuel/tank[9]/level-kg</property>
+    <format type="string">%6.0f</format>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+</text>
+
+
+
+<animation>
+   <type>select</type>
+   <object-name>value.FEED0</object-name>
+   <object-name>value.FEED1</object-name>
+   <object-name>value.FEED2</object-name>
+   <object-name>value.FEED3</object-name>
+   <object-name>value.innerL</object-name>
+   <object-name>value.innerR</object-name>
+   <object-name>value.midL</object-name>
+   <object-name>value.midR</object-name>
+   <object-name>value.outerL</object-name>
+   <object-name>value.outerR</object-name>
+   <condition>
+     <equals>
+      <property>/instrumentation/ecam/page</property>
+      <value>fuel</value>
+    </equals>
+   </condition>
+</animation>
+
+
+<!--
+
+      HYDRAULICS page stuff
+      
+      -->
+
+
+
     
 <!-- 
 
@@ -1669,34 +2015,6 @@
  </animation>
  
  
- 
- 
- <!-- 
- 
-      BLEED page stuff 
-      
-      -->
-      
-      
- 
- 
- 
- <!-- 
- 
-      ELEC AC page stuff 
-      
-      -->
-    
-    
- 
-  
- 
- 
- <!-- 
- 
-      ELEC DC page stuff 
-      
-      -->
       
       
     <!-- panel>
@@ -1736,9 +2054,15 @@
             <z-m>0.103</z-m> 
           </top-left>
 	</panel -->
-	
-	
-	<!--   permanent data area -->
+
+
+
+<!--
+
+       Permanent Data area stuff
+      
+      -->
+
 
 <text>
     <name>label.TAT</name>
@@ -1853,7 +2177,7 @@
     <format type="string">%2.1f</format>
     <font>helvetica_medium.txf</font>
     <character-size type="double">0.005</character-size>
-  </text>
+</text>
   
 <text>
     <name>units.TAT</name>
@@ -2101,6 +2425,16 @@
    <object-name>value.GW</object-name>
    <object-name>value.GWCG</object-name>
    <object-name>value.FOB</object-name>
+   <object-name>value.FEED0</object-name>
+   <object-name>value.FEED1</object-name>
+   <object-name>value.FEED2</object-name>
+   <object-name>value.FEED3</object-name>
+   <object-name>value.innerL</object-name>
+   <object-name>value.innerR</object-name>
+   <object-name>value.midL</object-name>
+   <object-name>value.midR</object-name>
+   <object-name>value.outerL</object-name>
+   <object-name>value.outerR</object-name>
    <emission>
      <red>0.1</red>
      <green>1.0</green>

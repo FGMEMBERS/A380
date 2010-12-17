@@ -1,5 +1,16 @@
 <?xml version="1.0"?>
 
+<!-- 
+
+    The ECAM page select buttons panel
+    
+    
+    Author: S. Hamilton - Aug 2009
+
+
+
+-->
+
 <PropertyList>
 
 	<path>../../../Models/FlightDeck/Pedestal/ecam.ac</path> 

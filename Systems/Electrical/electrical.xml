@@ -60,7 +60,10 @@ machines.
 			<name>rudder4 EBHA</name>
 			<prop>/systems/electrical/outputs/EBHA[7]</prop>
 		</output>
-		
+		<output>
+			<name>efis</name>
+			<prop>/systems/electrical/outputs/efis</prop>
+		</output>
 		<output>
 			<name>aileron1 EHA</name>
 			<prop>/systems/electrical/outputs/EHA[0]</prop>

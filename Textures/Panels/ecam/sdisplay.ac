@@ -1,5 +1,5 @@
 AC3Db
-MATERIAL "ac3dmat3" rgb 1 0 0  amb 0.2 0.2 0.2  emis 0 0 0  spec 0.2 0.2 0.2  shi 128  trans 0
+MATERIAL "ac3dmat3" rgb 1 0 0  amb 0.2 0.2 0.2  emis 1 0 0  spec 0.2 0.2 0.2  shi 128  trans 0
 MATERIAL "ac3dmat6" rgb 0 1 0  amb 0.2 0.2 0.2  emis 0 0 0  spec 0.2 0.2 0.2  shi 128  trans 0
 MATERIAL "ac3dmat6" rgb 0 1 0  amb 0.2 0.2 0.2  emis 0 0.827 0  spec 0.2 0.2 0.2  shi 128  trans 0
 MATERIAL "ac3dmat6" rgb 0 1 0  amb 0.2 0.2 0.2  emis 0 1 0  spec 0.2 0.2 0.2  shi 128  trans 0
@@ -40,7 +40,7 @@ kids 1
 OBJECT poly
 name "sd_fuel"
 loc 0.0033491 9.31323e-10 0.0298209
-texture "sd_fuel_01.png"
+texture "sd_fuel_02.png"
 crease 180.000000
 numvert 4
 -0.0923603 4.65661e-09 0.102857
@@ -9164,7 +9164,7 @@ numvert 4
 -0.0917359 0 0.0952206
 numsurf 1
 SURF 0x11
-mat 1
+mat 3
 refs 4
 0 0 0
 1 1 0

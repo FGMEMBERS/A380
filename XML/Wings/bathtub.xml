@@ -1,5 +1,36 @@
 <?xml version="1.0"?>
 
 <PropertyList>
+
 	<path>../../Models/Wings/bathtub.3ds</path>
+
+	<model>
+		<path>Aircraft/A380/XML/Lights/light-cone-left.xml</path>
+		<name>Land.Light.L</name>
+		<offsets>
+			<x-m>-3.72</x-m>
+			<y-m>-5.70</y-m>
+			<z-m>-0.53</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<path>Aircraft/A380/XML/Lights/light-cone-right.xml</path>
+		<name>Land.Light.R</name>
+		<offsets>
+			<x-m>-3.72</x-m>
+			<y-m> 5.70</y-m>
+			<z-m>-0.53</z-m>
+		</offsets>
+	</model>
+
+	<animation>
+		<type>select</type>
+		<object-name>Land.Light.L</object-name>
+		<object-name>Land.Light.R</object-name>
+		<condition>
+			<property>/controls/switches/landing-lights</property>
+		</condition>
+	</animation>
+
 </PropertyList> 

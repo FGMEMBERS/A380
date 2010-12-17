@@ -18,6 +18,7 @@
 #  Modification History:
 #  Who		When		What
 #  S.H		01-SEP-2009	Initial version
+#  S.H.		21-OCT-2010	add WP parent_name to support FPLN display
 #
 
 var fmsDB = {
@@ -64,11 +65,13 @@ var fmsDB = {
           ##print("-- Start Sid wp");
           wp = fmsWP.new();
           wp.wp_type = "WP.sid";
+          wp.wp_parent_name = tp.wp_name;
         }
         if (name == "Star_Waypoint") {
           ##print("-- Start Star wp");
           wp = fmsWP.new();
           wp.wp_type = "WP.star";
+          wp.wp_parent_name = tp.wp_name;
         }
         if (name == "Sid_Transition") {
           trans = fmsTransition.new();
@@ -95,6 +98,7 @@ var fmsDB = {
           ##print("--- Start Sid Transition wp for: "~trans.trans_name);
           wp = fmsWP.new();
           wp.wp_type = trans.trans_type~"Wp";
+          wp.wp_parent_name = trans.trans_name;
         }
         if (name == "RunwayTransition") {
           trans = fmsTransition.new();
@@ -127,17 +131,17 @@ var fmsDB = {
           }
           if (substr(tp.wp_name,0,3) == "ILS") {
             var len = size(tp.wp_name);
-            var pos = int(len-2);
-            if (len == 6) {
-              pos = int(len-3);
-            }
-            if (len == 8) {
-              pos = int(len-2);
-            }
-            if (len == 9) {
-              pos = int(len-3);
-            }
-            var run = substr(tp.wp_name,pos);
+            var pos = int(len-3);
+            #if (len == 6) {
+            #  pos = int(len-3);
+            #}
+            #if (len == 8) {
+            #  pos = int(len-2);
+            #}
+            #if (len == 9) {
+            #  pos = int(len-3);
+            #}
+            var run = substr(tp.wp_name,3);
             ##print("   set approach runway: "~run);
             append(tp.runways,run);
           }
@@ -146,6 +150,7 @@ var fmsDB = {
            ##print("--  Start Approach Waypoint for "~tp.wp_name);
            wp = fmsWP.new();
            wp.wp_type = "Approach";
+           
         }
         if (name == "App_Transition") {
           ##print("-- Start Approach Transition for: "~tp.wp_name);
@@ -218,6 +223,10 @@ var fmsDB = {
           if (name == "Longitude") {
             var data = pop(xmlStack);
             wp.wp_lon = data;
+          }
+          if (name == "Flytype") {
+            var data = pop(xmlStack);
+            wp.fly_type = data;
           }
           if (name == "Type") {
             var data = pop(xmlStack);

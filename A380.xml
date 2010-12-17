@@ -13,12 +13,13 @@
      2008	KAmpere		update
      2008	FDalvi		update
      APR-2009	SHamilton	update
+     Jun-2010	SHamilton	tweak high-lift devices to match CLmax
 -->
 
     <fileheader>
-        <author>Cunningram, Ampere, et al</author>
+        <author>Cunningram, Ampere, Hamilton, et al</author>
         <filecreationdate> Creation Date </filecreationdate>
-        <version>V1.0.2</version>
+        <version>V1.0.3</version>
         <description>Models an A380</description>
     </fileheader>
 
@@ -33,7 +34,8 @@
 	<wingarea  unit="FT2"> 9096.43 </wingarea>
         <wingspan  unit="FT" >  261.82 </wingspan>
         <wing_incidence>          2.00 </wing_incidence>
-        <chord     unit="FT" >   33.5 </chord>
+        <!-- chord     unit="FT" >   33.5 </chord -->
+        <chord     unit="FT" >   34.88 </chord>
         <htailarea unit="FT2"> 2274.11 </htailarea>
         <htailarm  unit="FT" >  107.78 </htailarm>
         <vtailarea unit="FT2"> 1819.29 </vtailarea>
@@ -135,7 +137,7 @@
     </mass_balance>
 
     <ground_reactions>
-        <contact type="BOGEY" name="NOSE_LG">
+        <contact type="BOGEY" name="Nose Gear">
             <location unit="IN">
                 <x> 488,52 </x>
                 <y> 0 </y>
@@ -150,7 +152,7 @@
             <brake_group> NONE </brake_group>
             <retractable>1</retractable>
         </contact>
-        <contact type="BOGEY" name="LEFT_MLG">
+        <contact type="BOGEY" name="Left Main gear">
             <location unit="IN">
                 <x> 1644 </x>
                 <y> -282.8 </y>
@@ -165,7 +167,7 @@
             <brake_group> LEFT </brake_group>
             <retractable>1</retractable>
         </contact>
-        <contact type="BOGEY" name="RIGHT_MLG">
+        <contact type="BOGEY" name="Right Main Gear">
             <location unit="IN">
                 <x> 1644 </x>
                 <y> 282.8 </y>
@@ -361,7 +363,7 @@
         </engine>
 	
 	<!--  APU type -->
-      <engine file="Pushback">
+      <engine file="APU">
             <location unit="IN">
                 <x> 100 </x>
                 <y> 0 </y>
@@ -396,7 +398,7 @@
 	    2. mid tank   -> feed
 	    3. trim tank  -> feed
 	    4. outer tank -> feed
-	   The trim tank should be moved to the outer tank until full during approach.
+	   The trim tank should be moved to the outer trim tank before approach.
     -->
       <tank type="FUEL">    <!-- feed number 0 -->
             <location unit="M">
@@ -641,15 +643,19 @@
             <traverse>
                 <setting>
                     <position>0.0000</position>
-                    <time>0.0000</time>
+                    <time>3.0000</time>
                 </setting>
                 <setting>
-                    <position>15.0000</position>
+                    <position>7.3000</position>
                     <time>4.0000</time>
                 </setting>
                 <setting>
+                    <position>15.5000</position>
+                    <time>2.0000</time>
+                </setting>
+                <setting>
                     <position>30.0000</position>
-                    <time>3.0000</time>
+                    <time>4.0000</time>
                 </setting>
             </traverse>
             <output>fcs/flap-pos-deg</output>
@@ -726,7 +732,8 @@
                     <property>aero/qbar-psf</property>
                     <property>metrics/Sw-sqft</property>
                     <property>aero/cl-squared</property>
-                    <value>0.0420</value>
+                    <!-- value>0.0420</value -->
+                    <value>0.0350</value>
                 </product>
             </function>
             <function name="aero/coefficient/CDmach">
@@ -745,13 +752,31 @@
                       </table>
                 </product>
             </function>
-            <function name="aero/coefficient/CDflap">
+            
+            <!-- function name="aero/coefficient/CDflap">
                 <description>Drag_due_to_flaps</description>
                 <product>
                     <property>aero/qbar-psf</property>
                     <property>metrics/Sw-sqft</property>
                     <property>fcs/flap-pos-norm</property>
-                    <value>0.0550</value>
+                    <value>0.0550</value>  
+                </product>
+            </function -->
+            <function name="aero/coefficient/CDflap">
+                <description>Drag_due_to_flaps</description>
+                <product>
+                    <property>aero/qbar-psf</property>
+                    <property>metrics/Sw-sqft</property>
+                    <table>
+                      <independentVar>fcs/flap-cmd-norm</independentVar>
+                      <tableData>
+                      0.00	0.00
+                      0.25	0.00
+                      0.53	0.00
+                      0.79	0.03
+                      1.00	0.05
+                      </tableData>
+                    </table>
                 </product>
             </function>
             <function name="aero/coefficient/CDgear">
@@ -822,20 +847,41 @@
                           <independentVar>aero/alpha-rad</independentVar>
                           <tableData>
                               -0.2000	-0.6800
-                              0.0000	0.2000
-                              0.2300	1.2000
-                              0.6000	0.6000
+                              0.0000	0.2500
+                              0.0400	0.8500
+                              0.2300	1.3000
+                              0.6000	0.7000
                           </tableData>
+                          <!-- tableData>
+                              -0.2000	-0.6800
+                              0.0000	0.3000
+                              0.2300	1.2000
+                              0.6000	0.7000
+                          </tableData -->
+                          <!-- 0.0000 0.2000
+                               0.2300 1.2000
+                               0.6000 0.6000  -->
                       </table>
                 </product>
             </function>
+            
+            <!-- orig property>fcs/flap-pos-norm</property -->
+            <!-- orig value>1.5000</value -->
             <function name="aero/coefficient/dCLflap">
                 <description>Delta_Lift_due_to_flaps</description>
                 <product>
                     <property>aero/qbar-psf</property>
                     <property>metrics/Sw-sqft</property>
-                    <property>fcs/flap-pos-norm</property>
-                    <value>1.5000</value>
+                    <table>
+                      <independentVar>fcs/flap-pos-deg</independentVar>
+                      <tableData>
+                      00.00	0.000
+                      07.23	0.290  <!-- 0.25  0.29008 -->
+                      15.46	0.420  <!-- 0.53 0.39467 -->
+                      23.64	0.015  <!-- 0.79 0.0133 -->
+                      30.00	0.010  <!-- 1.00 0.01 -->
+                      </tableData>
+                    </table>
                 </product>
             </function>
             <function name="aero/coefficient/dCLsb">
