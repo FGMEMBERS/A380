@@ -3011,7 +3011,7 @@ name "ANTI_ICE1"
 loc -0.1515 0 -0.311
 data 14
 APU_MASTER.011
-texture "buttons.png"
+texture "buttons4.png"
 crease 30.000000
 numvert 4
 0.059178 0.001261 0.255817
@@ -3022,17 +3022,17 @@ numsurf 1
 SURF 0x0
 mat 1
 refs 4
-0 0.250417 0.000194004
-1 0.250417 0.499365
-2 0.000389041 0.499365
-3 0.000389041 0.000194004
+0 0.742604 0.000194004
+1 0.742604 0.499365
+2 0.492577 0.499365
+3 0.492577 0.000194004
 kids 0
 OBJECT poly
 name "ANTI_ICE1.fault"
 loc -0.1515 0 -0.311
 data 14
 APU_MASTER.012
-texture "buttons.png"
+texture "buttons4.png"
 crease 30.000000
 numvert 4
 0.049177 0.001261 0.255817
@@ -3053,7 +3053,7 @@ name "ANTI_ICE2"
 loc -0.1515 0 -0.311
 data 14
 APU_MASTER.010
-texture "buttons.png"
+texture "buttons4.png"
 crease 30.000000
 numvert 4
 0.050738 0.001261 0.234691
@@ -3064,17 +3064,17 @@ numsurf 1
 SURF 0x0
 mat 1
 refs 4
-0 0.250417 0.000194004
-1 0.250417 0.499365
-2 0.000389041 0.499365
-3 0.000389041 0.000194004
+0 0.746511 0.000194004
+1 0.746511 0.499365
+2 0.496483 0.499365
+3 0.496483 0.000194004
 kids 0
 OBJECT poly
 name "ANTI_ICE2.fault"
 loc -0.1515 0 -0.311
 data 14
 APU_MASTER.009
-texture "buttons.png"
+texture "buttons4.png"
 crease 30.000000
 numvert 4
 0.040738 0.001261 0.234691
@@ -3095,7 +3095,7 @@ name "ANTI_ICE3"
 loc -0.1515 0 -0.311
 data 14
 APU_MASTER.007
-texture "buttons.png"
+texture "buttons4.png"
 crease 30.000000
 numvert 4
 0.050738 0.001261 0.213967
@@ -3106,17 +3106,17 @@ numsurf 1
 SURF 0x0
 mat 1
 refs 4
-0 0.250417 0.000194004
-1 0.250417 0.499365
-2 0.000389041 0.499365
-3 0.000389041 0.000194004
+0 0.746511 0.000194004
+1 0.746511 0.499365
+2 0.496483 0.499365
+3 0.496483 0.000194004
 kids 0
 OBJECT poly
 name "ANTI_ICE3.fault"
 loc -0.1515 0 -0.311
 data 14
 APU_MASTER.008
-texture "buttons.png"
+texture "buttons4.png"
 crease 30.000000
 numvert 4
 0.040738 0.001261 0.213967
@@ -3137,7 +3137,7 @@ name "ANTI_ICE4"
 loc -0.1515 0 -0.311
 data 14
 APU_MASTER.006
-texture "buttons.png"
+texture "buttons4.png"
 crease 30.000000
 numvert 4
 0.059178 0.001261 0.192841
@@ -3148,17 +3148,17 @@ numsurf 1
 SURF 0x0
 mat 1
 refs 4
-0 0.250417 0.000194004
-1 0.250417 0.499365
-2 0.000389041 0.499365
-3 0.000389041 0.000194004
+0 0.742604 0.000194004
+1 0.742604 0.499365
+2 0.492577 0.499365
+3 0.492577 0.000194004
 kids 0
 OBJECT poly
 name "ANTI_ICE4.fault"
 loc -0.1515 0 -0.311
 data 14
 APU_MASTER.005
-texture "buttons.png"
+texture "buttons4.png"
 crease 30.000000
 numvert 4
 0.049177 0.001261 0.192841
@@ -3179,7 +3179,7 @@ name "APU_MASTER"
 loc -0.1515 0 -0.311
 data 10
 APU_MASTER
-texture "buttons.png"
+texture "buttons4.png"
 crease 30.000000
 numvert 4
 0.097794 0.001261 0.145683
@@ -3190,10 +3190,10 @@ numsurf 1
 SURF 0x0
 mat 1
 refs 4
-0 0.250417 0.000194004
-1 0.250417 0.499365
-2 0.000389041 0.499365
-3 0.000389041 0.000194004
+0 0.504323 0.015819
+1 0.504323 0.51499
+2 0.254295 0.51499
+3 0.254295 0.015819
 kids 0
 OBJECT poly
 name "APU_MASTER.001"
@@ -3207,7 +3207,7 @@ name "APU_MASTER.fault"
 loc -0.1515 0 -0.311
 data 14
 APU_MASTER.002
-texture "buttons.png"
+texture "buttons4.png"
 crease 30.000000
 numvert 4
 0.087793 0.001261 0.145683
@@ -3228,7 +3228,7 @@ name "APU_START"
 loc -0.1515 0 -0.311
 data 14
 APU_MASTER.004
-texture "buttons.png"
+texture "buttons4.png"
 crease 30.000000
 numvert 4
 0.141025 0.001261 0.145683
@@ -3239,17 +3239,17 @@ numsurf 1
 SURF 0x0
 mat 1
 refs 4
-0 0.250417 0.000194004
-1 0.250417 0.499365
-2 0.000389041 0.499365
-3 0.000389041 0.000194004
+0 0.508229 0.015819
+1 0.508229 0.51499
+2 0.258202 0.51499
+3 0.258202 0.015819
 kids 0
 OBJECT poly
 name "APU_START.fault"
 loc -0.1515 0 -0.311
 data 14
 APU_MASTER.003
-texture "buttons.png"
+texture "buttons4.png"
 crease 30.000000
 numvert 4
 0.131024 0.001261 0.145683
@@ -3270,7 +3270,7 @@ name "AUTO"
 loc -0.1515 0 -0.311
 data 14
 APU_MASTER.015
-texture "buttons.png"
+texture "buttons4.png"
 crease 30.000000
 numvert 4
 0.027369 0.001261 0.270597
@@ -3291,7 +3291,7 @@ name "AUTO.fault"
 loc -0.1515 0 -0.311
 data 14
 APU_MASTER.016
-texture "buttons.png"
+texture "buttons4.png"
 crease 30.000000
 numvert 4
 0.017368 0.001261 0.270597
@@ -3462,7 +3462,7 @@ name "CABIN.dummy"
 loc -0.1515 0 -0.311
 data 14
 APU_MASTER.025
-texture "buttons2.png"
+texture "buttons5.png"
 crease 30.000000
 numvert 4
 0.046862 0.001261 0.037023
@@ -3483,7 +3483,7 @@ name "CABIN_ALT"
 loc -0.1515 0 -0.311
 data 14
 APU_MASTER.027
-texture "buttons2.png"
+texture "buttons5.png"
 crease 30.000000
 numvert 4
 0.056863 0.001261 0.071275
@@ -3504,7 +3504,7 @@ name "CABIN_ALT.dummy"
 loc -0.1515 0 -0.311
 data 14
 APU_MASTER.028
-texture "buttons2.png"
+texture "buttons5.png"
 crease 30.000000
 numvert 4
 0.046862 0.001261 0.071275
@@ -3746,7 +3746,7 @@ name "CABIN_VS"
 loc -0.1515 0 -0.311
 data 14
 APU_MASTER.026
-texture "buttons2.png"
+texture "buttons5.png"
 crease 30.000000
 numvert 4
 0.056863 0.001261 0.037023
@@ -9073,7 +9073,7 @@ name "DITCHING"
 loc -0.1515 0 -0.311
 data 14
 APU_MASTER.019
-texture "buttons.png"
+texture "buttons4.png"
 crease 30.000000
 numvert 4
 0.088853 0.001261 0.00794202
@@ -9094,7 +9094,7 @@ name "DITCHING.dummy"
 loc -0.1515 0 -0.311
 data 14
 APU_MASTER.020
-texture "buttons2.png"
+texture "buttons5.png"
 crease 30.000000
 numvert 4
 0.078852 0.001261 0.00794202
@@ -9115,7 +9115,7 @@ name "EMER_EXIT"
 loc -0.1515 0 -0.311
 data 14
 APU_MASTER.018
-texture "buttons.png"
+texture "buttons4.png"
 crease 30.000000
 numvert 4
 0.140407 0.001261 0.031886
@@ -9136,7 +9136,7 @@ name "EMER_EXIT.fault"
 loc -0.1515 0 -0.311
 data 14
 APU_MASTER.017
-texture "buttons.png"
+texture "buttons4.png"
 crease 30.000000
 numvert 4
 0.130406 0.001261 0.031886
@@ -11893,7 +11893,7 @@ name "WING_ICE"
 loc -0.1515 0 -0.311
 data 14
 APU_MASTER.014
-texture "buttons.png"
+texture "buttons4.png"
 crease 30.000000
 numvert 4
 0.059178 0.00266322 0.280782
@@ -11904,17 +11904,17 @@ numsurf 1
 SURF 0x0
 mat 1
 refs 4
-0 0.250417 0.000194004
-1 0.250417 0.499365
-2 0.000389041 0.499365
-3 0.000389041 0.000194004
+0 0.738698 0.000194004
+1 0.738698 0.499365
+2 0.48867 0.499365
+3 0.48867 0.000194004
 kids 0
 OBJECT poly
 name "WING_ICE.fault"
 loc -0.1515 0 -0.311
 data 14
 APU_MASTER.013
-texture "buttons.png"
+texture "buttons4.png"
 crease 30.000000
 numvert 4
 0.049177 0.00242952 0.280791

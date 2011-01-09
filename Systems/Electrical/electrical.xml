@@ -13,6 +13,7 @@ machines.
 -->
  
 <PropertyList>
+
 	<!--Channel1 -->
 		<!--Generators -->
 		<supplier>
@@ -33,17 +34,48 @@ machines.
 			<volts>115</volts> <!-- guess -->
 			<amps>1304</amps>   <!-- guess -->
 		</supplier>
+		
+	<!--Channel2-->
+		<!--Generators -->
+		<supplier>
+			<name>VFG3</name>
+			<prop>/systems/electrical/suppliers/alternator[2]</prop>
+			<kind>alternator</kind>
+			<rpm-source>/engines/engine[2]/n1</rpm-source>
+			<volts>115</volts> <!-- guess -->
+			<amps>1304</amps>   <!-- guess -->
+		</supplier>
+		
+		
+		<supplier>
+			<name>VFG4</name>
+			<prop>/systems/electrical/suppliers/alternator[3]</prop>
+			<kind>alternator</kind>
+			<rpm-source>/engines/engine[3]/n1</rpm-source>
+			<volts>115</volts> <!-- guess -->
+			<amps>1304</amps>   <!-- guess -->
+		</supplier>
+
 	
 		<!-- Third one: from APU?? -->
 		
 		
 		<!--Buses -->
+
 		<bus>
 			<name>Master Bus</name>
 			<prop>/systems/electrical/outputs/bus[0]</prop>
 		</bus>
+
+		<!--Buses -->
+		<bus>
+			<name>Secondary Master Bus</name>
+			<prop>/systems/electrical/outputs/bus[1]</prop>
+		</bus>
+
 		
 		<!--Outputs-->	
+
 		<output>
 			<name>spoiler01 EBHA</name>
 			<prop>/systems/electrical/outputs/EBHA[0]</prop>
@@ -80,56 +112,6 @@ machines.
 			<name>elevator4 EHA</name>
 			<prop>/systems/electrical/outputs/EHA[7]</prop>
 		</output>
-		
-		<!--Connector-->
-		<connector>
-			<input>VFG1</input>
-			<input>VFG2</input>
-			<output>Master Bus</output>
-		</connector>
-		<connector>
-			<input>Master Bus</input>
-			<output>spoiler01 EBHA</output>
-			<output>spoiler16 EBHA</output>
-			<output>rudder1 EBHA</output>
-			<output>rudder4 EBHA</output>
-			
-			<output>aileron1 EHA</output>
-			<output>aileron6 EHA</output>
-			<output>elevator1 EHA</output>
-			<output>elevator4 EHA</output>
-		</connector>
-	<!--/Channel1-->
-	
-	<!--Channel2-->
-		<!--Generators -->
-		<supplier>
-			<name>VFG3</name>
-			<prop>/systems/electrical/suppliers/alternator[2]</prop>
-			<kind>alternator</kind>
-			<rpm-source>/engines/engine[2]/n1</rpm-source>
-			<volts>115</volts> <!-- guess -->
-			<amps>1304</amps>   <!-- guess -->
-		</supplier>
-		
-		
-		<supplier>
-			<name>VFG4</name>
-			<prop>/systems/electrical/suppliers/alternator[3]</prop>
-			<kind>alternator</kind>
-			<rpm-source>/engines/engine[3]/n1</rpm-source>
-			<volts>115</volts> <!-- guess -->
-			<amps>1304</amps>   <!-- guess -->
-		</supplier>
-	
-		<!-- Third one: from APU?? -->
-		
-		
-		<!--Buses -->
-		<bus>
-			<name>Secondary Master Bus</name>
-			<prop>/systems/electrical/outputs/bus[1]</prop>
-		</bus>
 		
 		<!--Outputs-->	
 		<output>
@@ -168,6 +150,25 @@ machines.
 		
 		<!--Connector-->
 		<connector>
+			<input>VFG1</input>
+			<input>VFG2</input>
+			<output>Master Bus</output>
+		</connector>
+		<connector>
+			<input>Master Bus</input>
+			<output>spoiler01 EBHA</output>
+			<output>spoiler16 EBHA</output>
+			<output>rudder1 EBHA</output>
+			<output>rudder4 EBHA</output>
+			
+			<output>aileron1 EHA</output>
+			<output>aileron6 EHA</output>
+			<output>elevator1 EHA</output>
+			<output>elevator4 EHA</output>
+		</connector>
+		
+		<!--Connector-->
+		<connector>
 			<input>VFG3</input>
 			<input>VFG4</input>
 			<output>Secondary Master Bus</output>
@@ -185,5 +186,5 @@ machines.
 			<output>elevator2 EHA</output>
 			<output>elevator3 EHA</output>
 		</connector>
-	<!--/Channel2-->	
+	
 </PropertyList>

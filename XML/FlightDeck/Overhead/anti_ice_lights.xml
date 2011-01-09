@@ -19,7 +19,6 @@
     <animation>
           <type>pick</type>
           <object-name>APU_MASTER</object-name>
-          <object-name>APU_MASTER.fault</object-name>
           <action>
             <button>0</button>
             <binding>
@@ -46,11 +45,10 @@
     <animation>
           <type>material</type>
           <object-name>APU_MASTER</object-name>
-          <object-name>APU_MASTER.fault</object-name>
           <emission>
-                <red>0.2</red>
-                <green>0.2</green>
-                <blue>0.2</blue>
+                <red>0.0</red>
+                <green>0.0</green>
+                <blue>0.35</blue>
                 <factor-prop>/controls/APU/run</factor-prop>
           </emission>
     </animation>
@@ -915,6 +913,199 @@
        <z>0.000000</z>
       </axis>
    </animation>
+   
+   <!--  ANTI ICE section -->
+   
+   <!-- wing heat -->
+   <animation>
+          <type>textranslate</type>
+          <object-name>WING_ICE</object-name>
+          <property>/controls/anti-ice/wing-heat</property>
+          <axis>
+              <x>0</x>
+              <y>0.6</y>
+              <z>1</z>
+          </axis>
+    </animation>
+    <animation>
+          <type>material</type>
+          <object-name>WING_ICE</object-name>
+          <condition>
+            <equals>
+              <property>/controls/anti-ice/wing-heat</property>
+              <value>1</value>
+            </equals>
+          </condition>
+          <emission>
+                <red>0.3</red>
+                <green>0.3</green>
+                <blue>0.3</blue>
+          </emission>
+    </animation>
+    <animation>
+      <type>pick</type>
+      <object-name>WING_ICE</object-name>
+      <action>
+        <button>0</button>
+	<binding>
+          <command>property-toggle</command>
+          <property>/controls/anti-ice/wing-heat</property>
+        </binding>
+      </action>
+    </animation>
+    
+    <!-- each engine heat -->
+    <animation>
+          <type>textranslate</type>
+          <object-name>ANTI_ICE1</object-name>
+          <property>/controls/anti-ice/engine[0]/inlet-heat</property>
+          <axis>
+              <x>0</x>
+              <y>0.6</y>
+              <z>1</z>
+          </axis>
+    </animation>
+    <animation>
+          <type>material</type>
+          <object-name>ANTI_ICE1</object-name>
+          <condition>
+            <equals>
+              <property>/controls/anti-ice/engine[0]/inlet-heat</property>
+              <value>1</value>
+            </equals>
+          </condition>
+          <emission>
+                <red>0.3</red>
+                <green>0.3</green>
+                <blue>0.3</blue>
+          </emission>
+    </animation>
+    <animation>
+      <type>pick</type>
+      <object-name>ANTI_ICE1</object-name>
+      <action>
+        <button>0</button>
+	<binding>
+          <command>property-toggle</command>
+          <property>/controls/anti-ice/engine[0]/inlet-heat</property>
+        </binding>
+      </action>
+    </animation>
+    
+    <!-- engine 2 anti-ice heat -->
+    <animation>
+          <type>textranslate</type>
+          <object-name>ANTI_ICE2</object-name>
+          <property>/controls/anti-ice/engine[1]/inlet-heat</property>
+          <axis>
+              <x>0</x>
+              <y>0.6</y>
+              <z>1</z>
+          </axis>
+    </animation>
+    <animation>
+          <type>material</type>
+          <object-name>ANTI_ICE2</object-name>
+          <condition>
+            <equals>
+              <property>/controls/anti-ice/engine[1]/inlet-heat</property>
+              <value>1</value>
+            </equals>
+          </condition>
+          <emission>
+                <red>0.3</red>
+                <green>0.3</green>
+                <blue>0.3</blue>
+          </emission>
+    </animation>
+    <animation>
+      <type>pick</type>
+      <object-name>ANTI_ICE2</object-name>
+      <action>
+        <button>0</button>
+	<binding>
+          <command>property-toggle</command>
+          <property>/controls/anti-ice/engine[1]/inlet-heat</property>
+        </binding>
+      </action>
+    </animation>
+    
+    <!-- engine 3 anti-ice heat -->
+    <animation>
+          <type>textranslate</type>
+          <object-name>ANTI_ICE3</object-name>
+          <property>/controls/anti-ice/engine[2]/inlet-heat</property>
+          <axis>
+              <x>0</x>
+              <y>0.6</y>
+              <z>1</z>
+          </axis>
+    </animation>
+    <animation>
+          <type>material</type>
+          <object-name>ANTI_ICE3</object-name>
+          <condition>
+            <equals>
+              <property>/controls/anti-ice/engine[2]/inlet-heat</property>
+              <value>1</value>
+            </equals>
+          </condition>
+          <emission>
+                <red>0.3</red>
+                <green>0.3</green>
+                <blue>0.3</blue>
+          </emission>
+    </animation>
+    <animation>
+      <type>pick</type>
+      <object-name>ANTI_ICE3</object-name>
+      <action>
+        <button>0</button>
+	<binding>
+          <command>property-toggle</command>
+          <property>/controls/anti-ice/engine[2]/inlet-heat</property>
+        </binding>
+      </action>
+    </animation>
+    
+    <!-- engine 4 anti-ice heat -->
+    <animation>
+          <type>textranslate</type>
+          <object-name>ANTI_ICE4</object-name>
+          <property>/controls/anti-ice/engine[3]/inlet-heat</property>
+          <axis>
+              <x>0</x>
+              <y>0.6</y>
+              <z>1</z>
+          </axis>
+    </animation>
+    <animation>
+          <type>material</type>
+          <object-name>ANTI_ICE4</object-name>
+          <condition>
+            <equals>
+              <property>/controls/anti-ice/engine[3]/inlet-heat</property>
+              <value>1</value>
+            </equals>
+          </condition>
+          <emission>
+                <red>0.3</red>
+                <green>0.3</green>
+                <blue>0.3</blue>
+          </emission>
+    </animation>
+    <animation>
+      <type>pick</type>
+      <object-name>ANTI_ICE4</object-name>
+      <action>
+        <button>0</button>
+	<binding>
+          <command>property-toggle</command>
+          <property>/controls/anti-ice/engine[3]/inlet-heat</property>
+        </binding>
+      </action>
+    </animation>
+    
 
 </PropertyList> 
  

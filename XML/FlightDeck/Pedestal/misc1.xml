@@ -2,8 +2,78 @@
 
 <PropertyList>
 
-	<path>../../../Models/FlightDeck/Pedestal/misc1.3ds</path> 
+	<path>../../../Models/FlightDeck/Pedestal/misc1.ac</path> 
 	<texture-path>../../../Textures/Common</texture-path>
+	
+    <animation>
+       <type>material</type>
+       <object-name>backlight</object-name>
+       <emission>
+         <red>0.325</red>
+         <green>0.184</green>
+         <blue>0.001</blue>
+         <factor-prop>/controls/switches/storm-lights</factor-prop>
+       </emission>
+    </animation>
+    
+    <animation>
+     <type>rotate</type>
+     <object-name>COCKPIT-LT</object-name>
+     <property>/controls/lighting/dome-norm</property>
+     <interpolation>
+        <entry><ind>0</ind><dep>0</dep></entry>
+        <entry><ind>1</ind><dep>-220</dep></entry>
+      </interpolation>
+      <center>
+        <x-m>0.0270</x-m>
+        <y-m>0.0034</y-m>
+        <z-m>0.0285</z-m>
+      </center>
+
+      <axis>
+        <x>0.164399</x>
+        <y>0.000000</y>
+        <z>1.0</z>
+      </axis>
+   </animation>
+   <!-- center>
+        <x-m>0.027050</x-m>
+        <y-m>0.002100</y-m>
+        <z-m>-0.028600</z-m>
+      </center -->
+      <!-- z>0.986394</z -->
+   
+   
+   <animation>
+     <type>pick</type>
+     <object-name>COCKPIT-LT</object-name>
+     <!--  scrollwheel -->
+     <action>
+       <button>3</button>
+       <repeatable>true</repeatable>
+       <binding>
+         <command>property-adjust</command>
+	<property>/controls/lighting/dome-norm</property>
+	<step>0.1</step>
+	<max>1.00</max>
+	<min>0.00</min>
+       </binding>
+     </action>
+     <!-- scrollwheel -->
+     <action>
+       <button>4</button>
+       <repeatable>true</repeatable>
+       <binding>
+         <command>property-adjust</command>
+	<property>/controls/lighting/dome-norm</property>
+	<step>-0.1</step>
+	<max>1.00</max>
+	<min>0.00</min>
+       </binding>
+     </action>
+  </animation>
+
+
 
 </PropertyList> 
  

@@ -1388,12 +1388,57 @@
     <axis-alignment>yz-plane</axis-alignment>
     <offsets>
       <pitch-deg>-90</pitch-deg>
-      <x-m>-0.0951</x-m>
+      <x-m>-0.091</x-m>
       <y-m>0.075</y-m>
       <z-m>0.002</z-m>
     </offsets>
     <type type="string">text-value</type>
     <property type="string">/instrumentation/ewd/checklists/line[4]</property>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.0055</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+<text>
+    <name>checklist05</name>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.085</x-m>
+      <y-m>0.075</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">text-value</type>
+    <property type="string">/instrumentation/ewd/checklists/line[5]</property>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.0055</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+<text>
+    <name>checklist06</name>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.079</x-m>
+      <y-m>0.075</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">text-value</type>
+    <property type="string">/instrumentation/ewd/checklists/line[6]</property>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.0055</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+<text>
+    <name>checklist07</name>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.073</x-m>
+      <y-m>0.075</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">text-value</type>
+    <property type="string">/instrumentation/ewd/checklists/line[7]</property>
     <font>helvetica_medium.txf</font>
     <character-size type="double">0.0055</character-size>
     <alignment>left-bottom</alignment>
@@ -1408,6 +1453,9 @@
     <object-name>checklist02</object-name>
     <object-name>checklist03</object-name>
     <object-name>checklist04</object-name>
+    <object-name>checklist05</object-name>
+    <object-name>checklist06</object-name>
+    <object-name>checklist07</object-name>
     <ambient>
       <red>0.1</red>
       <green>0.8</green>
@@ -1430,6 +1478,25 @@
     </specular>
     <shininess>0.0</shininess>
     <transparency><alpha>0.7</alpha></transparency>
+  </animation>
+  
+  <animation>
+    <type>select</type>
+    <object-name>ewd grp</object-name>
+    <object-name>checklist00</object-name>
+    <object-name>checklist01</object-name>
+    <object-name>checklist02</object-name>
+    <object-name>checklist03</object-name>
+    <object-name>checklist04</object-name>
+    <object-name>checklist05</object-name>
+    <object-name>checklist06</object-name>
+    <object-name>checklist07</object-name>
+    <condition>
+      <greater-than>
+        <property>/systems/electrical/outputs/efis</property>
+        <value>15</value>
+      </greater-than>
+    </condition>
   </animation>
 
 

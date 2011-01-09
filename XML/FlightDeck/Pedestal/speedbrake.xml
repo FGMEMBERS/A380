@@ -4,6 +4,23 @@
 
 	<path>../../../Models/FlightDeck/Pedestal/speedbrake.3ds</path> 
 	<texture-path>../../../Textures/Common</texture-path>
+	
+<animation>
+  <type>rotate</type>   
+  <object-name>HANDLE</object-name>    
+  <property>/controls/flight/speedbrake</property> 
+  <factor>-45</factor>
+  <center>
+    <x-m>-0.000400</x-m>
+    <y-m>0.025650</y-m>
+    <z-m>-0.109600</z-m>
+  </center>
+  <axis>
+    <x>0.489936</x>
+    <y>-0.871758</y>
+    <z>0.000000</z>
+  </axis>
+</animation>
 
 </PropertyList> 
  

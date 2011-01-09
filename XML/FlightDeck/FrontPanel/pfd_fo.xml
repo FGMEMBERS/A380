@@ -6,7 +6,7 @@
 	<!-- texture-path>../../../Textures/Instruments</texture-path -->
 	<texture-path>../../../Textures/Panels/pfd/</texture-path>
 
-<animation>
+<!-- animation>
    <type>select</type>
    <object-name>FDbars</object-name>
    <condition>
@@ -17,35 +17,38 @@
          <value>0</value>
        </equals>
        <equals>
-         <property>sim/current-view/view-number</property>
-         <value>9</value>
+           <property>sim/current-view/view-number</property>
+           <value>9</value>
        </equals>
      </or>
      <equals>
-       <property>/instrumentation/flightdirector/fd-on</property>
-       <value>1</value>
+         <property>/instrumentation/flightdirector/fd-on</property>
+         <value>1</value>
      </equals>
    </and>
    </condition>
- </animation>
+ </animation -->
  
   <animation>
    <type>select</type>
    <object-name>GSscale</object-name>
    <condition>
      <and>
-       <or>
-         <equals>
-           <property>sim/current-view/view-number</property>
-           <value>0</value>
-         </equals>
-	 <equals>
+      <or>
+      <equals>
+       <property>sim/current-view/view-number</property>
+       <value>0</value>
+      </equals>
+      <equals>
            <property>sim/current-view/view-number</property>
            <value>9</value>
          </equals>
        </or>
-       <property>/instrumentation/nav/has-gs</property>
-       <property>/instrumentation/nav/in-range</property>
+       <property>/instrumentation/nav/gs-in-range</property>
+       <greater-than>
+         <property>systems/electrical/outputs/efis</property>
+         <value>15</value>
+       </greater-than>
      </and>
    </condition>
  </animation>
@@ -55,18 +58,22 @@
    <object-name>GSneedle</object-name>
    <condition>
      <and>
-       <or>
-         <equals>
-           <property>sim/current-view/view-number</property>
-           <value>0</value>
-         </equals>
-         <equals>
+     <or>
+      <equals>
+       <property>sim/current-view/view-number</property>
+       <value>0</value>
+      </equals>
+      <equals>
            <property>sim/current-view/view-number</property>
            <value>9</value>
          </equals>
        </or>
-       <!-- property>/instrumentation/nav/has-gs</property -->
+         <!-- property>/instrumentation/nav/has-gs</property -->
        <property>/instrumentation/nav/gs-in-range</property>
+       <greater-than>
+         <property>systems/electrical/outputs/efis</property>
+         <value>15</value>
+       </greater-than>
      </and>
    </condition>
  </animation>
@@ -74,19 +81,19 @@
  <animation>
    <type>translate</type>
    <object-name>GSneedle</object-name>
-   <property>/instrumentation/nav/gs-needle-deflection</property>
+   <property>/instrumentation/nav/gs-needle-deflection-norm</property>
    <interpolation>
      <entry>
-       <ind> -10.0</ind>
-       <dep>-0.05</dep>
+       <ind> -1.0</ind>
+       <dep>-0.04</dep>
      </entry>
      <entry>
        <ind> 0.0</ind>
        <dep>0.0</dep>
      </entry>
      <entry>
-       <ind> 10.0</ind>
-       <dep>0.05</dep>
+       <ind> 1.0</ind>
+       <dep>0.04</dep>
      </entry>
   </interpolation>
   <!-- interpolation>
@@ -104,9 +111,9 @@
     </entry>
   </interpolation -->
   <axis>
-   <x>0</x>
+   <x>1</x>
    <y>0</y>
-   <z>1</z>
+   <z>0</z>
   </axis>
  </animation>
  
@@ -127,6 +134,10 @@
        </or>
        <property>/instrumentation/nav/nav-loc</property>
        <property>/instrumentation/nav/in-range</property>
+       <greater-than>
+         <property>systems/electrical/outputs/efis</property>
+         <value>15</value>
+       </greater-than>
      </and>
    </condition>
  </animation>
@@ -148,6 +159,10 @@
        </or>
        <property>/instrumentation/nav/nav-loc</property>
        <property>/instrumentation/nav/in-range</property>
+       <greater-than>
+         <property>systems/electrical/outputs/efis</property>
+         <value>15</value>
+       </greater-than>
      </and>
    </condition>
  </animation>
@@ -155,8 +170,22 @@
  <animation>
    <type>translate</type>
    <object-name>LOCneedle</object-name>
-   <property>/instrumentation/nav/heading-needle-deflection</property>
+   <property>/instrumentation/nav/heading-needle-deflection-norm</property>
    <interpolation>
+    <entry>
+      <ind>-1.0</ind>
+      <dep>-0.035</dep>
+    </entry>
+    <entry>
+      <ind>0.0</ind>
+      <dep>0.0</dep>
+    </entry>
+    <entry>
+      <ind>1.0</ind>
+      <dep>0.035</dep>
+    </entry>
+  </interpolation>
+   <!-- interpolation>
      <entry>
        <ind> -10.0</ind>
        <dep>-0.0253</dep>
@@ -169,7 +198,7 @@
        <ind> 10.0</ind>
        <dep>0.0253</dep>
      </entry>
-  </interpolation> 
+  </interpolation --> 
   <!-- interpolation>
      <entry>
        <ind> -10.0</ind>
@@ -191,10 +220,9 @@
   </axis>
  </animation>
  
-  <animation>
+  <!-- animation>
    <type>rotate</type>
    <object-name>FDbars</object-name>
-   <!-- property>/instrumentation/flightdirector/vbar-roll</property -->
    <property>/autopilot/internal/target-roll-deg</property>
    <axis>
      <x>1.0</x>
@@ -206,14 +234,12 @@
      <y-m>-0.014</y-m>
      <z-m>0.005</z-m>
    </center>
- </animation>
+ </animation -->
 
- <animation>
+ <!-- animation>
    <type>translate</type>
    <object-name>FDbars</object-name>
-   <!-- property>/instrumentation/flightdirector/vbar-pitch</property -->
    <property>/autopilot/settings/target-pitch-deg</property>
-   <!--factor>0.0014</factor-->
    <factor>0.0014</factor>
    <axis>
      <x>0.0</x>
@@ -225,22 +251,28 @@
      <y-m>-0.014</y-m>
      <z-m>0.005</z-m>
    </center>
- </animation>
+ </animation -->
 
  <animation>
    <type>select</type>
    <object-name>VSIneedle</object-name>
    <condition>
-     <or>
-       <equals>
-         <property>sim/current-view/view-number</property>
-         <value>0</value>
-       </equals>
-       <equals>
-         <property>sim/current-view/view-number</property>
-         <value>9</value>
-       </equals>
-     </or>
+     <and>
+       <or>
+         <equals>
+           <property>sim/current-view/view-number</property>
+           <value>0</value>
+         </equals>
+         <equals>
+           <property>sim/current-view/view-number</property>
+           <value>9</value>
+         </equals>
+       </or>
+       <greater-than>
+         <property>systems/electrical/outputs/efis</property>
+         <value>15</value>
+       </greater-than>
+     </and>
   </condition>
  </animation>
 
@@ -285,97 +317,9 @@
    		</axis>
 	</animation -->
 
-	<animation>
-   		<type>texmultiple</type>
-   		<object-name>horizon</object-name>
-   		<transform>
-     			<property>/orientation/pitch-deg</property>
-     			<subtype>textranslate</subtype>
-     			<factor>0.0046875</factor>
-     			<axis>
-       				<x>0</x>
-       				<y>1</y>
-       				<z>0</z>
-     			</axis>
-   		</transform>
-   		<transform>
-     			<property>/orientation/roll-deg</property>
-     			<subtype>texrotate</subtype>
-     			<center>
-       				<x>0.25</x>
-       				<y>0.50</y>
-    			</center>
-     			<axis>
-       				<x>0</x>
-       				<y>0</y>
-       				<z>-1</z>
-     			</axis>
-   		</transform>
- 	</animation>
 
 
-<animation>
-   <type>textranslate</type>
-   <object-name>alt_digit1</object-name>
-   <property>/instrumentation/altimeter/indicated-altitude-ft</property>
-   <factor>0.00001</factor>
-   <step>10000.0</step>
-   <axis>
-     <x>0</x>
-     <y>1</y>
-     <z>0</z>
-   </axis>
- </animation>
  <animation>
-   <type>textranslate</type>
-   <object-name>alt_digit2</object-name>
-   <property>/instrumentation/altimeter/indicated-altitude-ft</property>
-   <factor>0.0001</factor>
-   <step>1000.0</step>
-   <axis>
-     <x>0</x>
-     <y>1</y>
-     <z>0</z>
-   </axis>
- </animation>
- <animation>
-   <type>textranslate</type>
-   <object-name>alt_digit3</object-name>
-   <property>/instrumentation/altimeter/indicated-altitude-ft</property>
-   <factor>0.001</factor>
-   <step>100.0</step>
-   <axis>
-     <x>0</x>
-     <y>1</y>
-     <z>0</z>
-   </axis>
- </animation>
- <animation>
-   <type>textranslate</type>
-   <object-name>alt_digit4</object-name>
-   <property>/instrumentation/altimeter/indicated-altitude-ft</property>
-   <factor>0.01</factor>
-   <step>10.0</step>
-   <axis>
-     <x>0</x>
-     <y>1</y>
-     <z>0</z>
-   </axis>
- </animation>
- <animation>
-   <type>textranslate</type>
-   <object-name>alt_digit5</object-name>
-   <property>/instrumentation/altimeter/indicated-altitude-ft</property>
-   <factor>0.1</factor>
-   <step>1.0</step>
-   <axis>
-     <x>0</x>
-     <y>1</y>
-     <z>0</z>
-   </axis>
- </animation> 
- 
-  <animation>
    <type>textranslate</type>
    <object-name>ALTribbon</object-name>
    <property>/instrumentation/altimeter/indicated-altitude-ft</property>
@@ -386,7 +330,6 @@
      <z>0</z>
    </axis>
  </animation>
-
 
 
   <animation>
@@ -449,6 +392,98 @@
      <z>0</z>
    </axis>
  </animation>
+ 
+ 
+ 
+ <animation>
+   <type>textranslate</type>
+   <object-name>alt_digit1</object-name>
+   <property>/instrumentation/altimeter/indicated-altitude-ft</property>
+   <factor>0.00001</factor>
+   <step>10000.0</step>
+   <axis>
+     <x>0</x>
+     <y>1</y>
+     <z>0</z>
+   </axis>
+ </animation>
+ <animation>
+   <type>textranslate</type>
+   <object-name>alt_digit2</object-name>
+   <property>/instrumentation/altimeter/indicated-altitude-ft</property>
+   <factor>0.0001</factor>
+   <step>1000.0</step>
+   <axis>
+     <x>0</x>
+     <y>1</y>
+     <z>0</z>
+   </axis>
+ </animation>
+ <animation>
+   <type>textranslate</type>
+   <object-name>alt_digit3</object-name>
+   <property>/instrumentation/altimeter/indicated-altitude-ft</property>
+   <factor>0.001</factor>
+   <step>100.0</step>
+   <axis>
+     <x>0</x>
+     <y>1</y>
+     <z>0</z>
+   </axis>
+ </animation>
+ <animation>
+   <type>textranslate</type>
+   <object-name>alt_digit4</object-name>
+   <property>/instrumentation/altimeter/indicated-altitude-ft</property>
+   <factor>0.01</factor>
+   <step>10.0</step>
+   <axis>
+     <x>0</x>
+     <y>1</y>
+     <z>0</z>
+   </axis>
+ </animation>
+ <animation>
+   <type>textranslate</type>
+   <object-name>alt_digit5</object-name>
+   <property>/instrumentation/altimeter/indicated-altitude-ft</property>
+   <factor>0.1</factor>
+   <step>1.0</step>
+   <axis>
+     <x>0</x>
+     <y>1</y>
+     <z>0</z>
+   </axis>
+ </animation> 
+ 
+ 
+ 	<animation>
+   		<type>texmultiple</type>
+   		<object-name>horizon</object-name>
+   		<transform>
+     			<property>/orientation/pitch-deg</property>
+     			<subtype>textranslate</subtype>
+     			<factor>0.0046875</factor>
+     			<axis>
+       				<x>0</x>
+       				<y>1</y>
+       				<z>0</z>
+     			</axis>
+   		</transform>
+   		<transform>
+     			<property>/orientation/roll-deg</property>
+     			<subtype>texrotate</subtype>
+     			<center>
+       				<x>0.25</x>
+       				<y>0.50</y>
+    			</center>
+     			<axis>
+       				<x>0</x>
+       				<y>0</y>
+       				<z>-1</z>
+     			</axis>
+   		</transform>
+ 	</animation>
 
  <!-- animation>
    <type>translate</type>
@@ -518,7 +553,7 @@
      <z-m>0.004</z-m>
    </center>
  </animation>
-
+ 
  
  <text>
    <name>ias.kt</name>
@@ -569,6 +604,10 @@
            <property>/velocities/airspeed-kt</property>
            <value>10</value>
         </greater-than>
+        <greater-than>
+         <property>systems/electrical/outputs/efis</property>
+         <value>15</value>
+        </greater-than>
       </and>
    </condition>
  </animation>
@@ -586,6 +625,10 @@
            <property>/velocities/airspeed-kt</property>
            <value>10</value>
         </greater-than>
+        <greater-than>
+         <property>systems/electrical/outputs/efis</property>
+         <value>15</value>
+       </greater-than>
       </and>
    </condition>
  </animation>
@@ -612,10 +655,16 @@
    <type>select</type>
      <object-name>APlnav.hdg</object-name>
        <condition>
+       <and>
          <equals>
            <property>instrumentation/flightdirector/lnav</property>
            <value>1</value>
          </equals>
+         <greater-than>
+           <property>systems/electrical/outputs/efis</property>
+           <value>15</value>
+         </greater-than>
+       </and>
       </condition>
  </animation>
  
@@ -639,10 +688,16 @@
    <type>select</type>
      <object-name>APlnav.track</object-name>
        <condition>
+       <and>
          <equals>
            <property>instrumentation/flightdirector/lnav</property>
            <value>2</value>
          </equals>
+         <greater-than>
+           <property>systems/electrical/outputs/efis</property>
+           <value>15</value>
+         </greater-than>
+      </and>
       </condition>
  </animation>
  
@@ -667,10 +722,16 @@
    <type>select</type>
      <object-name>APlnav.loc</object-name>
        <condition>
+       <and>
          <equals>
            <property>instrumentation/flightdirector/lnav</property>
            <value>3</value>
          </equals>
+         <greater-than>
+           <property>systems/electrical/outputs/efis</property>
+           <value>15</value>
+         </greater-than>
+      </and>
       </condition>
  </animation>
  
@@ -694,10 +755,16 @@
    <type>select</type>
      <object-name>APlnav.nav</object-name>
        <condition>
+       <and>
          <equals>
            <property>instrumentation/flightdirector/lnav</property>
            <value>4</value>
          </equals>
+         <greater-than>
+           <property>systems/electrical/outputs/efis</property>
+           <value>15</value>
+         </greater-than>
+      </and>
       </condition>
  </animation>
  
@@ -721,10 +788,16 @@
    <type>select</type>
      <object-name>APlnav.rwy</object-name>
        <condition>
+       <and>
          <equals>
            <property>instrumentation/flightdirector/lnav</property>
            <value>5</value>
          </equals>
+         <greater-than>
+           <property>systems/electrical/outputs/efis</property>
+           <value>15</value>
+         </greater-than>
+       </and>
       </condition>
  </animation>
  
@@ -750,10 +823,16 @@
    <type>select</type>
      <object-name>APlnav.loc.arm</object-name>
        <condition>
+       <and>
          <equals>
            <property>instrumentation/flightdirector/lnav-arm</property>
            <value>3</value>
          </equals>
+         <greater-than>
+           <property>systems/electrical/outputs/efis</property>
+           <value>15</value>
+         </greater-than>
+      </and>
       </condition>
  </animation>
  
@@ -777,10 +856,16 @@
    <type>select</type>
      <object-name>APlnav.nav.arm</object-name>
        <condition>
+       <and>
          <equals>
            <property>instrumentation/flightdirector/lnav-arm</property>
            <value>4</value>
          </equals>
+         <greater-than>
+           <property>systems/electrical/outputs/efis</property>
+           <value>15</value>
+         </greater-than>
+       </and>
       </condition>
  </animation>
 
@@ -806,10 +891,16 @@
    <type>select</type>
      <object-name>APspd.toga</object-name>
        <condition>
+       <and>
          <equals>
            <property>instrumentation/flightdirector/spd</property>
            <value>1</value>
          </equals>
+         <greater-than>
+           <property>systems/electrical/outputs/efis</property>
+           <value>15</value>
+         </greater-than>
+       </and>
       </condition>
  </animation>
 
@@ -834,10 +925,16 @@
    <type>select</type>
      <object-name>APspd.flex</object-name>
        <condition>
+       <and>
          <equals>
            <property>instrumentation/flightdirector/spd</property>
            <value>2</value>
          </equals>
+         <greater-than>
+           <property>systems/electrical/outputs/efis</property>
+           <value>15</value>
+         </greater-than>
+       </and>
       </condition>
  </animation>
 
@@ -862,10 +959,16 @@
    <type>select</type>
      <object-name>APspd.thrclb</object-name>
        <condition>
+       <and>
          <equals>
            <property>instrumentation/flightdirector/spd</property>
            <value>3</value>
          </equals>
+         <greater-than>
+           <property>systems/electrical/outputs/efis</property>
+           <value>15</value>
+         </greater-than>
+       </and>
       </condition>
  </animation>
  
@@ -889,10 +992,16 @@
    <type>select</type>
      <object-name>APspd.speed</object-name>
        <condition>
+       <and>
          <equals>
            <property>instrumentation/flightdirector/spd</property>
            <value>4</value>
          </equals>
+         <greater-than>
+           <property>systems/electrical/outputs/efis</property>
+           <value>15</value>
+         </greater-than>
+       </and>
       </condition>
  </animation>
  
@@ -917,10 +1026,16 @@
    <type>select</type>
      <object-name>APspd.mach</object-name>
        <condition>
+       <and>
          <equals>
            <property>instrumentation/flightdirector/spd</property>
            <value>5</value>
          </equals>
+         <greater-than>
+           <property>systems/electrical/outputs/efis</property>
+           <value>15</value>
+         </greater-than>
+       </and>
       </condition>
  </animation>
  
@@ -945,10 +1060,16 @@
    <type>select</type>
      <object-name>APspd.crz</object-name>
        <condition>
+       <and>
          <equals>
            <property>instrumentation/flightdirector/spd</property>
            <value>6</value>
          </equals>
+         <greater-than>
+           <property>systems/electrical/outputs/efis</property>
+           <value>15</value>
+         </greater-than>
+       </and>
       </condition>
  </animation>
  
@@ -973,10 +1094,16 @@
    <type>select</type>
      <object-name>APspd.thridl</object-name>
        <condition>
+       <and>
          <equals>
            <property>instrumentation/flightdirector/spd</property>
 	   <value>8</value>
          </equals>
+         <greater-than>
+           <property>systems/electrical/outputs/efis</property>
+           <value>15</value>
+         </greater-than>
+       </and>
       </condition>
  </animation>
  
@@ -1001,10 +1128,16 @@
    <type>select</type>
      <object-name>APspd.thrdes</object-name>
        <condition>
+       <and>
          <equals>
            <property>instrumentation/flightdirector/spd</property>
 	   <value>7</value>
          </equals>
+         <greater-than>
+           <property>systems/electrical/outputs/efis</property>
+           <value>15</value>
+         </greater-than>
+       </and>
       </condition>
  </animation>
  
@@ -1029,13 +1162,19 @@
    <type>select</type>
      <object-name>APspd.thrlvr</object-name>
        <condition>
+       <and>
          <equals>
            <property>/instrumentation/flightdirector/spd-arm</property>
 	   <value>3</value>
          </equals>
+         <greater-than>
+           <property>systems/electrical/outputs/efis</property>
+           <value>15</value>
+         </greater-than>
+       </and>
       </condition>
  </animation>
-
+ 
 <text>
   <name>APspd.thrdes.arm</name>
   <axis-alignment>yz-plane</axis-alignment>
@@ -1056,10 +1195,16 @@
    <type>select</type>
      <object-name>APspd.thrdes.arm</object-name>
        <condition>
+       <and>
          <equals>
            <property>instrumentation/flightdirector/spd-arm</property>
 	   <value>7</value>
          </equals>
+         <greater-than>
+           <property>systems/electrical/outputs/efis</property>
+           <value>15</value>
+         </greater-than>
+       </and>
       </condition>
  </animation>
  
@@ -1083,10 +1228,16 @@
    <type>select</type>
      <object-name>APspd.crz.arm</object-name>
        <condition>
+       <and>
          <equals>
            <property>instrumentation/flightdirector/spd-arm</property>
            <value>6</value>
          </equals>
+         <greater-than>
+           <property>systems/electrical/outputs/efis</property>
+           <value>15</value>
+         </greater-than>
+       </and>
       </condition>
  </animation>
  
@@ -1110,10 +1261,16 @@
    <type>select</type>
      <object-name>APspd.thridl.arm</object-name>
        <condition>
+       <and>
          <equals>
            <property>instrumentation/flightdirector/spd-arm</property>
 	   <value>8</value>
          </equals>
+         <greater-than>
+           <property>systems/electrical/outputs/efis</property>
+           <value>15</value>
+         </greater-than>
+       </and>
       </condition>
  </animation>
 
@@ -1155,10 +1312,16 @@
    <type>select</type>
      <object-name>APvnav.alt</object-name>
        <condition>
+       <and>
          <equals>
            <property>instrumentation/flightdirector/vnav</property>
            <value>1</value>
          </equals>
+         <greater-than>
+           <property>systems/electrical/outputs/efis</property>
+           <value>15</value>
+         </greater-than>
+       </and>
       </condition>
  </animation>
  
@@ -1166,10 +1329,16 @@
    <type>select</type>
      <object-name>APvnav.altcrz</object-name>
        <condition>
+       <and>
 	 <equals>
 	   <property>instrumentation/flightdirector/vnav</property>
            <value>7</value>
 	 </equals>
+	 <greater-than>
+           <property>systems/electrical/outputs/efis</property>
+           <value>15</value>
+         </greater-than>
+       </and>
       </condition>
  </animation>
  
@@ -1193,10 +1362,16 @@
    <type>select</type>
      <object-name>APvnav.vs</object-name>
        <condition>
+       <and>
          <equals>
            <property>instrumentation/flightdirector/vnav</property>
            <value>2</value>
          </equals>
+         <greater-than>
+           <property>systems/electrical/outputs/efis</property>
+           <value>15</value>
+         </greater-than>
+       </and>
       </condition>
  </animation>
  
@@ -1220,10 +1395,16 @@
    <type>select</type>
      <object-name>APvnav.opclb</object-name>
        <condition>
+       <and>
          <equals>
            <property>instrumentation/flightdirector/vnav</property>
            <value>3</value>
          </equals>
+         <greater-than>
+           <property>systems/electrical/outputs/efis</property>
+           <value>15</value>
+         </greater-than>
+       </and>
       </condition>
  </animation>
  
@@ -1247,10 +1428,16 @@
    <type>select</type>
      <object-name>APvnav.fpa</object-name>
        <condition>
+       <and>
          <equals>
            <property>instrumentation/flightdirector/vnav</property>
            <value>4</value>
          </equals>
+         <greater-than>
+           <property>systems/electrical/outputs/efis</property>
+           <value>15</value>
+         </greater-than>
+       </and>
       </condition>
  </animation>
  
@@ -1274,10 +1461,16 @@
    <type>select</type>
      <object-name>APvnav.opdes</object-name>
        <condition>
+       <and>
          <equals>
            <property>instrumentation/flightdirector/vnav</property>
            <value>5</value>
          </equals>
+         <greater-than>
+           <property>systems/electrical/outputs/efis</property>
+           <value>15</value>
+         </greater-than>
+       </and>
       </condition>
  </animation>
  
@@ -1301,10 +1494,16 @@
    <type>select</type>
      <object-name>APvnav.clb</object-name>
        <condition>
+       <and>
          <equals>
            <property>instrumentation/flightdirector/vnav</property>
            <value>6</value>
          </equals>
+         <greater-than>
+           <property>systems/electrical/outputs/efis</property>
+           <value>15</value>
+         </greater-than>
+       </and>
       </condition>
  </animation>
 
@@ -1329,10 +1528,16 @@
    <type>select</type>
      <object-name>APvnav.des</object-name>
        <condition>
+       <and>
          <equals>
            <property>instrumentation/flightdirector/vnav</property>
            <value>8</value>
          </equals>
+         <greater-than>
+           <property>systems/electrical/outputs/efis</property>
+           <value>15</value>
+         </greater-than>
+       </and>
       </condition>
  </animation>
  
@@ -1357,10 +1562,16 @@
    <type>select</type>
      <object-name>APvnav.gs</object-name>
        <condition>
+       <and>
          <equals>
            <property>instrumentation/flightdirector/vnav</property>
            <value>9</value>
          </equals>
+         <greater-than>
+           <property>systems/electrical/outputs/efis</property>
+           <value>15</value>
+         </greater-than>
+       </and>
       </condition>
  </animation>
  
@@ -1384,13 +1595,19 @@
    <type>select</type>
      <object-name>APvnav.srs</object-name>
        <condition>
+       <and>
          <equals>
            <property>instrumentation/flightdirector/vnav</property>
            <value>10</value>
          </equals>
+         <greater-than>
+           <property>systems/electrical/outputs/efis</property>
+           <value>15</value>
+         </greater-than>
+       </and>
       </condition>
  </animation>
-
+ 
   <text>
   <name>APvnav.clb.arm</name>
   <axis-alignment>yz-plane</axis-alignment>
@@ -1411,10 +1628,16 @@
    <type>select</type>
      <object-name>APvnav.clb.arm</object-name>
        <condition>
+       <and>
          <equals>
            <property>instrumentation/flightdirector/vnav-arm</property>
            <value>6</value>
          </equals>
+         <greater-than>
+           <property>systems/electrical/outputs/efis</property>
+           <value>15</value>
+         </greater-than>
+       </and>
       </condition>
  </animation>
 
@@ -1438,10 +1661,16 @@
    <type>select</type>
      <object-name>APvnav.des.arm</object-name>
        <condition>
+       <and>
          <equals>
            <property>instrumentation/flightdirector/vnav-arm</property>
            <value>8</value>
          </equals>
+         <greater-than>
+           <property>systems/electrical/outputs/efis</property>
+           <value>15</value>
+         </greater-than>
+       </and>
       </condition>
  </animation>
  
@@ -1481,10 +1710,16 @@
    <type>select</type>
      <object-name>APvnav.alt.arm</object-name>
        <condition>
+       <and>
          <equals>
            <property>instrumentation/flightdirector/vnav-arm</property>
            <value>1</value>
          </equals>
+         <greater-than>
+           <property>systems/electrical/outputs/efis</property>
+           <value>15</value>
+         </greater-than>
+       </and>
       </condition>
  </animation>
  
@@ -1492,10 +1727,16 @@
    <type>select</type>
      <object-name>APvnav.altcrz.arm</object-name>
        <condition>
+       <and>
 	 <equals>
 	   <property>instrumentation/flightdirector/vnav-arm</property>
            <value>7</value>
 	 </equals>
+	 <greater-than>
+           <property>systems/electrical/outputs/efis</property>
+           <value>15</value>
+         </greater-than>
+       </and>
       </condition>
  </animation> 
  
@@ -1519,10 +1760,16 @@
    <type>select</type>
      <object-name>APvnav.gs.arm</object-name>
        <condition>
+       <and>
          <equals>
            <property>instrumentation/flightdirector/vnav-arm</property>
            <value>9</value>
          </equals>
+         <greater-than>
+           <property>systems/electrical/outputs/efis</property>
+           <value>15</value>
+         </greater-than>
+       </and>
       </condition>
  </animation>
  
@@ -1630,5 +1877,20 @@
    <transparency><alpha>0.7</alpha></transparency>
 </animation>
 
+<animation>
+  <type>select</type>
+  <object-name>ALTribbon</object-name>
+  <object-name>ASIribbon</object-name>
+  <object-name>alt_grp</object-name>
+  <object-name>horizon</object-name>
+  <object-name>PFD_Mask</object-name>
+  <object-name>VS_scale</object-name>
+  <condition>
+    <greater-than>
+      <property>systems/electrical/outputs/efis</property>
+      <value>15</value>
+    </greater-than>
+  </condition>
+</animation>
+
 </PropertyList> 
- 

@@ -13,6 +13,7 @@
      2009	FDalvi		lot's of new stuff
      2009	SHamilton	AFS, FMS, Flight Guidance, Doors, weight and other stuff
      2009	SHamilton	MFD, STAR/SID, updated PFD, Pre-flight Tutorial
+     2010	SHamilton	Electrical system
      
 
 -->
@@ -33,17 +34,20 @@
 
     <systems>
      <autopilot>
-     <path>Aircraft/A380/A380-autopilot.xml</path>
-    </autopilot>
-    	<!--Modified by Ampere-->
-    <!-- electrical>
- 		<path>Aircraft/A380/Systems/Electrical/electrical.xml</path>
-    </electrical -->
-    <hydraulical>
- 		<path>Aircraft/A380/Systems/Hydraulical/hydraulics.xml</path>
-     </hydraulical>
- 	<!--End modifications -->
-   </systems>
+       <path>Aircraft/A380/A380-autopilot.xml</path>
+      </autopilot>
+      <!--Modified by Ampere-->
+      <!-- electrical>
+        <path>Aircraft/A380/Systems/Electrical/electrical.xml</path>
+      </electrical -->
+      <hydraulical>
+        <path>Aircraft/A380/Systems/Hydraulical/hydraulics.xml</path>
+      </hydraulical>
+      <!--End modifications -->
+      <electrical>
+        <path>Aircraft/A380/Systems/Electrical/A380-electrical.xml</path>
+      </electrical>
+    </systems>
 
    <sound>
     <path>Aircraft/A380/Sounds/A380-sound.xml</path>
@@ -176,14 +180,7 @@
     <max-negative-g>-2.76</max-negative-g>
   </limits>
   
-    <systems>
-      <electrical>
-        <path>Aircraft/A380/Systems/Electrical/electrical.xml</path>
-      </electrical>
-      <autopilot>
-	      <path>Aircraft/A380/A380-autopilot.xml</path>
-      </autopilot>
-    </systems>
+    
     
     <!-- sound>
      <path>Aircraft/A380/Sounds/A380-sound.xml</path>
@@ -202,9 +199,13 @@
         <name>Delete</name>
         <desc>toggle thrust reversers</desc>
       </key>
-        <key>
+      <key>
         <name>Ctrl-b</name>
         <desc>toggle speed brakes</desc>
+      </key>
+      <key>
+        <name>Ctrl-e</name>
+        <desc>Toggle external ground power connection</desc>
       </key>
       <key>
         <name>k</name>
@@ -446,179 +447,198 @@ The A380 Aircraft is released under GPL as part of the FlightGear.org project.
 
 
 
-  <input>
-    <keyboard>
-      <key n="127">
-        <name>Delete</name>
-        <desc>Toggle Reversers</desc>
+<input>
+  <keyboard>
+    <key n="5">
+      <name>CTRL-E</name>
+      <desc>Toggle connection of ground external power</desc>
+      <binding>
+        <command>nasal</command>
+        <script>A380.toggleExternalServices()</script>
+      </binding>
+    </key>
+    <key n="127">
+      <name>Delete</name>
+      <desc>Toggle Reversers</desc>
+      <binding>
+        <command>nasal</command>
+        <script>reversethrust.togglereverser()</script>
+      </binding>
+    </key>
+    
+    <key n="40">
+      <name>[</name>
+      <desc>Decrease flaps</desc>
+      <binding>
+        <command>nasal</command>
+        <script>controls.flapsDown(-1)</script>
+      </binding>
+      <mod-up>
         <binding>
           <command>nasal</command>
-          <script>reversethrust.togglereverser()</script>
+          <script>controls.flapsDown(0)</script>
         </binding>
-      </key>
- <key n="40">
-  <name>[</name>
-  <desc>Decrease flaps</desc>
-  <binding>
-   <command>nasal</command>
-   <script>controls.flapsDown(-1)</script>
-  </binding>
-  <mod-up>
-   <binding>
-    <command>nasal</command>
-    <script>controls.flapsDown(0)</script>
-   </binding>
-  </mod-up>
- </key>
+      </mod-up>
+    </key>
 
- <key n="41">
-  <name>]</name>
-  <desc>Increase flaps</desc>
-  <binding>
-   <command>nasal</command>
-   <script>controls.flapsDown(1)</script>
-  </binding>
-  <mod-up>
-   <binding>
-    <command>nasal</command>
-    <script>controls.flapsDown(0)</script>
-   </binding>
-  </mod-up>
- </key>
+    <key n="41">
+      <name>]</name>
+      <desc>Increase flaps</desc>
+      <binding>
+        <command>nasal</command>
+        <script>controls.flapsDown(1)</script>
+      </binding>
+      <mod-up>
+        <binding>
+          <command>nasal</command>
+          <script>controls.flapsDown(0)</script>
+        </binding>
+      </mod-up>
+    </key>
  
-  <key n="106">
-  <name>j</name>
-  <desc>Decrease spoilers</desc>
-  <binding>
-   <command>nasal</command>
-   <script>A380.stepSpeedbrake(-1)</script>
-  </binding>
- </key>
+    <key n="106">
+      <name>j</name>
+      <desc>Decrease spoilers</desc>
+      <binding>
+        <command>nasal</command>
+        <script>A380.stepSpeedbrake(-1)</script>
+      </binding>
+    </key>
 
- <key n="107">
-  <name>k</name>
-  <desc>Increase spoilers</desc>
-  <binding>
-   <command>nasal</command>
-   <script>A380.stepSpeedbrake(1)</script>
-  </binding>
- </key>
+    <key n="107">
+      <name>k</name>
+      <desc>Increase spoilers</desc>
+      <binding>
+        <command>nasal</command>
+        <script>A380.stepSpeedbrake(1)</script>
+      </binding>
+    </key>
 
-		<key n="101">
-			<name>e</name>
-			<desc>Cycle cockpit location - Stand up, walk around, sit down</desc>
-			<binding>
-				<command>nasal</command>
-				<script>walk.cycle_cockpit(1)</script>
-			</binding>
-		</key>
-		<key n="69">
-			<name>E</name>
-			<desc>Cycle cockpit location - Return to cockpit</desc>
-			<binding>
-				<command>nasal</command>
-				<script>walk.cycle_cockpit(10)</script>
-			</binding>
-		</key>
-		<key n="119">
-			<name>w</name>
-			<desc>Walk forward toward view</desc>
-			<repeatable>true</repeatable>
-			<binding>
-				<command>nasal</command>
-				<script>walk.walk_about(0.1)</script>
-			</binding>
-		</key>
-		<key n="87">
-			<name>W</name>
-			<desc>Walk backward from view</desc>
-			<repeatable>true</repeatable>
-			<binding>
-				<command>nasal</command>
-				<script>walk.walk_about(-0.1)</script>
-			</binding>
-		</key>
+    <!-- key n="101">
+      <name>e</name>
+      <desc>Cycle cockpit location - Stand up, walk around, sit down</desc>
+      <binding>
+        <command>nasal</command>
+        <script>walk.cycle_cockpit(1)</script>
+      </binding>
+    </key>
+    
+    <key n="69">
+      <name>E</name>
+      <desc>Cycle cockpit location - Return to cockpit</desc>
+      <binding>
+        <command>nasal</command>
+        <script>walk.cycle_cockpit(10)</script>
+      </binding>
+    </key -->
+    
+    <key n="119">
+      <name>w</name>
+      <desc>Walk forward toward view</desc>
+      <repeatable>true</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>walk.walk_about(0.1)</script>
+      </binding>
+    </key>
+    
+    <key n="87">
+      <name>W</name>
+      <desc>Walk backward from view</desc>
+      <repeatable>true</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>walk.walk_about(-0.1)</script>
+      </binding>
+    </key>
 
-<key n="68">
-  <name>D</name>
-  <desc>Aft Cargo door</desc>
-  <binding>
-    <command>nasal</command>
-    <script>DOORS.doorsystem.aftCargo()</script>
-  </binding>
-</key>
-<key n="100">
-  <name>d</name>
-  <desc>Forward Cargo door</desc>
-  <binding>
-    <command>nasal</command>
-    <script>DOORS.doorsystem.forwardCargo()</script>
-  </binding>
-</key>
-<key n="33">
-  <name>!</name>
-  <desc>Pax Left Lower door 1</desc>
-  <binding>
-    <command>nasal</command>
-    <script>DOORS.doorsystem.paxLeftLow1()</script>
-  </binding>
-</key>
-<key n="64">
-  <name>@</name>
-  <desc>Pax Left Upper door 1</desc>
-  <binding>
-    <command>nasal</command>
-    <script>DOORS.doorsystem.paxLeftUp1()</script>
-  </binding>
-</key>
-<key n="35">
-  <name>#</name>
-  <desc>Pax Right Lower door 1</desc>
-  <binding>
-    <command>nasal</command>
-    <script>DOORS.doorsystem.paxRightLow1()</script>
-  </binding>
-</key>
-<key n="36">
-  <name>$</name>
-  <desc>Pax Right Upper door 1</desc>
-  <binding>
-    <command>nasal</command>
-    <script>DOORS.doorsystem.paxRightUp1()</script>
-  </binding>
-</key>
-<key n="37">
-  <name>%</name>
-  <desc>Pax Left Lower door 2</desc>
-  <binding>
-    <command>nasal</command>
-    <script>DOORS.doorsystem.paxLeftLow2()</script>
-  </binding>
-</key>
-<key n="94">
-  <name>^</name>
-  <desc>Pax Right Lower door 2</desc>
-  <binding>
-    <command>nasal</command>
-    <script>DOORS.doorsystem.paxRightLow2()</script>
-  </binding>
-</key>
+    <key n="68">
+      <name>D</name>
+      <desc>Aft Cargo door</desc>
+      <binding>
+        <command>nasal</command>
+        <script>DOORS.doorsystem.aftCargo()</script>
+      </binding>
+    </key>
+    
+    <key n="100">
+      <name>d</name>
+       <desc>Forward Cargo door</desc>
+       <binding>
+         <command>nasal</command>
+         <script>DOORS.doorsystem.forwardCargo()</script>
+       </binding>
+     </key>
+     
+     <key n="33">
+       <name>!</name>
+       <desc>Pax Left Lower door 1</desc>
+       <binding>
+         <command>nasal</command>
+         <script>DOORS.doorsystem.paxLeftLow1()</script>
+       </binding>
+     </key>
+     
+    <key n="64">
+      <name>@</name>
+      <desc>Pax Left Upper door 1</desc>
+      <binding>
+        <command>nasal</command>
+        <script>DOORS.doorsystem.paxLeftUp1()</script>
+      </binding>
+    </key>
+    
+    <key n="35">
+      <name>#</name>
+      <desc>Pax Right Lower door 1</desc>
+      <binding>
+        <command>nasal</command>
+        <script>DOORS.doorsystem.paxRightLow1()</script>
+      </binding>
+    </key>
+    
+    <key n="36">
+      <name>$</name>
+      <desc>Pax Right Upper door 1</desc>
+      <binding>
+        <command>nasal</command>
+        <script>DOORS.doorsystem.paxRightUp1()</script>
+      </binding>
+    </key>
+    
+    <key n="37">
+      <name>%</name>
+      <desc>Pax Left Lower door 2</desc>
+      <binding>
+        <command>nasal</command>
+        <script>DOORS.doorsystem.paxLeftLow2()</script>
+      </binding>
+    </key>
+    
+    <key n="94">
+      <name>^</name>
+      <desc>Pax Right Lower door 2</desc>
+      <binding>
+        <command>nasal</command>
+        <script>DOORS.doorsystem.paxRightLow2()</script>
+      </binding>
+    </key>
 
-
-   <key n="9">
-    <name>Tab</name>
-    <desc>switch autobrake</desc>
-    <binding>
-     <command>property-cycle</command>
-     <property>/controls/gear/autobrakes</property>
-     <value>0</value> 
-     <value>1</value> 
-     <value>2</value> 
-     <value>3</value> 
-     <value>4</value> 
-     <value>5</value> 
-    </binding>
-   </key>
+    <key n="9">
+      <name>Tab</name>
+      <desc>switch autobrake</desc>
+      <binding>
+        <command>property-cycle</command>
+        <property>/controls/gear/autobrakes</property>
+        <value>0</value> 
+        <value>1</value> 
+        <value>2</value> 
+        <value>3</value> 
+        <value>4</value> 
+        <value>5</value> 
+      </binding>
+    </key>
+   
    <key n="360">  
      <name>PAGEUP</name>
      <desc>Increments Thrust</desc>
@@ -634,6 +654,7 @@ The A380 Aircraft is released under GPL as part of the FlightGear.org project.
        </binding>
      </mod-shift>
    </key>
+   
    <key n="361"> 
      <name>PAGEDN</name>
      <desc>Decrements Thrust</desc>
@@ -650,23 +671,21 @@ The A380 Aircraft is released under GPL as part of the FlightGear.org project.
      </mod-shift>
    </key>
 
-<key n="261">
- <name>F5</name>
- <repeatable type="bool">true</repeatable>
- <mod-shift>
-  <desc>Reload autopilot configuration</desc>
-  <binding>
-   <command>nasal</command>
-   <script>
-    fgcommand('reinit', props.Node.new({ subsystem: "xml-autopilot" }));
-    print("xml-autopilot reinitialized!");
-   </script>
-  </binding>
- </mod-shift>
-</key>
-
-   
- </keyboard>
+   <key n="261">
+     <name>F5</name>
+     <repeatable type="bool">true</repeatable>
+     <mod-shift>
+       <desc>Reload autopilot configuration</desc>
+       <binding>
+         <command>nasal</command>
+         <script>
+         fgcommand('reinit', props.Node.new({ subsystem: "xml-autopilot" }));
+         print("xml-autopilot reinitialized!");
+         </script>
+       </binding>
+     </mod-shift>
+   </key>
+  </keyboard>
 </input>
   
 <surface-positions>
@@ -699,8 +718,6 @@ The A380 Aircraft is released under GPL as part of the FlightGear.org project.
     <cabin-lights type="double">0.8</cabin-lights>
     <map-lights type="double">0.0</map-lights>
     <master-panel type="bool">1</master-panel>
-    <smoking type="double">0</smoking>
-    <seat-belt type="double">0</seat-belt>
     <storm type="bool">1</storm>
   </switches>
   <engines>
@@ -717,6 +734,81 @@ The A380 Aircraft is released under GPL as part of the FlightGear.org project.
       <thrust-lever>0</thrust-lever>
     </engine>
   </engines>
+  <electric>
+    <contact>
+      <engine_1 type="bool">1</engine_1>
+      <engine_2 type="bool">1</engine_2>
+      <engine_3 type="bool">1</engine_3>
+      <engine_4 type="bool">1</engine_4>
+      <apu_gen-a type="bool">1</apu_gen-a>
+      <apu_gen-b type="bool">1</apu_gen-b>
+      <batt_1 type="bool">1</batt_1>
+      <batt_2 type="bool">1</batt_2>
+      <ess_bat type="bool">1</ess_bat>
+      <apu_bat type="bool">1</apu_bat>
+      <external_1 type="bool">0</external_1>
+      <external_2 type="bool">0</external_2>
+      <external_3 type="bool">0</external_3>
+      <external_4 type="bool">0</external_4>
+      <pax_sys type="bool">1</pax_sys>
+      <galley type="bool">1</galley>
+      <commercial type="bool">1</commercial>
+      <bus_tie type="bool">1</bus_tie>
+      <dc_left_tie type="bool">1</dc_left_tie>
+      <dc_right_tie type="bool">0</dc_right_tie>
+      <tr_left_tie type="bool">0</tr_left_tie>
+      <tr_right_tie type="bool">0</tr_right_tie>
+    </contact>
+    <ground>
+      <external_1 type="bool">0</external_1>
+      <external_2 type="bool">0</external_2>
+      <external_3 type="bool">0</external_3>
+      <external_4 type="bool">0</external_4>
+    </ground>
+  </electric>
+  <pressurization>
+    <pack>
+      <hotair-on type="bool">0</hotair-on>
+      <pack-valve type="float">1.0</pack-valve>
+      <hotair-valve type="float">1.0</hotair-valve>
+    </pack>
+    <pack>
+      <hotair-on type="bool">0</hotair-on>
+      <pack-valve type="float">1.0</pack-valve>
+      <hotair-valve type="float">1.0</hotair-valve>
+    </pack>
+    <engine>
+      <bleed-on type="bool">0</bleed-on>
+      <hp-valve type="float">0</hp-valve>
+      <lp-valve type="float">0</lp-valve>
+      <bleed-psi type="int">0</bleed-psi>
+      <bleed-degc type="int">0</bleed-degc>
+    </engine>
+    <engine>
+      <bleed-on type="bool">0</bleed-on>
+      <hp-valve type="float">0</hp-valve>
+      <lp-valve type="float">0</lp-valve>
+      <bleed-psi type="int">0</bleed-psi>
+      <bleed-degc type="int">0</bleed-degc>
+    </engine>
+    <engine>
+      <bleed-on type="bool">0</bleed-on>
+      <hp-valve type="float">0</hp-valve>
+      <lp-valve type="float">0</lp-valve>
+      <bleed-psi type="int">0</bleed-psi>
+      <bleed-degc type="int">0</bleed-degc>
+    </engine>
+    <engine>
+      <bleed-on type="bool">0</bleed-on>
+      <hp-valve type="float">0</hp-valve>
+      <lp-valve type="float">0</lp-valve>
+      <bleed-psi type="int">0</bleed-psi>
+      <bleed-degc type="int">0</bleed-degc>
+    </engine>
+    <apu>
+      <bleed-on type="bool">0</bleed-on>
+    </apu>
+  </pressurization>
 </controls>
 
 <instrumentation>
@@ -809,16 +901,16 @@ The A380 Aircraft is released under GPL as part of the FlightGear.org project.
 	  <suction>/systems/vacuum[1]/suction-inhg</suction>
 	</attitude-indicator -->
 
- <wxradar>
-  <serviceable>true</serviceable>
-  <range type="int" archive="y">20</range>
-  <minimized type="bool" archive="y">false</minimized>
-  <switch archive="y">off</switch>
-  <mode archive="y">wx</mode>
-  <lightning type="bool" archive="y">false</lightning>
-  <display-mode archive="y">arc</display-mode>
- </wxradar>
- <nav n="2">
+  <wxradar>
+      <serviceable>true</serviceable>
+      <range type="int" archive="y">20</range>
+      <minimized type="bool" archive="y">false</minimized>
+      <switch archive="y">off</switch>
+      <mode archive="y">wx</mode>
+      <lightning type="bool" archive="y">false</lightning>
+      <display-mode archive="y">arc</display-mode>
+  </wxradar>
+  <nav n="2">
     <serviceable type="bool">true</serviceable>
     <operable type="bool">true</operable>
     <power-btn type="bool">true</power-btn>
@@ -826,13 +918,18 @@ The A380 Aircraft is released under GPL as part of the FlightGear.org project.
       <selected-mhz>110.1</selected-mhz>
       <standby-mhz>109.3</standby-mhz>
     </frequencies>
- </nav>
-
+  </nav>
+  <pressurisation>
+    <cabin-pressure-psi type="float">14.69594</cabin-pressure-psi>
+    <cabin-pressure-hpa type="float">1013.25</cabin-pressure-hpa>
+    <cabin-altitude-ft  type="float">0.0</cabin-altitude-ft>
+    <cabin-delta-psi type="float">0.0</cabin-delta-psi>
+  </pressurisation>
 </instrumentation>
 
 <nasal>
     <A380>
-      <file>Aircraft/A380/Nasal/electrical.nas</file>
+      <!-- file>Aircraft/A380/Nasal/electrical.nas</file -->
       <file>Aircraft/A380/Nasal/TextRegion.nas</file>
       <file>Aircraft/A380/Nasal/AirbusFMS.nas</file>
       <file>Aircraft/A380/Nasal/system.nas</file>

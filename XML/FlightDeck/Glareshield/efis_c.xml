@@ -7,6 +7,17 @@
 	<offsets>
 		<z-m>0.25</z-m>
 	</offsets>
+	
+    <animation>
+       <type>material</type>
+       <object-name>backlight</object-name>
+       <emission>
+         <red>0.325</red>
+         <green>0.184</green>
+         <blue>0.001</blue>
+         <factor-prop>/controls/switches/storm-lights</factor-prop>
+       </emission>
+    </animation>
 
  <animation>
     <type>pick</type>
@@ -62,56 +73,7 @@
       </binding>
     </action>
   </animation>
- 
- 
-  <!-- animation>
-   <type>textranslate</type>
-   <object-name>baro.04</object-name>
-   <property>/instrumentation/efis/baro</property>
-   <factor>0.0001</factor>
-   <step>1000.0</step>
-   <axis>
-     <x>0</x>
-     <y>1</y>
-     <z>0</z>
-   </axis>
- </animation>
- <animation>
-   <type>textranslate</type>
-   <object-name>baro.03</object-name>
-   <property>/instrumentation/efis/baro</property>
-   <factor>0.001</factor>
-   <step>100.0</step>
-   <axis>
-     <x>0</x>
-     <y>1</y>
-     <z>0</z>
-   </axis>
- </animation>
- <animation>
-   <type>textranslate</type>
-   <object-name>baro.02</object-name>
-   <property>/instrumentation/efis/baro</property>
-   <factor>0.01</factor>
-   <step>10.0</step>
-   <axis>
-     <x>0</x>
-     <y>1</y>
-     <z>0</z>
-   </axis>
- </animation>
- <animation>
-   <type>textranslate</type>
-   <object-name>baro.01</object-name>
-   <property>/instrumentation/efis/baro</property>
-   <factor>0.1</factor>
-   <step>1.0</step>
-   <axis>
-     <x>0</x>
-     <y>1</y>
-     <z>0</z>
-   </axis>
- </animation -->
+
    <text>
     <name>baro.value.hPa</name>
     <axis-alignment>yz-plane</axis-alignment>
@@ -175,6 +137,10 @@
           <property>/instrumentation/efis/baro-std-mode</property>
           <value>0</value>
         </equals>
+        <greater-than>
+          <property>/systems/electrical/outputs/efis</property>
+          <value>15</value>
+        </greater-than>
       </and>
     </condition>
   </animation>
@@ -192,6 +158,10 @@
           <property>/instrumentation/efis/baro-std-mode</property>
           <value>0</value>
         </equals>
+        <greater-than>
+          <property>/systems/electrical/outputs/efis</property>
+          <value>15</value>
+        </greater-than>
       </and>
     </condition>
   </animation>
@@ -200,10 +170,16 @@
     <type>select</type>
     <object-name>baro.value.std</object-name>
     <condition>
+      <and>
         <equals>
           <property>/instrumentation/efis/baro-std-mode</property>
           <value>1</value>
         </equals>
+        <greater-than>
+          <property>/systems/electrical/outputs/efis</property>
+          <value>15</value>
+        </greater-than>
+      </and>
     </condition>
   </animation>
  
@@ -211,10 +187,16 @@
    <type>select</type>
    <object-name>mode.plan</object-name>
    <condition>
-     <equals>
-     <property>/instrumentation/wxradar/display-mode</property>
-     <value>3</value>
-     </equals>
+     <or>
+     <not-equals>
+     <property>/instrumentation/efis/mfd/display-mode</property>
+     <value>PLAN</value>
+     </not-equals>
+     <less-than>
+        <property>/systems/electrical/outputs/efis</property>
+        <value>15</value>
+      </less-than>
+     </or>
    </condition>
  </animation>
  
@@ -222,10 +204,16 @@
    <type>select</type>
    <object-name>mode.arc</object-name>
    <condition>
-     <equals>
-     <property>/instrumentation/wxradar/display-mode</property>
-     <value>2</value>
-     </equals>
+     <or>
+     <not-equals>
+     <property>/instrumentation/efis/mfd/display-mode</property>
+     <value>MAP</value>
+     </not-equals>
+     <less-than>
+        <property>/systems/electrical/outputs/efis</property>
+        <value>15</value>
+      </less-than>
+     </or>
    </condition>
  </animation>
   
@@ -233,10 +221,16 @@
    <type>select</type>
    <object-name>mode.nav</object-name>
    <condition>
-     <equals>
-     <property>/instrumentation/wxradar/display-mode</property>
-     <value>0</value>
-     </equals>
+     <or>
+       <not-equals>
+         <property>/instrumentation/efis/mfd/display-mode</property>
+         <value>NAV</value>
+       </not-equals>
+       <less-than>
+        <property>/systems/electrical/outputs/efis</property>
+        <value>15</value>
+      </less-than>
+     </or>
    </condition>
  </animation>
   
@@ -244,10 +238,16 @@
    <type>select</type>
    <object-name>mode.vor</object-name>
    <condition>
-     <equals>
-     <property>/instrumentation/wxradar/display-mode</property>
-     <value>1</value>
-     </equals>
+     <or>
+     <not-equals>
+     <property>/instrumentation/efis/mfd/display-mode</property>
+     <value>VOR</value>
+     </not-equals>
+     <less-than>
+        <property>/systems/electrical/outputs/efis</property>
+        <value>15</value>
+      </less-than>
+     </or>
    </condition>
  </animation>
   
@@ -255,10 +255,16 @@
    <type>select</type>
    <object-name>mode.ls</object-name>
    <condition>
-     <equals>
-     <property>/instrumentation/wxradar/display-mode</property>
-     <value>4</value>
-     </equals>
+     <or>
+       <not-equals>
+         <property>/instrumentation/efis/mfd/display-mode</property>
+         <value>LS</value>
+       </not-equals>
+       <less-than>
+        <property>/systems/electrical/outputs/efis</property>
+        <value>15</value>
+      </less-than>
+     </or>
    </condition>
  </animation>
 
@@ -328,10 +334,16 @@
    <type>select</type>
    <object-name>range.zoom</object-name>
    <condition>
-   <less-than>
-     <property>/instrumentation/wxradar/range</property>
-     <value>10</value>
-   </less-than>
+     <or>
+     <greater-than>
+     <property>/instrumentation/radar/range</property>
+     <value>9</value>
+     </greater-than>
+     <less-than>
+        <property>/systems/electrical/outputs/efis</property>
+        <value>15</value>
+      </less-than>
+     </or>
    </condition>
  </animation>
 
@@ -339,10 +351,16 @@
    <type>select</type>
    <object-name>range.10</object-name>
    <condition>
-   <equals>
-     <property>/instrumentation/wxradar/range</property>
-     <value>10</value>
-   </equals>
+     <or>
+     <not-equals>
+       <property>/instrumentation/radar/range</property>
+       <value>10</value>
+     </not-equals>
+     <less-than>
+        <property>/systems/electrical/outputs/efis</property>
+        <value>15</value>
+      </less-than>
+      </or>
    </condition>
  </animation>
  
@@ -350,10 +368,16 @@
    <type>select</type>
    <object-name>range.20</object-name>
    <condition>
-   <equals>
-     <property>/instrumentation/wxradar/range</property>
-     <value>20</value>
-   </equals>
+     <or>
+     <not-equals>
+       <property>/instrumentation/radar/range</property>
+       <value>20</value>
+     </not-equals>
+     <less-than>
+        <property>/systems/electrical/outputs/efis</property>
+        <value>15</value>
+      </less-than>
+     </or>
    </condition>
  </animation>
   
@@ -361,10 +385,16 @@
    <type>select</type>
    <object-name>range.40</object-name>
    <condition>
-   <equals>
-     <property>/instrumentation/wxradar/range</property>
+     <or>
+     <not-equals>
+     <property>/instrumentation/radar/range</property>
      <value>40</value>
-   </equals>
+     </not-equals>
+     <less-than>
+        <property>/systems/electrical/outputs/efis</property>
+        <value>15</value>
+      </less-than>
+     </or>
    </condition>
  </animation>
   
@@ -372,10 +402,16 @@
    <type>select</type>
    <object-name>range.80</object-name>
    <condition>
-   <equals>
-     <property>/instrumentation/wxradar/range</property>
+     <or>
+     <not-equals>
+     <property>/instrumentation/radar/range</property>
      <value>80</value>
-   </equals>
+     </not-equals>
+     <less-than>
+        <property>/systems/electrical/outputs/efis</property>
+        <value>15</value>
+      </less-than>
+     </or>
    </condition>
  </animation>
   
@@ -383,10 +419,16 @@
    <type>select</type>
    <object-name>range.160</object-name>
    <condition>
-   <equals>
-     <property>/instrumentation/wxradar/range</property>
+     <or>
+     <not-equals>
+     <property>/instrumentation/radar/range</property>
      <value>160</value>
-   </equals>
+     </not-equals>
+     <less-than>
+        <property>/systems/electrical/outputs/efis</property>
+        <value>15</value>
+     </less-than>
+     </or>
    </condition>
  </animation>
   
@@ -394,10 +436,16 @@
    <type>select</type>
    <object-name>range.320</object-name>
    <condition>
-   <equals>
-     <property>/instrumentation/wxradar/range</property>
-     <value>320</value>
-   </equals>
+     <or>
+     <not-equals>
+       <property>/instrumentation/radar/range</property>
+       <value>320</value>
+     </not-equals>
+     <less-than>
+        <property>/systems/electrical/outputs/efis</property>
+        <value>15</value>
+      </less-than>
+     </or>
    </condition>
  </animation>
   
@@ -405,10 +453,16 @@
    <type>select</type>
    <object-name>range.640</object-name>
    <condition>
-   <equals>
-     <property>/instrumentation/wxradar/range</property>
+     <or>
+     <not-equals>
+     <property>/instrumentation/radar/range</property>
      <value>640</value>
-   </equals>
+     </not-equals>
+     <less-than>
+        <property>/systems/electrical/outputs/efis</property>
+        <value>15</value>
+      </less-than>
+     </or>
    </condition>
  </animation>
  
@@ -440,6 +494,7 @@
     <shininess>128.0</shininess>
     <transparency><alpha>0.7</alpha></transparency>
   </animation>
+
 
 </PropertyList> 
  

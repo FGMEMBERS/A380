@@ -17,7 +17,17 @@
 	</offsets>
 	
 	
-	
+
+<animation>
+       <type>material</type>
+       <object-name>backlight</object-name>
+       <emission>
+         <red>0.325</red>
+         <green>0.184</green>
+         <blue>0.001</blue>
+         <factor-prop>/controls/switches/storm-lights</factor-prop>
+       </emission>
+    </animation>
 <!-- ALT -->
 <!-- Altitude readout and knob -->
  
@@ -65,20 +75,32 @@
   <type>select</type>
   <object-name>FCU.alt.ft</object-name>
   <condition>
+    <and>
     <equals>   
       <property>/instrumentation/afs/vertical-alt-display</property>
       <value>0</value>
     </equals>
+    <greater-than>
+      <property>/systems/electrical/outputs/efis</property>
+      <value>15</value>
+    </greater-than>
+    </and>
   </condition>
 </animation>
 <animation>
   <type>select</type>
   <object-name>FCU.alt.dashes</object-name>
   <condition>
+    <and>
     <equals>   
       <property>/instrumentation/afs/vertical-alt-display</property>
       <value>-1</value>
     </equals>
+    <greater-than>
+      <property>/systems/electrical/outputs/efis</property>
+      <value>15</value>
+    </greater-than>
+    </and>
   </condition>
 </animation>
 
@@ -161,20 +183,32 @@
   <type>select</type>
   <object-name>FCU.spd.kts</object-name>
   <condition>
+    <and>
     <equals>   
       <property>/instrumentation/afs/spd-display</property>
       <value>0</value>
     </equals>
+    <greater-than>
+      <property>/systems/electrical/outputs/efis</property>
+      <value>15</value>
+    </greater-than>
+    </and>
   </condition>
 </animation>
 <animation>
   <type>select</type>
   <object-name>FCU.spd.dashes</object-name>
   <condition>
+  <and>
     <equals>   
       <property>/instrumentation/afs/spd-display</property>
       <value>-1</value>
     </equals>
+    <greater-than>
+      <property>/systems/electrical/outputs/efis</property>
+      <value>15</value>
+    </greater-than>
+    </and>
   </condition>
 </animation>
  
@@ -267,20 +301,32 @@
   <type>select</type>
   <object-name>FCU.vs.fpm</object-name>
   <condition>
+    <and>
     <equals>   
       <property>/instrumentation/afs/vertical-vs-display</property>
       <value>0</value>
     </equals>
+    <greater-than>
+      <property>/systems/electrical/outputs/efis</property>
+      <value>15</value>
+    </greater-than>
+    </and>
   </condition>
 </animation>
 <animation>
   <type>select</type>
   <object-name>FCU.vs.dashes</object-name>
   <condition>
+  <and>
     <equals>   
       <property>/instrumentation/afs/vertical-vs-display</property>
       <value>-1</value>
     </equals>
+    <greater-than>
+      <property>/systems/electrical/outputs/efis</property>
+      <value>15</value>
+    </greater-than>
+    </and>
   </condition>
 </animation>
 
@@ -374,22 +420,36 @@
   <type>select</type>
   <object-name>FCU.hdg.degs</object-name>
   <condition>
+  <and>
     <equals>   
       <property>/instrumentation/afs/lateral-display</property>
       <value>0</value>
     </equals>
+    <greater-than>
+      <property>/systems/electrical/outputs/efis</property>
+      <value>15</value>
+    </greater-than>
+    </and>
   </condition>
 </animation>
+
 <animation>
   <type>select</type>
   <object-name>FCU.hdg.dashes</object-name>
   <condition>
+  <and>
     <equals>   
       <property>/instrumentation/afs/lateral-display</property>
       <value>-1</value>
     </equals>
+    <greater-than>
+      <property>/systems/electrical/outputs/efis</property>
+      <value>15</value>
+    </greater-than>
+    </and>
   </condition>
 </animation>
+
   <animation>
   <type>pick</type>
   <object-name>HDG knob</object-name>
