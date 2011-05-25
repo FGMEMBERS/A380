@@ -90,38 +90,6 @@
    		<path>Aircraft/A380/XML/windshield.xml</path>
   	</model> -->
 
-	<!--
-  	<model>
-  		<path>Aircraft/747/Models/boeing747-400-pfd-jw.xml</path>
-  		<offsets>
-   			<x-m>9.66</x-m>
-   			<y-m>-0.70</y-m>
-   			<z-m>6.63</z-m>
-   			<pitch-deg>-20.0</pitch-deg>
-  		</offsets>
- 	</model>
-
- 	<model>
-  		<path>Aircraft/747/Models/boeing747-400-enav-jw.xml</path>
-  		<offsets>
-   			<x-m> 9.66</x-m>
-   			<y-m>-0.45</y-m>
-   			<z-m>6.63</z-m>
-   			<pitch-deg>-20.0</pitch-deg>
-  		</offsets>
- 	</model>
-  
- 	<model>
-  		<path>Aircraft/A380/Models/a380-eicas.xml</path>
-  		<offsets>
-   			<x-m>9.75</x-m>
-   			<y-m>-0.2</y-m>
-   			<z-m>6.63</z-m>
-   			<pitch-deg>-20.0</pitch-deg>
- 		</offsets>
- 	</model>
-	-->
-
 	<!-- Gear Animation -->
    	<animation>
   		<type>rotate</type>

@@ -9,7 +9,7 @@
 #
 
 var fmsWP = {
-    new : func{
+    new : func {
         var me = {parents:[fmsWP]};
 
         me.wp_name = "";
@@ -22,6 +22,8 @@ var fmsWP = {
         me.alt_csrt = 0;       # alt constrain in ft
         me.spd_csrt = 0;       # spd constrain in kts
         me.hdg_radial = 0.0;   # either heading/track or radial
+        me.leg_distance = 0;   # NM for this leg
+        me.leg_bearing  = 0.0; # deg bearing for this leg
 
         return me;
     },

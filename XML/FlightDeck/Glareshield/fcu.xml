@@ -50,52 +50,13 @@
       <width type="int">32</width>
       <height type="int">32</height>
     </font-resolution>
-  </text>
-  <text>
-    <name>FCU.alt.dashes</name>
-    <axis-alignment>yz-plane</axis-alignment>
-    <alignment>right-bottom</alignment>
-    <offsets>
-      <pitch-deg>-90.0</pitch-deg>
-      <x-m>-0.068</x-m>
-      <y-m>0.06</y-m>
-      <z-m>-0.0009</z-m>
-    </offsets>
-    <type>literal</type>
-    <text type="string">-----</text>
-    <font>led.txf</font>
-    <character-size type="double">0.009</character-size>
-    <font-resolution>
-      <width type="int">32</width>
-      <height type="int">32</height>
-    </font-resolution>
-  </text>  
+  </text> 
 
 <animation>
   <type>select</type>
   <object-name>FCU.alt.ft</object-name>
   <condition>
     <and>
-    <equals>   
-      <property>/instrumentation/afs/vertical-alt-display</property>
-      <value>0</value>
-    </equals>
-    <greater-than>
-      <property>/systems/electrical/outputs/efis</property>
-      <value>15</value>
-    </greater-than>
-    </and>
-  </condition>
-</animation>
-<animation>
-  <type>select</type>
-  <object-name>FCU.alt.dashes</object-name>
-  <condition>
-    <and>
-    <equals>   
-      <property>/instrumentation/afs/vertical-alt-display</property>
-      <value>-1</value>
-    </equals>
     <greater-than>
       <property>/systems/electrical/outputs/efis</property>
       <value>15</value>
@@ -104,7 +65,24 @@
   </condition>
 </animation>
 
-  <animation>
+<animation>
+  <type>select</type>
+  <object-name>lvl_managed</object-name>
+  <condition>
+    <and>
+      <equals>
+        <property>instrumentation/afs/vertical-lvl-managed-mode</property>
+        <value>-1</value>
+      </equals>
+      <greater-than>
+        <property>/systems/electrical/outputs/efis</property>
+        <value>15</value>
+      </greater-than>
+    </and>
+  </condition>
+</animation>
+
+<animation>
   <type>pick</type>
   <object-name>ALT knob</object-name>
   <action>
@@ -143,6 +121,19 @@
   </action>
 </animation>
 
+<animation>
+  <type>pick</type>
+  <object-name>Mach-Spd.knob</object-name>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>FCU.toggle_mach_spd();</script>
+   </binding>
+  </action>
+</animation>
+
 
 <!-- SPD -->
 <!--  Autothrottle SPD readout and knob -->
@@ -160,6 +151,22 @@
     <type>number-value</type>
     <property type="string">/instrumentation/afs/target-speed-kt</property>
     <format type="string">%3.0f</format>
+    <font>led.txf</font>
+    <character-size type="double">0.009</character-size>
+  </text>
+  <text>
+    <name>FCU.spd.mach</name>
+    <axis-alignment>yz-plane</axis-alignment>
+    <alignment>right-bottom</alignment>
+    <offsets>
+      <pitch-deg>-90.0</pitch-deg>
+      <x-m>-0.068</x-m>
+      <y-m>-0.08</y-m>
+      <z-m>-0.0009</z-m>
+    </offsets>
+    <type>number-value</type>
+    <property type="string">/instrumentation/afs/target-speed-mach</property>
+    <format type="string">%1.2f</format>
     <font>led.txf</font>
     <character-size type="double">0.009</character-size>
   </text>
@@ -188,6 +195,30 @@
       <property>/instrumentation/afs/spd-display</property>
       <value>0</value>
     </equals>
+    <equals>
+      <property>instrumentation/afs/spd-mach-display-mode</property>
+      <value>0</value>
+    </equals>
+    <greater-than>
+      <property>/systems/electrical/outputs/efis</property>
+      <value>15</value>
+    </greater-than>
+    </and>
+  </condition>
+</animation>
+<animation>
+  <type>select</type>
+  <object-name>FCU.spd.mach</object-name>
+  <condition>
+    <and>
+    <equals>   
+      <property>/instrumentation/afs/spd-display</property>
+      <value>0</value>
+    </equals>
+    <equals>
+      <property>instrumentation/afs/spd-mach-display-mode</property>
+      <value>1</value>
+    </equals>
     <greater-than>
       <property>/systems/electrical/outputs/efis</property>
       <value>15</value>
@@ -208,6 +239,23 @@
       <property>/systems/electrical/outputs/efis</property>
       <value>15</value>
     </greater-than>
+    </and>
+  </condition>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>spd_managed</object-name>
+  <condition>
+    <and>
+      <equals>
+        <property>instrumentation/afs/speed-managed-mode</property>
+        <value>-1</value>
+      </equals>
+      <greater-than>
+        <property>/systems/electrical/outputs/efis</property>
+        <value>15</value>
+      </greater-than>
     </and>
   </condition>
 </animation>
@@ -272,7 +320,7 @@
     <offsets>
       <pitch-deg>-90.0</pitch-deg>
       <x-m>-0.068</x-m>
-      <y-m>0.0935</y-m>
+      <y-m>0.1045</y-m>  <!-- 0.0935 -->
       <z-m>-0.0009</z-m>
     </offsets>
     <type>number-value</type>
@@ -288,7 +336,7 @@
     <offsets>
       <pitch-deg>-90.0</pitch-deg>
       <x-m>-0.068</x-m>
-      <y-m>0.0935</y-m>
+      <y-m>0.1045</y-m>   <!-- 0.0935 -->
       <z-m>-0.0009</z-m>
     </offsets>
     <type>literal</type>
@@ -330,7 +378,7 @@
   </condition>
 </animation>
 
- <animation>
+<animation>
   <type>pick</type>
   <object-name>VS knob</object-name>
   <action>
@@ -435,6 +483,23 @@
 
 <animation>
   <type>select</type>
+  <object-name>hdg_managed</object-name>
+  <condition>
+    <and>
+      <equals>
+        <property>instrumentation/afs/lateral-managed-mode</property>
+        <value>-1</value>
+      </equals>
+      <greater-than>
+        <property>/systems/electrical/outputs/efis</property>
+        <value>15</value>
+      </greater-than>
+    </and>
+  </condition>
+</animation>
+
+<animation>
+  <type>select</type>
   <object-name>FCU.hdg.dashes</object-name>
   <condition>
   <and>
@@ -450,7 +515,7 @@
   </condition>
 </animation>
 
-  <animation>
+<animation>
   <type>pick</type>
   <object-name>HDG knob</object-name>
   <action>
@@ -504,6 +569,7 @@
   <animation>
     <type>material</type>
     <object-name>FCU.spd.kts</object-name>
+    <object-name>FCU.spd.mach</object-name>
     <object-name>FCU.spd.dashes</object-name>
     <object-name>FCU.hdg.degs</object-name>
     <object-name>FCU.hdg.dashes</object-name>
@@ -539,6 +605,7 @@
   <animation>
     <type>noshadow</type>
     <object-name>FCU.spd.kts</object-name>
+    <object-name>FCU.spd.mach</object-name>
     <object-name>FCU.spd.dashes</object-name>
     <object-name>FCU.hdg.degs</object-name>
     <object-name>FCU.hdg.dashes</object-name>

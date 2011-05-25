@@ -34,7 +34,16 @@
 
     <systems>
      <autopilot>
+       <name>A380 custom</name>
        <path>Aircraft/A380/A380-autopilot.xml</path>
+      </autopilot>
+      <autopilot>
+        <name>ecs</name>
+	<path>Aircraft/A380/Systems/CabinPressureSystem.xml</path>
+      </autopilot>
+      <autopilot>
+        <name>helper</name>
+        <path>Aircraft/Generic/generic-autopilot-helper.xml</path>
       </autopilot>
       <!--Modified by Ampere-->
       <!-- electrical>
@@ -127,15 +136,20 @@
        <pitch-offset-deg>-10</pitch-offset-deg>   <!-- -15 -->
        <default-field-of-view-deg type="double">90.0</default-field-of-view-deg>  <!-- 70.0 -->
        <heading-offset-deg type="double">358.0</heading-offset-deg>
-      </config>
-      <dynamic>
+     </config>
+     <dynamic>
         <enabled type="bool">false</enabled>
-       </dynamic>
-     </view>
-     <view n="102">
-       <enabled type="bool">false</enabled>
-     </view>
-     <chase-distance-m>-100</chase-distance-m> <!-- -75 -->
+     </dynamic>
+  </view>
+  <view n="102">
+    <name>jump seat</name>
+    <enabled type="bool">false</enabled>
+  </view>
+  <view n="103">
+    <name>unused</name>
+    <enabled type="bool">false</enabled>
+  </view>
+  <chase-distance-m>-100</chase-distance-m> <!-- -75 -->
   
   <flaps>
 	  <setting>0.000</setting>  <!-- flaps up -->
@@ -347,6 +361,10 @@ The A380 Aircraft is released under GPL as part of the FlightGear.org project.
        <name>mk-viii</name>
        <number>0</number>
     </mk-viii>
+    <tcas>
+       <name>tcas</name>
+       <number>0</number>
+    </tcas>
   </instrumentation>
   </sim>
 
@@ -925,11 +943,138 @@ The A380 Aircraft is released under GPL as part of the FlightGear.org project.
     <cabin-altitude-ft  type="float">0.0</cabin-altitude-ft>
     <cabin-delta-psi type="float">0.0</cabin-delta-psi>
   </pressurisation>
+  <tcas>                                <!-- http://wiki.flightgear.org/index.php/TCAS -->
+     <serviceable type="bool">true</serviceable>
+                                         <!-- TCAS ENABLE -->
+     <inputs>
+         <mode type="int">3</mode>       <!-- 0=off, 1=standby, 2=TA-only, 3=auto(TA/RA) -->
+     </inputs>
+     <voice>
+         <file-prefix type="string">Sounds/tcas/</file-prefix>
+                                         <!-- sound file path and prefix -->
+     </voice>
+     <speaker>                           <!-- Speaker Configuration -->
+       <max-dist> 2 </max-dist>          <!-- Max. distance where speaker is heard -->
+       <reference-dist> 1 </reference-dist> <!-- Distance to pilot -->
+       <volume> 0.6 </volume>            <!-- Volume at reference distance -->
+     </speaker>
+   </tcas>
+   <mcdu>
+     <dropdown>
+       <active type="bool">false</active>
+       <title type="string">ACTIVE</title>
+       <menu>
+         <item type="string">INIT</item>
+         <page>active.init</page>
+         <item type="string">FLT PLN</item>
+         <page>active.flt_pln</page>
+       </menu>
+     </dropdown>
+     <dropdown>
+       <active type="bool">false</active>
+       <title type="string">POSITION</title>
+       <menu>
+       </menu>
+     </dropdown>
+     <dropdown>
+       <active type="bool">false</active>
+       <title type="string">SEC</title>
+       <menu>
+         <item>INIT</item>
+         <page>sec.init</page>
+         <item type="string">FLT PLN</item>
+         <page>sec.flt_pln</page>
+         <item>COPY</item>
+         <page>sec.copy</page>
+       </menu>
+     </dropdown>
+     <dropdown>
+       <active type="bool">false</active>
+       <title type="string">DATA</title>
+       <menu>
+       </menu>
+     </dropdown>
+   </mcdu>
+   <mcdu>
+     <dropdown>
+       <active type="bool">false</active>
+       <title type="string">ACTIVE</title>
+       <menu>
+         <item type="string">INIT</item>
+         <page>active.init</page>
+         <item type="string">FLT PLN</item>
+         <page>active.flt_pln</page>
+       </menu>
+     </dropdown>
+     <dropdown>
+       <active type="bool">false</active>
+       <title type="string">POSITION</title>
+     </dropdown>
+     <dropdown>
+       <active type="bool">false</active>
+       <title type="string">SEC</title>
+       <menu>
+         <item>INIT</item>
+         <page>sec.init</page>
+         <item type="string">FLT PLN</item>
+         <page>sec.flt_pln</page>
+         <item>COPY</item>
+         <page>sec.copy</page>
+       </menu>
+     </dropdown>
+     <dropdown>
+       <active type="bool">false</active>
+       <title type="string">DATA</title>
+     </dropdown>
+   </mcdu>
+   <fms>
+     <plan>
+       <display-nodes>
+       <wp>
+         <node-type type="int">6</node-type>
+         <node-type type="int">4</node-type>
+       </wp>
+       <wp>
+         <node-type type="int">3</node-type>
+         <node-type type="int">4</node-type>
+       </wp>
+       <wp>
+         <node-type type="int">3</node-type>
+         <node-type type="int">4</node-type>
+       </wp>
+       <wp>
+         <node-type type="int">3</node-type>
+         <node-type type="int">4</node-type>
+       </wp>
+       <wp>
+         <node-type type="int">3</node-type>
+         <node-type type="int">4</node-type>
+       </wp>
+       <wp>
+         <node-type type="int">3</node-type>
+         <node-type type="int">4</node-type>
+       </wp>
+       <wp>
+         <node-type type="int">3</node-type>
+         <node-type type="int">4</node-type>
+       </wp>
+       <wp>
+         <node-type type="int">3</node-type>
+         <node-type type="int">4</node-type>
+       </wp>
+       <wp>
+         <node-type type="int">3</node-type>
+         <node-type type="int">4</node-type>
+       </wp>
+       </display-nodes>
+     </plan>
+   </fms>
+
 </instrumentation>
 
 <nasal>
     <A380>
-      <!-- file>Aircraft/A380/Nasal/electrical.nas</file -->
+      <file>Aircraft/A380/Nasal/Atmos.nas</file>
       <file>Aircraft/A380/Nasal/TextRegion.nas</file>
       <file>Aircraft/A380/Nasal/AirbusFMS.nas</file>
       <file>Aircraft/A380/Nasal/system.nas</file>
@@ -956,6 +1101,7 @@ The A380 Aircraft is released under GPL as part of the FlightGear.org project.
     </FCU>
     
     <MCDU1>
+      <file>Aircraft/A380/Nasal/Atmos.nas</file>
       <file>Aircraft/A380/Nasal/mcdu.nas</file>
       <file>Aircraft/A380/Nasal/fmsDB.nas</file>
       <file>Aircraft/A380/Nasal/fmsWP.nas</file>
@@ -964,6 +1110,7 @@ The A380 Aircraft is released under GPL as part of the FlightGear.org project.
     </MCDU1>
     
     <MCDU2>
+      <file>Aircraft/A380/Nasal/Atmos.nas</file>
       <file>Aircraft/A380/Nasal/mcdu.nas</file>
       <file>Aircraft/A380/Nasal/fmsDB.nas</file>
       <file>Aircraft/A380/Nasal/fmsWP.nas</file>

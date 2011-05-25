@@ -1334,7 +1334,8 @@
       <value>engine</value>
     </equals>
   </condition>
-  <property>/engines/engine[0]/fuel-flow_kgph</property>
+  <!-- property>/engines/engine[0]/fuel-flow_kgph</property -->
+  <property>/fdm/jsbsim/propulsion/engine[0]/fuel-flow-rate-kgph</property>
   <factor>0.1</factor>
   <step>1</step>  
   <axis>
@@ -1352,7 +1353,8 @@
       <value>engine</value>
     </equals>
   </condition>
-  <property>/engines/engine[0]/fuel-flow_kgph</property>
+  <!-- property>/engines/engine[0]/fuel-flow_kgph</property -->
+  <property>/fdm/jsbsim/propulsion/engine[0]/fuel-flow-rate-kgph</property>
   <factor>0.01</factor>
   <step>10</step> 
   <axis>
@@ -1370,7 +1372,8 @@
       <value>engine</value>
     </equals>
   </condition>
-  <property>/engines/engine[0]/fuel-flow_kgph</property>
+  <!-- property>/engines/engine[0]/fuel-flow_kgph</property -->
+  <property>/fdm/jsbsim/propulsion/engine[0]/fuel-flow-rate-kgph</property>
   <factor>0.001</factor>
   <step>100</step>
   <axis>
@@ -1390,7 +1393,8 @@
       <value>engine</value>
     </equals>
   </condition>
-  <property>/engines/engine[1]/fuel-flow_kgph</property>
+  <!-- property>/engines/engine[1]/fuel-flow_kgph</property -->
+  <property>/fdm/jsbsim/propulsion/engine[1]/fuel-flow-rate-kgph</property>
   <factor>0.1</factor>
   <step>1</step>  
   <axis>
@@ -1408,7 +1412,8 @@
       <value>engine</value>
     </equals>
   </condition>
-  <property>/engines/engine[1]/fuel-flow_kgph</property>
+  <!-- property>/engines/engine[1]/fuel-flow_kgph</property -->
+  <property>/fdm/jsbsim/propulsion/engine[1]/fuel-flow-rate-kgph</property>
   <factor>0.01</factor>
   <step>10</step> 
   <axis>
@@ -1426,7 +1431,8 @@
       <value>engine</value>
     </equals>
   </condition>
-  <property>/engines/engine[1]/fuel-flow_kgph</property>
+  <!-- property>/engines/engine[1]/fuel-flow_kgph</property -->
+  <property>/fdm/jsbsim/propulsion/engine[1]/fuel-flow-rate-kgph</property>
   <factor>0.001</factor>
   <step>100</step>
   <axis>
@@ -1446,7 +1452,8 @@
       <value>engine</value>
     </equals>
   </condition>
-  <property>/engines/engine[2]/fuel-flow_kgph</property>
+  <!-- property>/engines/engine[2]/fuel-flow_kgph</property -->
+  <property>/fdm/jsbsim/propulsion/engine[2]/fuel-flow-rate-kgph</property>
   <factor>0.1</factor>
   <step>1</step>  
   <axis>
@@ -1464,7 +1471,8 @@
       <value>engine</value>
     </equals>
   </condition>
-  <property>/engines/engine[2]/fuel-flow_kgph</property>
+  <!-- property>/engines/engine[2]/fuel-flow_kgph</property -->
+  <property>/fdm/jsbsim/propulsion/engine[2]/fuel-flow-rate-kgph</property>
   <factor>0.01</factor>
   <step>10</step> 
   <axis>
@@ -1482,7 +1490,8 @@
       <value>engine</value>
     </equals>
   </condition>
-  <property>/engines/engine[2]/fuel-flow_kgph</property>
+  <!-- property>/engines/engine[2]/fuel-flow_kgph</property -->
+  <property>/fdm/jsbsim/propulsion/engine[2]/fuel-flow-rate-kgph</property>
   <factor>0.001</factor>
   <step>100</step>
   <axis>
@@ -1502,7 +1511,8 @@
       <value>engine</value>
     </equals>
   </condition>
-  <property>/engines/engine[3]/fuel-flow_kgph</property>
+  <!-- property>/engines/engine[3]/fuel-flow_kgph</property -->
+  <property>/fdm/jsbsim/propulsion/engine[3]/fuel-flow-rate-kgph</property>
   <factor>0.1</factor>
   <step>1</step>  
   <axis>
@@ -1520,7 +1530,8 @@
       <value>engine</value>
     </equals>
   </condition>
-  <property>/engines/engine[3]/fuel-flow_kgph</property>
+  <!-- property>/engines/engine[3]/fuel-flow_kgph</property -->
+  <property>/fdm/jsbsim/propulsion/engine[3]/fuel-flow-rate-kgph</property>
   <factor>0.01</factor>
   <step>10</step> 
   <axis>
@@ -1538,7 +1549,8 @@
       <value>engine</value>
     </equals>
   </condition>
-  <property>/engines/engine[3]/fuel-flow_kgph</property>
+  <!-- property>/engines/engine[3]/fuel-flow_kgph</property -->
+  <property>/fdm/jsbsim/propulsion/engine[3]/fuel-flow-rate-kgph</property>
   <factor>0.001</factor>
   <step>100</step>
   <axis>
@@ -2165,8 +2177,9 @@
       <z-m>0.0011</z-m>
    </offsets>
    <type>number-value</type>
-   <property type="string">/engines/engine[0]/fuel-flow_kgph</property>
-   <format type="string">%02.0f</format>
+   <!-- property type="string">/engines/engine[0]/fuel-flow_kgph</property -->
+   <property>/fdm/jsbsim/propulsion/engine[0]/fuel-flow-rate-kgph</property>
+   <format type="string">%04.0f</format>
    <font>helvetica_medium.txf</font>
    <character-size type="double">0.006</character-size>
  </text>
@@ -2182,8 +2195,9 @@
       <z-m>0.0011</z-m>
    </offsets>
    <type>number-value</type>
-   <property type="string">/engines/engine[1]/fuel-flow_kgph</property>
-   <format type="string">%02.0f</format>
+   <!-- property type="string">/engines/engine[1]/fuel-flow_kgph</property -->
+   <property>/fdm/jsbsim/propulsion/engine[1]/fuel-flow-rate-kgph</property>
+   <format type="string">%04.0f</format>
    <font>helvetica_medium.txf</font>
    <character-size type="double">0.006</character-size>
  </text>
@@ -2199,8 +2213,9 @@
       <z-m>0.0011</z-m>
    </offsets>
    <type>number-value</type>
-   <property type="string">/engines/engine[2]/fuel-flow_kgph</property>
-   <format type="string">%02.0f</format>
+   <!-- property type="string">/engines/engine[2]/fuel-flow_kgph</property -->
+   <property>/fdm/jsbsim/propulsion/engine[2]/fuel-flow-rate-kgph</property>
+   <format type="string">%04.0f</format>
    <font>helvetica_medium.txf</font>
    <character-size type="double">0.006</character-size>
  </text>
@@ -2216,8 +2231,9 @@
       <z-m>0.0011</z-m>
    </offsets>
    <type>number-value</type>
-   <property type="string">/engines/engine[3]/fuel-flow_kgph</property>
-   <format type="string">%02.0f</format>
+   <!-- property type="string">/engines/engine[3]/fuel-flow_kgph</property -->
+   <property>/fdm/jsbsim/propulsion/engine[3]/fuel-flow-rate-kgph</property>
+   <format type="string">%04.0f</format>
    <font>helvetica_medium.txf</font>
    <character-size type="double">0.006</character-size>
  </text>
@@ -2237,7 +2253,7 @@
       <z-m>0.0011</z-m>
    </offsets>
    <type>number-value</type>
-   <property type="string">/engines/engine[0]/fuel-consumed-kg</property>
+   <property type="string">fdm/jsbsim/propulsion/engine[0]/fuel-used-kg</property>
    <format type="string">%04.0f</format>
    <font>helvetica_medium.txf</font>
    <character-size type="double">0.006</character-size>
@@ -2254,7 +2270,7 @@
       <z-m>0.0011</z-m>
    </offsets>
    <type>number-value</type>
-   <property type="string">/engines/engine[1]/fuel-consumed-kg</property>
+   <property type="string">fdm/jsbsim/propulsion/engine[1]/fuel-used-kg</property>
    <format type="string">%04.0f</format>
    <font>helvetica_medium.txf</font>
    <character-size type="double">0.006</character-size>
@@ -2271,7 +2287,7 @@
       <z-m>0.0011</z-m>
    </offsets>
    <type>number-value</type>
-   <property type="string">/engines/engine[2]/fuel-consumed-kg</property>
+   <property type="string">fdm/jsbsim/propulsion/engine[2]/fuel-used-kg</property>
    <format type="string">%04.0f</format>
    <font>helvetica_medium.txf</font>
    <character-size type="double">0.006</character-size>
@@ -2288,7 +2304,7 @@
       <z-m>0.0011</z-m>
    </offsets>
    <type>number-value</type>
-   <property type="string">/engines/engine[3]/fuel-consumed-kg</property>
+   <property type="string">fdm/jsbsim/propulsion/engine[3]/fuel-used-kg</property>
    <format type="string">%04.0f</format>
    <font>helvetica_medium.txf</font>
    <character-size type="double">0.006</character-size>
@@ -2376,8 +2392,9 @@
       <z-m>0.0011</z-m>
    </offsets>
    <type>number-value</type>
-   <property type="string">/controls/pressurisation/cabin_vs</property>
-   <format type="string">%4.0f</format>
+   <property type="string">/controls/pressurisation/cabin-vs-schedule</property>
+   <factor type="double">60.0</factor>
+   <format type="string">%3.0f</format>
    <font>helvetica_medium.txf</font>
    <character-size type="double">0.006</character-size>
  </text>

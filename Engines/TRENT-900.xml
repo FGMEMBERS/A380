@@ -76,5 +76,21 @@
    </table>
   </function -->
 
+  <function name="propulsion/engine[#]/fuel-flow-rate-kgph" type="post">
+    <product>
+      <product>
+        <property>propulsion/engine[#]/fuel-flow-rate-pps</property>
+        <value>0.45359237</value>
+      </product>
+      <value>3600</value>
+    </product>
+  </function>
+  
+  <function name="propulsion/engine[#]/fuel-used-kg" type="post">
+    <product>
+      <property>propulsion/engine[#]/fuel-used-lbs</property>
+      <value>0.45359237</value>
+    </product>
+  </function>
 
 </turbine_engine>

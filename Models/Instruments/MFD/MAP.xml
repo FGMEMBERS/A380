@@ -54,8 +54,8 @@
             </condition>
             <name>hdgbug</name>
             <emissive>true</emissive>
-            <w>20</w>
-            <h>20</h>
+            <w>21</w>
+            <h>21</h>
             <texture>
                 <path>Aircraft/A380/Models/Instruments/MFD/airbus_symbols.png</path>
                 <x1>0.035</x1>

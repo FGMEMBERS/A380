@@ -17,7 +17,7 @@
 -->
 
     <fileheader>
-        <author>Cunningram, Ampere, Hamilton, et al</author>
+        <author>Cunningham, Ampere, Hamilton, et al</author>
         <filecreationdate> Creation Date </filecreationdate>
         <version>V1.0.3</version>
         <description>Models an A380</description>
@@ -51,8 +51,8 @@
             <y> -32 </y>
             <z> 80 </z>
         </location>
-        <location name="VRP" unit="IN">
-            <x> 0 </x>
+        <location name="VRP" unit="M">
+            <x> 30.0 </x>
             <y> 0 </y>
             <z> 0 </z>
         </location>
@@ -139,7 +139,7 @@
     <ground_reactions>
         <contact type="BOGEY" name="Nose Gear">
             <location unit="IN">
-                <x> 488,52 </x>
+                <x> 488.52 </x>
                 <y> 0 </y>
                 <z> -344.9 </z>
             </location>
@@ -148,14 +148,15 @@
             <rolling_friction> 0.02 </rolling_friction>
             <spring_coeff unit="LBS/FT"> 362502 </spring_coeff>
             <damping_coeff unit="LBS/FT/SEC"> 120834 </damping_coeff>
-            <max_steer unit="DEG"> 30 </max_steer>
-            <brake_group> NONE </brake_group>
+            <max_steer unit="DEG"> 70 </max_steer>
+            <brake_group> NOSE </brake_group>
             <retractable>1</retractable>
         </contact>
         <contact type="BOGEY" name="Left Main gear">
             <location unit="IN">
                 <x> 1644 </x>
-                <y> -282.8 </y>
+                <!-- y> -282.8 </y -->
+                <y>278.972441</y>
                 <z> -344.9 </z>
             </location>
             <static_friction> 0.8 </static_friction>
@@ -163,14 +164,15 @@
             <rolling_friction> 0.02 </rolling_friction>
             <spring_coeff unit="LBS/FT"> 1.20834e+06 </spring_coeff>
             <damping_coeff unit="LBS/FT/SEC"> 241668 </damping_coeff>
-            <max_steer unit="DEG"> 0.0 </max_steer>
+            <max_steer unit="DEG"> 0.0 </max_steer>   <!-- was 0.0 -->
             <brake_group> LEFT </brake_group>
             <retractable>1</retractable>
         </contact>
         <contact type="BOGEY" name="Right Main Gear">
             <location unit="IN">
                 <x> 1644 </x>
-                <y> 282.8 </y>
+                <!-- y> 282.8 </y -->
+                <y>-278.972441</y>
                 <z> -344.9 </z>
             </location>
             <static_friction> 0.8 </static_friction>
@@ -178,7 +180,7 @@
             <rolling_friction> 0.02 </rolling_friction>
             <spring_coeff unit="LBS/FT"> 1.20834e+06 </spring_coeff>
             <damping_coeff unit="LBS/FT/SEC"> 241668 </damping_coeff>
-            <max_steer unit="DEG"> 0.0 </max_steer>
+            <max_steer unit="DEG"> 0.0 </max_steer>   <!-- was 0.0 -->
             <brake_group> RIGHT </brake_group>
             <retractable>1</retractable>
         </contact>
@@ -517,6 +519,7 @@
             <contents unit="LBS"> 20000 </contents>
 	    <priority>5</priority>
         </tank>
+            
 	
     </propulsion>
 
@@ -773,9 +776,9 @@
                       <tableData>
                       0.00	0.00
                       0.25	0.00
-                      0.53	0.00
-                      0.79	0.03
-                      1.00	0.05
+                      0.53	0.001  <!-- 0.00 -->
+                      0.79	0.024   <!-- 0.03 -->
+                      1.00	0.038    <!-- 0.05 -->
                       </tableData>
                     </table>
                 </product>
@@ -891,7 +894,7 @@
                     <property>aero/qbar-psf</property>
                     <property>metrics/Sw-sqft</property>
                     <property>fcs/speedbrake-pos-norm</property>
-                    <value>-0.0800</value>
+                    <value>-0.0830</value>   <!-- -0.08 -->
                 </product>
             </function>
             <function name="aero/coefficient/CLde">
@@ -1075,5 +1078,6 @@
 		</direction>
 	 </force>
     </external_reactions>
+
 
 </fdm_config>
