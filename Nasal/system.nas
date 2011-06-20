@@ -35,7 +35,8 @@ SPD_THRCLB=3;
 SPD_SPEED=4;
 SPD_MACH=5;
 SPD_CRZ=6;
-SPD_THRIDL=7;
+SPD_THRDES=7;
+SPD_THRIDL=8;
 
 aircraft.livery.init("Aircraft/A380/XML/Liveries");
 
@@ -206,6 +207,14 @@ update_radar = func {
   var myAlt = getprop("/position/altitude-ft");
   var currentPos = geo.Coord.new();
   currentPos.set_latlon(getprop("/position/latitude-deg"), getprop("/position/longitude-deg"), getprop("/position/altitude-ft"));
+
+  ## calculate distance from departure airport using straight line
+  #
+  #var departPos = geo.Coord.new();
+  #departPos.setlatlon(getprop("instrumentation/gps/wp/wp[0]/latitude-deg"), getprop("instrumentation/gps/wp/wp[0]/longitude-deg"), getprop("instrumentation/gps/wp/wp[0]/altitude-ft"));
+  #var departDistMetre   = currentPos.distance_to(departPos);
+  
+
 
   ## set NAV[1] (R VOR) to always be our ref navaid
   #
@@ -822,11 +831,12 @@ update_engines = func {
 check_acquire_mode = func {
    var acquireMode = getprop("/instrumentation/flightdirector/alt-acquire-mode");
    if (acquireMode == 1) {
+     var vnavMode = getprop("instrumentation/flightdirector/vnav");
      var alt = getprop("/position/altitude-ft");
      var vsSpeed = getprop("/velocities/vertical-speed-fps");
      var selectAlt = getprop("/instrumentation/afs/target-altitude-ft");
-     if (vsSpeed > 0) {
-       if (alt >= (selectAlt-300)) {
+     if (vsSpeed > 0 and vnavMode != VNAV_DES and vnavMode != VNAV_OPDES) {
+       if (alt >= (selectAlt-400)) {
          setprop("autopilot/settings/target-altitude-ft", getprop("instrumentation/afs/target-altitude-ft"));
          setprop("autopilot/locks/altitude","altitude-hold");
          ##setprop("/instrumentation/flightdirector/vnav", VNAV_ALT);
@@ -840,7 +850,7 @@ check_acquire_mode = func {
        }
      }
      if (vsSpeed < 0) {
-       if (alt <= (selectAlt+300)) {
+       if (alt <= (selectAlt+400) and vnavMode != VNAV_CLB and vnavMode != VNAV_OPCLB) {
          setprop("autopilot/settings/target-altitude-ft", getprop("instrumentation/afs/target-altitude-ft"));
          setprop("autopilot/locks/altitude","altitude-hold");
          ##setprop("/instrumentation/flightdirector/vnav", VNAV_ALT);

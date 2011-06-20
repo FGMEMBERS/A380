@@ -165,7 +165,7 @@
       <prop>/autopilot/internal/target-roll-deg</prop>
     </output>
     <config>
-      <Kp>-0.7</Kp>        <!-- proportional gain --> <!-- was -1.5 SAH 2010-12-13 --> <!-- was -1.0 2011-04-26 --> <!-- was -1.7 2011-04-27 -->
+      <Kp>-1.5</Kp>        <!-- proportional gain --> <!-- was -1.5 SAH 2010-12-13 --> <!-- was -1.0 2011-04-26 --> <!-- was -1.7 2011-04-27 -->
       <beta>1.0</beta>     <!-- input value weighing factor -->
       <alpha>0.1</alpha>   <!-- low pass filter weighing factor -->
       <gamma>0.0</gamma>   <!-- input value weighing factor for -->
@@ -195,7 +195,7 @@
       <prop>/autopilot/internal/target-roll-deg-cmd</prop>
     </output>
     <config>
-      <Kp>0.03</Kp>     <!-- was 0.1 2011-04-26 --> <!-- was 0.07 -->
+      <Kp>0.03</Kp>     <!-- was 0.1 2011-04-26 --> <!-- was 0.03 2011-06-19 -->
       <beta>1.0</beta>    
       <alpha>0.1</alpha>  
       <gamma>0.0</gamma>  
@@ -607,7 +607,7 @@
       <input>/autopilot/internal/elevator-trim-filter</input>
       <output>/controls/flight/elevator-trim</output>
       <type>noise-spike</type>
-      <max-rate-of-change>0.5</max-rate-of-change>
+      <max-rate-of-change>0.56</max-rate-of-change> <!-- over 3.5 seconds -->
     </filter>
 
 
@@ -678,7 +678,7 @@
     </config>
   </pid-controller>
   
-  
+  <!--    Idle Thrust  -->
   <filter>
      <type>gain</type>
      <gain>-0.05</gain>
@@ -686,16 +686,10 @@
      <enable>
        <condition>
          <and>
-         <or>
-          <equals>
-            <property>/autopilot/locks/speed</property>
-            <value>speed-with-pitch-trim</value>
-          </equals>
-          <equals>
-            <property>/autopilot/locks/speed</property>
-            <value>mach-with-pitch-trim</value>
-          </equals>
-         </or>
+         <equals>
+           <property>instrumentation/flightdirector/spd</property>
+           <value>8</value>  <!-- SPD_THRIDL -->
+         </equals>
          <greater-than>
            <property>controls/engines/engine[0]/throttle</property>
            <value>0</value>
@@ -714,7 +708,7 @@
  <!-- Hold speed by varying pitch (Two stage cascading controller) --> 
  <pid-controller>
     <name>Speed hold (vary pitch) Stage #1</name>
-    <debug>true</debug>
+    <debug>false</debug>
     <enable>
       <prop>/autopilot/locks/speed</prop>
       <value>speed-with-pitch-trim</value>
@@ -729,15 +723,15 @@
       <prop>/autopilot/settings/target-pitch-deg</prop>
     </output>
     <config>
-      <Kp>-0.5</Kp>       <!-- proportional gain -->
+      <Kp>-1.0</Kp>       <!-- proportional gain -->  <!-- was -0.5 -->
       <beta>1.0</beta>    <!-- input value weighing factor -->
       <alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
       <gamma>0.0</gamma>  <!-- input value weighing factor for -->
                           <!-- unfiltered derivative error -->
-      <Ti>10.0</Ti>        <!-- integrator time --> <!-- was 40 2011-04-30 -->
+      <Ti>15.0</Ti>        <!-- integrator time --> <!-- was 40 2011-04-30 -->
       <Td>0.00001</Td>    <!-- derivator time -->
-      <u_min>-5.0</u_min><!-- minimum output clamp -->
-      <u_max>18.0</u_max> <!-- maximum output clamp -->
+      <u_min>-15.0</u_min><!-- minimum output clamp -->
+      <u_max>15.0</u_max> <!-- maximum output clamp -->
     </config>
   </pid-controller>
   
@@ -758,15 +752,15 @@
       <prop>/autopilot/settings/target-pitch-deg</prop>
     </output>
     <config>
-      <Kp>-0.1</Kp>       <!-- proportional gain -->
+      <Kp>-1.0</Kp>       <!-- proportional gain -->  <!-- was -0.5 -->
       <beta>1.0</beta>    <!-- input value weighing factor -->
       <alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
       <gamma>0.0</gamma>  <!-- input value weighing factor for -->
                           <!-- unfiltered derivative error -->
-      <Ti>5.0</Ti>        <!-- integrator time -->  <!-- was 40 2011-04-30 -->
+      <Ti>15.0</Ti>        <!-- integrator time -->  <!-- was 40 2011-04-30 -->
       <Td>0.00001</Td>    <!-- derivator time -->
-      <u_min>-4.0</u_min><!-- minimum output clamp -->
-      <u_max>4.0</u_max> <!-- maximum output clamp -->
+      <u_min>-15.0</u_min><!-- minimum output clamp -->
+      <u_max>15.0</u_max> <!-- maximum output clamp -->
     </config>
   </pid-controller>
 
@@ -794,7 +788,6 @@
       <prop>/autopilot/settings/target-pitch-deg</prop>
     </reference>
     <output>
-      <!-- prop>/controls/flight/elevator-trim</prop -->
       <prop>autopilot/internal/elevator-trim-filter</prop>
     </output>
     <config>
@@ -856,7 +849,8 @@
     <max-rate-of-change>0.22</max-rate-of-change>
 </filter>
 
- <!-- Hold speed by varying pitch (Two stage cascading controller) --> 
+ <!-- Hold speed by varying pitch (Two stage cascading controller)
+       NOT USED ANY MORE    --> 
  <pid-controller>
     <name>Speed Reference System2 (vary pitch) Stage #1</name>
     <debug>false</debug>
@@ -870,7 +864,6 @@
     <reference>
       <prop>/autopilot/settings/target-speed-kt</prop>
     </reference>
-    <!-- prop>/autopilot/settings/target-pitch-deg</prop -->
     <output>
       <prop>/autopilot/settings/target-pitch-deg</prop>
     </output>
@@ -884,17 +877,6 @@
       <Td>0.00001</Td>    <!-- derivator time -->
       <u_min>-1.0</u_min><!-- minimum output clamp -->
       <u_max>18.0</u_max> <!-- maximum output clamp -->
-      
-      <!-- Kp>-1.0</Kp -->       <!-- proportional gain -->
-      <!-- beta>1.0</beta -->    <!-- input value weighing factor -->
-      <!-- alpha>0.1</alpha -->  <!-- low pass filter weighing factor -->
-      <!-- gamma>0.0</gamma -->  <!-- input value weighing factor for -->
-                          <!-- unfiltered derivative error -->
-      <!-- Ti>30.0</Ti -->        <!-- integrator time -->
-      <!-- Td>0.00001</Td -->    <!-- derivator time -->
-      <!-- Td>0.01</Td -->
-      <!-- u_min>-1.0</u_min -->   <!-- minimum output clamp -->
-      <!-- u_max>20.0</u_max --> <!-- maximum output clamp -->
     </config>
   </pid-controller>
   
@@ -911,7 +893,6 @@
     <reference>
       <prop>/autopilot/settings/target-pitch-deg</prop>
     </reference>
-    <!-- prop>/controls/flight/elevator</prop -->
     <output>
       <prop>/autopilot/internal/srs-pitch-deg</prop>
     </output>
@@ -925,17 +906,6 @@
       <Td>0.00001</Td>    <!-- derivator time -->
       <u_min>-0.4</u_min> <!-- minimum output clamp  was -1.0 SAH 10-JUN-09 -->
       <u_max>0.25</u_max>  <!-- maximum output clamp  was 1.0 SAH 10-JUN-09 -->
-    
-      <!-- Kp>-0.1</Kp -->      <!-- proportional gain -->
-      <!-- beta>1.0</beta -->    <!-- input value weighing factor -->
-      <!-- alpha>0.1</alpha -->  <!-- low pass filter weighing factor -->
-      <!-- gamma>0.0</gamma -->  <!-- input value weighing factor for -->
-                          <!-- unfiltered derivative error -->
-      <!-- Ti>10.0</Ti -->        <!-- integrator time -->
-      <!-- Td>0.00001</Td -->    <!-- derivator time -->
-      <!-- Td>0.1</Td -->
-      <!-- u_min>-0.4</u_min --> <!-- minimum output clamp  was -1.0 SAH 10-JUN-09 -->
-      <!-- u_max>0.25</u_max -->  <!-- maximum output clamp  was 1.0 SAH 10-JUN-09 -->
     </config>
   </pid-controller>
   
@@ -1120,4 +1090,72 @@
 		  <u_max>1.0</u_max>  <!-- maximum output clamp -->
 	  </config>
   </pid-controller>
+  
+  <logic>
+    <name>check tc true</name>
+    <input>
+      <and>
+          <less-than>
+            <property>instrumentation/gps/odometer</property>
+            <value>200</value>
+          </less-than>
+          <property>autopilot/route-manager/airborne</property>
+        </and>
+    </input>
+    <output>
+      <property>instrumentation/afs/calc-tc</property>
+    </output>
+  </logic>
+  
+<filter>
+  <name>calc angle of climb</name>
+  <type>gain</type>
+  <gain>1.0</gain>
+  <enable>
+    <property>instrumentation/afs/calc-tc</property>
+  </enable>
+  <input>
+    <expression>
+      <atan>
+        <div>
+          <property>position/altitude-ft</property>
+          <product>
+            <property>instrumentation/gps/odometer</property>
+            <value>6076</value>
+          </product>
+        </div>
+      </atan>
+    </expression>
+  </input>
+  <output>
+    <property>instrumentation/afs/avg-climb-angle</property>
+  </output>
+</filter>
+
+<filter>
+  <debug>true</debug>
+  <name>calc distance to TC</name>
+  <type>gain</type>
+  <gain>1.0</gain>
+  <enable>
+    <property>instrumentation/afs/calc-tc</property>
+  </enable>
+  <input>
+    <expression>
+     <product>
+      <div>
+        <property>instrumentation/afs/thrust-cruise-alt</property>
+        <tan>
+          <property>instrumentation/afs/avg-climb-angle</property>
+        </tan>
+      </div>
+      <value>0.000164578834</value>
+     </product>
+    </expression>
+  </input>
+  <output>
+    <property>instrumentation/afs/top-of-climb-dist</property>
+  </output>
+</filter>
+
 </PropertyList>
