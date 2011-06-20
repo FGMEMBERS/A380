@@ -87,13 +87,8 @@ CLmax = 2.4;
 srsFlapTarget = [263.0, 222.0, 210.0, 196.0, 182.0];   #another copy in system.nas
 flapPos       = [0, 0.2424, 0.5151, 0.7878, 1.0];
 
-<<<<<<< HEAD
 ##trace = 0;
 version = "1.1.12";
-=======
-trace = 0;
-version = "1.1.10";
->>>>>>> d7056e1... small commit to see if I can perform a merge request
 
 strobe_switch = props.globals.getNode("/controls/switches/strobe", 0);
 aircraft.light.new("sim/model/A380/lighting/strobe", [0.05, 1.2], strobe_switch);
@@ -101,10 +96,7 @@ beacon_switch = props.globals.getNode("/controls/lighting/beacon", 0);
 aircraft.light.new("sim/model/A380/lighting/beacon", [0.05, 1.25], beacon_switch);
 
 ewdChecklist = TextRegion.new(8, 50, "/instrumentation/ewd/checklists");
-<<<<<<< HEAD
 fms = AirbusFMS.new();
-=======
->>>>>>> d7056e1... small commit to see if I can perform a merge request
 
 
 
@@ -626,33 +618,22 @@ update_ewd = func {
     battVolts = 28;
   }
   if (battVolts < 23) {
-<<<<<<< HEAD
     ewdChecklist.appendStyle("BATT 1 LOW", 0.8, 0.1, 0.1);
-=======
-    ewdChecklist.append("BATT 1 LOW");
->>>>>>> d7056e1... small commit to see if I can perform a merge request
   }
   var battVolts = getprop("/systems/electrical/suppliers/batt[1]/volts");
   if (battVolts == nil) {
     battVolts = 28;
   }
   if (battVolts < 23) {
-<<<<<<< HEAD
     ewdChecklist.appendStyle("BATT 2 LOW", 0.8, 0.1, 0.1);
   }
   if (getprop("/position/altitude-ft") > 25000 and getprop("/environment/temperature-degc") > -34 and getprop("/controls/anti-ice/wing-heat") == 0) {
-=======
-    ewdChecklist.append("BATT 2 LOW");
-  }
-  if (getprop("/position/altitude-ft") > 25000 and getprop("/environment/temperature-degc") > -40 and getprop("/controls/anti-ice/wing-heat") == 0) {
->>>>>>> d7056e1... small commit to see if I can perform a merge request
     ewdChecklist.append("ANTI ICE CHECK");
   }
   var allEngAntiIce = getprop("/controls/anti-ice/engine[0]/inlet-heat")+getprop("/controls/anti-ice/engine[1]/inlet-heat")+getprop("/controls/anti-ice/engine[2]/inlet-heat")+getprop("/controls/anti-ice/engine[3]/inlet-heat");
   if (flt_mode < 5 and getprop("/fdm/jsbsim/propulsion/tat-c") < 10 and (allEngAntiIce == 0)) {
     ewdChecklist.append("ANTI ICE CHECK");
   }
-<<<<<<< HEAD
   var extAvail = getprop("/controls/electric/ground/external_1")+getprop("/controls/electric/ground/external_2")+getprop("/controls/electric/ground/external_3")+getprop("/controls/electric/ground/external_4");
   if (extAvail > 0) {
     ewdChecklist.append("ELEC EXT PWR");
@@ -672,8 +653,6 @@ update_ewd = func {
   if (getprop("/consumables/fuel/total-fuel-kg") < 10000) {
     ewdChecklist.append("FUEL LOW", 0.8, 0.1, 0.1);
   }
-=======
->>>>>>> d7056e1... small commit to see if I can perform a merge request
 
 
   ewdChecklist.reset();
@@ -747,13 +726,6 @@ update_engines = func {
       if (getprop("/controls/pneumatic/engine["~e~"]/bleed") == 1) {
         setprop("/controls/pneumatic/engine["~e~"]/bleed",0);
       }
-<<<<<<< HEAD
-=======
-    }
-    var eng_egtF = getprop("/engines/engine["~e~"]/egt_degf");
-    if (eng_egtF == nil) {
-      eng_egtF = getprop("/engines/engine["~e~"]/egt-degf");
->>>>>>> d7056e1... small commit to see if I can perform a merge request
     }
     ##var eng_egtF = getprop("/engines/engine["~e~"]/egt_degf");
     var eng_egtF = getprop("/engines/engine["~e~"]/egt-degf");
@@ -793,13 +765,6 @@ update_engines = func {
     if (getprop("/controls/pneumatic/APU-bleed") == 1) {
       setprop("/controls/pneumatic/APU-bleed",0);
     }
-<<<<<<< HEAD
-=======
-  }
-  var apu_egtF = getprop("/engines/engine[4]/egt_degf");
-  if (apu_egtF == nil) {
-    apu_egtF = getprop("/engines/engine[4]/egt-degf");
->>>>>>> d7056e1... small commit to see if I can perform a merge request
   }
   var apu_egtF = getprop("/engines/engine[4]/egt-degf");
   apu_egtC = (5/9)*(apu_egtF-32);
@@ -1176,16 +1141,10 @@ setlistener("/controls/engines/engine[0]/master", func(n) {
   }
 });
 
-<<<<<<< HEAD
 # once we have engine bleed, open air valve
 setlistener("/controls/pneumatic/engine[0]/bleed", func(n) {
   bleed = n.getValue();
   tracer("engine[0] bleed: "~bleed);
-=======
-# once we have engine bleed open air valve
-setlistener("/controls/pneumatic/engine[0]/bleed", func(n) {
-  bleed = n.getValue();
->>>>>>> d7056e1... small commit to see if I can perform a merge request
   if (bleed == 1) {
     setprop("/controls/pressurization/apu/bleed-on",0);
     setprop("/controls/pressurization/engine[0]/bleed-on",1);
@@ -1217,10 +1176,7 @@ setlistener("/controls/engines/engine[1]/master", func(n) {
 # once we have engine bleed open air valve
 setlistener("/controls/pneumatic/engine[1]/bleed", func(n) {
   bleed = n.getValue();
-<<<<<<< HEAD
   tracer("engine[1] bleed: "~bleed);
-=======
->>>>>>> d7056e1... small commit to see if I can perform a merge request
   if (bleed == 1) {
     setprop("/controls/pressurization/apu/bleed-on",0);
     setprop("/controls/pressurization/engine[1]/bleed-on",1);
@@ -1250,10 +1206,7 @@ setlistener("/controls/engines/engine[2]/master", func(n) {
 # once we have engine bleed open air valve
 setlistener("/controls/pneumatic/engine[2]/bleed", func(n) {
   bleed = n.getValue();
-<<<<<<< HEAD
   tracer("engine[2] bleed: "~bleed);
-=======
->>>>>>> d7056e1... small commit to see if I can perform a merge request
   if (bleed == 1) {
     setprop("/controls/pressurization/apu/bleed-on",0);
     setprop("/controls/pressurization/engine[2]/bleed-on",1);
@@ -1289,10 +1242,7 @@ setlistener("/controls/engines/engine[3]/master", func(n) {
 # once we have engine bleed open air valve
 setlistener("/controls/pneumatic/engine[3]/bleed", func(n) {
   bleed = n.getValue();
-<<<<<<< HEAD
   tracer("engine[3] bleed: "~bleed);
-=======
->>>>>>> d7056e1... small commit to see if I can perform a merge request
   if (bleed == 1) {
     setprop("/controls/pressurization/apu/bleed-on",0);
     setprop("/controls/pressurization/engine[3]/bleed-on",1);
@@ -1301,54 +1251,19 @@ setlistener("/controls/pneumatic/engine[3]/bleed", func(n) {
     setprop("/controls/pressurization/pack[1]/pack-on", 0);
   }
 });
-<<<<<<< HEAD
 
 
 # control APU bleed air to pressurisation
 setlistener("/controls/pneumatic/APU-bleed", func(n) {
   bleed = n.getValue();
   tracer("apu[0] bleed: "~bleed);
-=======
-# control APU bleed air to pressurisation
-setlistener("/controls/pneumatic/APU-bleed", func(n) {
-  bleed = n.getValue();
->>>>>>> d7056e1... small commit to see if I can perform a merge request
   if (bleed == 1) {
     setprop("/controls/pressurization/apu/bleed-on",1);
   } else {
     setprop("/controls/pressurization/apu/bleed-on",0);
   }
 });
-<<<<<<< HEAD
 
-=======
-# control HOT-AIR valves from AIR PACKS
-setlistener("/controls/pressurization/pack[0]/pack-on", func(n) {
-   pack = n.getValue();
-   if (pack == 1) {
-     settimer(open_hotair, 1);
-   } else {
-     setprop("/controls/pressurization/pack[0]/hotair-on",0);
-   }
-});
-setlistener("/controls/pressurization/pack[1]/pack-on", func(n) {
-   pack = n.getValue();
-   if (pack == 1) {
-     settimer(open_hotair, 1);
-   } else {
-     setprop("/controls/pressurization/pack[1]/hotair-on",0);
-   }
-});
-
-open_hotair = func() {
-  if (getprop("/controls/pressurization/pack[0]/pack-on") == 1) {
-    setprop("/controls/pressurization/pack[0]/hotair-on",1);
-  }
-  if (getprop("/controls/pressurization/pack[1]/pack-on") == 1) {
-    setprop("/controls/pressurization/pack[1]/hotair-on",1);
-  }
-}
->>>>>>> d7056e1... small commit to see if I can perform a merge request
 
 # control HOT-AIR valves from AIR PACKS
 setlistener("/controls/pressurization/pack[0]/pack-on", func(n) {
