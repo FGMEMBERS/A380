@@ -27,14 +27,18 @@
     <object-name>Light</object-name>
     <condition>
       <and>
-      <equals>
-      <property>/sim/model/A380/lighting/strobe/state</property>
-      <value>1</value>
-      </equals>
-      <greater-than>
-      <property>/controls/switches/strobe</property>
-      <value>0</value>
-      </greater-than>
+        <equals>
+          <property>/sim/model/A380/lighting/strobe/state</property>
+          <value>1</value>
+        </equals>
+        <greater-than>
+          <property>/controls/switches/strobe</property>
+          <value>0</value>
+        </greater-than>
+        <greater-than>
+          <property>/systems/electrical/outputs/strobe-lights</property>
+          <value>90</value>
+        </greater-than>
       </and>
     </condition>
   </animation>

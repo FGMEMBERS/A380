@@ -30,7 +30,7 @@ inputValue = "";
 trace = 0;         ## Set to 0 to turn off all tracing messages
 depDB = nil;
 arvDB = nil;
-version = "V1.1.2";
+version = "V1.0.22";
 
 routeClearArm = 0;
 airbusFMS = nil;   ###A380.fms;
@@ -727,7 +727,7 @@ selectSidAction = func(opt, unit) {
     tracer(" 2deg dist: "~sidebNM~" nm");
     totalDist = totalDist+sidebNM;
     var difAlt = (crzFt-arvApt.elevation)-10000;
-    sidebNM = calcDistAtAngle(3, difAlt);
+    sidebNM = calcDistAtAngle(2.7, difAlt);
     tracer(" 3deg dist: "~sidebNM~" nm for: "~difAlt~"ft");
     totalDist = totalDist+sidebNM;
     var remainDist = gcd2(arvApt.lat, arvApt.lon, firstWp.wp_lat, firstWp.wp_lon, "nm");
@@ -790,6 +790,33 @@ selectSidAction = func(opt, unit) {
       #print("[FMS] using wpStr: "~wpStr);
       #setprop(wpStr~"/id","TD");
       #setprop(wpStr~"/name","TD");
+    } else {
+      var difDist = 15;
+      var firstWpCoord = geo.Coord.new();
+      firstWpCoord.set_latlon(firstWp.wp_lat, firstWp.wp_lon, crzFt);
+      var prevHdg = firstWpCoord.course_to(prevCoord); 
+      tracer("[FMS] enroute hdg: "~prevHdg);
+      var hdg = prevHdg;
+      tracer("[FMS] find point at course: "~hdg~", dist: "~difDist~"nm from: "~firstWp.wp_name);
+      var tdCoord = firstWpCoord.apply_course_distance(hdg, difDist*NM2MTRS);
+      var tdLat = tdCoord.lat();
+      var tdLon = tdCoord.lon();
+      tracer("T/D lat: "~tdLat~", lon: "~tdLon);
+      var tdIns = sprintf("@insert %i:%s,%s@%i",wpLen-1,tdLon,tdLat,int(crzFt));
+      tracer("insert T/D: "~tdIns);
+      insertAbsWP("(T/D)",wpLen-1,tdLat,tdLon,int(crzFt));
+      var wp = fmsWP.new();
+      wp.wp_name = "(T/D)";
+      wp.wp_type = "T/D";
+      wp.wp_lat =  tdLat;
+      wp.wp_lon =  tdLon;
+      wp.alt_csrt = crzFt;
+      wp.spd_csrt = getprop("/instrumentation/afs/des_mach");
+      airbusFMS.clearWPType("T/D");
+      var disIdx = airbusFMS.findWPType("DISC");
+      airbusFMS.insertWP(wp, disIdx+1);
+      wpLen = getprop("/autopilot/route-manager/route/num");
+      tracer("wpLen now: "~wpLen);
     }
 
     var appSpd = 270;
@@ -1249,6 +1276,7 @@ var calcDistAtAngle = func(angleX, height) {
     var anglexinradians = angleX*(math.pi/180);
     # solve for side b
     var sideb = height/math.tan(anglexinradians);
+    # convert ft to nautical miles
     var sidebNM = sideb/6076;
     return sidebNM;
 }

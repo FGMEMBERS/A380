@@ -25,7 +25,13 @@
     <type>select</type>
     <object-name>Light</object-name>
     <condition>
-      <property>/controls/switches/nav-lights</property>
+      <and>
+        <property>/controls/switches/nav-lights</property>
+        <greater-than>
+          <property>/systems/electrical/outputs/nav</property>
+          <value>15</value>
+        </greater-than>
+      </and>
     </condition>
   </animation>
 

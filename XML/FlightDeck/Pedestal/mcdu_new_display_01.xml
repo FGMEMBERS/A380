@@ -5710,5 +5710,89 @@
   </condition>
 </animation>
 
+<animation>
+  <name>electrical</name>
+  <object-name>page.INIT</object-name>
+  <object-name>page.perf</object-name>
+  <object-name>page.DEPARTURE</object-name>
+  <object-name>page.TO_PERF</object-name>
+  <object-name>page.PERF_CRZ</object-name>
+  <object-name>page.PERF_APPR</object-name>
+  <object-name>page.FLT_PLN</object-name>
+  <object-name>menu.config</object-name>
+  <object-name>menu.data</object-name>
+  <object-name>menu.sec</object-name>
+  <object-name>menu.position</object-name>
+  <object-name>menu.active</object-name>
+  <object-name>dropdown.menu.active</object-name>
+  <object-name>dropdown.menu.position</object-name>
+  <object-name>dropdown.menu.sec</object-name>
+  <object-name>dropdown.menu.data</object-name>
+  <object-name>label.active</object-name>
+  <object-name>label.position</object-name>
+  <object-name>label.sec</object-name>
+  <object-name>label.dropdown0.opt1</object-name>
+  <object-name>label.dropdown0.opt2</object-name>
+  <object-name>label.dropdown2.opt1</object-name>
+  <object-name>label.dropdown2.opt2</object-name>
+  <object-name>label.dropdown2.opt3</object-name>
+  <object-name>label.FLT_NBR</object-name>
+  <object-name>label.FROM</object-name>
+  <object-name>label.TO</object-name>
+  <object-name>label.CPY_RTE</object-name>
+  <object-name>label.ALT_RTE</object-name>
+  <object-name>label.CRZ_FL</object-name>
+  <object-name>label.CRZ_TEMP</object-name>
+  <object-name>label.IRS</object-name>
+  <object-name>label.DEPARTURE</object-name>
+  <object-name>label.NAVAIDS</object-name>
+  <object-name>label.FUEL_LOAD</object-name>
+  <object-name>label.TO_PERF</object-name>
+  <object-name>label.APT</object-name>
+  <object-name>label.SID</object-name>
+  <object-name>label.STAR</object-name>
+  <object-name>label.menu.t_o</object-name>
+  <object-name>label.menu.clb</object-name>
+  <object-name>label.menu.crz</object-name>
+  <object-name>label.menu.des</object-name>
+  <object-name>label.menu.appr</object-name>
+  <object-name>label.menu.ga</object-name>
+  <object-name>label.to_perf.crz</object-name>
+  <object-name>label.to_perf.rwy</object-name>
+  <object-name>label.to_perf.v1</object-name>
+  <object-name>label.to_perf.vr</object-name>
+  <object-name>label.to_perf.v2</object-name>
+  <object-name>label.to_perf.F-speed</object-name>
+  <object-name>label.to_perf.S-speed</object-name>
+  <object-name>label.to_perf.thr_red</object-name>
+  <object-name>label.to_perf.thr_accel</object-name>
+  <object-name>label.to_perf.eo_accel</object-name>
+  <object-name>label.to_perf.flaps</object-name>
+  <object-name>label.to_perf.ths_for</object-name>
+  <object-name>label.to_perf.to_shift</object-name>
+  <object-name>label.to_perf.trans_alt</object-name>
+  <object-name>label.crz_perf.mode</object-name>
+  <object-name>label.crz_perf.mach</object-name>
+  <object-name>label.crz_perf.spd</object-name>
+  <object-name>label.crz_perf.step_at</object-name>
+  <object-name>label.crz_perf.step_to</object-name>
+  <object-name>label.crz_perf.lrc</object-name>
+  <object-name>label.crz_perf.max_turb</object-name>
+  <object-name>label.crz_perf.dest</object-name>
+  <object-name>label.crz_perf.step_alt</object-name>
+  <object-name>label.crz_perf.ci</object-name>
+  
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>electrical</object-name>
+  <condition>
+    <greater-than>
+      <property>/systems/electrical/outputs/efis</property>
+      <value>15</value>
+    </greater-than>
+  </condition>
+</animation>
 
 </PropertyList>

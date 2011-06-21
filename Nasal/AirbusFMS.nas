@@ -75,7 +75,7 @@ var AirbusFMS = {
      m.arvDB = nil;
      setprop("instrumentation/fms/plan[0]/display-nodes/current-page",0);
      setprop("instrumentation/fms/plan[0]/display-nodes/current-wp",0);
-     m.version = "V1.2.1";
+     m.version = "V1.1.2";
 
      setlistener("/sim/signals/fdm-initialized", func m.init());
      setlistener("/autopilot/route-manager/current-wp", func m.updateCurrentWP());

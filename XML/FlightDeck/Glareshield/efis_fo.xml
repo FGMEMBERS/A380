@@ -63,55 +63,6 @@
     </action>
   </animation>
  
-  <!-- animation>
-   <type>textranslate</type>
-   <object-name>baro.04</object-name>
-   <property>/instrumentation/efis/baro</property>
-   <factor>0.0001</factor>
-   <step>1000.0</step>
-   <axis>
-     <x>0</x>
-     <y>1</y>
-     <z>0</z>
-   </axis>
- </animation>
- <animation>
-   <type>textranslate</type>
-   <object-name>baro.03</object-name>
-   <property>/instrumentation/efis/baro</property>
-   <factor>0.001</factor>
-   <step>100.0</step>
-   <axis>
-     <x>0</x>
-     <y>1</y>
-     <z>0</z>
-   </axis>
- </animation>
- <animation>
-   <type>textranslate</type>
-   <object-name>baro.02</object-name>
-   <property>/instrumentation/efis/baro</property>
-   <factor>0.01</factor>
-   <step>10.0</step>
-   <axis>
-     <x>0</x>
-     <y>1</y>
-     <z>0</z>
-   </axis>
- </animation>
- <animation>
-   <type>textranslate</type>
-   <object-name>baro.01</object-name>
-   <property>/instrumentation/efis/baro</property>
-   <factor>0.1</factor>
-   <step>1.0</step>
-   <axis>
-     <x>0</x>
-     <y>1</y>
-     <z>0</z>
-   </axis>
- </animation -->
- 
  <text>
     <name>baro.value.hPa</name>
     <axis-alignment>yz-plane</axis-alignment>
@@ -420,6 +371,38 @@
     <shininess>128.0</shininess>
     <transparency><alpha>0.7</alpha></transparency>
   </animation>
+  
+  <animation>
+    <name>group</name>
+    <object-name>baro.value.hPa</object-name>
+    <object-name>baro.value.inhg</object-name>
+    <object-name>baro.value.std</object-name>
+    <object-name>range.zoom</object-name>
+    <object-name>range.10</object-name>
+    <object-name>range.20</object-name>
+    <object-name>range.40</object-name>
+    <object-name>range.80</object-name>
+    <object-name>range.160</object-name>
+    <object-name>range.320</object-name>
+    <object-name>range.640</object-name>
+    <object-name>mode.plan</object-name>
+    <object-name>mode.arc</object-name>
+    <object-name>mode.ls</object-name>
+    <object-name>mode.vor</object-name>
+    <object-name>mode.nav</object-name>
+  </animation>
+  
+  <animation>
+    <type>select</type>
+    <object-name>group</object-name>
+    <condition>
+      <greater-than>
+        <property>/systems/electrical/outputs/efis</property>
+        <value>9</value>
+      </greater-than>
+    </condition>
+  </animation>
+  
 
 </PropertyList> 
  

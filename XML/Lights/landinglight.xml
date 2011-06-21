@@ -39,26 +39,32 @@
   </animation>
 
 <animation>
-<type>dist-scale</type>
-<object-name>Light</object-name>
-<interpolation>
-<entry>
-<ind>0</ind>
-<dep>3</dep>
-</entry>
-<entry>
-<ind>20</ind>
-<dep>3</dep>
-</entry>
-</interpolation>
+  <type>dist-scale</type>
+  <object-name>Light</object-name>
+  <interpolation>
+    <entry>
+      <ind>0</ind>
+      <dep>3</dep>
+    </entry>
+    <entry>
+      <ind>20</ind>
+      <dep>3</dep>
+    </entry>
+  </interpolation>
 </animation>
 
 <animation>
-<type>select</type>
-<object-name>Light</object-name>
-<condition>
-<property>/controls/switches/landing-lights</property>
-</condition>
+  <type>select</type>
+  <object-name>Light</object-name>
+  <condition>
+    <and>
+      <property>/controls/switches/landing-lights</property>
+      <greater-than>
+        <property>/systems/electrical/outputs/landing-lights</property>
+        <value>90</value>
+      </greater-than>
+    </and>
+  </condition>
 </animation>
 
 </PropertyList>

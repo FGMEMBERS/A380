@@ -179,6 +179,25 @@
 		</offsets>
 	</model>
 	
+	<model>
+		<path>Aircraft/A380/XML/FlightDeck/FrontPanel/gear_lever.xml</path>
+		<name>gearlever_panel</name>
+		<offsets>
+		    <x-m>-0.066</x-m>
+		    <y-m>0.1625</y-m>
+		    <pitch-deg>36</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
+	    <path>Aircraft/A380/XML/FlightDeck/FrontPanel/autobrk.xml</path>
+	    <name>autobrk_panel</name>
+	    <offsets>
+		    <x-m>-0.180</x-m>
+		    <y-m>0.188</y-m>
+		</offsets>
+	</model>
+	
 	<!-- Disable shadows -->
 	<animation>
 	<type>noshadow</type>

@@ -26,14 +26,18 @@
     <object-name>Light</object-name>
     <condition>
       <and>
-      <equals>
-      <property>/sim/model/A380/lighting/beacon/state</property>
-      <value>1</value>
-      </equals>
-      <equals>
-      <property>/controls/switches/beacon</property>
-      <value>true</value>
-      </equals>
+        <equals>
+          <property>/sim/model/A380/lighting/beacon/state</property>
+          <value>1</value>
+        </equals>
+        <equals>
+          <property>/controls/switches/beacon</property>
+          <value>true</value>
+        </equals>
+        <greater-than>
+          <property>/systems/electrical/outputs/beacon</property>
+          <value>15</value>
+        </greater-than>
       </and>
     </condition>
   </animation>

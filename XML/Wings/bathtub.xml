@@ -29,7 +29,13 @@
 		<object-name>Land.Light.L</object-name>
 		<object-name>Land.Light.R</object-name>
 		<condition>
+		  <and>
 			<property>/controls/switches/landing-lights</property>
+			<greater-than>
+			  <property>/systems/electrical/outputs/landing-lights</property>
+			  <value>90</value>
+			</greater-than>
+	          </and>
 		</condition>
 	</animation>
 

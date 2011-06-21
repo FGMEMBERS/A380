@@ -561,6 +561,7 @@ setlistener("/autopilot/route-manager/current-wp", func(n) {
       }
     }
   }
+  
 });
 
 
@@ -727,13 +728,19 @@ setlistener("/instrumentation/flightdirector/vnav", func(n) {
       setprop("/instrumentation/flightdirector/alt-acquire-mode",1);
     }
     if(vnav == VNAV_OPDES) {   # OP DES (s)
+      var desMach = getprop("instrumentation/afs/des_mach");
+      var desKIAS  = getprop("instrumentation/afs/des_speed");
+      var atmos = Atmos.new();
+      var changeoverAlt = atmos.calculateCrossover(desKIAS, desMach);
+      setprop("instrumentation/afs/changeover-alt", changeoverAlt);
       #setprop("/autopilot/locks/speed","climb-hold");
       setprop("/autopilot/locks/altitude","");
-      if (getprop("/instrumentation/afs/changeover-mode") == 1) {
-        setprop("/autopilot/locks/speed","mach-with-pitch-trim");
-      } else {
-        setprop("/autopilot/locks/speed","speed-with-pitch-trim");
-      }
+      #if (getprop("/instrumentation/afs/changeover-mode") == 1) {
+      #  setprop("/autopilot/locks/speed","mach-with-pitch-trim");
+      #} else {
+      #  setprop("/autopilot/locks/speed","speed-with-pitch-trim");
+      #}
+      setprop("instrumentation/flightdirector/spd", SPD_THRIDL);
       setprop("/instrumentation/flightdirector/alt-acquire-mode",1);
     }
     if (vnav == VNAV_CLB) {  # CLB  (m)
@@ -967,10 +974,11 @@ setlistener("/instrumentation/flightdirector/spd", func(n) {
           }
         }
         var desMach = getprop("/instrumentation/afs/des_mach");
-        if (curAlt > 29000 and getprop("/autopilot/settings/target-speed-mach") > desMach) {
+        var chngAlt = getprop("/instrumentation/afs/changeover-alt");
+        if (curAlt > chngAlt and getprop("/autopilot/settings/target-speed-mach") > desMach) {
           interpolate("/autopilot/settings/target-speed-mach", desMach, 20);
         }
-        if (curAlt > 15000 and curAlt <= 29000 and getprop("/autopilot/settings/target-speed-kt") > 270) {
+        if (curAlt > 15000 and curAlt <= chngAlt and getprop("/autopilot/settings/target-speed-kt") > 270) {
           interpolate("/autopilot/settings/target-speed-kt",270,90);    #was 270 in 90 SAH 2010-12-04
         }
         if (curAlt <12000 and getprop("/autopilot/settings/target-speed-kt") > 250 and spdDesArm2 == 0) {
@@ -979,6 +987,19 @@ setlistener("/instrumentation/flightdirector/spd", func(n) {
         }
         if (curAlt <2000 and getprop("/autopilot/settings/target-speed-kt") > 210) {
           interpolate("/autopilot/settings/target-speed-kt",180,60);
+        }
+      }
+      if (spdMode == SPD_THRIDL) {
+        var curAlt = getprop("/position/altitude-ft");
+        var chngAlt = getprop("/instrumentation/afs/changeover-alt");
+        interpolate("controls/engines/engine[0]/throttle",0.1,6);
+        interpolate("controls/engines/engine[3]/throttle",0.1,6);
+        interpolate("controls/engines/engine[1]/throttle",0.1,6);
+        interpolate("controls/engines/engine[2]/throttle",0.1,6);
+        if (curAlt > chngAlt) {
+          setprop("autopilot/locks/speed","mach-with-pitch-trim");
+        } else {
+          setprop("autopilot/locks/speed","speed-with-pitch-trim");
         }
       }
       if (spdMode == 8) { #THR CLB

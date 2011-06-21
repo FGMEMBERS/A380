@@ -231,7 +231,7 @@
 
   <output>
     <name>Landing Light Power</name>
-    <prop>/systems/electrical/outputs/landing-light</prop>
+    <prop>/systems/electrical/outputs/landing-lights</prop>
     <rated-draw>10</rated-draw>
   </output>
 
@@ -621,7 +621,7 @@
     <input>ac_bus_1-2</input>
     <output>Landing Light Power</output>
     <switch>
-      <prop>/controls/switches/landing-light</prop>
+      <prop>/controls/switches/landing-lights</prop>
       <initial-state>off</initial-state>
     </switch>
     <switch>

@@ -71,7 +71,7 @@ SPD_THRIDL=8;
 
 # working memory
 afs_trace = 0;
-afs_version = "2.0.2";
+afs_version = "2.0.3";
 
 
 
@@ -176,7 +176,8 @@ increment_alt = func() {
 
     var altSelect = getprop("/instrumentation/afs/vertical-alt-mode");
     var vsSelect  = getprop("/instrumentation/afs/vertical-vs-mode");
-    if (altSelect == 0 and vsSelect == 0) {
+    var apMode = getprop("/instrumentation/flightdirector/autopilot-on");
+    if (altSelect == 0 and vsSelect == 0 and apMode == 1) {
       setprop("/instrumentation/flightdirector/vnav", VNAV_VS);
       ##setprop("/instrumentation/flightdirector/alt-acquire-mode",1);
       setprop("/instrumentation/flightdirector/vnav-arm", VNAV_ALTs);
@@ -186,7 +187,7 @@ increment_alt = func() {
     }
     
     # if we are in managed mode, and the alt changes, we may need to re-evaluate the managed mode
-    if (altSelect == -1 and vsSelect == -1) {
+    if (altSelect == -1 and vsSelect == -1 and apMode == 1) {
       var afms = AirbusFMS.new();
       var newMode = afms.evaluateManagedVNAV();
       setprop("/instrumentation/flightdirector/vnav", newMode);
@@ -207,7 +208,8 @@ decrement_alt = func() {
 
     var altSelect = getprop("/instrumentation/afs/vertical-alt-mode");
     var vsSelect  = getprop("/instrumentation/afs/vertical-vs-mode");
-    if (altSelect == 0 and vsSelect == 0) {
+    var apMode = getprop("/instrumentation/flightdirector/autopilot-on");
+    if (altSelect == 0 and vsSelect == 0 and apMode == 1) {
       setprop("/instrumentation/flightdirector/vnav", VNAV_VS);
       ##setprop("/instrumentation/flightdirector/alt-acquire-mode",1);
       setprop("/instrumentation/flightdirector/vnav-arm", VNAV_ALTs);
@@ -218,7 +220,7 @@ decrement_alt = func() {
     }
 
     # if we are in managed mode, and the alt changes, we may need to re-evaluate the managed mode
-    if (altSelect == -1 and vsSelect == -1) {
+    if (altSelect == -1 and vsSelect == -1 and apMode == 1) {
       var afms = AirbusFMS.new();
       var newMode = afms.evaluateManagedVNAV();
       setprop("/instrumentation/flightdirector/vnav", newMode);
@@ -364,8 +366,9 @@ setlistener("/autopilot/settings/heading-bug-deg", func(n) {
 setlistener("/autopilot/settings/target-altitude-ft", func(n) {
    var val = n.getValue();
    var mode = getprop("instrumentation/afs/vertical-alt-mode");
+   var apMode = getprop("/instrumentation/flightdirector/autopilot-on");
    var fltMode = getprop("instrumentation/ecam/flight-mode");
-   if (mode == 0 and fltMode > 2) {
+   if (mode == -1 and apMode == 1 and fltMode > 2) {
      setprop("/instrumentation/afs/target-altitude-ft",val);
    }
 });
