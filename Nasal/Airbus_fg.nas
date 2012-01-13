@@ -67,7 +67,7 @@ lnavStr = ["off","HDG","TRK","LOC","NAV","RWY"];
 vnavStr = ["off","ALT(s)","V/S","OP CLB","FPA","OP DES","CLB","ALT CRZ","DES","G/S","SRS","LEVEL"];
 spdStr  = ["off","TOGA","FLEX","THR CLB","SPEED","MACH","CRZ","THR DES","THR IDL"];
 
-version="V1.1.7";
+version="V1.1.9";
 trace=0;
 
 #trigonometric values for glideslope calculations
@@ -561,7 +561,11 @@ setlistener("/autopilot/route-manager/current-wp", func(n) {
       }
     }
   }
-  
+  ## check autopilot controls match AP modes.
+  var vnav = getprop("instrumentation/flightdirector/vnav");
+  if (vnav != 0) {
+    setprop("/instrumentation/flightdirector/vnav", vnav);
+  }
 });
 
 
@@ -724,6 +728,8 @@ setlistener("/instrumentation/flightdirector/vnav", func(n) {
     if(vnav == VNAV_OPCLB) {   # OP CLB  (s)
       #setprop("/autopilot/locks/speed","climb-hold");
       #setprop("/controls/autoflight/vertical-mode",2);
+      setprop("/instrumentation/afs/limit-min-vs-fps", -16.67);
+      setprop("/instrumentation/afs/limit-max-vs-fps", 33.33);
       setprop("/autopilot/locks/altitude","vertical-speed-hold");
       setprop("/instrumentation/flightdirector/alt-acquire-mode",1);
     }
@@ -734,6 +740,8 @@ setlistener("/instrumentation/flightdirector/vnav", func(n) {
       var changeoverAlt = atmos.calculateCrossover(desKIAS, desMach);
       setprop("instrumentation/afs/changeover-alt", changeoverAlt);
       #setprop("/autopilot/locks/speed","climb-hold");
+      setprop("/instrumentation/afs/limit-min-vs-fps", -16.67);
+      setprop("/instrumentation/afs/limit-max-vs-fps", 33.33);
       setprop("/autopilot/locks/altitude","");
       #if (getprop("/instrumentation/afs/changeover-mode") == 1) {
       #  setprop("/autopilot/locks/speed","mach-with-pitch-trim");
@@ -778,11 +786,12 @@ setlistener("/instrumentation/flightdirector/vnav", func(n) {
       curAlt = getprop("/position/altitude-ft");
       var nextWpAlt = getprop("/instrumentation/gps/wp/wp[1]/altitude-ft");
       var alreadyCruise = getprop("instrumentation/afs/acquire_crz");
-      if (curAlt < nextWpAlt and alreadyCruise != 1) {
+      if (alreadyCruise != 1 and curAlt < nextWpAlt) {
         setprop("/autopilot/settings/target-altitude-ft", nextWpAlt);
-        setprop("/instrumentation/afs/limit-min-vs-fps",-9.0);
-        setprop("/instrumentation/afs/limit-max-vs-fps",13.0);
+        
       }
+      setprop("/instrumentation/afs/limit-min-vs-fps",-9.0);
+      setprop("/instrumentation/afs/limit-max-vs-fps",13.0);
       setprop("/autopilot/locks/altitude","altitude-hold");
       setprop("/instrumentation/flightdirector/alt-acquire-mode",0);
       #setprop("/controls/autoflight/vertical-mode",1);
@@ -794,11 +803,17 @@ setlistener("/instrumentation/flightdirector/vnav", func(n) {
       #descentAlt = getprop("/autopilot/route-manager/route/wp["~curWpIdx~"]/altitude-ft");
       var descentAlt = getprop("/instrumentation/gps/wp/wp[1]/altitude-ft");
       var targetAlt = getprop("instrumentation/afs/target-altitude-ft");
+      tracer("disable ALT ACQ mode");
+      setprop("/instrumentation/flightdirector/alt-acquire-mode",0);
       if (descentAlt < targetAlt) {
+        tracer("[VNAV_DES] set target = descent");
         setprop("instrumentation/afs/target-altitude-ft", descentAlt);
         setprop("autopilot/settings/target-altitude-ft", descentAlt);
+        targetAlt = descentAlt;
       } else {
+        setprop("autopilot/settings/target-altitude-ft", targetAlt);
         descentAlt = targetAlt;
+        tracer("[VNAV_DES] set descent = target");
       }
       var desMach = getprop("instrumentation/afs/des_mach");
       var desKIAS  = getprop("instrumentation/afs/des_speed");
@@ -828,11 +843,12 @@ setlistener("/instrumentation/flightdirector/vnav", func(n) {
           gap = 25;
         }
         eta = (etaSec+(etaMin*60))-gap;   #reach point <gap> seconds before.
-        #tracer("[updateMode] eta: "~eta~", difAlt: "~diffAlt);
+        tracer("[updateMode] eta: "~eta~", difAlt: "~diffAlt);
         if (eta <= 0) {
           if (getprop("/autopilot/locks/altitude") != "altitude-hold") {
             tracer("[VNAV] eta: "~etaTime~", ETA min: "~etaMin~", ETA sec: "~etaSec~", difAlt: "~diffAlt);
             tracer("reached alt, holding");
+            setprop("autopilot/settings/target-altitude-ft", descentAlt);
             setprop("/autopilot/locks/altitude","altitude-hold");
             ##setprop("/instrumentation/flightdirector/alt-acquire-mode",1);
           }
@@ -1111,21 +1127,25 @@ setlistener("/instrumentation/nav[0]/in-range", func(n) {
    var apMode = getprop("/instrumentation/flightdirector/autopilot-on");
    if (apMode == 1) {
      if (range != lastNavStatus) {
-       tracer("[NAV1] NAV1 range status: "~range);
+       tracer("[NAV0] NAV0 range status: "~range);
        lastNavStatus = range;
        var lnavMode = getprop("/instrumentation/flightdirector/lnav");
        var lnavArm = getprop("/instrumentation/flightdirector/lnav-arm");
        var fltMode = getprop("/instrumentation/ecam/flight-mode");
        if (range == 1) {
+         var ilsCat = getILSCategory(getprop("instrumentation/afs/TO"));
+         tracer("ils cat: "~ilsCat);
+         setprop("instrumentation/afs/rwy-cat", ilsCat);
          if (lnavMode != LNAV_LOC and fltMode > 8) {
            setprop("/instrumentation/flightdirector/lnav-arm", LNAV_LOC);
          } else {
            if (lnavArm == LNAV_LOC) {
              setprop("/instrumentation/flightdirector/lnav-arm", VNAV_OFF);
-             setprop("/instrumentation/flightdirector/lnav", VNAV_LOC);
+             setprop("/instrumentation/flightdirector/lnav", LNAV_LOC);
            }
          }
        } else {
+         setprop("instrumentation/afs/rwy-cat", "");
          if (lnavMode == LNAV_LOC) {
            ## we should disable the AP if we loose LOC while active.
          }
@@ -1168,6 +1188,44 @@ setlistener("/instrumentation/nav[0]/gs-in-range", func(n) {
    }
 });
 
+
+## get ILS frequency from airportinfo.
+var getILS = func(apt, rwy) {
+   if (trace > 1) {
+     debug.dump(apt);
+   }
+   var mhz = nil;
+   var runways = apt["runways"];
+   var ks = keys(runways);
+   for(var r=0; r != size(runways); r=r+1) {
+     var run = runways[ks[r]];
+     if (run.id == rwy and contains(run, "ils_frequency_mhz")) {
+       mhz = sprintf("%3.1f",run.ils_frequency_mhz);
+       return mhz;
+     }
+   }
+   return mhz;
+}
+
+## get ILS category from nav db
+# requires patch to airportinfo() (merge request 14)
+var getILSCategory = func(id) {
+  var retCat = "";
+  var apt = airportinfo(id);
+  var arvRunway = getprop("instrumentation/afs/arv-rwy");
+  #var navList = navinfo(apt.lat, apt.lon, "ils", 3.0);
+  #var navListSize = size(navList);
+  #print("size navList: "~navListSize);
+  #foreach(var ils; navList) {
+  #  if (ils.runway == arvRunway) {
+  #    var nmeStr = ils.name;
+  #    var parts = split(" ", nmeStr);
+  #    print("rwy: "~nmeStr~", parts[0]: "~parts[0]~", parts[1]: "~parts[1]~", parts[2]: "~parts[2]~", parts[3]: "~parts[3]);
+  #    retCat = substr(parts[3],4);
+  #  }
+  #}
+  return retCat;
+}
 
 
 #
@@ -1365,6 +1423,7 @@ handle_inputs = func {
     setprop("/autopilot/settings/target-speed-kt", desSpeed);
     setprop("/autopilot/settings/target-speed-mach", desMach);
     setprop("/instrumentation/afs/target-speed-mach", desMach);
+    setprop("/autopilot/locks/speed", "speed-with-throttle");
     setprop("instrumentation/flightdirector/vnav",vnav);
   }
 
@@ -1483,6 +1542,7 @@ update_mode = func {
 
     ##var nextWpAlt = getprop("/autopilot/route-manager/route/wp[0]/altitude-ft");
     var nextWpAlt = getprop("/instrumentation/gps/wp/wp[1]/altitude-ft");
+    var nextAlt = getprop("instrumentation/afs/target-altitude-ft");
     var descentAlt = getprop("/instrumentation/afs/thrust-descent-alt");
     var cruiseAlt  = getprop("/instrumentation/afs/thrust-cruise-alt");
     ###var cruiseAlt  = getprop("/instrumentation/mcdu/CRZ_FL");
@@ -1522,16 +1582,17 @@ update_mode = func {
         setprop("/instrumentation/flightdirector/spd", SPD_THRDES);  # THR DES
       }
     }
-    if (vnav == VNAV_DES and nextWpAlt <= 10000 and managedVert == 1 and spd == SPD_THRDES and spdDesArm3 == 0) {
+    if (vnav == VNAV_DES and nextAlt <= 10000 and managedVert == 1 and spd == SPD_THRDES and spdDesArm3 == 0) {
       spdDesArm3 = 1;
       interpolate("/autopilot/settings/target-speed-kt",250,60);
     }
-    if (vnav == VNAV_DES and nextWpAlt <= 4000 and managedVert == 1 and spd == SPD_THRDES and spdDesArm4 == 0) {
+    if (vnav == VNAV_DES and nextAlt <= 4000 and managedVert == 1 and spd == SPD_THRDES and spdDesArm4 == 0) {
       spdDesArm4 = 1;
       interpolate("/autopilot/settings/target-speed-kt",220,60);
     }
     if (vnav == VNAV_DES and nextWpAlt > 0 and managedVert == 1) {
-      diffAlt = nextWpAlt-curAlt;
+      ##diffAlt = nextWpAlt-curAlt;
+      diffAlt = nextAlt-curAlt;
       if (diffAlt < 0) {
         var etaParts = split(":",getprop("/autopilot/route-manager/wp[0]/eta"));
         var etaDist  = getprop("/autopilot/route-manager/wp[0]/dist");
@@ -1541,21 +1602,22 @@ update_mode = func {
           etaMin = etaSec;
           etaSec = 0;
         }
-        #tracer("[updateMode] ETA min: "~etaMin~", ETA sec: "~etaSec~", difAlt: "~diffAlt);
+        tracer("[updateMode] ETA min: "~etaMin~", ETA sec: "~etaSec~", difAlt: "~diffAlt);
         var gap = 10;
-        if (nextWpAlt < 15000) {
+        if (nextAlt < 15000) {
           gap = 20;
         }
         eta = (etaSec+(etaMin*60))-gap;
-        #tracer("[updateMode] eta: "~eta~", difAlt: "~diffAlt);
+        tracer("[updateMode] eta: "~eta~", difAlt: "~diffAlt);
         if (eta <= 0 ) { 
           if (getprop("/autopilot/locks/altitude") != "altitude-hold") {
             tracer("[updateMode] ETA min: "~etaMin~", ETA sec: "~etaSec~", difAlt: "~diffAlt);
             tracer("reached alt, holding");
+            setprop("autopilot/settings/target-altitude-ft", nextAlt);
             setprop("/autopilot/locks/altitude","altitude-hold");
           }
         } else {
-          #tracer("ETA seconds: "~eta);
+          tracer("ETA seconds: "~eta);
           fmsVS = (diffAlt/eta)*60;
           if (fmsVS < -3000) {
             fmsVS = -3000;
@@ -1563,7 +1625,7 @@ update_mode = func {
           if (fmsVS > 3000) {
             fmsVS = 3000;
           }
-          #tracer("Set DESCENT VNAV #1: "~fmsVS);
+          tracer("Set DESCENT VNAV #1: "~fmsVS);
           setprop("/autopilot/settings/vertical-speed-fpm",fmsVS);
           if (getprop("/autopilot/locks/altitude") != "vertical-speed-hold") {
             setprop("/autopilot/locks/altitude","vertical-speed-hold");
@@ -1572,6 +1634,7 @@ update_mode = func {
       } else {
         if (getprop("/autopilot/locks/altitude") != "altitude-hold") {
           tracer("else; set alt-hold");
+          setprop("autopilot/settings/target-altitude-ft", nextAlt);
           setprop("/autopilot/locks/altitude","altitude-hold");
         }
       }

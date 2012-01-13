@@ -13,7 +13,7 @@
         <layer>
             <condition>
                 <not>
-                    <property>instrumentation/efis/inputs/nd-centered</property>
+                    <property>instrumentation/efis[0]/inputs/nd-centred</property>
                 </not>
             </condition>
             <name>hdg</name>
@@ -44,7 +44,7 @@
             <condition>
                <and>
                 <not>
-                    <property>instrumentation/efis/inputs/nd-centered</property>
+                    <property>instrumentation/efis[0]/inputs/nd-centred</property>
                 </not>
                 <equals>
                     <property>instrumentation/afs/lateral-display</property>
@@ -83,11 +83,15 @@
             <condition>
                 <and>
                   <not>
-                    <property>instrumentation/efis/inputs/nd-centered</property>
+                    <property>instrumentation/efis[0]/inputs/nd-centred</property>
                   </not>
                   <equals>
-                    <property>instrumentation/efis/inputs/lh-vor-adf</property>
+                    <property>instrumentation/efis[0]/inputs/lh-vor-adf</property>
                     <value>1</value>
+                  </equals>
+                  <equals>
+                    <property>instrumentation/afs/approach-radio-lh</property>
+                    <value>VOR</value>
                   </equals>
                   <equals>
                     <property>/instrumentation/nav[0]/in-range</property>
@@ -131,11 +135,15 @@
             <condition>
                 <and>
                   <not>
-                    <property>instrumentation/efis/inputs/nd-centered</property>
+                    <property>instrumentation/efis[0]/inputs/nd-centred</property>
                   </not>
                   <equals>
-                    <property>instrumentation/efis/inputs/lh-vor-adf</property>
+                    <property>instrumentation/efis[0]/inputs/lh-vor-adf</property>
                     <value>1</value>
+                  </equals>
+                  <equals>
+                    <property>instrumentation/afs/approach-radio-lh</property>
+                    <value>VOR</value>
                   </equals>
                   <equals>
                     <property>/instrumentation/nav[0]/in-range</property>
@@ -178,17 +186,30 @@
         <layer>
             <condition>
                 <and>
-                <not>
-                    <property>instrumentation/efis/inputs/nd-centered</property>
-                </not>
-                    <equals>
-                        <property>instrumentation/efis/inputs/lh-vor-adf</property>
-                        <value>-1</value>
-                </equals>
+                  <not>
+                    <property>instrumentation/efis[0]/inputs/nd-centred</property>
+                  </not>
+                  <equals>
+                    <property>instrumentation/efis[0]/inputs/lh-vor-adf</property>
+                    <value>1</value>
+                  </equals>
+                  <equals>
+                    <property>instrumentation/afs/approach-radio-lh</property>
+                    <value>ADF</value>
+                  </equals>
+                  <equals>
+                    <property>instrumentation/afs/lh-approach-radio</property>
+                    <value>2</value>
+                  </equals>
                 </and>
             </condition>
             <name>Ladf head</name>
             <emissive>true</emissive>
+            <color>
+                <red>0.0</red>
+                <green>1.0</green>
+                <blue>0.0</blue>
+            </color>
             <w>12</w>
             <h>28</h>
             <texture>
@@ -218,16 +239,25 @@
             <condition>
                 <and>
                 <not>
-                    <property>instrumentation/efis/inputs/nd-centered</property>
+                    <property>instrumentation/efis[0]/inputs/nd-centred</property>
                 </not>
                     <equals>
-                        <property>instrumentation/efis/inputs/lh-vor-adf</property>
-                        <value>-1</value>
+                        <property>instrumentation/efis[0]/inputs/lh-vor-adf</property>
+                        <value>1</value>
                 </equals>
+                <equals>
+                    <property>instrumentation/afs/approach-radio-lh</property>
+                    <value>ADF</value>
+                  </equals>
                 </and>
             </condition>
             <name>Ladf tail</name>
             <emissive>true</emissive>
+            <color>
+                <red>0.0</red>
+                <green>1.0</green>
+                <blue>0.0</blue>
+            </color>
             <w>12</w>
             <h>28</h>
             <texture>
@@ -257,11 +287,15 @@
             <condition>
                 <and>
                   <not>
-                    <property>instrumentation/efis/inputs/nd-centered</property>
+                    <property>instrumentation/efis[0]/inputs/nd-centred</property>
                   </not>
                   <equals>
-                    <property>instrumentation/efis/inputs/rh-vor-adf</property>
+                    <property>instrumentation/efis[0]/inputs/rh-vor-adf</property>
                     <value>1</value>
+                  </equals>
+                  <equals>
+                    <property>instrumentation/afs/approach-radio-rh</property>
+                    <value>VOR</value>
                   </equals>
                   <equals>
                     <property>/instrumentation/nav[1]/in-range</property>
@@ -305,12 +339,16 @@
             <condition>
               <and>
                 <not>
-                  <property>instrumentation/efis/inputs/nd-centered</property>
+                  <property>instrumentation/efis[0]/inputs/nd-centred</property>
                 </not>
                 <equals>
-                  <property>instrumentation/efis/inputs/rh-vor-adf</property>
+                  <property>instrumentation/efis[0]/inputs/rh-vor-adf</property>
                    <value>1</value>
                 </equals>
+                <equals>
+                    <property>instrumentation/afs/approach-radio-rh</property>
+                    <value>VOR</value>
+                  </equals>
                 <equals>
                     <property>/instrumentation/nav[1]/in-range</property>
                     <value>1</value>
@@ -352,17 +390,26 @@
         <layer>
             <condition>
                 <and>
-                <not>
-                    <property>instrumentation/efis/inputs/nd-centered</property>
-                </not>
-                    <equals>
-                        <property>instrumentation/efis/inputs/rh-vor-adf</property>
-                        <value>-1</value>
-                </equals>
+                  <not>
+                    <property>instrumentation/efis[0]/inputs/nd-centred</property>
+                  </not>
+                  <equals>
+                    <property>instrumentation/efis[0]/inputs/rh-vor-adf</property>
+                    <value>1</value>
+                  </equals>
+                  <equals>
+                    <property>instrumentation/afs/approach-radio-rh</property>
+                    <value>ADF</value>
+                  </equals>
                 </and>
             </condition>
             <name>Radf head</name>
             <emissive>true</emissive>
+            <color>
+                <red>0.0</red>
+                <green>1.0</green>
+                <blue>0.0</blue>
+            </color>
             <w>12</w>
             <h>28</h>
             <texture>
@@ -391,17 +438,26 @@
         <layer>
             <condition>
                 <and>
-                <not>
-                    <property>instrumentation/efis/inputs/nd-centered</property>
-                </not>
-                    <equals>
-                        <property>instrumentation/efis/inputs/rh-vor-adf</property>
-                        <value>-1</value>
-                </equals>
+                  <not>
+                    <property>instrumentation/efis[0]/inputs/nd-centred</property>
+                  </not>
+                  <equals>
+                    <property>instrumentation/efis[0]/inputs/rh-vor-adf</property>
+                    <value>1</value>
+                  </equals>
+                  <equals>
+                    <property>instrumentation/afs/approach-radio-rh</property>
+                    <value>ADF</value>
+                  </equals>
                 </and>
             </condition>
             <name>Radf tail</name>
             <emissive>true</emissive>
+            <color>
+                <red>0.0</red>
+                <green>1.0</green>
+                <blue>0.0</blue>
+            </color>
             <w>12</w>
             <h>28</h>
             <texture>
@@ -430,7 +486,7 @@
 	<layer>
 	  <condition>
 	    <not>
-	      <property>instrumentation/efis/inputs/nd-centered</property>
+	      <property>instrumentation/efis[0]/inputs/nd-centred</property>
 	    </not>
 	  </condition>
 	  <name>lubberline</name>
@@ -455,7 +511,7 @@
         <!-- layer>
             <condition>
                 <not>
-                    <property>instrumentation/efis/inputs/nd-centered</property>
+                    <property>instrumentation/efis[0]/inputs/nd-centred</property>
                 </not>
             </condition>
             <name>range scale</name>
@@ -480,7 +536,7 @@
         <layer>
             <condition>
                 <not>
-                    <property>instrumentation/efis/inputs/nd-centered</property>
+                    <property>instrumentation/efis[0]/inputs/nd-centred</property>
                 </not>
             </condition>
             <name>mask</name>
@@ -499,7 +555,7 @@
         <layer>
             <condition>
                 <not>
-                    <property>instrumentation/efis/inputs/nd-centered</property>
+                    <property>instrumentation/efis[0]/inputs/nd-centred</property>
                 </not>
             </condition>
             <name>aircraft symbol</name>
@@ -525,7 +581,7 @@
 
         <layer>
             <condition>
-                <property>instrumentation/efis/inputs/nd-centered</property>
+                <property>instrumentation/efis[0]/inputs/nd-centred</property>
             </condition>
             <name>hdg1</name>
             <w>220</w>
@@ -553,7 +609,7 @@
 
         <layer>
             <condition>
-                <property>instrumentation/efis/inputs/nd-centered</property>
+                <property>instrumentation/efis[0]/inputs/nd-centred</property>
             </condition>
             <name>hdgbug</name>
             <emissive>true</emissive>
@@ -584,13 +640,17 @@
 
         <layer>
             <condition>
-                <and>
-                    <property>instrumentation/efis/inputs/nd-centered</property>
-                    <equals>
-                        <property>instrumentation/efis/inputs/lh-vor-adf</property>
-                        <value>1</value>
+              <and>
+                <property>instrumentation/efis[0]/inputs/nd-centred</property>
+                <equals>
+                  <property>instrumentation/efis[0]/inputs/lh-vor-adf</property>
+                  <value>1</value>
                 </equals>
-                </and>
+                <equals>
+                    <property>instrumentation/afs/approach-radio-lh</property>
+                    <value>VOR</value>
+                  </equals>
+              </and>
             </condition>
             <name>Lvor head</name>
             <emissive>true</emissive>
@@ -626,13 +686,17 @@
 
         <layer>
             <condition>
-                <and>
-                    <property>instrumentation/efis/inputs/nd-centered</property>
-                    <equals>
-                        <property>instrumentation/efis/inputs/lh-vor-adf</property>
-                        <value>1</value>
+              <and>
+                <property>instrumentation/efis[0]/inputs/nd-centred</property>
+                <equals>
+                  <property>instrumentation/efis[0]/inputs/lh-vor-adf</property>
+                  <value>1</value>
                 </equals>
-                </and>
+                <equals>
+                    <property>instrumentation/afs/approach-radio-lh</property>
+                    <value>VOR</value>
+                  </equals>
+              </and>
             </condition>
             <name>Lvor tail</name>
             <emissive>true</emissive>
@@ -669,15 +733,24 @@
         <layer>
             <condition>
                 <and>
-                    <property>instrumentation/efis/inputs/nd-centered</property>
+                    <property>instrumentation/efis[0]/inputs/nd-centred</property>
                     <equals>
-                        <property>instrumentation/efis/inputs/lh-vor-adf</property>
-                        <value>-1</value>
+                        <property>instrumentation/efis[0]/inputs/lh-vor-adf</property>
+                        <value>1</value>
                 </equals>
+                <equals>
+                    <property>instrumentation/afs/approach-radio-lh</property>
+                    <value>ADF</value>
+                  </equals>
                 </and>
             </condition>
             <name>Ladf head</name>
             <emissive>true</emissive>
+            <color>
+                <red>0.0</red>
+                <green>1.0</green>
+                <blue>0.0</blue>
+            </color>
             <w>10</w>
             <h>24</h>
             <texture>
@@ -706,15 +779,24 @@
         <layer>
             <condition>
                 <and>
-                    <property>instrumentation/efis/inputs/nd-centered</property>
+                    <property>instrumentation/efis[0]/inputs/nd-centred</property>
                     <equals>
-                        <property>instrumentation/efis/inputs/lh-vor-adf</property>
-                        <value>-1</value>
+                        <property>instrumentation/efis[0]/inputs/lh-vor-adf</property>
+                        <value>1</value>
                 </equals>
+                <equals>
+                    <property>instrumentation/afs/approach-radio-lh</property>
+                    <value>ADF</value>
+                  </equals>
                 </and>
             </condition>
             <name>Ladf tail</name>
             <emissive>true</emissive>
+            <color>
+                <red>0.0</red>
+                <green>1.0</green>
+                <blue>0.0</blue>
+            </color>
             <w>10</w>
             <h>24</h>
             <texture>
@@ -743,11 +825,15 @@
         <layer>
             <condition>
                 <and>
-                    <property>instrumentation/efis/inputs/nd-centered</property>
+                    <property>instrumentation/efis[0]/inputs/nd-centred</property>
                     <equals>
-                        <property>instrumentation/efis/inputs/rh-vor-adf</property>
+                        <property>instrumentation/efis[0]/inputs/rh-vor-adf</property>
                         <value>1</value>
                 </equals>
+                <equals>
+                    <property>instrumentation/afs/approach-radio-rh</property>
+                    <value>VOR</value>
+                  </equals>
                 </and>
             </condition>
             <name>Rvor head</name>
@@ -785,11 +871,15 @@
         <layer>
             <condition>
                 <and>
-                    <property>instrumentation/efis/inputs/nd-centered</property>
+                    <property>instrumentation/efis[0]/inputs/nd-centred</property>
                     <equals>
-                        <property>instrumentation/efis/inputs/rh-vor-adf</property>
+                        <property>instrumentation/efis[0]/inputs/rh-vor-adf</property>
                         <value>1</value>
                 </equals>
+                <equals>
+                    <property>instrumentation/afs/approach-radio-rh</property>
+                    <value>VOR</value>
+                  </equals>
                 </and>
             </condition>
             <name>Rvor tail</name>
@@ -827,15 +917,24 @@
         <layer>
             <condition>
                 <and>
-                    <property>instrumentation/efis/inputs/nd-centered</property>
+                    <property>instrumentation/efis[0]/inputs/nd-centred</property>
                     <equals>
-                        <property>instrumentation/efis/inputs/rh-vor-adf</property>
-                        <value>-1</value>
+                        <property>instrumentation/efis[0]/inputs/rh-vor-adf</property>
+                        <value>1</value>
                 </equals>
+                <equals>
+                    <property>instrumentation/afs/approach-radio-rh</property>
+                    <value>ADF</value>
+                  </equals>
                 </and>
             </condition>
             <name>Radf head</name>
             <emissive>true</emissive>
+            <color>
+                <red>0.0</red>
+                <green>1.0</green>
+                <blue>0.0</blue>
+            </color>
             <w>10</w>
             <h>24</h>
             <texture>
@@ -864,15 +963,24 @@
         <layer>
             <condition>
                 <and>
-                    <property>instrumentation/efis/inputs/nd-centered</property>
+                    <property>instrumentation/efis[0]/inputs/nd-centred</property>
                     <equals>
-                        <property>instrumentation/efis/inputs/rh-vor-adf</property>
-                        <value>-1</value>
+                        <property>instrumentation/efis[0]/inputs/rh-vor-adf</property>
+                        <value>1</value>
                 </equals>
+                <equals>
+                    <property>instrumentation/afs/approach-radio-rh</property>
+                    <value>ADF</value>
+                  </equals>
                 </and>
             </condition>
             <name>Radf tail</name>
             <emissive>true</emissive>
+            <color>
+                <red>0.0</red>
+                <green>1.0</green>
+                <blue>0.0</blue>
+            </color>
             <w>10</w>
             <h>24</h>
             <texture>
@@ -901,7 +1009,7 @@
 
         <layer>
             <condition>
-                <property>instrumentation/efis/inputs/nd-centered</property>
+                <property>instrumentation/efis[0]/inputs/nd-centred</property>
             </condition>
             <name>maskfull</name>
             <emissive>true</emissive>
@@ -918,7 +1026,7 @@
 
         <layer>
             <condition>
-                <property>instrumentation/efis/inputs/nd-centered</property>
+                <property>instrumentation/efis[0]/inputs/nd-centred</property>
             </condition>
             <name>aircraft symbol</name>
             <w>20</w>
@@ -941,8 +1049,16 @@
         
         <layer>
           <condition>
+            <and>
+            <equals>
                 <property>instrumentation/radar/mp[0]/valid</property>
                 <value>1</value>
+              </equals>
+              <equals>
+                <property>instrumentation/efis[0]/inputs/TRAF</property>
+                <value>1</value>
+              </equals>
+              </and>
             </condition>
           <name>mp0</name>
           <w>15</w>
@@ -974,8 +1090,16 @@
 
         <layer>
           <condition>
+            <and>
+            <equals>
                 <property>instrumentation/radar/mp[1]/valid</property>
                 <value>1</value>
+              </equals>
+              <equals>
+                <property>instrumentation/efis[0]/inputs/TRAF</property>
+                <value>1</value>
+              </equals>
+              </and>
             </condition>
           <name>mp1</name>
           <w>15</w>
@@ -1007,8 +1131,16 @@
         
         <layer>
           <condition>
+            <and>
+            <equals>
                 <property>instrumentation/radar/mp[2]/valid</property>
                 <value>1</value>
+              </equals>
+              <equals>
+                <property>instrumentation/efis[0]/inputs/TRAF</property>
+                <value>1</value>
+              </equals>
+              </and>
             </condition>
           <name>mp2</name>
           <w>15</w>
@@ -1040,8 +1172,16 @@
         
         <layer>
           <condition>
+            <and>
+            <equals>
                 <property>instrumentation/radar/mp[3]/valid</property>
                 <value>1</value>
+              </equals>
+              <equals>
+                <property>instrumentation/efis[0]/inputs/TRAF</property>
+                <value>1</value>
+              </equals>
+              </and>
             </condition>
           <name>mp3</name>
           <w>15</w>
@@ -1072,9 +1212,17 @@
         
         <layer>
           <condition>
+            <and>
+              <equals>
                 <property>instrumentation/radar/mp[4]/valid</property>
                 <value>1</value>
-            </condition>
+              </equals>
+              <equals>
+                <property>instrumentation/efis[0]/inputs/TRAF</property>
+                <value>1</value>
+              </equals>
+            </and>
+          </condition>
           <name>mp4</name>
           <w>15</w>
           <h>15</h>
@@ -1105,9 +1253,17 @@
         
         <layer>
           <condition>
+            <and>
+              <equals>
                 <property>instrumentation/radar/mp[5]/valid</property>
                 <value>1</value>
-            </condition>
+              </equals>
+              <equals>
+                <property>instrumentation/efis[0]/inputs/TRAF</property>
+                <value>1</value>
+              </equals>
+            </and>
+          </condition>
           <name>mp5</name>
           <w>15</w>
           <h>15</h>
@@ -1137,9 +1293,17 @@
         
         <layer>
           <condition>
+            <and>
+              <equals>
                 <property>instrumentation/radar/mp[6]/valid</property>
                 <value>1</value>
-            </condition>
+              </equals>
+              <equals>
+                <property>instrumentation/efis[0]/inputs/TRAF</property>
+                <value>1</value>
+              </equals>
+            </and>
+          </condition>
           <name>mp6</name>
           <w>15</w>
           <h>15</h>
@@ -1171,9 +1335,11 @@
         
         <layer>
           <condition>
+              <equals>
                 <property>instrumentation/radar/wp[0]/valid</property>
                 <value>1</value>
-            </condition>
+              </equals>
+          </condition>
           <name>wp0</name>
           <w>10</w>
           <h>10</h>
@@ -1435,18 +1601,29 @@
 
       <layer>
           <condition>
+            <and>
+              <not>
+                <property>instrumentation/efis[0]/inputs/nd-centred</property>
+              </not>
+              <equals>
                 <property>instrumentation/radar/airports[0]/valid</property>
                 <value>1</value>
-            </condition>
+              </equals>
+              <equals>
+                <property>instrumentation/efis[0]/inputs/ARPT</property>
+                <value>1</value>
+              </equals>
+            </and>
+          </condition>
           <name>airport0</name>
-          <w>9.5</w>
-          <h>25</h>
+          <w>10</w>
+          <h>10</h>
           <texture>
             <path>Aircraft/A380/Models/Instruments/MFD/airbus_symbols.png</path>
-            <x1>0.450</x1>
-            <y1>0.370</y1>
-            <x2>0.530</x2>
-            <y2>0.610</y2>
+            <x1>0.600</x1>
+            <y1>0.890</y1>
+            <x2>0.650</x2>
+            <y2>0.950</y2>
           </texture>
           <transformations>
             <transformation>
@@ -1472,18 +1649,29 @@
         
         <layer>
           <condition>
+            <and>
+              <not>
+                <property>instrumentation/efis[0]/inputs/nd-centred</property>
+              </not>
+              <equals>
                 <property>instrumentation/radar/airports[1]/valid</property>
                 <value>1</value>
-            </condition>
+              </equals>
+              <equals>
+                <property>instrumentation/efis[0]/inputs/ARPT</property>
+                <value>1</value>
+              </equals>
+            </and>
+          </condition>
           <name>airport1</name>
-          <w>12</w>
-          <h>12</h>
+          <w>10</w>
+          <h>10</h>
           <texture>
             <path>Aircraft/A380/Models/Instruments/MFD/airbus_symbols.png</path>
-            <x1>0.460</x1>
-            <y1>0.380</y1>
-            <x2>0.540</x2>
-            <y2>0.575</y2>
+            <x1>0.600</x1>
+            <y1>0.890</y1>
+            <x2>0.650</x2>
+            <y2>0.950</y2>
           </texture>
           <transformations>
             <transformation>
@@ -1509,18 +1697,29 @@
         
         <layer>
           <condition>
+            <and>
+              <not>
+                <property>instrumentation/efis[0]/inputs/nd-centred</property>
+              </not>
+              <equals>
                 <property>instrumentation/radar/airports[2]/valid</property>
                 <value>1</value>
-            </condition>
+              </equals>
+              <equals>
+                <property>instrumentation/efis[0]/inputs/ARPT</property>
+                <value>1</value>
+              </equals>
+            </and>
+          </condition>
           <name>airport2</name>
-          <w>12</w>
-          <h>12</h>
+          <w>10</w>
+          <h>10</h>
           <texture>
             <path>Aircraft/A380/Models/Instruments/MFD/airbus_symbols.png</path>
-            <x1>0.460</x1>
-            <y1>0.380</y1>
-            <x2>0.540</x2>
-            <y2>0.575</y2>
+            <x1>0.600</x1>
+            <y1>0.890</y1>
+            <x2>0.650</x2>
+            <y2>0.950</y2>
           </texture>
           <transformations>
             <transformation>
@@ -1546,18 +1745,29 @@
         
         <layer>
           <condition>
+            <and>
+              <not>
+                <property>instrumentation/efis[0]/inputs/nd-centred</property>
+              </not>
+              <equals>
                 <property>instrumentation/radar/airports[3]/valid</property>
                 <value>1</value>
-            </condition>
+              </equals>
+              <equals>
+                <property>instrumentation/efis[0]/inputs/ARPT</property>
+                <value>1</value>
+              </equals>
+            </and>
+          </condition>
           <name>airport3</name>
-          <w>12</w>
-          <h>12</h>
+          <w>10</w>
+          <h>10</h>
           <texture>
             <path>Aircraft/A380/Models/Instruments/MFD/airbus_symbols.png</path>
-            <x1>0.460</x1>
-            <y1>0.380</y1>
-            <x2>0.540</x2>
-            <y2>0.575</y2>
+            <x1>0.600</x1>
+            <y1>0.890</y1>
+            <x2>0.650</x2>
+            <y2>0.950</y2>
           </texture>
           <transformations>
             <transformation>
@@ -1583,18 +1793,29 @@
         
         <layer>
           <condition>
+            <and>
+              <not>
+                <property>instrumentation/efis[0]/inputs/nd-centred</property>
+              </not>
+              <equals>
                 <property>instrumentation/radar/airports[4]/valid</property>
                 <value>1</value>
+              </equals>
+              <equals>
+                <property>instrumentation/efis[0]/inputs/ARPT</property>
+                <value>1</value>
+              </equals>
+            </and>
             </condition>
           <name>airport4</name>
           <w>12</w>
           <h>12</h>
           <texture>
             <path>Aircraft/A380/Models/Instruments/MFD/airbus_symbols.png</path>
-            <x1>0.460</x1>
-            <y1>0.380</y1>
-            <x2>0.540</x2>
-            <y2>0.575</y2>
+            <x1>0.600</x1>
+            <y1>0.890</y1>
+            <x2>0.650</x2>
+            <y2>0.950</y2>
           </texture>
           <transformations>
             <transformation>
@@ -1620,18 +1841,29 @@
         
         <layer>
           <condition>
+            <and>
+              <not>
+                <property>instrumentation/efis[0]/inputs/nd-centred</property>
+              </not>
+              <equals>
                 <property>instrumentation/radar/airports[5]/valid</property>
                 <value>1</value>
-            </condition>
+              </equals>
+              <equals>
+                <property>instrumentation/efis[0]/inputs/ARPT</property>
+                <value>1</value>
+              </equals>
+            </and>
+          </condition>
           <name>airport5</name>
           <w>12</w>
           <h>12</h>
           <texture>
             <path>Aircraft/A380/Models/Instruments/MFD/airbus_symbols.png</path>
-            <x1>0.460</x1>
-            <y1>0.380</y1>
-            <x2>0.540</x2>
-            <y2>0.575</y2>
+            <x1>0.600</x1>
+            <y1>0.890</y1>
+            <x2>0.650</x2>
+            <y2>0.950</y2>
           </texture>
           <transformations>
             <transformation>
@@ -1657,18 +1889,29 @@
         
         <layer>
           <condition>
+            <and>
+              <not>
+                <property>instrumentation/efis[0]/inputs/nd-centred</property>
+              </not>
+              <equals>
                 <property>instrumentation/radar/airports[6]/valid</property>
                 <value>1</value>
-            </condition>
+              </equals>
+              <equals>
+                <property>instrumentation/efis[0]/inputs/ARPT</property>
+                <value>1</value>
+              </equals>
+            </and>
+          </condition>
           <name>airport6</name>
           <w>12</w>
           <h>12</h>
           <texture>
             <path>Aircraft/A380/Models/Instruments/MFD/airbus_symbols.png</path>
-            <x1>0.460</x1>
-            <y1>0.380</y1>
-            <x2>0.540</x2>
-            <y2>0.575</y2>
+            <x1>0.600</x1>
+            <y1>0.890</y1>
+            <x2>0.650</x2>
+            <y2>0.950</y2>
           </texture>
           <transformations>
             <transformation>
@@ -1694,18 +1937,29 @@
         
         <layer>
           <condition>
+            <and>
+              <not>
+                <property>instrumentation/efis[0]/inputs/nd-centred</property>
+              </not>
+              <equals>
                 <property>instrumentation/radar/airports[7]/valid</property>
                 <value>1</value>
-            </condition>
+              </equals>
+              <equals>
+                <property>instrumentation/efis[0]/inputs/ARPT</property>
+                <value>1</value>
+              </equals>
+            </and>
+          </condition>
           <name>airport7</name>
           <w>12</w>
           <h>12</h>
           <texture>
             <path>Aircraft/A380/Models/Instruments/MFD/airbus_symbols.png</path>
-            <x1>0.460</x1>
-            <y1>0.380</y1>
-            <x2>0.540</x2>
-            <y2>0.575</y2>
+            <x1>0.600</x1>
+            <y1>0.890</y1>
+            <x2>0.650</x2>
+            <y2>0.950</y2>
           </texture>
           <transformations>
             <transformation>
@@ -1731,18 +1985,29 @@
         
         <layer>
           <condition>
+            <and>
+              <not>
+                <property>instrumentation/efis[0]/inputs/nd-centred</property>
+              </not>
+              <equals>
                 <property>instrumentation/radar/airports[8]/valid</property>
                 <value>1</value>
-            </condition>
+              </equals>
+              <equals>
+                <property>instrumentation/efis[0]/inputs/ARPT</property>
+                <value>1</value>
+              </equals>
+            </and>
+          </condition>
           <name>airport8</name>
           <w>12</w>
           <h>12</h>
           <texture>
             <path>Aircraft/A380/Models/Instruments/MFD/airbus_symbols.png</path>
-            <x1>0.460</x1>
-            <y1>0.380</y1>
-            <x2>0.540</x2>
-            <y2>0.575</y2>
+            <x1>0.600</x1>
+            <y1>0.890</y1>
+            <x2>0.650</x2>
+            <y2>0.950</y2>
           </texture>
           <transformations>
             <transformation>
@@ -1768,18 +2033,29 @@
         
         <layer>
           <condition>
+            <and>
+              <not>
+                <property>instrumentation/efis[0]/inputs/nd-centred</property>
+              </not>
+              <equals>
                 <property>instrumentation/radar/airports[9]/valid</property>
                 <value>1</value>
-            </condition>
+              </equals>
+              <equals>
+                <property>instrumentation/efis[0]/inputs/ARPT</property>
+                <value>1</value>
+              </equals>
+            </and>
+          </condition>
           <name>airport9</name>
           <w>12</w>
           <h>12</h>
           <texture>
             <path>Aircraft/A380/Models/Instruments/MFD/airbus_symbols.png</path>
-            <x1>0.460</x1>
-            <y1>0.380</y1>
-            <x2>0.540</x2>
-            <y2>0.575</y2>
+            <x1>0.600</x1>
+            <y1>0.890</y1>
+            <x2>0.650</x2>
+            <y2>0.950</y2>
           </texture>
           <transformations>
             <transformation>
@@ -1805,18 +2081,29 @@
         
         <layer>
           <condition>
+            <and>
+              <not>
+                <property>instrumentation/efis[0]/inputs/nd-centred</property>
+              </not>
+              <equals>
                 <property>instrumentation/radar/airports[10]/valid</property>
                 <value>1</value>
-            </condition>
+              </equals>
+              <equals>
+                <property>instrumentation/efis[0]/inputs/ARPT</property>
+                <value>1</value>
+              </equals>
+            </and>
+          </condition>
           <name>airport10</name>
           <w>12</w>
           <h>12</h>
           <texture>
             <path>Aircraft/A380/Models/Instruments/MFD/airbus_symbols.png</path>
-            <x1>0.460</x1>
-            <y1>0.380</y1>
-            <x2>0.540</x2>
-            <y2>0.575</y2>
+            <x1>0.600</x1>
+            <y1>0.890</y1>
+            <x2>0.650</x2>
+            <y2>0.950</y2>
           </texture>
           <transformations>
             <transformation>

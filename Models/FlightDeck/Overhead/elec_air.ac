@@ -1,7 +1,8 @@
 AC3Db
 MATERIAL "1 - Default" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 1 1 1  shi 32  trans 0
+MATERIAL "1 - Default" rgb 0.431 0.522 0.565  amb 1 1 1  emis 0 0 0  spec 0.384 0.467 0.557  shi 0  trans 0
 OBJECT world
-kids 75
+kids 76
 OBJECT poly
 name "AC_FEED"
 loc -7.45058e-09 0 -1.49012e-08
@@ -2831,10 +2832,10 @@ refs 4
 kids 0
 OBJECT poly
 name "ELEC_AIR"
-loc -7.45058e-09 0 -1.49012e-08
+loc -0.000307605 -0.00215318 -1.49012e-08
 data 10
 Rectangle0
-texture "overhead3.png"
+texture "overhead3_02_base.png"
 crease 30.000000
 numvert 4
 0.000999995 0.001 -0.001
@@ -2843,7 +2844,7 @@ numvert 4
 -0.1885 0.001 -0.001
 numsurf 1
 SURF 0x0
-mat 0
+mat 1
 refs 4
 0 0.18303 0.00153123
 1 0.999021 0.00153123
@@ -4348,4 +4349,28 @@ refs 3
 20 0.95813 0.877354
 0 0.929382 0.942666
 19 0.921905 0.936515
+kids 0
+OBJECT poly
+name "backlight.main"
+loc -0.094386 0.00122733 -0.156172
+texture "overhead3_02_backlight-y.png"
+crease 180.000000
+numvert 4
+0.0948934 0 0.15531
+-0.0948934 0 0.15531
+0.0948934 0 -0.15531
+-0.0948934 0 -0.15531
+numsurf 2
+SURF 0x30
+mat 0
+refs 3
+0 0.180664 0.000976562
+3 0.99707 0.467773
+1 0.180664 0.467773
+SURF 0x30
+mat 0
+refs 3
+0 0.180664 0.000976562
+2 0.99707 0.000976562
+3 0.99707 0.467773
 kids 0

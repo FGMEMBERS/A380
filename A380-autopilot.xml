@@ -26,6 +26,13 @@
      <seconds>8.0</seconds>
      <filter-gain>0.0</filter-gain>
   </predict-simple>
+  
+  <predict-simple>
+    <input>instrumentation/ivsi-adc[0]/indicated-speed-fps</input>
+    <output>instrumentation/ivsi-adc[0]/predict-speed-fps</output>
+    <seconds>5.0</seconds>
+    <filter-gain>0.0</filter-gain>
+  </predict-simple>
 
   <!-- =============================================================== -->
   <!-- Roll Axis Modes                                                 -->
@@ -165,15 +172,19 @@
       <prop>/autopilot/internal/target-roll-deg</prop>
     </output>
     <config>
-      <Kp>-1.5</Kp>        <!-- proportional gain --> <!-- was -1.5 SAH 2010-12-13 --> <!-- was -1.0 2011-04-26 --> <!-- was -1.7 2011-04-27 -->
+      <Kp>-1.45</Kp>        <!-- proportional gain --> <!-- was -1.5 SAH 2010-12-13 --> <!-- was -1.0 2011-04-26 --> <!-- was -1.7 2011-04-27 -->
       <beta>1.0</beta>     <!-- input value weighing factor -->
       <alpha>0.1</alpha>   <!-- low pass filter weighing factor -->
       <gamma>0.0</gamma>   <!-- input value weighing factor for -->
                            <!-- unfiltered derivative error -->
-      <Ti>15.0</Ti>        <!-- integrator time -->   <!-- was 30 2011-04-26 -->
+      <Ti>25.0</Ti>        <!-- integrator time -->   <!-- was 30 2011-04-26 -->  <!-- was 15 2011-12-23 -->
       <Td>0.00001</Td>     <!-- derivator time -->
-      <u_min>-30.0</u_min> <!-- minimum output clamp -->
-      <u_max>30.0</u_max>  <!-- maximum output clamp -->
+      <u_min>
+        <prop>/instrumentation/afs/limit-bank-angle-min</prop>
+      </u_min> <!-- minimum output clamp -->
+      <u_max>
+        <prop>/instrumentation/afs/limit-bank-angle-max</prop>
+      </u_max>  <!-- maximum output clamp -->
     </config>
   </pid-controller>
 
@@ -420,7 +431,7 @@
       <prop>/autopilot/internal/target-climb-rate-fps</prop>
     </output>
     <config>
-      <Kp>0.15</Kp>          <!-- proportional gain -->
+      <Kp>0.13</Kp>          <!-- proportional gain -->
       <Ki>0.0</Ki>          <!-- integral gain -->
       <u_min>
         <!-- -16.67 -->
@@ -723,7 +734,7 @@
       <prop>/autopilot/settings/target-pitch-deg</prop>
     </output>
     <config>
-      <Kp>-1.0</Kp>       <!-- proportional gain -->  <!-- was -0.5 -->
+      <Kp>-0.05</Kp>       <!-- proportional gain -->  <!-- was -0.5 -->
       <beta>1.0</beta>    <!-- input value weighing factor -->
       <alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
       <gamma>0.0</gamma>  <!-- input value weighing factor for -->
@@ -752,12 +763,12 @@
       <prop>/autopilot/settings/target-pitch-deg</prop>
     </output>
     <config>
-      <Kp>-1.0</Kp>       <!-- proportional gain -->  <!-- was -0.5 -->
+      <Kp>-0.01</Kp>       <!-- proportional gain -->  <!-- was -0.5 -->
       <beta>1.0</beta>    <!-- input value weighing factor -->
       <alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
       <gamma>0.0</gamma>  <!-- input value weighing factor for -->
                           <!-- unfiltered derivative error -->
-      <Ti>15.0</Ti>        <!-- integrator time -->  <!-- was 40 2011-04-30 -->
+      <Ti>40.0</Ti>        <!-- integrator time -->  <!-- was 40 2011-04-30 -->
       <Td>0.00001</Td>    <!-- derivator time -->
       <u_min>-15.0</u_min><!-- minimum output clamp -->
       <u_max>15.0</u_max> <!-- maximum output clamp -->
@@ -1100,12 +1111,28 @@
             <value>200</value>
           </less-than>
           <property>autopilot/route-manager/airborne</property>
+          <not-equals>
+            <property>instrumentation/flightdirector/vnav</property>
+            <value>7</value>
+          </not-equals>
         </and>
     </input>
     <output>
       <property>instrumentation/afs/calc-tc</property>
     </output>
   </logic>
+  
+  <filter>
+    <name>calc fpm</name>
+    <type>gain</type>
+    <gain>60</gain>
+    <input>
+      <property>velocities/vertical-speed-fps</property>
+    </input>
+    <output>
+      <property>instrumentation/vertical-speed-indicator[1]/indicated-speed-fpm</property>
+    </output>
+  </filter>
   
 <filter>
   <name>calc angle of climb</name>
@@ -1115,25 +1142,30 @@
     <property>instrumentation/afs/calc-tc</property>
   </enable>
   <input>
+    <!-- convert all distances to metres -->
     <expression>
       <atan>
         <div>
-          <property>position/altitude-ft</property>
+          <product>
+            <property>position/altitude-ft</property>
+            <value>0.3048</value>
+          </product>
           <product>
             <property>instrumentation/gps/odometer</property>
-            <value>6076</value>
+            <value>1852</value>
+            <!-- value>6076</  nm2ft value -->
           </product>
         </div>
       </atan>
     </expression>
   </input>
   <output>
-    <property>instrumentation/afs/avg-climb-angle</property>
+    <property>instrumentation/afs/avg-climb-angle-rad</property>
   </output>
 </filter>
 
 <filter>
-  <debug>true</debug>
+  <debug>false</debug>
   <name>calc distance to TC</name>
   <type>gain</type>
   <gain>1.0</gain>
@@ -1146,7 +1178,7 @@
       <div>
         <property>instrumentation/afs/thrust-cruise-alt</property>
         <tan>
-          <property>instrumentation/afs/avg-climb-angle</property>
+          <property>instrumentation/afs/avg-climb-angle-rad</property>
         </tan>
       </div>
       <value>0.000164578834</value>
@@ -1154,8 +1186,205 @@
     </expression>
   </input>
   <output>
-    <property>instrumentation/afs/top-of-climb-dist</property>
+    <property>instrumentation/afs/top-of-climb-dist-nm</property>
   </output>
 </filter>
+
+<filter>
+  <debug>false</debug>
+  <type>gain</type>
+  <gain>1.0</gain>
+  <input>
+    <expression>
+      <product>
+        <property>velocities/Vso</property>
+        <property>velocities/vls-factor</property>
+      </product>
+    </expression>
+  </input>
+  <output>
+    <property>velocities/Vls</property>
+  </output>
+</filter>
+
+<filter>
+  <debug>false</debug>
+  <type>gain</type>
+  <gain>1.0</gain>
+  <input>
+    <expression>
+      <div>
+        <dif>
+          <property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
+          <property>velocities/Vls</property>
+        </dif>
+        <value>120</value>
+      </div>
+    </expression>
+  </input>
+  <output>
+    <property>instrumentation/airspeed-indicator/vls-pos-norm</property>
+  </output>
+  <min>0.0</min>
+    <max>1.0</max>
+</filter>
+
+<flipflop>
+   <type>JK</type>
+   <J>
+     <property>controls/engines/engine[1]/starter</property>
+   </J>
+   <K>
+     <property>controls/engines/engine[1]/ignition</property>
+   </K>
+   <clock>
+       <property>controls/engines/engine[1]/starter</property>
+   </clock>
+   <output>controls/engines/engine[1]/flipJK</output>
+ </flipflop>
+ 
+ <flipflop>
+   <type>SR</type> <!-- or SR -->
+   <S>
+     <property>controls/engines/engine[1]/starter</property>
+   </S>
+   <R>
+     <property>controls/engines/engine[1]/ignition</property>
+   </R>
+   <output>controls/engines/engine[1]/flipRS</output>
+ </flipflop>
+ 
+<flipflop>
+   <name>Test mf</name>
+   <type>monostable</type>
+   <time>
+     <value>10</value>
+   </time>
+   <J>
+     <property>controls/engines/engine[1]/starter</property>
+   </J>
+   <K>
+     <property>controls/engines/engine[1]/ignition</property>
+   </K>
+   <clock>
+     <property>/controls/engines/engine[1]/master</property>
+   </clock>
+   <output>controls/engines/engine[1]/flipMF</output>
+ </flipflop>
+ 
+ <!--  engine starter volume control -->
+ <!-- engine 0 -->
+ <filter>
+   <type>gain</type>
+   <enable>
+     <condition>
+       <property>controls/engines/engine[0]/starter</property>
+     </condition>
+   </enable>
+   <input>
+     <expression>
+     <table>
+                    <property>/engines/engine[0]/n2</property>
+                    <entry><ind>0</ind><dep>0</dep></entry>
+                    <entry><ind>5</ind><dep>0.6</dep></entry>
+                    <entry><ind>30</ind><dep>1</dep></entry>
+                    <entry><ind>40</ind><dep>0</dep></entry>
+                    <entry><ind>60</ind><dep>0</dep></entry>
+                </table>
+
+     </expression>
+   </input>
+   <gain>
+     <value>1.0</value>
+   </gain>
+   <output>
+     <property>controls/engines/engine[0]/starter-sound</property>
+   </output>
+ </filter>
+ <!-- engine 1 -->
+ <filter>
+   <type>gain</type>
+   <enable>
+     <condition>
+       <property>controls/engines/engine[1]/starter</property>
+     </condition>
+   </enable>
+   <input>
+     <expression>
+     <table>
+                    <property>/engines/engine[1]/n2</property>
+                    <entry><ind>0</ind><dep>0</dep></entry>
+                    <entry><ind>5</ind><dep>0.6</dep></entry>
+                    <entry><ind>30</ind><dep>1</dep></entry>
+                    <entry><ind>40</ind><dep>0</dep></entry>
+                    <entry><ind>60</ind><dep>0</dep></entry>
+                </table>
+
+     </expression>
+   </input>
+   <gain>
+     <value>1.0</value>
+   </gain>
+   <output>
+     <property>controls/engines/engine[1]/starter-sound</property>
+   </output>
+ </filter>
+ <!-- engine 2 -->
+ <filter>
+   <type>gain</type>
+   <enable>
+     <condition>
+       <property>controls/engines/engine[2]/starter</property>
+     </condition>
+   </enable>
+   <input>
+     <expression>
+     <table>
+                    <property>/engines/engine[2]/n2</property>
+                    <entry><ind>0</ind><dep>0</dep></entry>
+                    <entry><ind>5</ind><dep>0.6</dep></entry>
+                    <entry><ind>30</ind><dep>1</dep></entry>
+                    <entry><ind>40</ind><dep>0</dep></entry>
+                    <entry><ind>60</ind><dep>0</dep></entry>
+                </table>
+
+     </expression>
+   </input>
+   <gain>
+     <value>1.0</value>
+   </gain>
+   <output>
+     <property>controls/engines/engine[2]/starter-sound</property>
+   </output>
+ </filter>
+ <!-- engine 3 -->
+ <filter>
+   <type>gain</type>
+   <enable>
+     <condition>
+       <property>controls/engines/engine[3]/starter</property>
+     </condition>
+   </enable>
+   <input>
+     <expression>
+     <table>
+                    <property>/engines/engine[3]/n2</property>
+                    <entry><ind>0</ind><dep>0</dep></entry>
+                    <entry><ind>5</ind><dep>0.6</dep></entry>
+                    <entry><ind>30</ind><dep>1</dep></entry>
+                    <entry><ind>40</ind><dep>0</dep></entry>
+                    <entry><ind>60</ind><dep>0</dep></entry>
+                </table>
+
+     </expression>
+   </input>
+   <gain>
+     <value>1.0</value>
+   </gain>
+   <output>
+     <property>controls/engines/engine[3]/starter-sound</property>
+   </output>
+ </filter>
+ 
 
 </PropertyList>

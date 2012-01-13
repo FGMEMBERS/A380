@@ -1,8 +1,8 @@
 AC3Db
-MATERIAL "DefaultWhite" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0.5 0.5 0.5  shi 64  trans 0
+MATERIAL "DefaultWhite" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0 0 0  shi 0  trans 0
 MATERIAL "DefaultWhite" rgb 0.318 0.373 0.373  amb 0.753 0.816 0.816  emis 0 0 0  spec 0 0 0  shi 0  trans 0
 OBJECT world
-kids 1
+kids 2
 OBJECT group
 name "gearlvrgrp"
 loc 0.305498 0.2549 17.2556
@@ -571,4 +571,46 @@ refs 4
 16 0.124584 0.107049
 17 0.606651 0.107924
 18 0.602583 0.892951
+kids 0
+OBJECT group
+name "backlight"
+loc -0.00036509 0.0069757 0.0139303
+kids 2
+OBJECT poly
+name "backlight_down"
+loc 0.0143244 0.00966151 -0.000125701
+texture "overhead4_02_backlight.png"
+crease 45.000000
+numvert 4
+0.0157908 0.011815 0.00867341
+-0.0157908 -0.011815 0.00867341
+-0.0157908 -0.011815 -0.00867341
+0.0157908 0.011815 -0.00867341
+numsurf 1
+SURF 0x30
+mat 0
+refs 4
+0 0.914062 0.679688
+1 0.914062 0.443359
+2 1.00391 0.443359
+3 1.00391 0.679688
+kids 0
+OBJECT poly
+name "backlight_up"
+loc -0.0150092 -0.0115703 0.000125701
+texture "overhead4_02_backlight.png"
+crease 45.000000
+numvert 4
+-0.0133499 -0.00926548 -0.0086734
+0.0133499 0.00926548 -0.0086734
+0.0133499 0.00926548 0.00867341
+-0.0133499 -0.00926548 0.00867341
+numsurf 1
+SURF 0x30
+mat 0
+refs 4
+3 0.914062 0.679688
+2 0.914062 0.443359
+1 1.00391 0.443359
+0 1.00391 0.679688
 kids 0

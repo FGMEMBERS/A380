@@ -457,13 +457,13 @@ tracer : func(msg) {
           if (wp != nil) {
             dn.getNode("id",1).setValue(wp.wp_name);
             dn.getNode("parent",1).setValue(wp.wp_parent_name);
-            var spdLim = wp.spd_csrt;
+            var spdLim = wp.spd_cstr;
             if (spdLim < 1 and spdLim > 0) {
               dn.getNode("spd-lim-display",1).setValue(sprintf("%01.2f", spdLim));
             } else {
               dn.getNode("spd-lim-display",1).setValue(sprintf("%5.0f", spdLim));
             }
-            var altLim = wp.alt_csrt;
+            var altLim = wp.alt_cstr;
             if (altLim > 10000) {
               dn.getNode("alt-lim-display",1).setValue(sprintf("FL%3.0f",(altLim/100)));
             } else {
@@ -548,7 +548,7 @@ tracer : func(msg) {
     # replace a WP in plan at specified index
     #
     replaceWPAt : func(wp, idx) {
-      me.tracer("replace WP: "~wp.wp_name~" at pos: "~idx);
+      ##me.tracer("replace WP: "~wp.wp_name~" at pos: "~idx);
       if (idx > size(me.activePlan)-1) {
         append(me.activePlan, wp);
       } else {

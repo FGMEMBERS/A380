@@ -28,27 +28,39 @@ Doors.aftCargo = func {
 }
 
 Doors.paxLeftLow1 = func {
-   me.paxLeftLow1Door.toggle();
+   if (getprop("instrumentation/pressurisation/cabin-delta-psi") < 0.5) {
+     me.paxLeftLow1Door.toggle();
+   }
 }
 
 Doors.paxLeftLow2 = func {
-   me.paxLeftLow2Door.toggle();
+   if (getprop("instrumentation/pressurisation/cabin-delta-psi") < 0.5) {
+     me.paxLeftLow2Door.toggle();
+   }
 }
 
 Doors.paxLeftUp1 = func {
-   me.paxLeftUp1Door.toggle();
+   if (getprop("instrumentation/pressurisation/cabin-delta-psi") < 0.5) {
+     me.paxLeftUp1Door.toggle();
+   }
 }
 
 Doors.paxRightLow1 = func {
-   me.paxRightLow1Door.toggle();
+   if (getprop("instrumentation/pressurisation/cabin-delta-psi") < 0.5) {
+     me.paxRightLow1Door.toggle();
+   }
 }
 
 Doors.paxRightLow2 = func {
-   me.paxRightLow2Door.toggle();
+   if (getprop("instrumentation/pressurisation/cabin-delta-psi") < 0.5) {
+     me.paxRightLow2Door.toggle();
+   }
 }
 
 Doors.paxRightUp1 = func {
-   me.paxRightUp1Door.toggle();
+   if (getprop("instrumentation/pressurisation/cabin-delta-psi") < 0.5) {
+     me.paxRightUp1Door.toggle();
+   }
 }
 
 # ==============

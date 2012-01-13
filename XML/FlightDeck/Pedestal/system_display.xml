@@ -2254,7 +2254,7 @@
    </offsets>
    <type>number-value</type>
    <property type="string">fdm/jsbsim/propulsion/engine[0]/fuel-used-kg</property>
-   <format type="string">%04.0f</format>
+   <format type="string">%4.0f</format>
    <font>helvetica_medium.txf</font>
    <character-size type="double">0.006</character-size>
  </text>
@@ -2271,7 +2271,7 @@
    </offsets>
    <type>number-value</type>
    <property type="string">fdm/jsbsim/propulsion/engine[1]/fuel-used-kg</property>
-   <format type="string">%04.0f</format>
+   <format type="string">%1.0f</format>
    <font>helvetica_medium.txf</font>
    <character-size type="double">0.006</character-size>
  </text>
@@ -2288,7 +2288,7 @@
    </offsets>
    <type>number-value</type>
    <property type="string">fdm/jsbsim/propulsion/engine[2]/fuel-used-kg</property>
-   <format type="string">%04.0f</format>
+   <format type="string">%1.0f</format>
    <font>helvetica_medium.txf</font>
    <character-size type="double">0.006</character-size>
  </text>
@@ -2305,7 +2305,7 @@
    </offsets>
    <type>number-value</type>
    <property type="string">fdm/jsbsim/propulsion/engine[3]/fuel-used-kg</property>
-   <format type="string">%04.0f</format>
+   <format type="string">%1.0f</format>
    <font>helvetica_medium.txf</font>
    <character-size type="double">0.006</character-size>
  </text>
@@ -2322,7 +2322,7 @@
    </offsets>
    <type>number-value</type>
    <property type="string">/consumables/fuel/total-used-kg</property>
-   <format type="string">%05.0f</format>
+   <format type="string">%1.0f</format>
    <font>helvetica_medium.txf</font>
    <character-size type="double">0.006</character-size>
  </text>
@@ -2392,8 +2392,8 @@
       <z-m>0.0011</z-m>
    </offsets>
    <type>number-value</type>
-   <property type="string">/controls/pressurisation/cabin-vs-schedule</property>
-   <factor type="double">60.0</factor>
+   <property type="string">instrumentation/cabin-rate-climb[1]/indicated-speed-fpm</property>
+   <!-- factor type="double">60.0</factor -->
    <format type="string">%3.0f</format>
    <font>helvetica_medium.txf</font>
    <character-size type="double">0.006</character-size>

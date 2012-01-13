@@ -3,14 +3,160 @@
 <PropertyList>
 
 <fx>
-<!--Engine 1 Sound -->
+  
+  <!-- extra Trent whine -->
   <engine>
-    <name>Engine0</name>
+    <name>Trent0 n2</name>
+    <path>Aircraft/A380/Sounds/a380-trent_04_loop_mono.wav</path>
+    <mode>looped</mode>
+    <condition>
+      <and>
+	<greater-than>
+	  <property>/sim/current-view/view-number</property>
+	  <value>0</value>
+	</greater-than>
+	<less-than>
+	  <property>/sim/current-view/view-number</property>
+	  <value>8</value>
+	</less-than>
+	<not>
+	  <property>sim/crashed</property>
+	</not>
+      </and>
+    </condition>
+    <volume>
+      <property>/engines/engine[0]/n1</property>
+      <factor>0.01</factor>
+      <max>0.7</max>
+    </volume>
+    <pitch>
+      <property>/engines/engine[0]/n1</property>
+      <factor>0.0015</factor>
+      <min>0.0</min>
+    </pitch>
+    <position>
+      <x>-7.3</x>
+      <y>-1.0</y>
+      <z>10.0</z>
+    </position>
+  </engine>
+  
+  <engine>
+    <name>Trent1 n2</name>
+    <path>Aircraft/A380/Sounds/a380-trent_04_loop_mono.wav</path>
+    <mode>looped</mode>
+    <condition>
+      <and>
+	<greater-than>
+	  <property>/sim/current-view/view-number</property>
+	  <value>0</value>
+	</greater-than>
+	<less-than>
+	  <property>/sim/current-view/view-number</property>
+	  <value>8</value>
+	</less-than>
+	<not>
+	  <property>sim/crashed</property>
+	</not>
+      </and>
+    </condition>
+    <volume>
+      <property>/engines/engine[1]/n1</property>
+      <factor>0.01</factor>
+      <max>0.7</max>
+    </volume>
+    <pitch>
+      <property>/engines/engine[1]/n1</property>
+      <factor>0.0015</factor>
+      <min>0.0</min>
+    </pitch>
+    <position>
+      <x>-7.3</x>
+      <y>-1.0</y>
+      <z>10.0</z>
+    </position>
+  </engine>
+  
+  <engine>
+    <name>Trent2 n2</name>
+    <path>Aircraft/A380/Sounds/a380-trent_04_loop_mono.wav</path>
+    <mode>looped</mode>
+    <condition>
+      <and>
+	<greater-than>
+	  <property>/sim/current-view/view-number</property>
+	  <value>0</value>
+	</greater-than>
+	<less-than>
+	  <property>/sim/current-view/view-number</property>
+	  <value>8</value>
+	</less-than>
+	<not>
+	  <property>sim/crashed</property>
+	</not>
+      </and>
+    </condition>
+    <volume>
+      <property>/engines/engine[2]/n1</property>
+      <factor>0.01</factor>
+      <max>0.7</max>
+    </volume>
+    <pitch>
+      <property>/engines/engine[2]/n1</property>
+      <factor>0.0015</factor>
+      <min>0.0</min>
+    </pitch>
+    <position>
+      <x>-7.3</x>
+      <y>-1.0</y>
+      <z>10.0</z>
+    </position>
+  </engine>
+  
+  <engine>
+    <name>Trent3 n2</name>
+    <path>Aircraft/A380/Sounds/a380-trent_04_loop_mono.wav</path>
+    <mode>looped</mode>
+    <condition>
+      <and>
+	<greater-than>
+	  <property>/sim/current-view/view-number</property>
+	  <value>0</value>
+	</greater-than>
+	<less-than>
+	  <property>/sim/current-view/view-number</property>
+	  <value>8</value>
+	</less-than>
+	<not>
+	  <property>sim/crashed</property>
+	</not>
+      </and>
+    </condition>
+    <volume>
+      <property>/engines/engine[3]/n1</property>
+      <factor>0.01</factor>
+      <max>0.7</max>
+    </volume>
+    <pitch>
+      <property>/engines/engine[3]/n1</property>
+      <factor>0.0015</factor>
+      <min>0.0</min>
+    </pitch>
+    <position>
+      <x>-7.3</x>
+      <y>-1.0</y>
+      <z>10.0</z>
+    </position>
+  </engine>
+  
+
+
+<engine>
+    <name>Engine0 outside</name>
     <path>Sounds/jet.wav</path>
     <mode>looped</mode>
     <condition>
       <and>
-        <!-- property>/engines/engine[0]/running</property -->
         <greater-than>
           <property>/sim/current-view/view-number</property>
           <value>0</value>
@@ -25,25 +171,123 @@
       </and>
     </condition>
     <volume>
-      <property>/engines/engine[0]/thrust_lb</property>
-      <factor>0.0004</factor>
-      <min>0.0</min>
-      <max>0.8</max>
+      <property>engines/engine[0]/n1</property>
+      <type>ln</type>
+      <factor>0.16</factor>
+      <offset>0.05</offset>
+   </volume>
+    <position>
+      <x>-7.3</x>
+      <y>-1.0</y>
+      <z>10.0</z>
+    </position>
+  </engine>
+  
+  <engine>
+    <name>Engine1 outside</name>
+    <path>Sounds/jet.wav</path>
+    <mode>looped</mode>
+    <condition>
+      <and>
+	<greater-than>
+	  <property>/sim/current-view/view-number</property>
+	  <value>0</value>
+	</greater-than>
+	<less-than>
+	  <property>/sim/current-view/view-number</property>
+	  <value>8</value>
+	</less-than>
+	<not>
+	  <property>sim/crashed</property>
+	</not>
+      </and>
+    </condition>
+    <volume>
+      <property>engines/engine[1]/n1</property>
+      <type>ln</type>
+      <factor>0.16</factor>
+      <offset>0.05</offset>
     </volume>
     <position>
-      <x>-1.3</x>
-      <y>0.3</y>
+      <x>-7.3</x>
+      <y>-0.3</y>
       <z>10.0</z>
     </position>
   </engine>
 
-  <!-- engine>
+
+  <engine>
+	<name>Engine2 outside</name>
+	<path>Sounds/jet.wav</path>
+	<mode>looped</mode>
+	<condition>
+          <and>
+            <greater-than>
+              <property>/sim/current-view/view-number</property>
+              <value>0</value>
+            </greater-than>
+            <less-than>
+              <property>/sim/current-view/view-number</property>
+              <value>8</value>
+            </less-than>
+            <not>
+              <property>sim/crashed</property>
+            </not>
+          </and>
+	</condition>
+	<volume>
+          <property>engines/engine[2]/n1</property>
+          <type>ln</type>
+          <factor>0.16</factor>
+          <offset>0.05</offset>
+	</volume>
+	<position>
+		<x>-7.3</x>
+		<y>0.3</y>
+		<z>10.0</z>
+	</position>
+  </engine>
+
+  <engine>
+	<name>Engine3 outside</name>
+	<path>Sounds/jet.wav</path>
+	<mode>looped</mode>
+	<condition>
+          <and>
+           <greater-than>
+             <property>/sim/current-view/view-number</property>
+               <value>0</value>
+             </greater-than>
+             <less-than>
+               <property>/sim/current-view/view-number</property>
+               <value>8</value>
+             </less-than>
+             <not>
+               <property>sim/crashed</property>
+             </not>
+          </and>
+	</condition>
+	<volume>
+	  <property>engines/engine[3]/n1</property>
+	  <type>ln</type>
+          <factor>0.16</factor>
+          <offset>0.05</offset>
+	</volume>
+	<position>
+		<x>-7.3</x>
+		<y>1.0</y>
+		<z>10.0</z>
+	</position>
+</engine>
+
+
+
+  <engine>
     <name>Engine0 n1</name>
     <path>Sounds/whine.wav</path>
     <mode>looped</mode>
     <condition>
       <and>
-	<property>/engines/engine[0]/running</property>
 	<greater-than>
 	  <property>/sim/current-view/view-number</property>
 	  <value>0</value>
@@ -58,7 +302,10 @@
       </and>
     </condition>
     <volume>
-      <factor>0.4</factor>
+      <property>engines/engine[0]/n1</property>
+      <factor>0.02</factor>
+      <min>0.0</min>
+      <max>0.8</max>
     </volume>
     <pitch>
       <property>/engines/engine[0]/n1</property>
@@ -67,93 +314,18 @@
       <max>0.8</max>
     </pitch>
     <position>
-      <x>-1.3</x>
+      <x>-7.3</x>
       <y>0.3</y>
       <z>10.0</z>
     </position>
-  </engine -->
+  </engine>
   
-  <!-- extra Trent whine -->
-  <engine>
-    <name>Trent0 n2</name>
-    <path>Aircraft/A380/Sounds/a380-trent_04_loop.wav</path>
-    <mode>looped</mode>
-    <condition>
-      <and>
-	<!-- property>/engines/engine[0]/running</property -->
-	<greater-than>
-	  <property>/sim/current-view/view-number</property>
-	  <value>0</value>
-	</greater-than>
-	<less-than>
-	  <property>/sim/current-view/view-number</property>
-	  <value>8</value>
-	</less-than>
-	<not>
-	  <property>sim/crashed</property>
-	</not>
-      </and>
-    </condition>
-    <volume>
-      <property>/engines/engine[0]/n1</property>
-      <!-- offset>-3500</offset -->
-      <!-- factor>0.1</factor -->
-      <factor>0.01</factor>
-      <max>0.8</max>
-    </volume>
-    <pitch>
-      <property>/engines/engine[0]/n1</property>
-      <factor>0.0015</factor>
-      <min>0.0</min>
-      <!-- max>0.8</max -->
-    </pitch>
-    <position>
-      <x>-1.3</x>
-      <y>0.3</y>
-      <z>10.0</z>
-    </position>
-  </engine>
-
-  <engine>
-    <name>Engine1</name>
-    <path>Sounds/jet.wav</path>
-    <mode>looped</mode>
-    <condition>
-      <and>
-	<property>/engines/engine[1]/running</property>
-	<greater-than>
-	  <property>/sim/current-view/view-number</property>
-	  <value>0</value>
-	</greater-than>
-	<less-than>
-	  <property>/sim/current-view/view-number</property>
-	  <value>8</value>
-	</less-than>
-	<not>
-	  <property>sim/crashed</property>
-	</not>
-      </and>
-    </condition>
-    <volume>
-      <property>/engines/engine[1]/thrust_lb</property>
-      <factor>0.0004</factor>
-      <min>0.0</min>
-      <max>0.8</max>
-    </volume>
-    <position>
-      <x>1.3</x>
-      <y>0.3</y>
-      <z>10.0</z>
-    </position>
-  </engine>
-
   <engine>
     <name>Engine1 n1</name>
     <path>Sounds/whine.wav</path>
     <mode>looped</mode>
     <condition>
       <and>
-	<property>/engines/engine[1]/running</property>
 	<greater-than>
 	  <property>/sim/current-view/view-number</property>
 	  <value>0</value>
@@ -168,7 +340,10 @@
       </and>
     </condition>
     <volume>
-      <factor>0.4</factor>
+      <property>engines/engine[1]/n1</property>
+      <factor>0.02</factor>
+      <min>0.0</min>
+      <max>0.8</max>
     </volume>
     <pitch>
       <property>/engines/engine[1]/n1</property>
@@ -177,68 +352,36 @@
       <max>0.8</max>
     </pitch>
     <position>
-      <x>1.3</x>
-      <y>0.3</y>
+      <x>-7.3</x>
+      <y>-0.3</y>
       <z>10.0</z>
     </position>
   </engine>
 
-<!--Engine 3 Sound -->
-<engine>
-	<name>Engine2</name>
-	<path>Sounds/jet.wav</path>
-	<mode>looped</mode>
-	<condition>
-		<and>
-			<property>/engines/engine[2]/running</property>
-			<greater-than>
-				<property>/sim/current-view/view-number</property>
-				<value>0</value>
-			</greater-than>
-			<less-than>
-				<property>/sim/current-view/view-number</property>
-				<value>8</value>
-			</less-than>
-			<not>
-				<property>sim/crashed</property>
-			</not>
-		</and>
-	</condition>
-	<volume>
-		<property>/engines/engine[2]/thrust_lb</property>
-		<factor>0.0004</factor>
-		<min>0.0</min>
-		<max>0.8</max>
-	</volume>
-	<position>
-		<x>-1.3</x>
-		<y>0.3</y>
-		<z>10.0</z>
-	</position>
-</engine>
-
-<engine>
+  <engine>
 	<name>Engine2 n1</name>
 	<path>Sounds/whine.wav</path>
 	<mode>looped</mode>
 	<condition>
-		<and>
-			<property>/engines/engine[2]/running</property>
-			<greater-than>
-				<property>/sim/current-view/view-number</property>
-				<value>0</value>
-			</greater-than>
-			<less-than>
-				<property>/sim/current-view/view-number</property>
-				<value>8</value>
-			</less-than>
-			<not>
-				<property>sim/crashed</property>
-			</not>
-		</and>
+	  <and>
+	    <greater-than>
+	      <property>/sim/current-view/view-number</property>
+	      <value>0</value>
+	    </greater-than>
+	    <less-than>
+	      <property>/sim/current-view/view-number</property>
+	      <value>8</value>
+	    </less-than>
+	    <not>
+	      <property>sim/crashed</property>
+	    </not>
+	  </and>
 	</condition>
 	<volume>
-		<factor>0.4</factor>
+	  <property>engines/engine[2]/n1</property>
+	  <factor>0.02</factor>
+	  <min>0.0</min>
+      <max>0.8</max>
 	</volume>
 	<pitch>
 		<property>/engines/engine[2]/n1</property>
@@ -247,41 +390,7 @@
 		<max>0.8</max>
 	</pitch>
 	<position>
-		<x>-1.3</x>
-		<y>0.3</y>
-		<z>10.0</z>
-	</position>
-</engine>
-
-<!--Engine 4 Sound -->
-<engine>
-	<name>Engine3</name>
-	<path>Sounds/jet.wav</path>
-	<mode>looped</mode>
-	<condition>
-		<and>
-			<property>/engines/engine[3]/running</property>
-			<greater-than>
-				<property>/sim/current-view/view-number</property>
-				<value>0</value>
-			</greater-than>
-			<less-than>
-				<property>/sim/current-view/view-number</property>
-				<value>8</value>
-			</less-than>
-			<not>
-				<property>sim/crashed</property>
-			</not>
-		</and>
-	</condition>
-	<volume>
-		<property>/engines/engine[3]/thrust_lb</property>
-		<factor>0.0004</factor>
-		<min>0.0</min>
-		<max>0.8</max>
-	</volume>
-	<position>
-		<x>-1.3</x>
+		<x>-7.3</x>
 		<y>0.3</y>
 		<z>10.0</z>
 	</position>
@@ -293,22 +402,24 @@
 	<mode>looped</mode>
 	<condition>
 		<and>
-			<property>/engines/engine[3]/running</property>
-			<greater-than>
-				<property>/sim/current-view/view-number</property>
-				<value>0</value>
-			</greater-than>
-			<less-than>
-				<property>/sim/current-view/view-number</property>
-				<value>8</value>
-			</less-than>
-			<not>
-				<property>sim/crashed</property>
-			</not>
+		  <greater-than>
+		    <property>/sim/current-view/view-number</property>
+		    <value>0</value>
+		  </greater-than>
+		  <less-than>
+		    <property>/sim/current-view/view-number</property>
+		    <value>8</value>
+		  </less-than>
+		  <not>
+		    <property>sim/crashed</property>
+		  </not>
 		</and>
 	</condition>
 	<volume>
-		<factor>0.4</factor>
+	  <property>engines/engine[3]/n1</property>
+	  <factor>0.02</factor>
+	  <min>0.0</min>
+          <max>0.8</max>
 	</volume>
 	<pitch>
 		<property>/engines/engine[3]/n1</property>
@@ -317,13 +428,170 @@
 		<max>0.8</max>
 	</pitch>
 	<position>
-		<x>-1.3</x>
-		<y>0.3</y>
+		<x>-7.3</x>
+		<y>1.0</y>
 		<z>10.0</z>
 	</position>
 </engine>
 
 
+<engine>
+    <name>Engine0 startup</name>
+    <path>Aircraft/A380/Sounds/trent_starter02_mono.wav</path>
+    <mode>looped</mode>
+    <condition>
+      <and>
+	<not>
+	  <property>sim/crashed</property>
+	</not>
+	<not-equals>
+	  <property>sim/current-view/view-number</property>
+	  <value>3</value>
+	</not-equals>
+	<not>
+	  <equals>
+	  <property>sim/current-view/view-number</property>
+	  <value>4</value>
+	  </equals>
+	</not>
+      </and>
+    </condition>
+    <volume>
+      <property>controls/engines/engine[0]/starter-sound</property>
+    </volume>
+    <pitch>
+     <property>engines/engine[0]/n1</property>
+     <factor>0.1</factor>
+     <offset>-0.5</offset>
+     <min>-10.0</min>
+     <max>1.5</max>
+    </pitch>
+   <!-- pitch>
+     <property>/engines/engine[0]/n2</property>
+     <factor>0.02</factor>
+     <min>0.0</min>
+     <max>3.0</max>
+    </pitch -->
+    <position>
+      <x>-7.3</x>
+      <y>-1.0</y>
+      <z>10.0</z>
+    </position>
+  </engine>
+  
+  <engine>
+    <name>Engine1 startup</name>
+    <path>Aircraft/A380/Sounds/trent_starter02_mono.wav</path>
+    <mode>looped</mode>
+    <condition>
+      <and>
+	<not>
+	  <property>sim/crashed</property>
+	</not>
+	<not-equals>
+	  <property>sim/current-view/view-number</property>
+	  <value>3</value>
+	</not-equals>
+	<not>
+	  <equals>
+	  <property>sim/current-view/view-number</property>
+	  <value>4</value>
+	  </equals>
+	</not>
+      </and>
+    </condition>
+    <volume>
+      <property>controls/engines/engine[1]/starter-sound</property>
+    </volume>
+   <pitch>
+     <property>engines/engine[1]/n1</property>
+     <factor>0.1</factor>
+     <offset>-0.5</offset>
+     <min>-10.0</min>
+     <max>1.5</max>
+    </pitch>
+    <position>
+      <x>-7.3</x>
+      <y>-0.3</y>
+      <z>10.0</z>
+    </position>
+  </engine>
+  
+  <engine>
+    <name>Engine2 startup</name>
+    <path>Aircraft/A380/Sounds/trent_starter02_mono.wav</path>
+    <mode>looped</mode>
+    <condition>
+      <and>
+	<not>
+	  <property>sim/crashed</property>
+	</not>
+	<not-equals>
+	  <property>sim/current-view/view-number</property>
+	  <value>3</value>
+	</not-equals>
+	<not>
+	  <equals>
+	  <property>sim/current-view/view-number</property>
+	  <value>4</value>
+	  </equals>
+	</not>
+      </and>
+    </condition>
+    <volume>
+      <property>controls/engines/engine[2]/starter-sound</property>
+    </volume>
+    <pitch>
+     <property>engines/engine[2]/n1</property>
+     <factor>0.1</factor>
+     <offset>-0.5</offset>
+     <min>-10.0</min>
+     <max>1.5</max>
+    </pitch>
+    <position>
+      <x>-7.3</x>
+      <y>0.3</y>
+      <z>10.0</z>
+    </position>
+  </engine>
+  
+  <engine>
+    <name>Engine3 startup</name>
+    <path>Aircraft/A380/Sounds/trent_starter02_mono.wav</path>
+    <mode>looped</mode>
+    <condition>
+      <and>
+	<not>
+	  <property>sim/crashed</property>
+	</not>
+	<not-equals>
+	  <property>sim/current-view/view-number</property>
+	  <value>3</value>
+	</not-equals>
+	<not>
+	  <equals>
+	  <property>sim/current-view/view-number</property>
+	  <value>4</value>
+	  </equals>
+	</not>
+      </and>
+    </condition>
+    <volume>
+      <property>controls/engines/engine[3]/starter-sound</property>
+    </volume>
+    <pitch>
+     <property>engines/engine[3]/n1</property>
+     <factor>0.1</factor>
+     <offset>-0.5</offset>
+     <min>-10.0</min>
+     <max>1.5</max>
+    </pitch>
+    <position>
+      <x>-7.3</x>
+      <y>1.0</y>
+      <z>10.0</z>
+    </position>
+  </engine>
 
 
 
@@ -333,7 +601,6 @@
     <mode>looped</mode>
     <condition>
       <and>
-	<property>/engines/engine[0]/running</property>
 	<or>
 	  <equals>
 	    <property>/sim/current-view/view-number</property>
@@ -343,14 +610,10 @@
 	    <property>/sim/current-view/view-number</property>
 	    <value>5</value>
 	  </equals>
-	  <equals>
+	  <greater-than>
 	    <property>/sim/current-view/view-number</property>
-	    <value>8</value>
-	  </equals>
-	  <equals>
-	    <property>/sim/current-view/view-number</property>
-	    <value>9</value>
-	  </equals>
+	    <value>7</value>
+	  </greater-than>
 	</or>
 	<not>
 	  <property>sim/crashed</property>
@@ -358,14 +621,16 @@
       </and>
     </condition>
     <volume>
-      <property>/engines/engine[0]/thrust_lb</property>
-      <factor>0.0002</factor>
+      <property>engines/engine[0]/n1</property>
+      <type>log</type>
+      <factor>0.15</factor>
+      <offset>0.05</offset>
       <min>0.0</min>
-      <max>0.4</max>
+      <max>0.5</max>
     </volume>
     <position>
-      <x>-1.3</x>
-      <y>0.3</y>
+      <x>-7.3</x>
+      <y>-1.0</y>
       <z>10.0</z>
     </position>
   </engine>
@@ -376,24 +641,15 @@
     <mode>looped</mode>
     <condition>
       <and>
-	<property>/engines/engine[0]/running</property>
 	<or>
 	  <equals>
 	    <property>/sim/current-view/view-number</property>
 	    <value>0</value>
 	  </equals>
-	  <equals>
+	  <greater-than>
 	    <property>/sim/current-view/view-number</property>
-	    <value>5</value>
-	  </equals>
-	  <equals>
-	    <property>/sim/current-view/view-number</property>
-	    <value>8</value>
-	  </equals>
-	  <equals>
-	    <property>/sim/current-view/view-number</property>
-	    <value>9</value>
-	  </equals>
+	    <value>7</value>
+	  </greater-than>
 	</or>
 	<not>
 	  <property>sim/crashed</property>
@@ -401,7 +657,9 @@
       </and>
     </condition>
     <volume>
-      <factor>0.2</factor>
+      <property>engines/engine[0]/n1</property>
+      <factor>0.02</factor>
+      <max>0.2</max>
     </volume>
     <pitch>
       <property>/engines/engine[0]/n1</property>
@@ -410,36 +668,27 @@
       <max>0.4</max>
     </pitch>
     <position>
-      <x>-1.3</x>
-      <y>0.3</y>
+      <x>-7.3</x>
+      <y>-1.0</y>
       <z>10.0</z>
     </position>
   </engine>
 
-  <engine>
+<engine>
   <name>Engine1 inside</name>
   <path>Sounds/jet.wav</path>
   <mode>looped</mode>
   <condition>
     <and>
-      <property>/engines/engine[1]/running</property>
       <or>
 	<equals>
 	  <property>/sim/current-view/view-number</property>
 	  <value>0</value>
 	</equals>
-	<equals>
+	<greater-than>
 	  <property>/sim/current-view/view-number</property>
-	  <value>5</value>
-	</equals>
-	<equals>
-	  <property>/sim/current-view/view-number</property>
-	  <value>8</value>
-	</equals>
-	<equals>
-	  <property>/sim/current-view/view-number</property>
-	  <value>9</value>
-	</equals>
+	  <value>7</value>
+	</greater-than>
       </or>
       <not>
       <property>sim/crashed</property>
@@ -447,42 +696,35 @@
     </and>
   </condition>
   <volume>
-    <property>/engines/engine[1]/thrust_lb</property>
-    <factor>0.0002</factor>
-    <min>0.0</min>
-    <max>0.4</max>
-  </volume>
+      <property>engines/engine[0]/n1</property>
+      <type>log</type>
+      <factor>0.15</factor>
+      <offset>0.05</offset>
+      <min>0.0</min>
+      <max>0.5</max>
+    </volume>
   <position>
-    <x>1.3</x>
-    <y>0.3</y>
+    <x>-7.3</x>
+    <y>-0.3</y>
     <z>10.0</z>
   </position>
-  </engine>
+</engine>
 
-  <engine>
+<engine>
   <name>Engine1 n1 inside</name>
   <path>Sounds/whine.wav</path>
   <mode>looped</mode>
   <condition>
     <and>
-      <property>/engines/engine[1]/running</property>
       <or>
 	<equals>
 	  <property>/sim/current-view/view-number</property>
 	  <value>0</value>
 	</equals>
-	<equals>
+	<greater-than>
 	  <property>/sim/current-view/view-number</property>
-	  <value>5</value>
-	</equals>
-	<equals>
-	  <property>/sim/current-view/view-number</property>
-	  <value>8</value>
-	</equals>
-	<equals>
-	  <property>/sim/current-view/view-number</property>
-	  <value>9</value>
-	</equals>
+	  <value>7</value>
+	</greater-than>
       </or>
       <not>
 	<property>sim/crashed</property>
@@ -490,8 +732,10 @@
     </and>
   </condition>
   <volume>
-    <factor>0.15</factor>
-  </volume>
+      <property>engines/engine[1]/n1</property>
+      <factor>0.02</factor>
+      <max>0.3</max>
+    </volume>
   <pitch>
     <property>/engines/engine[1]/n1</property>
     <factor>0.01</factor>
@@ -499,11 +743,11 @@
     <max>1.0</max>
   </pitch>
   <position>
-    <x>1.3</x>
-    <y>0.3</y>
+    <x>-7.3</x>
+    <y>-0.3</y>
     <z>10.0</z>
   </position>
-  </engine>
+</engine>
 
 
 
@@ -513,7 +757,6 @@
 	<mode>looped</mode>
 	<condition>
 		<and>
-			<property>/engines/engine[2]/running</property>
 			<or>
 				<equals>
 					<property>/sim/current-view/view-number</property>
@@ -523,14 +766,10 @@
 					<property>/sim/current-view/view-number</property>
 					<value>5</value>
 				</equals>
-				<equals>
+				<greater-than>
 					<property>/sim/current-view/view-number</property>
-					<value>8</value>
-				</equals>
-				<equals>
-					<property>/sim/current-view/view-number</property>
-					<value>9</value>
-				</equals>
+					<value>7</value>
+				</greater-than>
 			</or>
 			<not>
 				<property>sim/crashed</property>
@@ -538,13 +777,15 @@
 		</and>
 	</condition>
 	<volume>
-		<property>/engines/engine[2]/thrust_lb</property>
-		<factor>0.0002</factor>
-		<min>0.0</min>
-		<max>0.4</max>
-	</volume>
-	<position>
-		<x>-1.3</x>
+          <property>engines/engine[2]/n1</property>
+          <type>log</type>
+          <factor>0.15</factor>
+          <offset>0.05</offset>
+          <min>0.0</min>
+          <max>0.5</max>
+        </volume>
+        <position>
+		<x>-7.3</x>
 		<y>0.3</y>
 		<z>10.0</z>
 	</position>
@@ -556,7 +797,6 @@
 	<mode>looped</mode>
 	<condition>
 		<and>
-			<property>/engines/engine[2]/running</property>
 			<or>
 				<equals>
 					<property>/sim/current-view/view-number</property>
@@ -566,14 +806,10 @@
 					<property>/sim/current-view/view-number</property>
 					<value>5</value>
 				</equals>
-				<equals>
+				<greater-than>
 					<property>/sim/current-view/view-number</property>
-					<value>8</value>
-				</equals>
-				<equals>
-					<property>/sim/current-view/view-number</property>
-					<value>9</value>
-				</equals>
+					<value>7</value>
+				</greater-than>
 			</or>
 			<not>
 				<property>sim/crashed</property>
@@ -581,8 +817,10 @@
 		</and>
 	</condition>
 	<volume>
-		<factor>0.15</factor>
-	</volume>
+      <property>engines/engine[2]/n1</property>
+      <factor>0.02</factor>
+      <max>0.3</max>
+      </volume>
 	<pitch>
 		<property>/engines/engine[2]/n1</property>
 		<factor>0.01</factor>
@@ -590,7 +828,7 @@
 		<max>1.0</max>
 	</pitch>
 	<position>
-		<x>-1.3</x>
+		<x>-7.3</x>
 		<y>0.3</y>
 		<z>10.0</z>
 	</position>
@@ -603,7 +841,6 @@
 	<mode>looped</mode>
 	<condition>
 		<and>
-			<property>/engines/engine[3]/running</property>
 			<or>
 				<equals>
 					<property>/sim/current-view/view-number</property>
@@ -613,14 +850,10 @@
 					<property>/sim/current-view/view-number</property>
 					<value>5</value>
 				</equals>
-				<equals>
+				<greater-than>
 					<property>/sim/current-view/view-number</property>
-					<value>8</value>
-				</equals>
-				<equals>
-					<property>/sim/current-view/view-number</property>
-					<value>9</value>
-				</equals>
+					<value>7</value>
+				</greater-than>
 			</or>
 			<not>
 				<property>sim/crashed</property>
@@ -628,14 +861,16 @@
 		</and>
 	</condition>
 	<volume>
-		<property>/engines/engine[3]/thrust_lb</property>
-		<factor>0.0002</factor>
-		<min>0.0</min>
-		<max>0.4</max>
-	</volume>
+      <property>engines/engine[3]/n1</property>
+      <type>log</type>
+      <factor>0.15</factor>
+      <offset>0.05</offset>
+      <min>0.0</min>
+      <max>0.5</max>
+    </volume>
 	<position>
-		<x>-1.3</x>
-		<y>0.3</y>
+		<x>-7.3</x>
+		<y>1.0</y>
 		<z>10.0</z>
 	</position>
 </engine>
@@ -646,7 +881,7 @@
 	<mode>looped</mode>
 	<condition>
 		<and>
-			<property>/engines/engine[3]/running</property>
+
 			<or>
 				<equals>
 					<property>/sim/current-view/view-number</property>
@@ -656,14 +891,10 @@
 					<property>/sim/current-view/view-number</property>
 					<value>5</value>
 				</equals>
-				<equals>
+				<greater-than>
 					<property>/sim/current-view/view-number</property>
-					<value>8</value>
-				</equals>
-				<equals>
-					<property>/sim/current-view/view-number</property>
-					<value>9</value>
-				</equals>
+					<value>7</value>
+				</greater-than>
 			</or>
 			<not>
 				<property>sim/crashed</property>
@@ -671,17 +902,19 @@
 		</and>
 	</condition>
 	<volume>
-		<factor>0.15</factor>
-	</volume>
+      <property>engines/engine[3]/n1</property>
+      <factor>0.02</factor>
+      <max>0.3</max>
+    </volume>
 	<pitch>
 		<property>/engines/engine[3]/n1</property>
 		<factor>0.01</factor>
-		<min>0.0</min>
-		<max>1.0</max>
+		<!-- min>0.0</min>
+		<max>1.0</max -->
 	</pitch>
 	<position>
-		<x>-1.3</x>
-		<y>0.3</y>
+		<x>-7.3</x>
+		<y>1.0</y>
 		<z>10.0</z>
 	</position>
 </engine>
@@ -723,7 +956,7 @@
 		<max>0.8</max>
 	</pitch>
 	<position>
-		<x>-26.5</x>
+		<x>26.5</x>
 		<y>0.0</y>
 		<z>2.0</z>
 	</position>
@@ -748,14 +981,10 @@
 					<property>/sim/current-view/view-number</property>
 					<value>5</value>
 				</equals>
-				<equals>
+				<greater-than>
 					<property>/sim/current-view/view-number</property>
-					<value>8</value>
-				</equals>
-				<equals>
-					<property>/sim/current-view/view-number</property>
-					<value>9</value>
-				</equals>
+					<value>7</value>
+				</greater-than>
 			</or>
 			<not>
 				<property>sim/crashed</property>
@@ -763,7 +992,8 @@
 		</and>
 	</condition>
 	<volume>
-		<factor>0.2</factor>
+		<factor>0.1</factor>
+		<max>0.3</max>
 	</volume>
 	<pitch>
 		<property>/engines/engine[4]/n2</property>
@@ -771,7 +1001,7 @@
 		<offset>0</offset>
 	</pitch>
 	<position>
-		<x>-26.5</x>
+		<x>26.5</x>
 		<y>0.0</y>
 		<z>2.0</z>
 	</position>
@@ -797,7 +1027,7 @@
       <property>/velocities/airspeed-kt</property>
       <type>log</type>
       <factor>0.5</factor>
-      <max>0.6</max>
+      <max>0.35</max>
     </volume>
   </rumble>
 
@@ -826,7 +1056,7 @@
 
   <squeal1>
     <name>squeal</name>
-    <path>/Aircraft/A380/Sounds/touchdown.wav</path>
+    <path>Aircraft/A380/Sounds/touchdown_mono.wav</path>
     <property>/gear/gear[0]/wow</property>
     <volume>
       <property>/velocities/speed-down-fps</property>
@@ -873,7 +1103,7 @@
 
   <squeal2>
     <name>squeal</name>
-    <path>/Aircraft/A380/Sounds/touchdown.wav</path>
+    <path>Aircraft/A380/Sounds/touchdown_mono.wav</path>
     <property>/gear/gear[1]/wow</property>
     <volume>
       <property>/velocities/speed-down-fps</property>
@@ -920,7 +1150,7 @@
 
   <squeal3>
     <name>squeal</name>
-    <path>/Aircraft/A380/Sounds/touchdown.wav</path>
+    <path>Aircraft/A380/Sounds/touchdown_mono.wav</path>
     <property>/gear/gear[2]/wow</property>
     <volume>
       <property>/velocities/speed-down-fps</property>
@@ -945,7 +1175,7 @@
   <flap>
     <name>flaps</name>
     <mode>in-transit</mode>
-    <path>Aircraft/A380/Sounds/Flaps.wav</path>
+    <path>Aircraft/A380/Sounds/Flaps_mono.wav</path>
     <property>/fdm/jsbsim/fcs/flap-pos-deg</property>
     <volume>
       <factor>0.6</factor>
@@ -977,20 +1207,19 @@
     </pitch>
   </wind>
 
-<!--stall>
-<name>stall</name>
-<path>Sounds/stall.wav</path>
-<property>/sim/alarms/stall-warning</property>
-<volume>
-<property>/velocities/airspeed-kt</property>
-<min>30.0</min>
-</volume>
-</stall-->
+<stall>
+  <name>stall</name>
+  <path>Sounds/stall.wav</path>
+  <property>/sim/alarms/stall-warning</property>
+  <volume>
+    <factor>2.0</factor>
+  </volume>
+</stall>
 
-  <stall>
+  <!-- stall>
     <name>stall</name>
     <mode>looped</mode>
-    <path>/Aircraft/A380/Sounds/stall.wav</path>
+    <path>/Aircraft/A380/Sounds/stall_mono.wav</path>
     <condition>
       <and>
 	<greater-than>
@@ -999,7 +1228,7 @@
 	</greater-than>
 	<less-than>
 	  <property>velocities/airspeed-kt</property>
-	  <value>150</value>
+	  <property>velocities/Vso</property>
 	</less-than>
       </and>
       <not>
@@ -1019,7 +1248,7 @@
   <stall>
     <name>stall</name>
     <mode>looped</mode>
-    <path>/Aircraft/A380/Sounds/stall.wav</path>
+    <path>/Aircraft/A380/Sounds/stall_mono.wav</path>
     <condition>
       <and>
 	<greater-than>
@@ -1047,7 +1276,8 @@
   <stall>
     <name>stall</name>
     <mode>looped</mode>
-    <path>/Aircraft/A380/Sounds/stall.wav</path>
+    <type>avionics</type>
+    <path>/Aircraft/A380/Sounds/stall_mono.wav</path>
     <condition>
       <and>
 	<greater-than>
@@ -1068,9 +1298,10 @@
       </not>
     </condition>
     <volume>
+      <factor>1.0</factor>
       <max>1.0</max>
     </volume>
-  </stall>
+  </stall -->
 
 		<crash>
 			<name>intense ground contact</name>
@@ -1088,7 +1319,7 @@
   <switch>
    <name>click on</name>
    <mode>once</mode>
-   <path>Aircraft/A380/Sounds/click.wav</path>
+   <path>Aircraft/A380/Sounds/click_mono.wav</path>
    <condition>
      <property>/sim/sound/switch</property>
    </condition>
@@ -1100,7 +1331,7 @@
   <switch>
    <name>click off</name>
    <mode>once</mode>
-   <path>Aircraft/A380/Sounds/click.wav</path>
+   <path>Aircraft/A380/Sounds/click_mono.wav</path>
    <condition>
     <not>
       <property>/sim/sound/switch</property>
@@ -1145,22 +1376,24 @@
 	  <property>/engines/engine[1]/reverser-pos-norm</property>
 	  <value>1</value>
 	</equals>
-	<equals>
-	  <property>/sim/current-view/view-number</property>
-	  <value>0</value>
-	</equals>
-	<equals>
-	  <property>/sim/current-view/view-number</property>
-	  <value>9</value>
-	</equals>
+	<or>
+	  <equals>
+	    <property>/sim/current-view/view-number</property>
+	    <value>0</value>
+	  </equals>
+	  <greater-than>
+	    <property>/sim/current-view/view-number</property>
+	    <value>7</value>
+	  </greater-than>
+	</or>
 	<not>
 	  <property>sim/crashed</property>
 	</not>
       </and>
     </condition>
     <volume>
-      <property>/engines/engine[1]/thrust_lb</property>
-      <factor>0.0002</factor>
+      <property>controls/engines/engine[1]/throttle</property>
+      <factor>1.0</factor>
       <min>0.0</min>
       <max>0.6</max>
     </volume>
@@ -1186,7 +1419,7 @@
 	</greater-than>
 	<less-than>
 	  <property>/sim/current-view/view-number</property>
-	  <value>9</value>
+	  <value>8</value>
 	</less-than>
 	<not>
 	  <property>sim/crashed</property>
@@ -1194,8 +1427,8 @@
       </and>
     </condition>
     <volume>
-      <property>/engines/engine[1]/thrust_lb</property>
-      <factor>0.0002</factor>
+      <property>controls/engines/engine[1]/throttle</property>
+      <factor>1.0</factor>
       <min>0.0</min>
       <max>1.0</max>
     </volume>
@@ -1204,7 +1437,7 @@
   <switch>
    <name>seatbelt on</name>
    <mode>once</mode>
-   <path>Aircraft/A380/Sounds/chime.wav</path>
+   <path>Aircraft/A380/Sounds/chime_mono.wav</path>
    <condition>
      <property>/instrumentation/switches/seatbelt-sign</property>
   </condition>
@@ -1216,7 +1449,7 @@
   <switch>
    <name>seatbelt off</name>
    <mode>once</mode>
-   <path>Aircraft/A380/Sounds/chime.wav</path>
+   <path>Aircraft/A380/Sounds/chime_mono.wav</path>
    <condition>
     <not>
      <property>/instrumentation/switches/seatbelt-sign</property>
@@ -1226,6 +1459,68 @@
     <factor>1.0</factor>
    </volume>
   </switch>
+  
+  <retard>
+    <name>retard</name>
+    <mode>looped</mode>
+    <type>avionics</type>
+    <path>Aircraft/A380/Sounds/retard_01_mono.wav</path>
+    <condition>
+      <and>
+        <and>
+          <greater-than>
+            <property>controls/engines/engine[0]/thrust-lever</property>
+            <value>0.0</value>
+          </greater-than>
+          <greater-than>
+            <property>controls/engines/engine[1]/thrust-lever</property>
+            <value>0.0</value>
+          </greater-than>
+          <greater-than>
+            <property>controls/engines/engine[2]/thrust-lever</property>
+            <value>0.0</value>
+          </greater-than>
+          <greater-than>
+            <property>controls/engines/engine[3]/thrust-lever</property>
+            <value>0.0</value>
+          </greater-than>
+        </and>
+        <less-than>
+          <property>position/altitude-agl-ft</property>
+          <value>50</value>
+        </less-than>
+        <equals>
+          <property>instrumentation/ecam/flight-mode</property>
+          <value>9</value>
+        </equals>
+      </and>
+    </condition>
+    <volume>
+      <factor>3</factor>
+    </volume>
+  </retard>
+  
+  <v1>
+    <name>v1</name>
+    <mode>once</mode>
+    <type>avionics</type>
+    <path>Aircraft/A380/Sounds/a380-V1.wav</path>
+    <condition>
+      <and>
+        <less-than>
+          <property>instrumentation/ecam/flight-mode</property>
+          <value>7</value>
+        </less-than>
+        <greater-than>
+          <property>velocities/airspeed-kt</property>
+          <property>instrumentation/afs/V1</property>
+        </greater-than>
+      </and>
+    </condition>
+    <volume>
+      <factor>3.0</factor>
+    </volume>
+  </v1>
 
 </fx>
 

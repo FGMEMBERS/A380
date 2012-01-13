@@ -2983,7 +2983,7 @@ refs 3
 25 0 0
 kids 0
 OBJECT group
-name "Cylinder01"
+name "park-brake"
 kids 2
 OBJECT poly
 name "13 - Default"

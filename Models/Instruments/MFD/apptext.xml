@@ -35,7 +35,7 @@
             <chunks>
                 <chunk>
                     <type>literal</type>
-                    <text>ILS L</text>
+                    <text>ILS APP</text>
                 </chunk>
             </chunks>
             <transformations>
@@ -321,7 +321,7 @@
             <chunks>
                 <chunk>
                     <type>number-value</type>
-                    <property>instrumentation/radar/range</property>
+                    <property>instrumentation/nd/range</property>
                     <scale>0.5</scale>
                     <format>%3.0f</format>
                 </chunk>

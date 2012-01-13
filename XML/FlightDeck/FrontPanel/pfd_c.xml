@@ -58,12 +58,12 @@
    <object-name>GSneedle</object-name>
    <condition>
      <and>
-     <or>
-      <equals>
-       <property>sim/current-view/view-number</property>
-       <value>0</value>
-      </equals>
-      <equals>
+       <or>
+         <equals>
+           <property>sim/current-view/view-number</property>
+           <value>0</value>
+         </equals>
+         <equals>
            <property>sim/current-view/view-number</property>
            <value>9</value>
          </equals>
@@ -185,34 +185,6 @@
       <dep>0.035</dep>
     </entry>
   </interpolation>
-   <!-- interpolation>
-     <entry>
-       <ind> -10.0</ind>
-       <dep>-0.0253</dep>
-     </entry>
-     <entry>
-       <ind> 0.0</ind>
-       <dep>0.0</dep>
-     </entry>
-     <entry>
-       <ind> 10.0</ind>
-       <dep>0.0253</dep>
-     </entry>
-  </interpolation --> 
-  <!-- interpolation>
-     <entry>
-       <ind> -10.0</ind>
-       <dep>-0.0253</dep>
-     </entry>
-     <entry>
-       <ind> 0.0</ind>
-       <dep>0.0</dep>
-     </entry>
-     <entry>
-       <ind> 10.0</ind>
-       <dep>0.0253</dep>
-     </entry>
-  </interpolation -->
   <axis>
    <x>0</x>
    <y>1</y>
@@ -393,6 +365,18 @@
    </axis>
  </animation>
  
+ 
+  <animation>
+   <type>translate</type>
+   <object-name>VLSribbon</object-name>
+   <property>/instrumentation/airspeed-indicator/vls-pos-norm</property>
+   <factor>-0.086</factor>
+   <axis>
+     <x>1</x>
+     <y>0</y>
+     <z>0</z>
+   </axis>
+ </animation>
  
  
  <animation>
@@ -1773,6 +1757,49 @@
       </condition>
  </animation>
  
+  <text>
+  <name>AP.rwycat</name>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+    <pitch-deg>-90</pitch-deg>
+    <x-m>-0.196</x-m>
+    <y-m>0.122</y-m>
+    <z-m>0.005</z-m>
+  </offsets>
+  <type>text-value</type>
+  <property>instrumentation/afs/rwy-cat</property>
+  <font>helvetica_bold.txf</font>
+  <character-size type="double">0.007</character-size>
+  <alignment>center-bottom</alignment> 
+</text>
+
+  <animation>
+   <type>select</type>
+     <object-name>AP.rwycat</object-name>
+       <condition>
+       <and>
+         <equals>
+           <property>instrumentation/flightdirector/autopilot-on</property>
+           <value>1</value>
+         </equals>
+         <or>
+           <equals>
+             <property>instrumentation/flightdirector/lnav</property>
+             <value>3</value>
+           </equals>
+           <equals>
+             <property>instrumentation/flightdirector/lnav-arm</property>
+             <value>3</value>
+           </equals>
+         </or>
+         <greater-than>
+           <property>systems/electrical/outputs/efis</property>
+           <value>15</value>
+         </greater-than>
+       </and>
+      </condition>
+ </animation>
+ 
  
 
 <animation>
@@ -1858,6 +1885,7 @@
 <animation>
    <type>material</type>
    <object-name>APspd.thrlvr</object-name>
+   <object-name>AP.rwycat</object-name>
    <emission>
      <red>0.6</red>
      <green>0.6</green>

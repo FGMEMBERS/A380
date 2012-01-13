@@ -159,6 +159,43 @@
     </axis>
   </animation>
   
+      <animation>
+           <type>pick</type>
+          <object-name>auto_brk</object-name>
+          <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-adjust</command>
+                <property>/controls/gear/autobrakes</property>
+                <step>1</step>
+                <min>0</min>
+                <max>5</max>
+                <wrap>false</wrap>
+            </binding>
+            <binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+          </action>
+          <action>
+              <button>1</button>
+              <repeatable>false</repeatable>
+              <binding>
+                  <command>property-adjust</command>
+                  <property>/controls/gear/autobrakes</property>
+                  <step>-1</step>
+                  <min>0</min>
+                  <max>5</max>
+                  <wrap>false</wrap>
+            </binding>
+            <binding>
+                <command>property-toggle</command>
+                <property>/sim/sound/switch</property>
+            </binding>
+          </action>
+     </animation>
+  
   <!-- unit [0] -->
   <animation>
     <type>material</type>

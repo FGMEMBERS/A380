@@ -7,6 +7,43 @@
     <h-base>256</h-base>
 
     <layers>
+    
+        <layer>
+          <condition>
+            <less-than>
+              <property>instrumentation/radar/range</property>
+              <value>10</value>
+            </less-than>
+          </condition>
+            <name>ground network</name>
+            <texture>
+                <path>Aircraft/Instruments/Textures/od_groundradar.rgb</path>
+                <x1>0</x1>
+                <y1>0</y1>
+                <x2>1</x2>
+                <y2>1</y2>
+            </texture>
+            <emissive>1</emissive>
+            <transformations>
+              <transformation>
+                <type>rotation</type>
+                <property>instrumentation/groundradar/airport/crs</property>
+              </transformation>
+              <transformation>
+               <type>y-shift</type>
+               <property>instrumentation/groundradar/airport/dist-norm</property>
+               <scale>198</scale>
+              </transformation>
+              <transformation>
+                <type>rotation</type>
+                <property>instrumentation/groundradar/airport/crs</property>
+                <scale>-1.0</scale>
+              </transformation>
+            </transformations>
+            <w>512</w>
+            <h>512</h>
+        </layer>
+    
         <layer>
             <name>hdg</name>
             <w>16</w>
@@ -88,7 +125,7 @@
                 <type>rotation</type>
                 <property>environment/wind-from-heading-deg</property>
             </transformation>
-            </transformations>
+          </transformations>
         </layer>
 
 </layers>

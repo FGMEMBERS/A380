@@ -393,7 +393,17 @@
    </axis>
  </animation>
  
- 
+ <animation>
+   <type>translate</type>
+   <object-name>VLSribbon</object-name>
+   <property>/instrumentation/airspeed-indicator/vls-pos-norm</property>
+   <factor>-0.086</factor>
+   <axis>
+     <x>1</x>
+     <y>0</y>
+     <z>0</z>
+   </axis>
+ </animation>
  
  <animation>
    <type>textranslate</type>
@@ -1773,6 +1783,42 @@
       </condition>
  </animation>
  
+<text>
+  <name>AP.rwycat</name>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+    <pitch-deg>-90</pitch-deg>
+    <x-m>-0.196</x-m>
+    <y-m>0.122</y-m>
+    <z-m>0.005</z-m>
+  </offsets>
+  <type>text-value</type>
+  <property>instrumentation/afs/rwy-cat</property>
+  <font>helvetica_bold.txf</font>
+  <character-size type="double">0.007</character-size>
+  <alignment>center-bottom</alignment> 
+</text>
+
+  <animation>
+   <type>select</type>
+     <object-name>AP.rwycat</object-name>
+       <condition>
+       <and>
+         <equals>
+           <property>instrumentation/flightdirector/autopilot-on</property>
+           <value>1</value>
+         </equals>
+         <greater-than>
+           <property>instrumentation/ecam/flight-mode</property>
+           <value>8</value>
+         </greater-than>
+         <greater-than>
+           <property>systems/electrical/outputs/efis</property>
+           <value>15</value>
+         </greater-than>
+       </and>
+      </condition>
+ </animation>
  
 
 <animation>
@@ -1858,6 +1904,7 @@
 <animation>
    <type>material</type>
    <object-name>APspd.thrlvr</object-name>
+   <object-name>AP.rwycat</object-name>
    <emission>
      <red>0.6</red>
      <green>0.6</green>

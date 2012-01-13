@@ -19,7 +19,7 @@
 <PropertyList>
 
 	<path>../../../Models/FlightDeck/Pedestal/mcdu_display.ac</path> 
-	<texture-path>../../../Textures/Common</texture-path>
+	<texture-path>../../../Textures/Panels/fms/</texture-path>
 
 <!--  Text labels -->
 
@@ -82,7 +82,22 @@
     <repeatable>false</repeatable>
     <binding>
       <command>property-toggle</command>
-      <property>/instrumentation/mcdu[1]/dropdown[0]/active</property>
+      <property>instrumentation/mcdu[1]/dropdown[0]/active</property>
+    </binding>
+    <binding>
+      <command>property-assign</command>
+      <property>instrumentation/mcdu[1]/dropdown[1]/active</property>
+      <value type="bool">false</value>
+    </binding>
+    <binding>
+      <command>property-assign</command>
+      <property>instrumentation/mcdu[1]/dropdown[2]/active</property>
+      <value type="bool">false</value>
+    </binding>
+    <binding>
+      <command>property-assign</command>
+      <property>instrumentation/mcdu[1]/dropdown[3]/active</property>
+      <value type="bool">false</value>
     </binding>
   </action>
 </animation>
@@ -167,6 +182,21 @@
       <command>property-toggle</command>
       <property>/instrumentation/mcdu[1]/dropdown[1]/active</property>
     </binding>
+    <binding>
+      <command>property-assign</command>
+      <property>instrumentation/mcdu[1]/dropdown[0]/active</property>
+      <value type="bool">false</value>
+    </binding>
+    <binding>
+      <command>property-assign</command>
+      <property>instrumentation/mcdu[1]/dropdown[2]/active</property>
+      <value type="bool">false</value>
+    </binding>
+    <binding>
+      <command>property-assign</command>
+      <property>instrumentation/mcdu[1]/dropdown[3]/active</property>
+      <value type="bool">false</value>
+    </binding>
   </action>
 </animation>
 
@@ -182,6 +212,21 @@
     <binding>
       <command>property-toggle</command>
       <property>/instrumentation/mcdu[1]/dropdown[2]/active</property>
+    </binding>
+    <binding>
+      <command>property-assign</command>
+      <property>instrumentation/mcdu[1]/dropdown[0]/active</property>
+      <value type="bool">false</value>
+    </binding>
+    <binding>
+      <command>property-assign</command>
+      <property>instrumentation/mcdu[1]/dropdown[1]/active</property>
+      <value type="bool">false</value>
+    </binding>
+    <binding>
+      <command>property-assign</command>
+      <property>instrumentation/mcdu[1]/dropdown[3]/active</property>
+      <value type="bool">false</value>
     </binding>
   </action>
 </animation>
@@ -293,6 +338,21 @@
     <binding>
       <command>property-toggle</command>
       <property>/instrumentation/mcdu[1]/dropdown[3]/active</property>
+    </binding>
+    <binding>
+      <command>property-assign</command>
+      <property>instrumentation/mcdu[1]/dropdown[0]/active</property>
+      <value type="bool">false</value>
+    </binding>
+    <binding>
+      <command>property-assign</command>
+      <property>instrumentation/mcdu[1]/dropdown[1]/active</property>
+      <value type="bool">false</value>
+    </binding>
+    <binding>
+      <command>property-assign</command>
+      <property>instrumentation/mcdu[1]/dropdown[2]/active</property>
+      <value type="bool">false</value>
     </binding>
   </action>
 </animation>
@@ -896,297 +956,10 @@
 
 <!-- active.perf.to_perf labels -->
 
-<text>
-  <name>label.to_perf.rwy</name>
-   <axis-alignment>yz-plane</axis-alignment>
-    <offsets>
-      <pitch-deg>-90</pitch-deg>
-      <x-m>-0.150</x-m>
-      <y-m>0.010</y-m>
-      <z-m>0.0008</z-m>
-    </offsets>
-    <type type="string">literal</type>
-    <text>RWY</text>
-    <font>helvetica_medium.txf</font>
-    <character-size type="double">0.005</character-size>
-    <alignment>left-bottom</alignment>
-</text>
-
-<text>
-  <name>label.to_perf.v1</name>
-   <axis-alignment>yz-plane</axis-alignment>
-    <offsets>
-      <pitch-deg>-90</pitch-deg>
-      <x-m>-0.139</x-m>
-      <y-m>0.020</y-m>
-      <z-m>0.0008</z-m>
-    </offsets>
-    <type type="string">literal</type>
-    <text>V1</text>
-    <font>helvetica_medium.txf</font>
-    <character-size type="double">0.005</character-size>
-    <alignment>right-bottom</alignment>
-</text>
-
-<text>
-  <name>label.to_perf.vr</name>
-   <axis-alignment>yz-plane</axis-alignment>
-    <offsets>
-      <pitch-deg>-90</pitch-deg>
-      <x-m>-0.129</x-m>
-      <y-m>0.020</y-m>
-      <z-m>0.0008</z-m>
-    </offsets>
-    <type type="string">literal</type>
-    <text>VR</text>
-    <font>helvetica_medium.txf</font>
-    <character-size type="double">0.005</character-size>
-    <alignment>right-bottom</alignment>
-</text>
-
-<text>
-  <name>label.to_perf.v2</name>
-   <axis-alignment>yz-plane</axis-alignment>
-    <offsets>
-      <pitch-deg>-90</pitch-deg>
-      <x-m>-0.119</x-m>
-      <y-m>0.020</y-m>
-      <z-m>0.0008</z-m>
-    </offsets>
-    <type type="string">literal</type>
-    <text>V2</text>
-    <font>helvetica_medium.txf</font>
-    <character-size type="double">0.005</character-size>
-    <alignment>right-bottom</alignment>
-</text>
-
-<text>
-  <name>label.to_perf.F-speed</name>
-   <axis-alignment>yz-plane</axis-alignment>
-    <offsets>
-      <pitch-deg>-90</pitch-deg>
-      <x-m>-0.139</x-m>
-      <y-m>0.060</y-m>
-      <z-m>0.0008</z-m>
-    </offsets>
-    <type type="string">literal</type>
-    <text>F</text>
-    <font>helvetica_medium.txf</font>
-    <character-size type="double">0.005</character-size>
-    <alignment>right-bottom</alignment>
-</text>
-
-<text>
-  <name>label.to_perf.S-speed</name>
-   <axis-alignment>yz-plane</axis-alignment>
-    <offsets>
-      <pitch-deg>-90</pitch-deg>
-      <x-m>-0.129</x-m>
-      <y-m>0.060</y-m>
-      <z-m>0.0008</z-m>
-    </offsets>
-    <type type="string">literal</type>
-    <text>S</text>
-    <font>helvetica_medium.txf</font>
-    <character-size type="double">0.005</character-size>
-    <alignment>right-bottom</alignment>
-</text>
-
-<text>
-  <name>label.to_perf.thr_red</name>
-   <axis-alignment>yz-plane</axis-alignment>
-    <offsets>
-      <pitch-deg>-90</pitch-deg>
-      <x-m>-0.0885</x-m>
-      <y-m>0.035</y-m>
-      <z-m>0.0008</z-m>
-    </offsets>
-    <type type="string">literal</type>
-    <text>THR RED</text>
-    <font>helvetica_medium.txf</font>
-    <character-size type="double">0.0044</character-size>
-    <alignment>right-bottom</alignment>
-</text>
-
-<text>
-  <name>label.to_perf.thr_accel</name>
-   <axis-alignment>yz-plane</axis-alignment>
-    <offsets>
-      <pitch-deg>-90</pitch-deg>
-      <x-m>-0.078</x-m>
-      <y-m>0.035</y-m>
-      <z-m>0.0008</z-m>
-    </offsets>
-    <type type="string">literal</type>
-    <text>ACCEL</text>
-    <font>helvetica_medium.txf</font>
-    <character-size type="double">0.0044</character-size>
-    <alignment>right-bottom</alignment>
-</text>
-
-<text>
-  <name>label.to_perf.eo_accel</name>
-   <axis-alignment>yz-plane</axis-alignment>
-    <offsets>
-      <pitch-deg>-90</pitch-deg>
-      <x-m>-0.078</x-m>
-      <y-m>0.098</y-m>
-      <z-m>0.0008</z-m>
-    </offsets>
-    <type type="string">literal</type>
-    <text>EO ACCEL</text>
-    <font>helvetica_medium.txf</font>
-    <character-size type="double">0.0044</character-size>
-    <alignment>right-bottom</alignment>
-</text>
-
-<text>
-  <name>label.to_perf.flaps</name>
-   <axis-alignment>yz-plane</axis-alignment>
-    <offsets>
-      <pitch-deg>-90</pitch-deg>
-      <x-m>-0.106</x-m>
-      <y-m>0.022</y-m>
-      <z-m>0.0008</z-m>
-    </offsets>
-    <type type="string">literal</type>
-    <text>FLAPS</text>
-    <font>helvetica_medium.txf</font>
-    <character-size type="double">0.0044</character-size>
-    <alignment>right-bottom</alignment>
-</text>
-
-<text>
-  <name>label.to_perf.ths_for</name>
-   <axis-alignment>yz-plane</axis-alignment>
-    <offsets>
-      <pitch-deg>-90</pitch-deg>
-      <x-m>-0.106</x-m>
-      <y-m>0.0615</y-m>
-      <z-m>0.0008</z-m>
-    </offsets>
-    <type type="string">literal</type>
-    <text>THS FOR</text>
-    <font>helvetica_medium.txf</font>
-    <character-size type="double">0.0044</character-size>
-    <alignment>right-bottom</alignment>
-</text>
-
-<text>
-  <name>label.to_perf.to_shift</name>
-   <axis-alignment>yz-plane</axis-alignment>
-    <offsets>
-      <pitch-deg>-90</pitch-deg>
-      <x-m>-0.106</x-m>
-      <y-m>0.117</y-m>
-      <z-m>0.0008</z-m>
-    </offsets>
-    <type type="string">literal</type>
-    <text>T.O SHIFT</text>
-    <font>helvetica_medium.txf</font>
-    <character-size type="double">0.0044</character-size>
-    <alignment>right-bottom</alignment>
-</text>
-
-<text>
-  <name>label.to_perf.trans_alt</name>
-   <axis-alignment>yz-plane</axis-alignment>
-    <offsets>
-      <pitch-deg>-90</pitch-deg>
-      <x-m>-0.051</x-m>
-      <y-m>0.035</y-m>
-      <z-m>0.0008</z-m>
-    </offsets>
-    <type type="string">literal</type>
-    <text>TRANS</text>
-    <font>helvetica_medium.txf</font>
-    <character-size type="double">0.0044</character-size>
-    <alignment>right-bottom</alignment>
-</text>
 
 
 
 <!-- active.perf.crz_perf labels -->
-
-<text>
-  <name>label.crz_perf.mode</name>
-   <axis-alignment>yz-plane</axis-alignment>
-    <offsets>
-      <pitch-deg>-90</pitch-deg>
-      <x-m>-0.110</x-m>
-      <y-m>0.015</y-m>
-      <z-m>0.0008</z-m>
-    </offsets>
-    <type type="string">literal</type>
-    <text>MODE</text>
-    <font>helvetica_medium.txf</font>
-    <character-size type="double">0.0044</character-size>
-    <alignment>left-bottom</alignment>
-</text>
-
-<text>
-  <name>label.crz_perf.mach</name>
-   <axis-alignment>yz-plane</axis-alignment>
-    <offsets>
-      <pitch-deg>-90</pitch-deg>
-      <x-m>-0.110</x-m>
-      <y-m>0.040</y-m>
-      <z-m>0.0008</z-m>
-    </offsets>
-    <type type="string">literal</type>
-    <text>MACH</text>
-    <font>helvetica_medium.txf</font>
-    <character-size type="double">0.0044</character-size>
-    <alignment>left-bottom</alignment>
-</text>
-
-<text>
-  <name>label.crz_perf.spd</name>
-   <axis-alignment>yz-plane</axis-alignment>
-    <offsets>
-      <pitch-deg>-90</pitch-deg>
-      <x-m>-0.110</x-m>
-      <y-m>0.065</y-m>
-      <z-m>0.0008</z-m>
-    </offsets>
-    <type type="string">literal</type>
-    <text>SPD</text>
-    <font>helvetica_medium.txf</font>
-    <character-size type="double">0.0044</character-size>
-    <alignment>left-bottom</alignment>
-</text>
-
-<text>
-  <name>label.crz_perf.step_at</name>
-   <axis-alignment>yz-plane</axis-alignment>
-    <offsets>
-      <pitch-deg>-90</pitch-deg>
-      <x-m>-0.120</x-m>
-      <y-m>0.100</y-m>
-      <z-m>0.0008</z-m>
-    </offsets>
-    <type type="string">literal</type>
-    <text>AT</text>
-    <font>helvetica_medium.txf</font>
-    <character-size type="double">0.0044</character-size>
-    <alignment>left-bottom</alignment>
-</text>
-
-<text>
-  <name>label.crz_perf.step_to</name>
-   <axis-alignment>yz-plane</axis-alignment>
-    <offsets>
-      <pitch-deg>-90</pitch-deg>
-      <x-m>-0.110</x-m>
-      <y-m>0.095</y-m>
-      <z-m>0.0008</z-m>
-    </offsets>
-    <type type="string">literal</type>
-    <text>STEP TO</text>
-    <font>helvetica_medium.txf</font>
-    <character-size type="double">0.0044</character-size>
-    <alignment>left-bottom</alignment>
-</text>
 
 <text>
   <name>label.crz_perf.lrc</name>
@@ -1283,6 +1056,135 @@
     <character-size type="double">0.004</character-size>
     <alignment>left-bottom</alignment>
 </text>
+
+
+<!-- active.perf.appr_perf labels -->
+
+<animation>
+  <type>pick</type>
+  <object-name>appr.mag-wind.deg</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU2.selectField("appr_wind_deg")</script>
+   </binding>
+  </action>
+</animation>
+
+<animation>
+  <type>pick</type>
+  <object-name>appr.mag-wind.kts</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU2.selectField("appr_wind_kts")</script>
+   </binding>
+  </action>
+</animation>
+
+<animation>
+  <type>pick</type>
+  <object-name>appr.oat</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU2.selectField("appr_oat")</script>
+   </binding>
+  </action>
+</animation>
+
+<animation>
+  <type>pick</type>
+  <object-name>appr.unknown</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU2.selectField("appr_unknown_temp")</script>
+   </binding>
+  </action>
+</animation>
+
+<animation>
+  <type>pick</type>
+  <object-name>appr.radio.ft</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU2.selectField("appr_alt_radio_ft")</script>
+   </binding>
+  </action>
+</animation>
+
+<animation>
+  <type>pick</type>
+  <object-name>appr.baro.ft</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU2.selectField("appr_alt_baro_ft")</script>
+   </binding>
+  </action>
+</animation>
+
+<animation>
+  <type>pick</type>
+  <object-name>appr.conf3</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU2.selectApprConf("appr_conf3")</script>
+   </binding>
+  </action>
+</animation>
+
+<animation>
+  <type>pick</type>
+  <object-name>appr.full</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU2.selectApprConf("appr_full")</script>
+   </binding>
+  </action>
+</animation>
+
+<animation>
+  <type>select</type>
+  <condition>
+    <equals>
+      <property>instrumentation/afs/appr_conf3</property>
+      <value>1</value>
+    </equals>
+  </condition>
+  <object-name>appr.conf3.enabled</object-name>
+</animation>
+
+<animation>
+  <type>select</type>
+  <condition>
+    <equals>
+      <property>instrumentation/afs/appr_full</property>
+      <value>1</value>
+    </equals>
+  </condition>
+  <object-name>appr.full.enabled</object-name>
+</animation>
 
 
 
@@ -2567,8 +2469,8 @@
   <axis-alignment>yz-plane</axis-alignment>
     <offsets>
       <pitch-deg>-90</pitch-deg>
-      <x-m>-0.139</x-m>
-      <y-m>0.030</y-m>
+      <x-m>-0.140</x-m>
+      <y-m>0.025</y-m>
       <z-m>0.0008</z-m>
     </offsets>
     <type type="string">number-value</type>
@@ -2584,8 +2486,8 @@
   <axis-alignment>yz-plane</axis-alignment>
     <offsets>
       <pitch-deg>-90</pitch-deg>
-      <x-m>-0.129</x-m>
-      <y-m>0.030</y-m>
+      <x-m>-0.132</x-m>
+      <y-m>0.025</y-m>
       <z-m>0.0008</z-m>
     </offsets>
     <type type="string">number-value</type>
@@ -2601,8 +2503,8 @@
   <axis-alignment>yz-plane</axis-alignment>
     <offsets>
       <pitch-deg>-90</pitch-deg>
-      <x-m>-0.119</x-m>
-      <y-m>0.030</y-m>
+      <x-m>-0.124</x-m>
+      <y-m>0.025</y-m>
       <z-m>0.0008</z-m>
     </offsets>
     <type type="string">number-value</type>
@@ -2618,8 +2520,8 @@
   <axis-alignment>yz-plane</axis-alignment>
     <offsets>
       <pitch-deg>-90</pitch-deg>
-      <x-m>-0.139</x-m>
-      <y-m>0.060</y-m>
+      <x-m>-0.140</x-m>
+      <y-m>0.074</y-m>
       <z-m>0.0008</z-m>
     </offsets>
     <type type="string">number-value</type>
@@ -2635,8 +2537,8 @@
   <axis-alignment>yz-plane</axis-alignment>
     <offsets>
       <pitch-deg>-90</pitch-deg>
-      <x-m>-0.129</x-m>
-      <y-m>0.060</y-m>
+      <x-m>-0.132</x-m>
+      <y-m>0.074</y-m>
       <z-m>0.0008</z-m>
     </offsets>
     <type type="string">number-value</type>
@@ -2652,8 +2554,8 @@
   <axis-alignment>yz-plane</axis-alignment>
     <offsets>
       <pitch-deg>-90</pitch-deg>
-      <x-m>-0.119</x-m>
-      <y-m>0.060</y-m>
+      <x-m>-0.124</x-m>
+      <y-m>0.074</y-m>
       <z-m>0.0008</z-m>
     </offsets>
     <type type="string">number-value</type>
@@ -2669,7 +2571,7 @@
   <axis-alignment>yz-plane</axis-alignment>
     <offsets>
       <pitch-deg>-90</pitch-deg>
-      <x-m>-0.0888</x-m>
+      <x-m>-0.091</x-m>
       <y-m>0.045</y-m>
       <z-m>0.0008</z-m>
     </offsets>
@@ -2699,7 +2601,7 @@
   <axis-alignment>yz-plane</axis-alignment>
     <offsets>
       <pitch-deg>-90</pitch-deg>
-      <x-m>-0.078</x-m>
+      <x-m>-0.0780</x-m>
       <y-m>0.045</y-m>
       <z-m>0.0008</z-m>
     </offsets>
@@ -2729,8 +2631,8 @@
   <axis-alignment>yz-plane</axis-alignment>
     <offsets>
       <pitch-deg>-90</pitch-deg>
-      <x-m>-0.051</x-m>
-      <y-m>0.045</y-m>
+      <x-m>-0.0545</x-m>
+      <y-m>0.044</y-m>
       <z-m>0.0008</z-m>
     </offsets>
     <type type="string">number-value</type>
@@ -2759,7 +2661,7 @@
   <axis-alignment>yz-plane</axis-alignment>
     <offsets>
       <pitch-deg>-90</pitch-deg>
-      <x-m>-0.106</x-m>
+      <x-m>-0.110</x-m>
       <y-m>0.032</y-m>
       <z-m>0.0008</z-m>
     </offsets>
@@ -3470,6 +3372,17 @@
 </animation>
 <animation>
   <type>material</type>
+  <object-name>value.wp0.disc</object-name>
+  <emission>
+    <red>0.9</red>
+    <green>0.9</green>
+    <blue>0.9</blue>
+  </emission>
+  <shininess>0.0</shininess>
+  <transparency><alpha>0.7</alpha></transparency>
+</animation>
+<animation>
+  <type>material</type>
   <object-name>group.node0</object-name>
   <condition>
     <equals>
@@ -3502,6 +3415,10 @@
   <shininess>0.0</shininess>
   <transparency><alpha>0.7</alpha></transparency>
 </animation>
+
+
+
+
 
 <text>
    <name>value.wp1.disc</name>
@@ -3681,6 +3598,17 @@
 </animation>
 <animation>
   <type>material</type>
+  <object-name>value.wp1.disc</object-name>
+  <emission>
+    <red>0.9</red>
+    <green>0.9</green>
+    <blue>0.9</blue>
+  </emission>
+  <shininess>0.0</shininess>
+  <transparency><alpha>0.7</alpha></transparency>
+</animation>
+<animation>
+  <type>material</type>
   <object-name>group.node1</object-name>
   <condition>
     <equals>
@@ -3714,6 +3642,10 @@
   <transparency><alpha>0.7</alpha></transparency>
 </animation>
 
+
+
+
+
 <text>
    <name>value.wp2.disc</name>
    <axis-alignment>yz-plane</axis-alignment>
@@ -3729,6 +3661,18 @@
     <character-size type="double">0.0035</character-size>
     <alignment>center-bottom</alignment>
 </text>
+<animation>
+  <type>pick</type>
+  <object-name>fltpln.field2.id</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU2.selectWP(2)</script>
+   </binding>
+  </action>
+</animation>
 <text>
    <name>value.wp2.from</name>
    <axis-alignment>yz-plane</axis-alignment>
@@ -3880,6 +3824,17 @@
 </animation>
 <animation>
   <type>material</type>
+  <object-name>value.wp2.disc</object-name>
+  <emission>
+    <red>0.9</red>
+    <green>0.9</green>
+    <blue>0.9</blue>
+  </emission>
+  <shininess>0.0</shininess>
+  <transparency><alpha>0.7</alpha></transparency>
+</animation>
+<animation>
+  <type>material</type>
   <object-name>group.node2</object-name>
   <condition>
     <equals>
@@ -3913,6 +3868,10 @@
   <transparency><alpha>0.7</alpha></transparency>
 </animation>
 
+
+
+
+
 <text>
    <name>value.wp3.disc</name>
    <axis-alignment>yz-plane</axis-alignment>
@@ -3928,6 +3887,18 @@
     <character-size type="double">0.0035</character-size>
     <alignment>center-bottom</alignment>
 </text>
+<animation>
+  <type>pick</type>
+  <object-name>fltpln.field3.id</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU2.selectWP(3)</script>
+   </binding>
+  </action>
+</animation>
 <text>
    <name>value.wp3.from</name>
    <axis-alignment>yz-plane</axis-alignment>
@@ -4079,6 +4050,17 @@
 </animation>
 <animation>
   <type>material</type>
+  <object-name>value.wp3.disc</object-name>
+  <emission>
+    <red>0.9</red>
+    <green>0.9</green>
+    <blue>0.9</blue>
+  </emission>
+  <shininess>0.0</shininess>
+  <transparency><alpha>0.7</alpha></transparency>
+</animation>
+<animation>
+  <type>material</type>
   <object-name>group.node3</object-name>
   <condition>
     <equals>
@@ -4112,6 +4094,10 @@
   <transparency><alpha>0.7</alpha></transparency>
 </animation>
 
+
+
+
+
 <text>
    <name>value.wp4.disc</name>
    <axis-alignment>yz-plane</axis-alignment>
@@ -4127,6 +4113,18 @@
     <character-size type="double">0.0035</character-size>
     <alignment>center-bottom</alignment>
 </text>
+<animation>
+  <type>pick</type>
+  <object-name>fltpln.field4.id</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU2.selectWP(4)</script>
+   </binding>
+  </action>
+</animation>
 <text>
    <name>value.wp4.from</name>
    <axis-alignment>yz-plane</axis-alignment>
@@ -4278,6 +4276,17 @@
 </animation>
 <animation>
   <type>material</type>
+  <object-name>value.wp4.disc</object-name>
+  <emission>
+    <red>0.9</red>
+    <green>0.9</green>
+    <blue>0.9</blue>
+  </emission>
+  <shininess>0.0</shininess>
+  <transparency><alpha>0.7</alpha></transparency>
+</animation>
+<animation>
+  <type>material</type>
   <object-name>group.node4</object-name>
   <condition>
     <equals>
@@ -4311,6 +4320,10 @@
   <transparency><alpha>0.7</alpha></transparency>
 </animation>
 
+
+
+
+
 <text>
    <name>value.wp5.disc</name>
    <axis-alignment>yz-plane</axis-alignment>
@@ -4326,6 +4339,18 @@
     <character-size type="double">0.0035</character-size>
     <alignment>center-bottom</alignment>
 </text>
+<animation>
+  <type>pick</type>
+  <object-name>fltpln.field5.id</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU2.selectWP(5)</script>
+   </binding>
+  </action>
+</animation>
 <text>
    <name>value.wp5.from</name>
    <axis-alignment>yz-plane</axis-alignment>
@@ -4477,6 +4502,17 @@
 </animation>
 <animation>
   <type>material</type>
+  <object-name>value.wp5.disc</object-name>
+  <emission>
+    <red>0.9</red>
+    <green>0.9</green>
+    <blue>0.9</blue>
+  </emission>
+  <shininess>0.0</shininess>
+  <transparency><alpha>0.7</alpha></transparency>
+</animation>
+<animation>
+  <type>material</type>
   <object-name>group.node5</object-name>
   <condition>
     <equals>
@@ -4510,6 +4546,10 @@
   <transparency><alpha>0.7</alpha></transparency>
 </animation>
 
+
+
+
+
 <text>
    <name>value.wp6.disc</name>
    <axis-alignment>yz-plane</axis-alignment>
@@ -4525,6 +4565,18 @@
     <character-size type="double">0.0035</character-size>
     <alignment>center-bottom</alignment>
 </text>
+<animation>
+  <type>pick</type>
+  <object-name>fltpln.field6.id</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU2.selectWP(6)</script>
+   </binding>
+  </action>
+</animation>
 <text>
    <name>value.wp6.from</name>
    <axis-alignment>yz-plane</axis-alignment>
@@ -4676,6 +4728,17 @@
 </animation>
 <animation>
   <type>material</type>
+  <object-name>value.wp6.disc</object-name>
+  <emission>
+    <red>0.9</red>
+    <green>0.9</green>
+    <blue>0.9</blue>
+  </emission>
+  <shininess>0.0</shininess>
+  <transparency><alpha>0.7</alpha></transparency>
+</animation>
+<animation>
+  <type>material</type>
   <object-name>group.node6</object-name>
   <condition>
     <equals>
@@ -4709,6 +4772,10 @@
   <transparency><alpha>0.7</alpha></transparency>
 </animation>
 
+
+
+
+
 <text>
    <name>value.wp7.disc</name>
    <axis-alignment>yz-plane</axis-alignment>
@@ -4724,6 +4791,18 @@
     <character-size type="double">0.0035</character-size>
     <alignment>center-bottom</alignment>
 </text>
+<animation>
+  <type>pick</type>
+  <object-name>fltpln.field7.id</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU2.selectWP(7)</script>
+   </binding>
+  </action>
+</animation>
 <text>
    <name>value.wp7.from</name>
    <axis-alignment>yz-plane</axis-alignment>
@@ -4875,6 +4954,17 @@
 </animation>
 <animation>
   <type>material</type>
+  <object-name>value.wp7.disc</object-name>
+  <emission>
+    <red>0.9</red>
+    <green>0.9</green>
+    <blue>0.9</blue>
+  </emission>
+  <shininess>0.0</shininess>
+  <transparency><alpha>0.7</alpha></transparency>
+</animation>
+<animation>
+  <type>material</type>
   <object-name>group.node7</object-name>
   <condition>
     <equals>
@@ -4908,6 +4998,11 @@
   <transparency><alpha>0.7</alpha></transparency>
 </animation>
 
+
+
+
+
+
 <text>
    <name>value.wp8.disc</name>
    <axis-alignment>yz-plane</axis-alignment>
@@ -4923,6 +5018,18 @@
     <character-size type="double">0.0035</character-size>
     <alignment>center-bottom</alignment>
 </text>
+<animation>
+  <type>pick</type>
+  <object-name>fltpln.field8.id</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU2.selectWP(8)</script>
+   </binding>
+  </action>
+</animation>
 <text>
    <name>value.wp8.from</name>
    <axis-alignment>yz-plane</axis-alignment>
@@ -5074,6 +5181,17 @@
 </animation>
 <animation>
   <type>material</type>
+  <object-name>value.wp8.disc</object-name>
+  <emission>
+    <red>0.9</red>
+    <green>0.9</green>
+    <blue>0.9</blue>
+  </emission>
+  <shininess>0.0</shininess>
+  <transparency><alpha>0.7</alpha></transparency>
+</animation>
+<animation>
+  <type>material</type>
   <object-name>group.node8</object-name>
   <condition>
     <equals>
@@ -5106,19 +5224,6 @@
   <shininess>0.0</shininess>
   <transparency><alpha>0.7</alpha></transparency>
 </animation>
-
-
-
-<!-- animation>
-  <type>select</type>
-  <object-name>menu.STEP_ALT</object-name>
-  <condition>
-    <equals>
-      <property>/instrumentation/mcdu[1]/page</property>
-      <value>active.crz.stepalt</value>
-    </equals>
-  </condition>
-</animation -->
 
 <animation>
   <type>select</type>
@@ -5162,6 +5267,7 @@
     </or>
   </condition>
 </animation>
+
 
 <!-- animation>
   <type>select</type>
@@ -5434,9 +5540,8 @@
   </condition>
 </animation>
 
-
 <animation>
-  <name>electrical-group</name>
+  <name>electrical</name>
   <object-name>page.INIT</object-name>
   <object-name>page.perf</object-name>
   <object-name>page.DEPARTURE</object-name>
@@ -5506,11 +5611,22 @@
   <object-name>label.crz_perf.dest</object-name>
   <object-name>label.crz_perf.step_alt</object-name>
   <object-name>label.crz_perf.ci</object-name>
+  <object-name>label.appr_perf.wind</object-name>
+  <object-name>label.appr_perf.wind_kt</object-name>
+  <object-name>label.appr_perf.oat</object-name>
+  <object-name>label.appr_perf.oat_c</object-name>
+  <object-name>label.appr_perf.wind_deg</object-name>
+  <object-name>label.appr_perf.S_speed</object-name>
+  <object-name>label.appr_perf.F_speed</object-name>
+  <object-name>label.appr_perf.Vref</object-name>
+  <object-name>label.appr_perf.conf3</object-name>
+  <object-name>label.appr_perf.conf_full</object-name>
+  <object-name>label.appr_perf.Vls</object-name>
 </animation>
 
 <animation>
   <type>select</type>
-  <object-name>electrical-group</object-name>
+  <object-name>electrical</object-name>
   <condition>
     <greater-than>
       <property>/systems/electrical/outputs/efis</property>

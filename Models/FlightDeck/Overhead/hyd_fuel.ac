@@ -1,8 +1,8 @@
 AC3Db
 MATERIAL "DefaultWhite" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0.5 0.5 0.5  shi 64  trans 0
-MATERIAL "1 - Default" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 1 1 1  shi 32  trans 0
+MATERIAL "1 - Default" rgb 0.384 0.467 0.557  amb 1 1 1  emis 0 0 0  spec 0.384 0.467 0.557  shi 0  trans 0
 OBJECT world
-kids 83
+kids 85
 OBJECT poly
 name "Cylinder.001"
 data 8
@@ -377,6 +377,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ENG1_PUMP"
+loc 0.00149086 0 0
 data 14
 APU_MASTER.030
 texture "buttons5.png"
@@ -397,6 +398,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ENG1_PUMP.fault"
+loc 0.00149086 0 0
 data 14
 APU_MASTER.031
 texture "buttons4.png"
@@ -417,6 +419,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ENG1_PUMPA"
+loc 0.00149086 0 0
 data 14
 APU_MASTER.009
 texture "buttons4.png"
@@ -437,6 +440,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ENG1_PUMPA.fault"
+loc 0.00149086 0 0
 data 14
 APU_MASTER.008
 texture "buttons4.png"
@@ -457,6 +461,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ENG1_PUMPB"
+loc 0.00149086 0 0
 data 10
 APU_MASTER
 texture "buttons4.png"
@@ -477,6 +482,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ENG1_PUMPB.fault"
+loc 0.00149086 0 0
 data 14
 APU_MASTER.001
 texture "buttons4.png"
@@ -497,6 +503,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ENG2_PUMP"
+loc 0.00149086 0 0
 data 14
 APU_MASTER.004
 texture "buttons5.png"
@@ -517,6 +524,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ENG2_PUMP.fault"
+loc 0.00149086 0 0
 data 14
 APU_MASTER.005
 texture "buttons4.png"
@@ -537,6 +545,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ENG2_PUMPA"
+loc 0.00149086 0 0
 data 14
 APU_MASTER.006
 texture "buttons4.png"
@@ -557,6 +566,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ENG2_PUMPA.fault"
+loc 0.00149086 0 0
 data 14
 APU_MASTER.007
 texture "buttons4.png"
@@ -577,6 +587,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ENG2_PUMPB"
+loc 0.00149086 0 0
 data 14
 APU_MASTER.003
 texture "buttons4.png"
@@ -597,6 +608,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ENG2_PUMPB.fault"
+loc 0.00149086 0 0
 data 14
 APU_MASTER.002
 texture "buttons4.png"
@@ -617,6 +629,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ENG3_PUMP"
+loc 0.00149086 0 0
 data 14
 APU_MASTER.018
 texture "buttons5.png"
@@ -637,6 +650,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ENG3_PUMP.fault"
+loc 0.00149086 0 0
 data 14
 APU_MASTER.019
 texture "buttons4.png"
@@ -657,6 +671,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ENG3_PUMPA"
+loc 0.00149086 0 0
 data 14
 APU_MASTER.020
 texture "buttons4.png"
@@ -677,6 +692,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ENG3_PUMPA.fault"
+loc 0.00149086 0 0
 data 14
 APU_MASTER.021
 texture "buttons4.png"
@@ -697,6 +713,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ENG3_PUMPB"
+loc 0.00149086 0 0
 data 14
 APU_MASTER.017
 texture "buttons4.png"
@@ -717,6 +734,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ENG3_PUMPB.fault"
+loc 0.00149086 0 0
 data 14
 APU_MASTER.016
 texture "buttons4.png"
@@ -737,6 +755,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ENG4_PUMP"
+loc 0.00149086 0 0
 data 14
 APU_MASTER.013
 texture "buttons5.png"
@@ -757,6 +776,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ENG4_PUMP.fault"
+loc 0.00149086 0 0
 data 14
 APU_MASTER.012
 texture "buttons4.png"
@@ -777,6 +797,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ENG4_PUMPA"
+loc 0.00149086 0 0
 data 14
 APU_MASTER.011
 texture "buttons4.png"
@@ -797,6 +818,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ENG4_PUMPA.fault"
+loc 0.00149086 0 0
 data 14
 APU_MASTER.010
 texture "buttons4.png"
@@ -817,6 +839,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ENG4_PUMPB"
+loc 0.00149086 0 0
 data 14
 APU_MASTER.014
 texture "buttons4.png"
@@ -837,6 +860,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ENG4_PUMPB.fault"
+loc 0.00149086 0 0
 data 14
 APU_MASTER.015
 texture "buttons4.png"
@@ -937,6 +961,7 @@ refs 4
 kids 0
 OBJECT poly
 name "FEEDTK2_M"
+loc 0.000372715 0 0
 data 14
 APU_MASTER.029
 texture "buttons4.png"
@@ -957,6 +982,7 @@ refs 4
 kids 0
 OBJECT poly
 name "FEEDTK2_M.fault"
+loc 0.000372715 0 0
 data 14
 APU_MASTER.028
 texture "buttons4.png"
@@ -977,6 +1003,7 @@ refs 4
 kids 0
 OBJECT poly
 name "FEEDTK2_S"
+loc 0.000372715 0 0
 data 14
 APU_MASTER.026
 texture "buttons4.png"
@@ -997,6 +1024,7 @@ refs 4
 kids 0
 OBJECT poly
 name "FEEDTK2_S.fault"
+loc 0.000372715 0 0
 data 14
 APU_MASTER.027
 texture "buttons4.png"
@@ -1017,6 +1045,7 @@ refs 4
 kids 0
 OBJECT poly
 name "FEEDTK3_M"
+loc 0.000372715 0 0
 data 14
 APU_MASTER.035
 texture "buttons4.png"
@@ -1037,6 +1066,7 @@ refs 4
 kids 0
 OBJECT poly
 name "FEEDTK3_M.fault"
+loc 0.000372715 0 0
 data 14
 APU_MASTER.034
 texture "buttons4.png"
@@ -1057,6 +1087,7 @@ refs 4
 kids 0
 OBJECT poly
 name "FEEDTK3_S"
+loc 0.000372715 0 0
 data 14
 APU_MASTER.032
 texture "buttons4.png"
@@ -1077,6 +1108,7 @@ refs 4
 kids 0
 OBJECT poly
 name "FEEDTK3_S.fault"
+loc 0.000372715 0 0
 data 14
 APU_MASTER.033
 texture "buttons4.png"
@@ -1177,9 +1209,10 @@ refs 4
 kids 0
 OBJECT poly
 name "HYD/FUEL"
+loc 0.000334665 -0.00117453 0
 data 8
 HYD/FUEL
-texture "overhead3.png"
+texture "overhead3_02_base.png"
 crease 30.000000
 numvert 4
 0.001 0.001 -0.001
@@ -1190,9 +1223,9 @@ numsurf 1
 SURF 0x0
 mat 1
 refs 4
-0 0.00219572 0.47026
-1 0.804763 0.47026
-2 0.804763 0.999699
+0 0.00219572 0.472213
+1 0.800857 0.472213
+2 0.800857 0.999699
 3 0.00219572 0.999699
 kids 0
 OBJECT poly
@@ -2112,6 +2145,7 @@ refs 4
 kids 0
 OBJECT poly
 name "XFEED2"
+loc 0.000745431 0 0.00149089
 data 14
 APU_MASTER.074
 texture "buttons4.png"
@@ -2132,6 +2166,7 @@ refs 4
 kids 0
 OBJECT poly
 name "XFEED2.open"
+loc 0.000745431 0 0.00149089
 data 14
 APU_MASTER.075
 texture "buttons6.png"
@@ -2152,6 +2187,7 @@ refs 4
 kids 0
 OBJECT poly
 name "XFEED3"
+loc 0.000745431 0 0.00149089
 data 14
 APU_MASTER.078
 texture "buttons4.png"
@@ -2172,6 +2208,7 @@ refs 4
 kids 0
 OBJECT poly
 name "XFEED3.open"
+loc 0.000745431 0 0.00149089
 data 14
 APU_MASTER.079
 texture "buttons6.png"
@@ -2192,6 +2229,7 @@ refs 4
 kids 0
 OBJECT poly
 name "XFEED4"
+loc 0.000745431 0 0.00149089
 data 14
 APU_MASTER.081
 texture "buttons4.png"
@@ -2212,6 +2250,7 @@ refs 4
 kids 0
 OBJECT poly
 name "XFEED4.open"
+loc 0.000745431 0 0.00149089
 data 14
 APU_MASTER.080
 texture "buttons6.png"
@@ -2229,4 +2268,52 @@ refs 4
 1 1.0108 1.54612
 2 0.760329 1.54612
 3 0.760329 1.14484
+kids 0
+OBJECT poly
+name "backlight.main"
+loc -0.102807 0.000479923 -0.1565
+texture "overhead3_02_backlight-y.png"
+crease 180.000000
+numvert 4
+0.102843 0 0.155618
+-0.102843 0 0.155618
+0.102843 0 -0.155618
+-0.102843 0 -0.155618
+numsurf 2
+SURF 0x30
+mat 0
+refs 3
+0 0.00292969 0.469727
+3 0.807617 1.00195
+1 0.00292969 1.00195
+SURF 0x30
+mat 0
+refs 3
+0 0.00292969 0.469727
+2 0.807617 0.469727
+3 0.807617 1.00195
+kids 0
+OBJECT poly
+name "backlight.second"
+loc -0.102848 0.000562731 -0.1565
+texture "overhead3_02_backlight-w.png"
+crease 180.000000
+numvert 4
+-0.102843 0 -0.155618
+0.102843 0 -0.155618
+-0.102843 0 0.155618
+0.102843 0 0.155618
+numsurf 2
+SURF 0x30
+mat 0
+refs 3
+3 0.00292969 0.469727
+1 0.807617 0.469727
+0 0.807617 1.00195
+SURF 0x30
+mat 0
+refs 3
+3 0.00292969 0.469727
+0 0.807617 1.00195
+2 0.00292969 1.00195
 kids 0

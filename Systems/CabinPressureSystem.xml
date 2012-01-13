@@ -15,11 +15,11 @@
     <and>
       <or>
       <greater-than>
-        <property>instrumentation/vertical-speed-indicator/indicated-speed-fpm</property>
+        <property>instrumentation/gps/indicated-vertical-speed</property>
         <value>800</value>
       </greater-than>
       <less-than>
-        <property>instrumentation/vertical-speed-indicator/indicated-speed-fpm</property>
+        <property>instrumentation/gps/indicated-vertical-speed</property>
         <value>-800</value>
       </less-than>
     </or>
@@ -54,7 +54,7 @@
          <value>1</value>
        </equals>
        <less-than>
-         <property>instrumentation/vertical-speed-indicator/indicated-speed-fpm</property>
+         <property>instrumentation/gps/indicated-vertical-speed</property>
          <value>-800</value>
        </less-than>
      </and>
@@ -73,7 +73,7 @@
          <value>1</value>
        </equals>
        <greater-than>
-         <property>instrumentation/vertical-speed-indicator/indicated-speed-fpm</property>
+         <property>instrumentation/gps/indicated-vertical-speed</property>
          <value>800</value>
        </greater-than>
       </and>
@@ -166,7 +166,7 @@
   <output>
     <property>/instrumentation/pressurisation/descent-ratio</property>
     <max>
-      <value>0.25</value>
+      <value>0.21</value>
     </max>
   </output>
 </filter>
@@ -207,7 +207,7 @@
   <output>
     <property>/instrumentation/pressurisation/ascent-ratio</property>
     <max>
-      <value>-0.25</value>
+      <value>-0.21</value>
     </max>
   </output>
 </filter>
@@ -355,6 +355,29 @@
         </max>
       </output>
       <max-rate-of-change>0.0028</max-rate-of-change>
+    </filter>
+    
+    <filter>
+      <type>gain</type>
+      <gain>1.0</gain>
+      <name>convert psi inhg</name>
+      <input>
+        <expression>
+          <div>
+            <product>
+              <div>
+                <property>instrumentation/pressurisation/cabin-pressure-psi</property>
+                <value>0.000145037737730209</value>
+              </div>
+              <value>0.0295583518381</value>
+            </product>
+            <value>100</value>
+          </div>
+        </expression>
+      </input>
+      <output>
+        <property>instrumentation/pressurisation/cabin-pressure-inhg</property>
+      </output>
     </filter>
     
   <filter>

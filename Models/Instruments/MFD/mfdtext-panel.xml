@@ -8,7 +8,7 @@
 
 <instruments>
   
-    <instrument include="maptext.xml">      
+    <instrument include="ARCtext.xml">      
         <condition>
             <and>
             <greater-than>
@@ -17,7 +17,27 @@
             </greater-than>
                 <equals>
                     <property>instrumentation/efis/mfd/display-mode</property>
-                    <value>MAP</value>
+                    <value>ARC</value>
+                </equals>
+            </and>
+        </condition>        
+        <name>MFD</name>
+        <x>200</x>
+        <y>128</y>
+        <w>400</w>
+        <h>256</h>
+    </instrument>
+    
+    <instrument include="ROSEtext.xml">      
+        <condition>
+            <and>
+            <greater-than>
+                <property>systems/electrical/outputs/efis</property>
+                <value>15</value>
+            </greater-than>
+                <equals>
+                    <property>instrumentation/efis/mfd/display-mode</property>
+                    <value>ROSE</value>
                 </equals>
             </and>
         </condition>        
@@ -36,12 +56,12 @@
                 <value>15</value>
             </greater-than>
                 <equals>
-                    <property>instrumentation/efis/mfd/display-mode</property>
-                    <value>APP</value>
+                    <property>instrumentation/efis/nd-mode</property>
+                    <value>LS</value>
                 </equals>
             </and>
         </condition>
-        <name>MFD</name>
+        <name>ILSinfo</name>
         <x>200</x>
         <y>128</y>
         <w>400</w>
@@ -56,12 +76,12 @@
                 <value>15</value>
             </greater-than>
                 <equals>
-                    <property>instrumentation/efis/mfd/display-mode</property>
+                    <property>instrumentation/efis/nd-mode</property>
                     <value>VOR</value>
                 </equals>
             </and>
         </condition> 
-        <name>MFD</name>
+        <name>VOR</name>
         <x>200</x>
         <y>128</y>
         <w>400</w>

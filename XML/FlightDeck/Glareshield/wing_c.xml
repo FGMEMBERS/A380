@@ -3,7 +3,7 @@
 <PropertyList>
 
 	<path>../../../Models/FlightDeck/Glareshield/wing_c.ac</path> 
-	<texture-path>../../../Instruments</texture-path>
+	<texture-path>../../../Textures/Instruments</texture-path>
 	<offsets>
 		<z-m>0.25</z-m>
 	</offsets>

@@ -171,8 +171,9 @@
             <chunks>
                 <chunk>
                     <type>number-value</type>
-                    <property>velocities/uBody-fps</property>
-                    <scale>0.59248380</scale>
+                    <property>instrumentation/airspeed-indicator/true-speed-kt</property>
+                    <!-- property>velocities/uBody-fps</property>
+                    <scale>0.59248380</scale -->
                     <format>TAS%3.0f</format>
                 </chunk>
             </chunks>
@@ -236,7 +237,7 @@
         <layer>
             <condition>
                 <not>
-                    <property>instrumentation/efis/inputs/nd-centered</property>
+                    <property>instrumentation/efis/inputs/nd-centred</property>
                 </not>
             </condition>
             <name>inner-range-left</name>
@@ -251,7 +252,7 @@
             <chunks>
                 <chunk>
                     <type>number-value</type>
-                    <property>instrumentation/radar/range</property>
+                    <property>instrumentation/nd[0]/range</property>
                     <format>%3.0f</format>
                 </chunk>
             </chunks>
@@ -270,7 +271,7 @@
         <layer>
             <condition>
                 <not>
-                    <property>instrumentation/efis/inputs/nd-centered</property>
+                    <property>instrumentation/efis/inputs/nd-centred</property>
                 </not>
             </condition>
             <name>inner-range-right</name>
@@ -285,7 +286,7 @@
             <chunks>
                 <chunk>
                     <type>number-value</type>
-                    <property>instrumentation/radar/range</property>
+                    <property>instrumentation/nd[0]/range</property>
                     <format>%3.0f</format>
                 </chunk>
             </chunks>
@@ -305,7 +306,7 @@
         <layer>
             <condition>
                 <not>
-                    <property>instrumentation/efis/inputs/nd-centered</property>
+                    <property>instrumentation/efis/inputs/nd-centred</property>
                 </not>
             </condition>
             <name>HDG ind</name>
@@ -338,7 +339,7 @@
         <layer>
             <condition>
                 <not>
-                    <property>instrumentation/efis/inputs/nd-centered</property>
+                    <property>instrumentation/efis/inputs/nd-centred</property>
                 </not>
             </condition>
             <name>HDG</name>
@@ -372,7 +373,7 @@
         <layer>
             <condition>
                 <not>
-                    <property>instrumentation/efis/inputs/nd-centered</property>
+                    <property>instrumentation/efis/inputs/nd-centred</property>
                 </not>
             </condition>
             <name>MAG ind</name>
@@ -405,7 +406,7 @@
 <!-- full -->
         <layer>
             <condition>
-                <property>instrumentation/efis/inputs/nd-centered</property>
+                <property>instrumentation/efis/inputs/nd-centred</property>
             </condition>
             <name>WXR range</name>
             <type>text</type>
@@ -419,7 +420,7 @@
             <chunks>
                 <chunk>
                     <type>number-value</type>
-                    <property>instrumentation/radar/range</property>
+                    <property>instrumentation/nd[0]/range</property>
                     <format>%3.0f</format>
                 </chunk>
             </chunks>
@@ -437,7 +438,7 @@
 
         <layer>
             <condition>
-                <property>instrumentation/efis/inputs/nd-centered</property>
+                <property>instrumentation/efis/inputs/nd-centred</property>
             </condition>
             <name>HDG ind</name>
             <type>text</type>
@@ -468,7 +469,7 @@
 
         <layer>
             <condition>
-                <property>instrumentation/efis/inputs/nd-centered</property>
+                <property>instrumentation/efis/inputs/nd-centred</property>
             </condition>
             <name>HDG</name>
             <type>text</type>
@@ -500,7 +501,7 @@
 
         <layer>
             <condition>
-                <property>instrumentation/efis/inputs/nd-centered</property>
+                <property>instrumentation/efis/inputs/nd-centred</property>
             </condition>
             <name>MAG ind</name>
             <type>text</type>
@@ -534,10 +535,16 @@
 
         <layer>
             <condition>
+              <and>
                 <equals>
                     <property>instrumentation/efis/inputs/lh-vor-adf</property>
                     <value>1</value>
                 </equals>
+                <equals>
+                    <property>instrumentation/afs/approach-radio-lh</property>
+                    <value>VOR</value>
+                  </equals>
+              </and>
             </condition>
             <name>L VOR</name>
             <type>text</type>
@@ -573,6 +580,10 @@
                     <property>instrumentation/efis/inputs/lh-vor-adf</property>
                     <value>1</value>
                 </equals>
+                <equals>
+                    <property>instrumentation/afs/approach-radio-lh</property>
+                    <value>VOR</value>
+                  </equals>
                 <equals>
                     <property>/instrumentation/nav[0]/in-range</property>
                     <value>1</value>
@@ -614,6 +625,10 @@
                     <value>1</value>
                 </equals>
                 <equals>
+                    <property>instrumentation/afs/approach-radio-lh</property>
+                    <value>VOR</value>
+                  </equals>
+                <equals>
                     <property>/instrumentation/nav[0]/in-range</property>
                     <value>1</value>
                 </equals>
@@ -652,10 +667,16 @@
 
         <layer>
             <condition>
+              <and>
                 <equals>
                     <property>instrumentation/efis/inputs/rh-vor-adf</property>
                     <value>1</value>
                 </equals>
+                <equals>
+                    <property>instrumentation/afs/approach-radio-rh</property>
+                    <value>VOR</value>
+                </equals>
+              </and>
             </condition>
             <name>R VOR</name>
             <type>text</type>
@@ -691,6 +712,10 @@
                     <property>instrumentation/efis/inputs/rh-vor-adf</property>
                     <value>1</value>
                 </equals>
+                <equals>
+                    <property>instrumentation/afs/approach-radio-rh</property>
+                    <value>VOR</value>
+                  </equals>
                 <equals>
                     <property>/instrumentation/nav[1]/in-range</property>
                     <value>1</value>
@@ -732,6 +757,10 @@
                     <value>1</value>
                 </equals>
                 <equals>
+                    <property>instrumentation/afs/approach-radio-rh</property>
+                    <value>VOR</value>
+                  </equals>
+                <equals>
                     <property>/instrumentation/nav[1]/in-range</property>
                     <value>1</value>
                 </equals>
@@ -770,10 +799,16 @@
 
         <layer>
             <condition>
+              <and>
                 <equals>
                     <property>instrumentation/efis/inputs/lh-vor-adf</property>
-                    <value>-1</value>
+                    <value>1</value>
                 </equals>
+                <equals>
+                    <property>instrumentation/afs/approach-radio-lh</property>
+                    <value>ADF</value>
+                </equals>
+              </and>
             </condition>
             <name>L adf</name>
             <type>text</type>
@@ -797,17 +832,23 @@
                 </transformation>
                 <transformation>
                     <type>y-shift</type>
-                    <offset>-70</offset>
+                    <offset>-100</offset>
                 </transformation>
             </transformations>
         </layer>
 
         <layer>
             <condition>
+              <and>
                 <equals>
                     <property>instrumentation/efis/inputs/lh-vor-adf</property>
-                    <value>-1</value>
+                    <value>1</value>
                 </equals>
+                <equals>
+                    <property>instrumentation/afs/approach-radio-lh</property>
+                    <value>ADF</value>
+                </equals>
+              </and>
             </condition>
             <name>L adf ID</name>
             <type>text</type>
@@ -831,7 +872,7 @@
                 </transformation>
                 <transformation>
                     <type>y-shift</type>
-                    <offset>-80</offset>
+                    <offset>-110</offset>
                 </transformation>
             </transformations>
         </layer>
@@ -840,10 +881,16 @@
 
         <layer>
             <condition>
+              <and>
                 <equals>
                     <property>instrumentation/efis/inputs/rh-vor-adf</property>
-                    <value>-1</value>
+                    <value>1</value>
                 </equals>
+                <equals>
+                    <property>instrumentation/afs/approach-radio-rh</property>
+                    <value>ADF</value>
+                </equals>
+              </and>
             </condition>
             <name>R adf</name>
             <type>text</type>
@@ -867,17 +914,23 @@
                 </transformation>
                 <transformation>
                     <type>y-shift</type>
-                    <offset>-70</offset>
+                    <offset>-100</offset>
                 </transformation>
             </transformations>
         </layer>
 
         <layer>
             <condition>
+              <and>
                 <equals>
                     <property>instrumentation/efis/inputs/rh-vor-adf</property>
-                    <value>-1</value>
+                    <value>1</value>
                 </equals>
+                <equals>
+                    <property>instrumentation/afs/approach-radio-rh</property>
+                    <value>ADF</value>
+                  </equals>
+              </and>
             </condition>
             <name>R adf ID</name>
             <type>text</type>
@@ -901,13 +954,13 @@
                 </transformation>
                 <transformation>
                     <type>y-shift</type>
-                    <offset>-80</offset>
+                    <offset>-110</offset>
                 </transformation>
             </transformations>
         </layer>
         
     <!--   AI object FL -->
-        <layer>
+        <!-- layer>
           <condition>
             <equals>
 	      <property>instrumentation/radar/mp[0]/valid</property>
@@ -1254,7 +1307,7 @@
               <offset>5</offset>
             </transformation>
           </transformations>
-        </layer>
+        </layer -->
         
         <!-- navaid ref -->
         <layer>
@@ -1307,7 +1360,7 @@
         
         
         <!-- waypoint identifiers -->
-        <layer>
+        <!-- layer>
           <condition>
             <equals>
 	      <property>instrumentation/radar/wp[0]/valid</property>
@@ -1505,7 +1558,211 @@
               <offset>-15</offset>
             </transformation>
           </transformations>
+        </layer -->
+        
+        
+        
+        <!-- airport identifiers -->
+        <!-- layer>
+          <condition>
+            <equals>
+	      <property>instrumentation/radar/airports[0]/valid</property>
+              <value>1</value>
+            </equals>
+          </condition>
+          <name>airports0</name>
+          <w>10</w>
+          <h>10</h>
+          <type>text</type>
+          <font>arial_black</font>
+          <point-size>6</point-size>
+          <color>
+             <red>0.600</red>
+             <green>0.0</green>
+             <blue>0.600</blue>
+          </color>
+          <chunks>
+            <chunk>
+               <type>text-value</type>
+               <property>/instrumentation/radar/airports[0]/id</property>
+            </chunk>
+          </chunks>
+          <transformations>
+            <transformation>
+               <type>y-shift</type>
+               <offset>-78</offset>
+            </transformation>
+            <transformation>
+                <type>rotation</type>
+                <property>instrumentation/radar/airports[0]/brg-offset</property>
+            </transformation>
+            <transformation>
+               <type>y-shift</type>
+               <property>instrumentation/radar/airports[0]/dist-norm</property>
+               <scale>161</scale>
+            </transformation>
+            <transformation>
+               <type>rotation</type>
+               <property>instrumentation/radar/airports[0]/brg-offset</property>
+               <scale>-1.0</scale>
+            </transformation>
+            <transformation>
+              <type>y-shift</type>
+              <offset>-15</offset>
+            </transformation>
+          </transformations>
         </layer>
+        
+        <layer>
+          <condition>
+            <equals>
+	      <property>instrumentation/radar/airports[1]/valid</property>
+              <value>1</value>
+            </equals>
+          </condition>
+          <name>airports1</name>
+          <w>10</w>
+          <h>10</h>
+          <type>text</type>
+          <font>arial_black</font>
+          <point-size>6</point-size>
+          <color>
+             <red>0.600</red>
+             <green>0.0</green>
+             <blue>0.600</blue>
+          </color>
+          <chunks>
+            <chunk>
+               <type>text-value</type>
+               <property>/instrumentation/radar/airports[1]/id</property>
+            </chunk>
+          </chunks>
+          <transformations>
+            <transformation>
+               <type>y-shift</type>
+               <offset>-78</offset>
+            </transformation>
+            <transformation>
+                <type>rotation</type>
+                <property>instrumentation/radar/airports[1]brg-offset</property>
+            </transformation>
+            <transformation>
+               <type>y-shift</type>
+               <property>instrumentation/radar/airports[1]/dist-norm</property>
+               <scale>161</scale>
+            </transformation>
+            <transformation>
+               <type>rotation</type>
+               <property>instrumentation/radar/airports[1]brg-offset</property>
+               <scale>-1.0</scale>
+            </transformation>
+            <transformation>
+              <type>y-shift</type>
+              <offset>-15</offset>
+            </transformation>
+          </transformations>
+        </layer>
+        
+        <layer>
+          <condition>
+            <equals>
+	      <property>instrumentation/radar/airports[2]/valid</property>
+              <value>1</value>
+            </equals>
+          </condition>
+          <name>airports2</name>
+          <w>10</w>
+          <h>10</h>
+          <type>text</type>
+          <font>arial_black</font>
+          <point-size>6</point-size>
+          <color>
+             <red>0.600</red>
+             <green>0.0</green>
+             <blue>0.600</blue>
+          </color>
+          <chunks>
+            <chunk>
+               <type>text-value</type>
+               <property>/instrumentation/radar/airports[2]/id</property>
+            </chunk>
+          </chunks>
+          <transformations>
+            <transformation>
+               <type>y-shift</type>
+               <offset>-78</offset>
+            </transformation>
+            <transformation>
+                <type>rotation</type>
+                <property>instrumentation/radar/airports[2]/brg-offset</property>
+            </transformation>
+            <transformation>
+               <type>y-shift</type>
+               <property>instrumentation/radar/airports[2]/dist-norm</property>
+               <scale>161</scale>
+            </transformation>
+            <transformation>
+               <type>rotation</type>
+               <property>instrumentation/radar/airports[2]brg-offset</property>
+               <scale>-1.0</scale>
+            </transformation>
+            <transformation>
+              <type>y-shift</type>
+              <offset>-15</offset>
+            </transformation>
+          </transformations>
+        </layer>
+        
+        <layer>
+          <condition>
+            <equals>
+	      <property>instrumentation/radar/airports[3]/valid</property>
+              <value>1</value>
+            </equals>
+          </condition>
+          <name>airports3</name>
+          <w>10</w>
+          <h>10</h>
+          <type>text</type>
+          <font>arial_black</font>
+          <point-size>6</point-size>
+          <color>
+             <red>0.600</red>
+             <green>0.0</green>
+             <blue>0.600</blue>
+          </color>
+          <chunks>
+            <chunk>
+               <type>text-value</type>
+               <property>/instrumentation/radar/airports[3]/id</property>
+            </chunk>
+          </chunks>
+          <transformations>
+            <transformation>
+               <type>y-shift</type>
+               <offset>-78</offset>
+            </transformation>
+            <transformation>
+                <type>rotation</type>
+                <property>instrumentation/radar/airports[3]/brg-offset</property>
+            </transformation>
+            <transformation>
+               <type>y-shift</type>
+               <property>instrumentation/radar/airports[3]/dist-norm</property>
+               <scale>161</scale>
+            </transformation>
+            <transformation>
+               <type>rotation</type>
+               <property>instrumentation/radar/airports[3]brg-offset</property>
+               <scale>-1.0</scale>
+            </transformation>
+            <transformation>
+              <type>y-shift</type>
+              <offset>-15</offset>
+            </transformation>
+          </transformations>
+        </layer -->
+        
 
     </layers>
 
