@@ -1737,6 +1737,7 @@ get_altpitch = func() {
 update_nav_orig = func () {
   slaved = getprop("/instrumentation/primus1000/dc550/fms");
   current_heading = getprop("/orientation/heading-magnetic-deg");
+  
   if(slaved == nil) {
     slaved = 0
   };
@@ -1833,6 +1834,7 @@ update_nav_orig = func () {
 update_nav = func () {
   slaved = getprop("/instrumentation/primus1000/dc550/fms");
   current_heading = getprop("/orientation/heading-magnetic-deg");
+  var course_offset = 0.0;
   if(slaved == nil){slaved = 0};
 
   if(slaved == 0) {

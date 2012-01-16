@@ -1039,7 +1039,10 @@ update_engines = func {
     flt_mode = 11;
     setprop("/instrumentation/ecam/flight-mode",flt_mode);
   }
-  alt = getprop("/instrumentation/altimeter/indicated-altitude-ft");   #960
+  var alt = getprop("/instrumentation/altimeter/indicated-altitude-ft");   #960
+  if (alt == nil) {
+    alt = 0;
+  }
   if (alt > 400 and flt_mode == 6) {
     flt_mode = 7;
     setprop("/instrumentation/ecam/flight-mode",flt_mode);
