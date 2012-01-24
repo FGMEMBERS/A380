@@ -505,9 +505,11 @@ update_radar = func {
         ##debug.dump(closestApt);
       }
       var aptPos = geo.Coord.new();
-      aptPos.set_latlon(closestApt.tower_lat, closestApt.tower_lon, closestApt.elevation);
-      var aptCourse = currentPos.course_to(aptPos);
-      aptDistMetre   = currentPos.distance_to(aptPos);
+      #aptPos.set_latlon(closestApt.tower_lat, closestApt.tower_lon, closestApt.elevation);
+      #var aptCourse = currentPos.course_to(aptPos);
+      var aptCourse = 0.0;
+      #aptDistMetre   = currentPos.distance_to(aptPos);
+      var aptDistMetre = 10.0
       aptDist = aptDistMetre*METRE2NM;
       id.setValue(closestApt.id);
       dist.setDoubleValue(aptDist/getprop("instrumentation/groundradar/range"));
