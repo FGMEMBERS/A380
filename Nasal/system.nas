@@ -509,7 +509,7 @@ update_radar = func {
       #var aptCourse = currentPos.course_to(aptPos);
       var aptCourse = 0.0;
       #aptDistMetre   = currentPos.distance_to(aptPos);
-      var aptDistMetre = 10.0
+      var aptDistMetre = 10.0;
       aptDist = aptDistMetre*METRE2NM;
       id.setValue(closestApt.id);
       dist.setDoubleValue(aptDist/getprop("instrumentation/groundradar/range"));
