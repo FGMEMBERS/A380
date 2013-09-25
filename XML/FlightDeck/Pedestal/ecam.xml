@@ -14,7 +14,7 @@
 <PropertyList>
 
 	<path>../../../Models/FlightDeck/Pedestal/ecam.ac</path> 
-	<texture-path>../../../Textures/Instruments</texture-path>
+	<texture-path>Aircraft/A380/Textures/Instruments</texture-path>
 
 <animation>
   <type>pick</type>

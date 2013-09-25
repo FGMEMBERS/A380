@@ -4,11 +4,14 @@ Syd Adams
 -->
 
 <PropertyList>
-
+ <params>
+    <panel-path>Aircraft/A380/Models/Instruments/MFD/mfd-panel.xml</panel-path>
+    <text-path>Aircraft/A380/Models/Instruments/MFD/mfdtext-panel.xml</text-path>
+  </params>
  <path>EFIS2.ac</path>
      
     <panel>
-        <path>Aircraft/A380/Models/Instruments/MFD/mfd-panel.xml</path>
+      <path alias="/params/panel-path"/>
         <bottom-left>
             <x-m>-0.003</x-m>
             <y-m>-0.070</y-m>
@@ -27,19 +30,19 @@ Syd Adams
     </panel>
     
     <panel>
-        <path>Aircraft/A380/Models/Instruments/MFD/mfdtext-panel.xml</path>
+      <path alias="/params/text-path"/>
          <bottom-left>
-            <x-m>-0.003</x-m>
+            <x-m>-0.004</x-m>
             <y-m>-0.070</y-m>
             <z-m>-0.078</z-m>
         </bottom-left>
         <bottom-right>
-            <x-m>-0.003</x-m>
+            <x-m>-0.004</x-m>
             <y-m>0.068</y-m>
             <z-m>-0.078</z-m>
         </bottom-right>
         <top-left>
-            <x-m>0.003</x-m>
+            <x-m>0.004</x-m>
             <y-m>-0.070</y-m>
             <z-m>0.078</z-m>
         </top-left>

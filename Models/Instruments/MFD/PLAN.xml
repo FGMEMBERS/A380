@@ -5,10 +5,16 @@
     <name>PLAN</name>
     <w-base>256</w-base>
     <h-base>256</h-base>
+    <params>
+      <inputs>
+        <lh-vor-adf>instrumentation/efis[0]/inputs/lh-vor-adf</lh-vor-adf>
+        <rh-vor-adf>instrumentation/efis[0]/inputs/rh-vor-adf</rh-vor-adf>
+      </inputs>
+    </params>
 
     <layers>
     
-        <layer>
+        <!-- layer>
           <condition>
             <less-than>
               <property>instrumentation/radar/range</property>
@@ -42,7 +48,7 @@
             </transformations>
             <w>512</w>
             <h>512</h>
-        </layer>
+        </layer -->
     
         <layer>
             <name>hdg</name>
@@ -64,7 +70,32 @@
             <emissive>true</emissive>
         </layer>
 
+
         <layer>
+            <name>aircraft symbol</name>
+            <w>20</w>
+            <h>20</h>
+            <texture>
+                <path>Aircraft/A380/Models/Instruments/MFD/airbus_symbols.png</path>
+                <x1>0.332</x1>
+		<y1>0.111</y1>
+                <x2>0.494</x2>
+                <y2>0.326</y2>
+            </texture>
+            <transformations>
+                <transformation>
+                    <type>y-shift</type>
+                    <offset>0</offset>
+                </transformation>
+		<transformation>
+                    <type>rotation</type>
+                    <property>orientation/heading-deg</property>
+                </transformation>
+            </transformations>
+            <emissive>true</emissive>
+        </layer>
+        
+        <!-- layer>
             <name>aircraft symbol</name>
             <w>25</w>
             <h>32</h>
@@ -86,7 +117,7 @@
                 </transformation>
             </transformations>
             <emissive>true</emissive>
-        </layer>
+        </layer -->
 
 
         <layer>

@@ -30,4 +30,20 @@ var fmsWP = {
         return me;
     },
 
+    copy : func(wp) {
+      me.wp_name = ""~wp.wp_name;
+      me.wp_parent_name = ""~wp.wp_parent_name;
+      me.wp_type = ""~wp.wp_type;
+      me.fly_type = ""~wp.fly_type;
+      me.action = ""~wp.action;
+      me.wp_lat = ""~wp.wp_lat;
+      me.wp_lon = ""~wp.wp_lon;
+      me.alt_cstr = ""~wp.alt_cstr;
+      me.alt_cstr_ind = ""~wp.alt_cstr_ind;
+      me.spd_cstr = ""~wp.spd_cstr;
+      me.spd_cstr_ind = ""~wp.spd_cstr_ind;
+      me.hdg_radial = ""~wp.hdg_radial;
+      me.leg_distance = ""~wp.leg_distance;
+      me.leg_bearing = ""~wp.leg_bearing;
+    },
 }

@@ -5,6 +5,13 @@
     <name>ARCtext</name>
     <w-base>256</w-base>
     <h-base>256</h-base>
+    <params>
+      <inputs>
+        <lh-vor-adf>instrumentation/efis[0]/inputs/lh-vor-adf</lh-vor-adf>
+        <rh-vor-adf>instrumentation/efis[0]/inputs/rh-vor-adf</rh-vor-adf>
+      </inputs>
+      <nd-range>instrumentation/nd[0]/range</nd-range>
+    </params>
 
     <layers>
 
@@ -246,7 +253,8 @@
             <chunks>
                 <chunk>
                     <type>number-value</type>
-                    <property>instrumentation/nd/range</property>
+                    <!-- property>instrumentation/nd/range</property -->
+		    <property alias="/params/nd-range"/>
                     <format>%3.0f</format>
                 </chunk>
             </chunks>
@@ -275,7 +283,8 @@
             <chunks>
                 <chunk>
                     <type>number-value</type>
-                    <property>instrumentation/nd/range</property>
+                    <!-- property>instrumentation/nd/range</property -->
+		    <property alias="/params/nd-range"/>
                     <format>%3.0f</format>
                 </chunk>
             </chunks>
@@ -383,7 +392,7 @@
             <condition>
               <and>
                 <equals>
-                    <property>instrumentation/efis/inputs/lh-vor-adf</property>
+                    <!-- property>instrumentation/efis[0]/inputs/lh-vor-adf</property --> <property alias="/params/inputs/lh-vor-adf"/>
                     <value>1</value>
                 </equals>
                 <equals>
@@ -423,7 +432,7 @@
             <condition>
               <and>
                 <equals>
-                    <property>instrumentation/efis/inputs/lh-vor-adf</property>
+                    <!-- property>instrumentation/efis[0]/inputs/lh-vor-adf</property --> <property alias="/params/inputs/lh-vor-adf"/>
                     <value>1</value>
                 </equals>
                 <equals>
@@ -467,7 +476,7 @@
             <condition>
               <and>
                 <equals>
-                    <property>instrumentation/efis/inputs/lh-vor-adf</property>
+                    <!-- property>instrumentation/efis[0]/inputs/lh-vor-adf</property --> <property alias="/params/inputs/lh-vor-adf"/>
                     <value>1</value>
                 </equals>
                 <equals>
@@ -515,7 +524,7 @@
             <condition>
               <and>
                 <equals>
-                    <property>instrumentation/efis/inputs/rh-vor-adf</property>
+                    <!-- property>instrumentation/efis[0]/inputs/rh-vor-adf</property --> <property alias="/params/inputs/rh-vor-adf"/>
                     <value>1</value>
                 </equals>
                 <equals>
@@ -555,7 +564,7 @@
             <condition>
               <and>
                 <equals>
-                    <property>instrumentation/efis/inputs/rh-vor-adf</property>
+                    <!-- property>instrumentation/efis[0]/inputs/rh-vor-adf</property --> <property alias="/params/inputs/rh-vor-adf"/>
                     <value>1</value>
                 </equals>
                 <equals>
@@ -599,7 +608,7 @@
             <condition>
               <and>
                 <equals>
-                    <property>instrumentation/efis/inputs/rh-vor-adf</property>
+                    <!-- property>instrumentation/efis[0]/inputs/rh-vor-adf</property --> <property alias="/params/inputs/rh-vor-adf"/>
                     <value>1</value>
                 </equals>
                 <equals>
@@ -647,7 +656,7 @@
             <condition>
               <and>
                 <equals>
-                    <property>instrumentation/efis/inputs/lh-vor-adf</property>
+                    <!-- property>instrumentation/efis[0]/inputs/lh-vor-adf</property --> <property alias="/params/inputs/lh-vor-adf"/>
                     <value>1</value>
                 </equals>
                 <equals>
@@ -687,7 +696,7 @@
             <condition>
               <and>
                 <equals>
-                    <property>instrumentation/efis/inputs/lh-vor-adf</property>
+                    <!-- property>instrumentation/efis[0]/inputs/lh-vor-adf</property --> <property alias="/params/inputs/lh-vor-adf"/>
                     <value>1</value>
                 </equals>
                 <equals>
@@ -729,7 +738,7 @@
             <condition>
               <and>
                 <equals>
-                    <property>instrumentation/efis/inputs/rh-vor-adf</property>
+                    <!-- property>instrumentation/efis[0]/inputs/rh-vor-adf</property --> <property alias="/params/inputs/rh-vor-adf"/>
                     <value>1</value>
                 </equals>
                 <equals>
@@ -769,7 +778,7 @@
             <condition>
               <and>
                 <equals>
-                    <property>instrumentation/efis/inputs/rh-vor-adf</property>
+                    <!-- property>instrumentation/efis[0]/inputs/rh-vor-adf</property --> <property alias="/params/inputs/rh-vor-adf"/>
                     <value>1</value>
                 </equals>
                 <equals>

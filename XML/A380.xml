@@ -17,9 +17,9 @@
  		<name>Pushback</name>
  		<path>Models/Airport/Pushback/Goldhofert.xml</path>
  		<offsets>
-  			<x-m>8.15</x-m>
+  			<x-m>9.5</x-m>
   			<y-m>0</y-m>
-  			<z-m>1.0</z-m>
+  			<z-m>0.0</z-m>
  		</offsets>
 	</model>
 
@@ -108,6 +108,15 @@
   	<model>
    		<path>Aircraft/A380/XML/Wings/wings.xml</path>
   	</model>
+
+       <model>
+           <path>Aircraft/A380/XML/cabin.xml</path>
+           <offsets>
+               <x-m>11.6</x-m>
+               <y-m>0.0</y-m>
+               <z-m>4.9</z-m>
+           </offsets>
+       </model>
 
   	<model>
    		<path>Aircraft/A380/XML/htp.xml</path>
@@ -340,7 +349,7 @@
  </animation>
  
   <!--END OF NOSE GEAR -->
-  <!--START OF MAIN GEAR LEFT -->
+  <!--START OF MAIN INNER GEAR LEFT -->
 
   <animation>
   <type>rotate</type>
@@ -356,7 +365,7 @@
   <object-name>btyrelm</object-name>   
   <object-name>btyrera</object-name>   
   <object-name>btyrela</object-name> 
-    <property>gear/gear[1]/position-norm</property>   
+    <property>gear/gear[2]/position-norm</property>   
   <interpolation>
     <entry>
       <ind>0.0</ind>
@@ -403,7 +412,7 @@
   <object-name>btyrelm</object-name>   
   <object-name>btyrera</object-name>   
   <object-name>btyrela</object-name>      
-  <property>gear/gear[1]/position-norm</property>   
+  <property>gear/gear[2]/position-norm</property>   
   <interpolation>
     <entry>
       <ind>0.0</ind>
@@ -443,7 +452,7 @@
   <type>translate</type> 
   <object-name>blowerstrut</object-name>   
   <object-name>btruck</object-name>   
-  <property>gear/gear[1]/position-norm</property>
+  <property>gear/gear[2]/position-norm</property>
  <factor>0.1</factor>
   <offset-deg>-90</offset-deg>
   <min-deg>-80</min-deg>
@@ -460,6 +469,7 @@
   </axis>
  </animation>
 
+ <!-- START OF LEFT OUTER GEAR -->
  <animation>
   <type>rotate</type>
   <object-name>wouterstrut</object-name>
@@ -550,7 +560,7 @@
  <animation>
   <type>rotate</type>
   <object-name>innerbgdoor</object-name>  
-  <property>gear/gear[1]/position-norm</property>
+  <property>gear/gear[2]/position-norm</property>
   <interpolation>
     <entry>
       <ind>0.0</ind>
@@ -619,7 +629,7 @@
   <type>rotate</type>
   <object-name>outerbgdoor</object-name>
   <object-name>midbgdoor</object-name>    
-  <property>gear/gear[1]/position-norm</property>
+  <property>gear/gear[2]/position-norm</property>
   <interpolation>
     <entry>
       <ind>0.0</ind>
@@ -653,7 +663,7 @@
  <animation>
   <type>rotate</type>
   <object-name>midbgdoor</object-name>  
-  <property>gear/gear[1]/position-norm</property>
+  <property>gear/gear[2]/position-norm</property>
   <interpolation>
     <entry>
       <ind>0.0</ind>
@@ -685,7 +695,7 @@
  </animation>
 
  <!--END OF MAIN GEAR LEFT -->
- <!--START OF MAIN GEAR RIGHT -->
+ <!--START OF MAIN INNER GEAR RIGHT -->
 
  <animation>
   <type>rotate</type>
@@ -736,6 +746,7 @@
   </axis>
  </animation>
   
+
  <animation>
   <type>translate</type> 
   <object-name>rblowerstrut</object-name>   
@@ -804,6 +815,7 @@
   </axis>
  </animation>
 
+ <!-- START RIGHT OUTER GEAR --> 
  <animation>
   <type>rotate</type>
   <object-name>rwouterstrut</object-name>
@@ -815,7 +827,7 @@
   <object-name>tyrerwlf</object-name>   
   <object-name>tyrerwra</object-name>   
   <object-name>tyrerwla</object-name>        
-  <property>gear/gear[2]/position-norm</property>
+  <property>gear/gear[1]/position-norm</property>
   <interpolation>
     <entry>
       <ind>0.0</ind>
@@ -860,7 +872,7 @@
   <object-name>tyrerwlf</object-name>   
   <object-name>tyrerwra</object-name>   
   <object-name>tyrerwla</object-name>        
-  <property>gear/gear[2]/position-norm</property>
+  <property>gear/gear[1]/position-norm</property>
   <interpolation>
     <entry>
       <ind>0.0</ind>
@@ -928,7 +940,7 @@
  <animation>
   <type>rotate</type>
   <object-name>rhwgdoor</object-name>  
-  <property>gear/gear[2]/position-norm</property>
+  <property>gear/gear[1]/position-norm</property>
   <interpolation>
     <entry>
       <ind>0.0</ind>
@@ -1150,5 +1162,216 @@
              <z-m>10.905</z-m>
          </offsets>
 </model>
+
+<animation>
+   <type>light</type>
+   <light-type>spot</light-type>
+   <name>logo-left</name>
+   <object-name>logo-light-left</object-name>
+   <nopreview/>
+   <position>
+     <x>70.3117</x>
+     <z>9.6335</z>
+     <y>0.6883</y>
+   </position>
+   <direction>
+     <x>0.2</x>
+     <y>0</y>
+     <z>1</z>
+   </direction>
+   <ambient>
+      <r>  0.9 </r>
+      <g>  0.804 </g>
+      <b>  0.5 </b>
+      <a>  1.0 </a>
+    </ambient>
+    <diffuse>
+      <r>  0.9 </r>
+      <g>  0.804 </g>
+      <b>  0.5 </b>
+      <a>  1.0 </a>
+    </diffuse>
+    <specular>
+      <r>  0.9 </r>
+      <g>  0.804 </g>
+      <b>  0.5 </b>
+      <a>  1.0 </a>
+    </specular>
+    <attenuation>
+     <c>1.0</c>
+     <l>0.002</l>
+     <q>0.00005</q>
+   </attenuation>
+   <exponent>30.0</exponent>
+   <cutoff>39</cutoff>
+   <near-m>3</near-m>
+   <far-m>30</far-m>
+ </animation>
+
+  <animation>
+   <type>light</type>
+   <light-type>spot</light-type>
+   <name>wing-left</name>
+   <object-name>wing-light-left</object-name>
+   <nopreview/>
+   <position>
+     <x>33.7550</x>
+     <z>6.2161</z>
+     <y>3.6866</y>
+   </position>
+   <direction>
+     <x>0</x>
+     <y>1</y>
+     <z>0</z>
+   </direction>
+   <ambient>
+      <r>  0.9 </r>
+      <g>  0.804 </g>
+      <b>  0.5 </b>
+      <a>  1.0 </a>
+    </ambient>
+    <diffuse>
+      <r>  0.9 </r>
+      <g>  0.804 </g>
+      <b>  0.5 </b>
+      <a>  1.0 </a>
+    </diffuse>
+    <specular>
+      <r>  0.9 </r>
+      <g>  0.804 </g>
+      <b>  0.5 </b>
+      <a>  1.0 </a>
+    </specular>
+    <attenuation>
+      <c>1.0</c>
+     <l>0.002</l>
+     <q>0.00005</q> 
+   </attenuation>
+   <exponent>30.0</exponent>
+   <cutoff>30</cutoff>
+   <near-m>3</near-m>
+   <far-m>50</far-m>
+ </animation>
+ 
+ <animation>
+   <type>light</type>
+   <light-type>spot</light-type>
+   <name>wing-right</name>
+   <object-name>wing-light-right</object-name>
+   <nopreview/>
+   <position>
+     <x>33.7550</x>
+     <z>6.2161</z>
+     <y>-3.6866</y>
+   </position>
+   <direction>
+     <x>0</x>
+     <y>-1</y>
+     <z>0</z>
+   </direction>
+   <ambient>
+      <r>  0.9 </r>
+      <g>  0.804 </g>
+      <b>  0.5 </b>
+      <a>  1.0 </a>
+    </ambient>
+    <diffuse>
+      <r>  0.9 </r>
+      <g>  0.804 </g>
+      <b>  0.5 </b>
+      <a>  1.0 </a>
+    </diffuse>
+    <specular>
+      <r>  0.9 </r>
+      <g>  0.804 </g>
+      <b>  0.5 </b>
+      <a>  1.0 </a>
+    </specular>
+     <attenuation>
+     <c>1.0</c>
+     <l>0.002</l>
+     <q>0.00005</q>
+   </attenuation>
+   <exponent>30.0</exponent>
+   <cutoff>30</cutoff>
+   <near-m>3</near-m>
+   <far-m>50</far-m>
+ </animation>
+ 
+ <animation>
+    <type>select</type>
+    <object-name>wing-light-left</object-name>
+    <object-name>wing-light-right</object-name>
+    <object-name>logo-light-left</object-name>
+    <condition>
+        <property>sim/rendering/rembrandt/enabled</property>
+    </condition>
+  </animation>
+ 
+ 
+ <model>
+	  <condition>
+	      <property>sim/rendering/rembrandt/enabled</property>
+	  </condition>
+		<path>Aircraft/A380/XML/Lights/light-cone-rembrandt.xml</path>
+		<name>Nose.Light</name>
+		<offsets>
+			<x-m>11.9026</x-m>
+			<y-m>0.003</y-m>
+			<z-m>1.8621</z-m>
+			<pitch-deg>0.0</pitch-deg>
+		</offsets>
+	</model>
+ 
+    <!-- attenuation>
+      <c>  0.3 </c>
+      <l>  0.0 </l>
+      <q>  0.2 </q>
+    </attenuation>
+    <exponent>  0.1 </exponent>
+    <cutoff>   80.0   </cutoff>
+    <near-m>    0.0   </near-m>
+    <far-m>     50 </far-m -->
+ 
+ <!-- attenuation>
+      <c>  1.2 </c>
+      <l>  0.0 </l>
+      <q>  0.4 </q>
+    </attenuation>
+    <exponent>  0.1 </exponent>
+    <cutoff>   84.0   </cutoff>
+    <near-m>    0.0   </near-m>
+    <far-m>     1.5 </far-m -->
+ 
+ <animation>
+    <type>select</type>
+    <object-name>logo-left</object-name>
+    <condition>
+      <and>
+        <property>controls/switches/logo-lights</property>
+	<greater-than>
+	  <property>systems/electrical/outputs/logo-lights</property>
+	  <value>0</value>
+	</greater-than>
+    </and>
+    </condition>
+  </animation>
+  
+  <animation>
+    <type>select</type>
+    <object-name>wing-left</object-name>
+    <object-name>wing-right</object-name>
+    <condition>
+      <property>controls/switches/wing-lights</property>
+    </condition>
+  </animation>
+  
+  <animation>
+    <type>select</type>
+    <object-name>Nose.Light</object-name>
+    <condition>
+      <property>controls/switches/taxi-lights</property>
+    </condition>
+  </animation>
 
 </PropertyList>

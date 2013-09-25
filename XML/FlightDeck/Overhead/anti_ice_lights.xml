@@ -3,7 +3,7 @@
 <PropertyList>
 
     <path>../../../Models/FlightDeck/Overhead/anti_ice_lights.ac</path> 
-    <texture-path>../../../Textures/Instruments</texture-path>
+    <texture-path>Aircraft/A380/Textures/Instruments</texture-path>
 
     <model>
         <path>Aircraft/A380/XML/FlightDeck/Overhead/guard_red.xml</path>
@@ -859,7 +859,7 @@
    </animation>
    
 <!-- cockpit illumination -->
-   <animation>
+   <!-- animation>
      <type>pick</type>
      <object-name>STORM</object-name>
      <action>
@@ -892,12 +892,40 @@
         <property>/sim/sound/switch</property>
        </binding>
      </action>
+   </animation -->
+   
+   <animation>
+     <type>pick</type>
+     <object-name>STORM</object-name>
+     <action>
+       <button>0</button>
+       <binding>
+         <command>property-toggle</command>
+	 <property>/controls/switches/storm</property>
+       </binding>
+       <binding>
+        <command>property-toggle</command>
+        <property>/sim/sound/switch</property>
+       </binding>
+     </action>
+     <action>
+       <button>1</button>
+       <binding>
+         <command>property-toggle</command>
+	 <property>/controls/switches/storm</property>
+       </binding>
+       <binding>
+        <command>property-toggle</command>
+        <property>/sim/sound/switch</property>
+       </binding>
+     </action>
    </animation>
+   
    
    <animation>
      <type>rotate</type>
      <object-name>STORM</object-name>
-     <property>/controls/switches/storm-lights</property>
+     <property>/controls/switches/storm</property>
      <interpolation>
         <entry><ind>0</ind><dep>0</dep></entry>
         <entry><ind>1</ind><dep>-3</dep></entry>

@@ -3,7 +3,7 @@
 <PropertyList>
 
 	<path>../../../Models/FlightDeck/Glareshield/end_fo.3ds</path> 
-	<texture-path>../../../Textures/Common</texture-path>
+	<texture-path>Aircraft/A380/Textures/Common</texture-path>
 	<offsets>
 		<z-m>0.25</z-m>
 	</offsets>

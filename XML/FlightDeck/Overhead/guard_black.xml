@@ -3,7 +3,7 @@
 <PropertyList>
 
 	<path>../../../Models/FlightDeck/Overhead/guard_black.ac</path> 
-	<texture-path>../../../Textures/Common</texture-path>
+	<texture-path>Aircraft/A380/Textures/Common</texture-path>
 	<offsets>
 		<z-m>0.002</z-m>
 	</offsets>

@@ -5,6 +5,13 @@
     <name>ROSEtext</name>
     <w-base>256</w-base>
     <h-base>256</h-base>
+    <params>
+      <inputs>
+        <lh-vor-adf>instrumentation/efis[0]/inputs/lh-vor-adf</lh-vor-adf>
+        <rh-vor-adf>instrumentation/efis[0]/inputs/rh-vor-adf</rh-vor-adf>
+      </inputs>
+      <nd-range>instrumentation/nd[0]/range</nd-range>
+    </params>
 
     <layers>
 
@@ -32,7 +39,6 @@
             <name>WP ID</name>
             <type>text</type>
             <font>arial_black</font>
-            <!-- font>helvetica_bold</font -->
             <point-size>9</point-size>
             <color>
                 <red>1.0</red>
@@ -48,11 +54,11 @@
             <transformations>
                 <transformation>
                     <type>x-shift</type>
-                    <offset>75</offset>       <!-- was 95 SAH 2010-12-04 -->
+                    <offset>75</offset>       
                 </transformation>
                 <transformation>
                     <type>y-shift</type>
-                    <offset>115</offset>      <!-- was 115 SAH 2011-04-24 -->
+                    <offset>115</offset>     
                 </transformation>
             </transformations>
         </layer>
@@ -66,8 +72,7 @@
             </condition>
             <name>WP ETA</name>
             <type>text</type>
-            <font>arial_black</font>
-            <!-- font>helvetica_bold</font -->
+	    <font>arial_black</font>
             <point-size>9</point-size>
             <color>
                 <red>0.1</red>
@@ -78,17 +83,16 @@
                 <chunk>
                     <type>text-value</type>
                     <property>instrumentation/gps/wp/wp[1]/TTW</property>
-                    <!-- property>autopilot/route-manager/wp/eta</property -->
                 </chunk>
             </chunks>
             <transformations>
                 <transformation>
                     <type>x-shift</type>
-                    <offset>75</offset>   <!-- was 95 SAH 2010-12-04 -->
+                    <offset>75</offset>   
                 </transformation>
                 <transformation>
                     <type>y-shift</type>
-                    <offset>100</offset> <!-- was 100 SAH 2011-04-24 -->
+                    <offset>100</offset>
                 </transformation>
             </transformations>
         </layer>
@@ -103,7 +107,6 @@
             <name>WP DIST</name>
             <type>text</type>
             <font>arial_black</font>
-            <!-- font>helvetica_bold</font -->
             <point-size>9</point-size>
             <color>
                 <red>0.1</red>
@@ -120,11 +123,11 @@
             <transformations>
                 <transformation>
                     <type>x-shift</type>
-                    <offset>75</offset>  <!-- was 95 SAH 2010-12-04 -->
+                    <offset>75</offset>  
                 </transformation>
                 <transformation>
                     <type>y-shift</type>
-                    <offset>85</offset>   <!-- was 85 SAH 2011-04-24 -->
+                    <offset>85</offset>   
                 </transformation>
             </transformations>
         </layer>
@@ -247,7 +250,8 @@
             <chunks>
                 <chunk>
                     <type>number-value</type>
-                    <property>instrumentation/nd/range</property>
+                    <!-- property>instrumentation/nd/range</property -->
+		    <property alias="/params/nd-range"/>
                     <format>%3.0f</format>
                 </chunk>
             </chunks>
@@ -1202,411 +1206,6 @@
             <transformation>
               <type>y-shift</type>
               <offset>-14</offset>
-            </transformation>
-          </transformations>
-        </layer -->
-        
-        
-        <!-- waypoint identifiers -->
-        <!-- layer>
-          <condition>
-            <equals>
-	      <property>instrumentation/radar/wp[0]/valid</property>
-              <value>1</value>
-            </equals>
-          </condition>
-          <name>wp0</name>
-          <w>10</w>
-          <h>10</h>
-          <type>text</type>
-          <font>arial_black</font>
-          <point-size>6</point-size>
-          <color>
-             <red>0.000</red>
-             <green>0.568</green>
-             <blue>0.000</blue>
-          </color>
-          <chunks>
-            <chunk>
-               <type>text-value</type>
-               <property>/instrumentation/radar/wp[0]/id</property>
-            </chunk>
-          </chunks>
-          <transformations>
-            <transformation>
-               <type>y-shift</type>
-               <offset>-12</offset>
-            </transformation>
-            <transformation>
-                <type>rotation</type>
-                <property>instrumentation/radar/wp[0]/brg-offset</property>
-            </transformation>
-            <transformation>
-               <type>y-shift</type>
-               <property>instrumentation/radar/wp[0]/dist-norm</property>
-               <scale>80</scale>
-            </transformation>
-            <transformation>
-               <type>rotation</type>
-               <property>instrumentation/radar/wp[0]/brg-offset</property>
-               <scale>-1.0</scale>
-            </transformation>
-            <transformation>
-              <type>y-shift</type>
-              <offset>-15</offset>
-            </transformation>
-          </transformations>
-        </layer>
-        
-        <layer>
-          <condition>
-            <equals>
-	      <property>instrumentation/radar/wp[1]/valid</property>
-              <value>1</value>
-            </equals>
-          </condition>
-          <name>wp1</name>
-          <w>10</w>
-          <h>10</h>
-          <type>text</type>
-          <font>arial_black</font>
-          <point-size>6</point-size>
-          <color>
-             <red>0.00</red>
-             <green>0.568</green>
-             <blue>0.0</blue>
-          </color>
-          <chunks>
-            <chunk>
-               <type>text-value</type>
-               <property>/instrumentation/radar/wp[1]/id</property>
-            </chunk>
-          </chunks>
-          <transformations>
-            <transformation>
-               <type>y-shift</type>
-               <offset>-12</offset>
-            </transformation>
-            <transformation>
-                <type>rotation</type>
-                <property>instrumentation/radar/wp[1]brg-offset</property>
-            </transformation>
-            <transformation>
-               <type>y-shift</type>
-               <property>instrumentation/radar/wp[1]/dist-norm</property>
-               <scale>80</scale>
-            </transformation>
-            <transformation>
-               <type>rotation</type>
-               <property>instrumentation/radar/wp[1]brg-offset</property>
-               <scale>-1.0</scale>
-            </transformation>
-            <transformation>
-              <type>y-shift</type>
-              <offset>-15</offset>
-            </transformation>
-          </transformations>
-        </layer>
-        
-        <layer>
-          <condition>
-            <equals>
-	      <property>instrumentation/radar/wp[2]/valid</property>
-              <value>1</value>
-            </equals>
-          </condition>
-          <name>wp2</name>
-          <w>10</w>
-          <h>10</h>
-          <type>text</type>
-          <font>arial_black</font>
-          <point-size>6</point-size>
-          <color>
-             <red>0.00</red>
-             <green>0.568</green>
-             <blue>0.0</blue>
-          </color>
-          <chunks>
-            <chunk>
-               <type>text-value</type>
-               <property>/instrumentation/radar/wp[2]/id</property>
-            </chunk>
-          </chunks>
-          <transformations>
-            <transformation>
-               <type>y-shift</type>
-               <offset>-12</offset>
-            </transformation>
-            <transformation>
-                <type>rotation</type>
-                <property>instrumentation/radar/wp[2]/brg-offset</property>
-            </transformation>
-            <transformation>
-               <type>y-shift</type>
-               <property>instrumentation/radar/wp[2]/dist-norm</property>
-               <scale>80</scale>
-            </transformation>
-            <transformation>
-               <type>rotation</type>
-               <property>instrumentation/radar/wp[2]brg-offset</property>
-               <scale>-1.0</scale>
-            </transformation>
-            <transformation>
-              <type>y-shift</type>
-              <offset>-15</offset>
-            </transformation>
-          </transformations>
-        </layer>
-        
-        <layer>
-          <condition>
-            <equals>
-	      <property>instrumentation/radar/wp[3]/valid</property>
-              <value>1</value>
-            </equals>
-          </condition>
-          <name>wp3</name>
-          <w>10</w>
-          <h>10</h>
-          <type>text</type>
-          <font>arial_black</font>
-          <point-size>6</point-size>
-          <color>
-             <red>0.00</red>
-             <green>0.568</green>
-             <blue>0.0</blue>
-          </color>
-          <chunks>
-            <chunk>
-               <type>text-value</type>
-               <property>/instrumentation/radar/wp[3]/id</property>
-            </chunk>
-          </chunks>
-          <transformations>
-            <transformation>
-               <type>y-shift</type>
-               <offset>-12</offset>
-            </transformation>
-            <transformation>
-                <type>rotation</type>
-                <property>instrumentation/radar/wp[3]/brg-offset</property>
-            </transformation>
-            <transformation>
-               <type>y-shift</type>
-               <property>instrumentation/radar/wp[3]/dist-norm</property>
-               <scale>80</scale>
-            </transformation>
-            <transformation>
-               <type>rotation</type>
-               <property>instrumentation/radar/wp[3]brg-offset</property>
-               <scale>-1.0</scale>
-            </transformation>
-            <transformation>
-              <type>y-shift</type>
-              <offset>-15</offset>
-            </transformation>
-          </transformations>
-        </layer -->
-        
-        
-        
-        <!-- airport identifiers -->
-        <!-- layer>
-          <condition>
-            <equals>
-	      <property>instrumentation/radar/airports[0]/valid</property>
-              <value>1</value>
-            </equals>
-          </condition>
-          <name>airports0</name>
-          <w>10</w>
-          <h>10</h>
-          <type>text</type>
-          <font>arial_black</font>
-          <point-size>6</point-size>
-          <color>
-             <red>0.600</red>
-             <green>0.0</green>
-             <blue>0.600</blue>
-          </color>
-          <chunks>
-            <chunk>
-               <type>text-value</type>
-               <property>/instrumentation/radar/airports[0]/id</property>
-            </chunk>
-          </chunks>
-          <transformations>
-            <transformation>
-               <type>y-shift</type>
-               <offset>-12</offset>
-            </transformation>
-            <transformation>
-                <type>rotation</type>
-                <property>instrumentation/radar/airports[0]/brg-offset</property>
-            </transformation>
-            <transformation>
-               <type>y-shift</type>
-               <property>instrumentation/radar/airports[0]/dist-norm</property>
-               <scale>80</scale>
-            </transformation>
-            <transformation>
-               <type>rotation</type>
-               <property>instrumentation/radar/airports[0]/brg-offset</property>
-               <scale>-1.0</scale>
-            </transformation>
-            <transformation>
-              <type>y-shift</type>
-              <offset>-15</offset>
-            </transformation>
-          </transformations>
-        </layer>
-        
-        <layer>
-          <condition>
-            <equals>
-	      <property>instrumentation/radar/airports[1]/valid</property>
-              <value>1</value>
-            </equals>
-          </condition>
-          <name>airports1</name>
-          <w>10</w>
-          <h>10</h>
-          <type>text</type>
-          <font>arial_black</font>
-          <point-size>6</point-size>
-          <color>
-             <red>0.600</red>
-             <green>0.0</green>
-             <blue>0.600</blue>
-          </color>
-          <chunks>
-            <chunk>
-               <type>text-value</type>
-               <property>/instrumentation/radar/airports[1]/id</property>
-            </chunk>
-          </chunks>
-          <transformations>
-            <transformation>
-               <type>y-shift</type>
-               <offset>-12</offset>
-            </transformation>
-            <transformation>
-                <type>rotation</type>
-                <property>instrumentation/radar/airports[1]brg-offset</property>
-            </transformation>
-            <transformation>
-               <type>y-shift</type>
-               <property>instrumentation/radar/airports[1]/dist-norm</property>
-               <scale>80</scale>
-            </transformation>
-            <transformation>
-               <type>rotation</type>
-               <property>instrumentation/radar/airports[1]brg-offset</property>
-               <scale>-1.0</scale>
-            </transformation>
-            <transformation>
-              <type>y-shift</type>
-              <offset>-15</offset>
-            </transformation>
-          </transformations>
-        </layer>
-        
-        <layer>
-          <condition>
-            <equals>
-	      <property>instrumentation/radar/airports[2]/valid</property>
-              <value>1</value>
-            </equals>
-          </condition>
-          <name>airports2</name>
-          <w>10</w>
-          <h>10</h>
-          <type>text</type>
-          <font>arial_black</font>
-          <point-size>6</point-size>
-          <color>
-             <red>0.600</red>
-             <green>0.0</green>
-             <blue>0.600</blue>
-          </color>
-          <chunks>
-            <chunk>
-               <type>text-value</type>
-               <property>/instrumentation/radar/airports[2]/id</property>
-            </chunk>
-          </chunks>
-          <transformations>
-            <transformation>
-               <type>y-shift</type>
-               <offset>-12</offset>
-            </transformation>
-            <transformation>
-                <type>rotation</type>
-                <property>instrumentation/radar/airports[2]/brg-offset</property>
-            </transformation>
-            <transformation>
-               <type>y-shift</type>
-               <property>instrumentation/radar/airports[2]/dist-norm</property>
-               <scale>80</scale>
-            </transformation>
-            <transformation>
-               <type>rotation</type>
-               <property>instrumentation/radar/airports[2]brg-offset</property>
-               <scale>-1.0</scale>
-            </transformation>
-            <transformation>
-              <type>y-shift</type>
-              <offset>-15</offset>
-            </transformation>
-          </transformations>
-        </layer>
-        
-        <layer>
-          <condition>
-            <equals>
-	      <property>instrumentation/radar/airports[3]/valid</property>
-              <value>1</value>
-            </equals>
-          </condition>
-          <name>airports3</name>
-          <w>10</w>
-          <h>10</h>
-          <type>text</type>
-          <font>arial_black</font>
-          <point-size>6</point-size>
-          <color>
-             <red>0.600</red>
-             <green>0.0</green>
-             <blue>0.600</blue>
-          </color>
-          <chunks>
-            <chunk>
-               <type>text-value</type>
-               <property>/instrumentation/radar/airports[3]/id</property>
-            </chunk>
-          </chunks>
-          <transformations>
-            <transformation>
-               <type>y-shift</type>
-               <offset>-12</offset>
-            </transformation>
-            <transformation>
-                <type>rotation</type>
-                <property>instrumentation/radar/airports[3]/brg-offset</property>
-            </transformation>
-            <transformation>
-               <type>y-shift</type>
-               <property>instrumentation/radar/airports[3]/dist-norm</property>
-               <scale>80</scale>
-            </transformation>
-            <transformation>
-               <type>rotation</type>
-               <property>instrumentation/radar/airports[3]brg-offset</property>
-               <scale>-1.0</scale>
-            </transformation>
-            <transformation>
-              <type>y-shift</type>
-              <offset>-15</offset>
             </transformation>
           </transformations>
         </layer -->

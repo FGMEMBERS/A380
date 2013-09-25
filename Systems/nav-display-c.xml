@@ -57,9 +57,9 @@ Configure the nav-display symbology
 </symbol>
 
 <symbol>
-    <!-- type type="string">runway</type -->
-    <type type="string">airport</type>
-    <!-- state type="string">departure</state -->
+    <type type="string">runway</type>
+    <!-- type type="string">airport</type  -->
+    <state type="string">departure</state>
     <state type="string">destination</state>
     <width type="float">16</width>
     <height type="float">34</height>
@@ -133,7 +133,7 @@ Configure the nav-display symbology
 </symbol>
     
 <symbol>
-    <type type="string">VOR</type>
+    <type type="string">vor</type>
     <enable>
       <property>instrumentation/efis[0]/inputs/VORD</property>
     </enable>
@@ -174,7 +174,7 @@ Configure the nav-display symbology
 </symbol -->
 
 <symbol>
-    <type type="string">NDB</type>
+    <type type="string">ndb</type>
     <enable>
       <property>instrumentation/efis[0]/inputs/NDB</property>
     </enable>
@@ -199,9 +199,52 @@ Configure the nav-display symbology
 <symbol>
     <type type="string">ai-aircraft</type>
     <state type="string">tcas-threat-level-0</state>
+    <enable>
+      <property>instrumentation/efis[0]/inputs/TRAF</property>
+    </enable>
+    <width type="float">16</width>
+    <texture-size  type="int">512</texture-size>
+    <u0 type="float">144.83</u0>
+    <v0 type="float">454.31</v0>
+    <u1 type="float">175.86</u1>
+    <v1 type="float">484.48</v1>
+    <text type="string">{flight-level}</text>
+    <text-align type="string">left-top</text-align>
+    <text-offset-x>18</text-offset-x>
+    <text-offset-y>18</text-offset-y>
+    <color>
+        <red type="float">1</red>
+        <green type="float">1</green>
+        <blue type="float">1</blue>
+    </color>
+</symbol>
+
+<symbol>
+    <type type="string">ai-aircraft</type>
     <state type="string">tcas-threat-level-1</state>
+    <enable>
+      <property>instrumentation/efis[0]/inputs/TRAF</property>
+    </enable>
+    <width type="float">16</width>
+    <texture-size  type="int">512</texture-size>
+    <u0 type="float">144.83</u0>
+    <v0 type="float">454.31</v0>
+    <u1 type="float">175.86</u1>
+    <v1 type="float">484.48</v1>
+    <text type="string">{flight-level}</text>
+    <text-align type="string">left-top</text-align>
+    <text-offset-x>18</text-offset-x>
+    <text-offset-y>18</text-offset-y>
+    <color>
+        <red type="float">1</red>
+        <green type="float">1</green>
+        <blue type="float">1</blue>
+    </color>
+</symbol>
+
+<symbol>
+    <type type="string">ai-aircraft</type>
     <state type="string">tcas-threat-level-2</state>
-    <state type="string">tcas-threat-level-3</state>
     <enable>
       <property>instrumentation/efis[0]/inputs/TRAF</property>
     </enable>
@@ -221,6 +264,30 @@ Configure the nav-display symbology
         <blue type="float">0.486</blue>
     </color>
 </symbol>
+
+<symbol>
+    <type type="string">ai-aircraft</type>
+    <state type="string">tcas-threat-level-3</state>
+    <enable>
+      <property>instrumentation/efis[0]/inputs/TRAF</property>
+    </enable>
+    <width type="float">16</width>
+    <texture-size  type="int">512</texture-size>
+    <u0 type="float">144.83</u0>
+    <v0 type="float">454.31</v0>
+    <u1 type="float">175.86</u1>
+    <v1 type="float">484.48</v1>
+    <text type="string">{flight-level}</text>
+    <text-align type="string">left-top</text-align>
+    <text-offset-x>18</text-offset-x>
+    <text-offset-y>18</text-offset-y>
+    <color>
+        <red type="float">1</red>
+        <green type="float">0.0</green>
+        <blue type="float">0.0</blue>
+    </color>
+</symbol>
+
 
 </PropertyList>
 

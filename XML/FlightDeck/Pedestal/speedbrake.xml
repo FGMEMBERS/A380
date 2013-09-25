@@ -2,23 +2,24 @@
 
 <PropertyList>
 
-	<path>../../../Models/FlightDeck/Pedestal/speedbrake.3ds</path> 
-	<texture-path>../../../Textures/Common</texture-path>
+	<path>../../../Models/FlightDeck/Pedestal/speedbrake.ac</path> 
+	<texture-path>Aircraft/A380/Textures/Common</texture-path>
 	
 <animation>
   <type>rotate</type>   
   <object-name>HANDLE</object-name>    
   <property>/controls/flight/speedbrake</property> 
-  <factor>-45</factor>
+  <factor>-27</factor>
   <center>
-    <x-m>-0.000400</x-m>
-    <y-m>0.025650</y-m>
-    <z-m>-0.109600</z-m>
+    <x-m>0.0451</x-m>
+    <y-m>0.0015</y-m>
+    <z-m>-0.1109</z-m>
   </center>
+
   <axis>
-    <x>0.489936</x>
-    <y>-0.871758</y>
-    <z>0.000000</z>
+    <x>0</x>
+    <y>-1</y>
+    <z>0</z>
   </axis>
 </animation>
 

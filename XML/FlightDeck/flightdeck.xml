@@ -39,8 +39,37 @@
 			<z-m>0.5</z-m>
 		</offsets>
 	</model>
+	
+	
+	<model>
+		<path>Aircraft/A380/XML/FlightDeck/cockpit-light.xml</path>
+		<offsets>
+			<!--
+			<x-m>0.83691</x-m>
+			<z-m>0.63578</z-m>
+			-->
+			<x-m>1.1</x-m>
+			<z-m>1.3</z-m>
+			<y-m>0.51</y-m>
+			<pitch-deg>0.0</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<path>Aircraft/A380/XML/FlightDeck/cockpit-light.xml</path>
+		<offsets>
+			<!--
+			<x-m>0.83691</x-m>
+			<z-m>0.63578</z-m>
+			-->
+			<x-m>1.1</x-m>
+			<z-m>1.3</z-m>
+			<y-m>-0.5</y-m>
+			<pitch-deg>350.0</pitch-deg>
+		</offsets>
+	</model>
 
- <animation>
+ <!-- animation>
         <type>material</type>
         <object-name>Object03</object-name>
         <emission>
@@ -49,6 +78,6 @@
             <blue>0.47</blue>
             <factor-prop>controls/lighting/panel-norm[1]</factor-prop>	
         </emission>
-    </animation>
+    </animation -->
 
 </PropertyList> 

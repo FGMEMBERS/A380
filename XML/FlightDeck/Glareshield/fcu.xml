@@ -11,7 +11,7 @@
 <PropertyList>
 
 	<path>../../../Models/FlightDeck/Glareshield/fcu_03.ac</path> 
-	<texture-path>../../../Textures/Instruments</texture-path>
+	<texture-path>Aircraft/A380/Textures/Instruments</texture-path>
 	<offsets>
 		<z-m>0.25</z-m>
 	</offsets>
@@ -51,6 +51,26 @@
       <height type="int">32</height>
     </font-resolution>
   </text> 
+  <text>
+    <name>FCU.alt.metre</name>
+    <axis-alignment>yz-plane</axis-alignment>
+    <alignment>right-bottom</alignment>
+    <offsets>
+      <pitch-deg>-90.0</pitch-deg>
+      <x-m>-0.068</x-m>
+      <y-m>0.06</y-m>
+      <z-m>-0.0009</z-m>
+    </offsets>
+    <type>number-value</type>
+    <property type="string">/instrumentation/afs/target-altitude-metre</property>
+    <format type="string">%5.0f</format>
+    <font>led.txf</font>
+    <character-size type="double">0.009</character-size>
+    <font-resolution>
+      <width type="int">32</width>
+      <height type="int">32</height>
+    </font-resolution>
+  </text> 
 
 <animation>
   <type>select</type>
@@ -61,6 +81,26 @@
       <property>/systems/electrical/outputs/efis</property>
       <value>15</value>
     </greater-than>
+    <equals>
+      <property>instrumentation/efis[0]/metric</property>
+      <value>0</value>
+    </equals>
+    </and>
+  </condition>
+</animation>
+<animation>
+  <type>select</type>
+  <object-name>FCU.alt.metre</object-name>
+  <condition>
+    <and>
+    <greater-than>
+      <property>/systems/electrical/outputs/efis</property>
+      <value>15</value>
+    </greater-than>
+    <equals>
+      <property>instrumentation/efis[0]/metric</property>
+      <value>1</value>
+    </equals>
     </and>
   </condition>
 </animation>
@@ -146,6 +186,19 @@
    </binding>
   </action>
 </animation>
+
+ <animation>
+   <type>pick</type>
+   <object-name>metric.toggle</object-name>
+   <action>
+     <button>0</button>
+     <repeatable>false</repeatable>
+     <binding>
+       <command>property-toggle</command>
+       <property>instrumentation/efis[0]/metric</property>
+     </binding>
+   </action>
+ </animation>
 
 
 <!-- SPD -->
@@ -587,6 +640,7 @@
     <object-name>FCU.hdg.degs</object-name>
     <object-name>FCU.hdg.dashes</object-name>
     <object-name>FCU.alt.ft</object-name>
+    <object-name>FCU.alt.metre</object-name>
     <object-name>FCU.alt.dashes</object-name>
     <object-name>FCU.vs.fpm</object-name>
     <object-name>FCU.vs.dashes</object-name>
@@ -623,6 +677,7 @@
     <object-name>FCU.hdg.degs</object-name>
     <object-name>FCU.hdg.dashes</object-name>
     <object-name>FCU.alt.ft</object-name>
+    <object-name>FCU.alt.metre</object-name>
     <object-name>FCU.alt.dashes</object-name>
     <object-name>FCU.vs.fpm</object-name>
     <object-name>FCU.vs.dashes</object-name>

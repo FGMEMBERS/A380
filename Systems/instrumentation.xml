@@ -67,6 +67,11 @@ This file selects the instrumentation modules that should be available.
         <name>nav</name>
         <number>1</number>
     </nav-radio>
+    
+    <nav-radio>
+        <name>nav</name>
+        <number>2</number>
+    </nav-radio>
 
     <slip-skid-ball>
         <name>slip-skid-ball</name>
@@ -78,15 +83,26 @@ This file selects the instrumentation modules that should be available.
         <number>0</number>
     </turn-indicator>
 
-    <!-- radar>
-        <name>radar</name>
+    <radar>
+        <name>wxradar</name>
         <number>0</number>
-    </radar -->
+    </radar>
+    
+    <air-ground-radar>
+      <name>terrain-radar</name>
+      <number>0</number>
+    </air-ground-radar>
     
     <navigation-display>
         <name>nd</name>
         <number>0</number>        
         <symbols include="nav-display-c.xml"/>
+    </navigation-display>
+    
+    <navigation-display>
+        <name>nd</name>
+        <number>1</number>        
+        <symbols include="nav-display-fo.xml"/>
     </navigation-display>
     
 
@@ -144,5 +160,10 @@ This file selects the instrumentation modules that should be available.
       <static-pressure>instrumentation/pressurisation/cabin-pressure-inhg</static-pressure>
       <serviceable type="bool">true</serviceable>
   </vertical-speed-indicator>
-
+  
+  <radar-altimeter>
+    <name>radar-altimeter</name>
+    <number>0</number>
+  </radar-altimeter>
+  
 </PropertyList>

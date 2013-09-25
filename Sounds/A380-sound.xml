@@ -1209,7 +1209,7 @@
 
 <stall>
   <name>stall</name>
-  <path>Sounds/stall.wav</path>
+  <path>Sounds/stall_mono.wav</path>
   <property>/sim/alarms/stall-warning</property>
   <volume>
     <factor>2.0</factor>
@@ -1518,9 +1518,20 @@
       </and>
     </condition>
     <volume>
-      <factor>3.0</factor>
+      <factor>8.0</factor>
     </volume>
   </v1>
+  
+  <mode-reversion>
+    <name>mode-reversion</name>
+    <mode>once</mode>
+    <type>avionics</type>
+    <path>Aircraft/A380/Sounds/triple-click_01.wav</path>
+    <property>instrumentation/flightdirector/mode-reversion</property>
+    <volume>
+      <factor>1</factor>
+    </volume>
+  </mode-reversion>
 
 </fx>
 

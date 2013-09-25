@@ -3,7 +3,7 @@
 <PropertyList>
 
 	<path>../../../Models/FlightDeck/FrontPanel/display1.3ds</path> 
-	<texture-path>../../../Textures/Common</texture-path>
+	<texture-path>Aircraft/A380/Textures/Common</texture-path>
 
         <panel>
 	  <path>Aircraft/A380/XML/FlightDeck/Pedestal/mcdutext-panel.xml</path>

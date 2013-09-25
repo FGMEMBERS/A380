@@ -5,6 +5,12 @@
     <name>ROSE</name>
     <w-base>256</w-base>
     <h-base>256</h-base>
+    <params>
+      <inputs>
+        <lh-vor-adf>instrumentation/efis[0]/inputs/lh-vor-adf</lh-vor-adf>
+        <rh-vor-adf>instrumentation/efis[0]/inputs/rh-vor-adf</rh-vor-adf>
+      </inputs>
+    </params>
 
     <layers>
 
@@ -46,15 +52,6 @@
             </condition>
             <name>hdgbug</name>
             <emissive>true</emissive>
-            <!-- w>10</w>
-            <h>95</h>
-            <texture>
-                <path>Aircraft/A380/Models/Instruments/MFD/symbols.png</path>
-                <x1>0.077</x1>
-                <y1>0.352</y1>
-                <x2>0.126</x2>
-                <y2>0.763</y2>
-            </texture -->
             <w>21</w>
             <h>21</h>
             <texture>
@@ -85,7 +82,7 @@
             <condition>
               <and>
                 <equals>
-                  <property>instrumentation/efis[0]/inputs/lh-vor-adf</property>
+                  <!-- property>instrumentation/efis[0]/inputs/lh-vor-adf</property --> <property alias="/params/inputs/lh-vor-adf"/>
                   <value>1</value>
                 </equals>
                 <equals>
@@ -108,12 +105,6 @@
                 <y1>0.380</y1>
                 <x2>0.180</x2>
                 <y2>0.570</y2>
-                
-                <!-- path>Aircraft/A380/Models/Instruments/MFD/symbols.png</path>
-                <x1>0.425</x1>
-                <y1>0.271</y1>
-                <x2>0.533</x2>
-                <y2>0.460</y2 -->
             </texture>
            <transformations>
             <transformation>
@@ -140,7 +131,7 @@
             <condition>
               <and>
                 <equals>
-                  <property>instrumentation/efis[0]/inputs/lh-vor-adf</property>
+                  <!-- property>instrumentation/efis[0]/inputs/lh-vor-adf</property --> <property alias="/params/inputs/lh-vor-adf"/>
                   <value>1</value>
                 </equals>
                 <equals>
@@ -163,12 +154,6 @@
                 <y1>0.380</y1>
                 <x2>0.180</x2>
                 <y2>0.570</y2>
-                
-                <!-- path>Aircraft/A380/Models/Instruments/MFD/symbols.png</path>
-                <x1>0.425</x1>
-                <y1>0.061</y1>
-                <x2>0.533</x2>
-                <y2>0.250</y2 -->
             </texture>
            <transformations>
             <transformation>
@@ -195,7 +180,7 @@
             <condition>
                 <and>
                   <equals>
-                        <property>instrumentation/efis[0]/inputs/lh-vor-adf</property>
+                        <!-- property>instrumentation/efis[0]/inputs/lh-vor-adf</property --> <property alias="/params/inputs/lh-vor-adf"/>
                         <value>1</value>
                   </equals>
                   <equals>
@@ -244,7 +229,7 @@
             <condition>
                 <and>
                   <equals>
-                        <property>instrumentation/efis[0]/inputs/lh-vor-adf</property>
+                        <!-- property>instrumentation/efis[0]/inputs/lh-vor-adf</property --> <property alias="/params/inputs/lh-vor-adf"/>
                         <value>1</value>
                   </equals>
                 <equals>
@@ -288,7 +273,7 @@
             <condition>
                 <and>
                   <equals>
-                        <property>instrumentation/efis[0]/inputs/rh-vor-adf</property>
+                        <!-- property>instrumentation/efis[0]/inputs/rh-vor-adf</property --> <property alias="/params/inputs/rh-vor-adf"/>
                         <value>1</value>
                   </equals>
                 <equals>
@@ -311,12 +296,6 @@
                 <y1>0.380</y1>
                 <x2>0.410</x2>
                 <y2>0.575</y2>
-                
-                <!-- path>Aircraft/A380/Models/Instruments/MFD/symbols.png</path>
-                <x1>0.143</x1>
-                <y1>0.297</y1>
-                <x2>0.212</x2>
-                <y2>0.454</y2 -->
             </texture>
            <transformations>
             <transformation>
@@ -343,7 +322,7 @@
             <condition>
                 <and>
                   <equals>
-                        <property>instrumentation/efis[0]/inputs/rh-vor-adf</property>
+                        <!-- property>instrumentation/efis[0]/inputs/rh-vor-adf</property --> <property alias="/params/inputs/rh-vor-adf"/>
                         <value>1</value>
                   </equals>
                 <equals>
@@ -366,12 +345,6 @@
                 <y1>0.380</y1>
                 <x2>0.410</x2>
                 <y2>0.575</y2>
-                
-                <!-- path>Aircraft/A380/Models/Instruments/MFD/symbols.png</path>
-                <x1>0.143</x1>
-                <y1>0.093</y1>
-                <x2>0.212</x2>
-                <y2>0.250</y2 -->
             </texture>
            <transformations>
             <transformation>
@@ -398,7 +371,7 @@
             <condition>
                 <and>
                   <equals>
-                        <property>instrumentation/efis[0]/inputs/rh-vor-adf</property>
+                        <!-- property>instrumentation/efis[0]/inputs/rh-vor-adf</property --> <property alias="/params/inputs/rh-vor-adf"/>
                         <value>1</value>
                   </equals>
                 <equals>
@@ -442,7 +415,7 @@
             <condition>
                 <and>
                   <equals>
-                        <property>instrumentation/efis[0]/inputs/rh-vor-adf</property>
+                        <!-- property>instrumentation/efis[0]/inputs/rh-vor-adf</property --> <property alias="/params/inputs/rh-vor-adf"/>
                         <value>1</value>
                   </equals>
                 <equals>
@@ -481,569 +454,6 @@
             </transformation>
         </transformations>
         </layer>
-        
-        <!-- nearest airports -->
-
-      <!-- layer>
-          <condition>
-            <and>
-              <equals>
-                <property>instrumentation/radar/airports[0]/valid</property>
-                <value>1</value>
-              </equals>
-              <equals>
-                <property>instrumentation/efis[0]/inputs/ARPT</property>
-                <value>1</value>
-              </equals>
-            </and>
-          </condition>
-          <name>airport0</name>
-          <w>10</w>
-          <h>10</h>
-          <texture>
-            <path>Aircraft/A380/Models/Instruments/MFD/airbus_symbols.png</path>
-            <x1>0.600</x1>
-            <y1>0.890</y1>
-            <x2>0.650</x2>
-            <y2>0.950</y2>
-          </texture>
-          <emissive>true</emissive>
-          <transformations>
-            <transformation>
-               <type>y-shift</type>
-               <offset>-10</offset>
-            </transformation>
-            <transformation>
-              <type>rotation</type>
-                <property>orientation/heading-magnetic-deg</property>
-                <scale>-1</scale>
-            </transformation>
-            <transformation>
-                <type>rotation</type>
-                <property>instrumentation/radar/airports[0]/crs</property>
-            </transformation>
-            <transformation>
-               <type>y-shift</type>
-               <property>instrumentation/radar/airports[0]/dist-norm</property>
-               <scale>80</scale>
-            </transformation>
-            <transformation>
-                <type>rotation</type>
-                <property>instrumentation/radar/airports[0]/crs</property>
-                <scale>-1.0</scale>
-            </transformation>
-          </transformations>
-        </layer>
-        
-        <layer>
-          <condition>
-            <and>
-              <equals>
-                <property>instrumentation/radar/airports[1]/valid</property>
-                <value>1</value>
-              </equals>
-              <equals>
-                <property>instrumentation/efis[0]/inputs/ARPT</property>
-                <value>1</value>
-              </equals>
-            </and>
-          </condition>
-          <name>airport1</name>
-          <w>10</w>
-          <h>10</h>
-          <texture>
-            <path>Aircraft/A380/Models/Instruments/MFD/airbus_symbols.png</path>
-            <x1>0.600</x1>
-            <y1>0.890</y1>
-            <x2>0.650</x2>
-            <y2>0.950</y2>
-          </texture>
-          <emissive>true</emissive>
-          <transformations>
-            <transformation>
-               <type>y-shift</type>
-               <offset>-10</offset>
-            </transformation>
-            <transformation>
-              <type>rotation</type>
-                <property>orientation/heading-magnetic-deg</property>
-                <scale>-1</scale>
-            </transformation>
-            <transformation>
-                <type>rotation</type>
-                <property>instrumentation/radar/airports[1]/crs</property>
-            </transformation>
-            <transformation>
-               <type>y-shift</type>
-               <property>instrumentation/radar/airports[1]/dist-norm</property>
-               <scale>80</scale>
-            </transformation>
-            <transformation>
-                <type>rotation</type>
-                <property>instrumentation/radar/airports[1]/crs</property>
-                <scale>-1.0</scale>
-            </transformation>
-          </transformations>
-        </layer>
-        
-        <layer>
-          <condition>
-            <and>
-              <equals>
-                <property>instrumentation/radar/airports[2]/valid</property>
-                <value>1</value>
-              </equals>
-              <equals>
-                <property>instrumentation/efis[0]/inputs/ARPT</property>
-                <value>1</value>
-              </equals>
-            </and>
-          </condition>
-          <name>airport2</name>
-          <w>10</w>
-          <h>10</h>
-          <texture>
-            <path>Aircraft/A380/Models/Instruments/MFD/airbus_symbols.png</path>
-            <x1>0.600</x1>
-            <y1>0.890</y1>
-            <x2>0.650</x2>
-            <y2>0.950</y2>
-          </texture>
-          <emissive>true</emissive>
-          <transformations>
-            <transformation>
-               <type>y-shift</type>
-               <offset>-10</offset>
-            </transformation>
-            <transformation>
-              <type>rotation</type>
-                <property>orientation/heading-magnetic-deg</property>
-                <scale>-1</scale>
-            </transformation>
-            <transformation>
-                <type>rotation</type>
-                <property>instrumentation/radar/airports[2]/crs</property>
-            </transformation>
-            <transformation>
-               <type>y-shift</type>
-               <property>instrumentation/radar/airports[2]/dist-norm</property>
-               <scale>80</scale>
-            </transformation>
-            <transformation>
-                <type>rotation</type>
-                <property>instrumentation/radar/airports[2]/crs</property>
-                <scale>-1.0</scale>
-            </transformation>
-          </transformations>
-        </layer>
-        
-        <layer>
-          <condition>
-            <and>
-              <equals>
-                <property>instrumentation/radar/airports[3]/valid</property>
-                <value>1</value>
-              </equals>
-              <equals>
-                <property>instrumentation/efis[0]/inputs/ARPT</property>
-                <value>1</value>
-              </equals>
-            </and>
-          </condition>
-          <name>airport3</name>
-          <w>10</w>
-          <h>10</h>
-          <texture>
-            <path>Aircraft/A380/Models/Instruments/MFD/airbus_symbols.png</path>
-            <x1>0.600</x1>
-            <y1>0.890</y1>
-            <x2>0.650</x2>
-            <y2>0.950</y2>
-          </texture>
-          <emissive>true</emissive>
-          <transformations>
-            <transformation>
-               <type>y-shift</type>
-               <offset>-10</offset>
-            </transformation>
-            <transformation>
-              <type>rotation</type>
-                <property>orientation/heading-magnetic-deg</property>
-                <scale>-1</scale>
-            </transformation>
-            <transformation>
-                <type>rotation</type>
-                <property>instrumentation/radar/airports[3]/crs</property>
-            </transformation>
-            <transformation>
-               <type>y-shift</type>
-               <property>instrumentation/radar/airports[3]/dist-norm</property>
-               <scale>80</scale>
-            </transformation>
-            <transformation>
-                <type>rotation</type>
-                <property>instrumentation/radar/airports[3]/crs</property>
-                <scale>-1.0</scale>
-            </transformation>
-          </transformations>
-        </layer>
-        
-        <layer>
-          <condition>
-            <and>
-              <equals>
-                <property>instrumentation/radar/airports[4]/valid</property>
-                <value>1</value>
-              </equals>
-              <equals>
-                <property>instrumentation/efis[0]/inputs/ARPT</property>
-                <value>1</value>
-              </equals>
-            </and>
-            </condition>
-          <name>airport4</name>
-          <w>12</w>
-          <h>12</h>
-          <texture>
-            <path>Aircraft/A380/Models/Instruments/MFD/airbus_symbols.png</path>
-            <x1>0.600</x1>
-            <y1>0.890</y1>
-            <x2>0.650</x2>
-            <y2>0.950</y2>
-          </texture>
-          <emissive>true</emissive>
-          <transformations>
-            <transformation>
-               <type>y-shift</type>
-               <offset>-10</offset>
-            </transformation>
-            <transformation>
-              <type>rotation</type>
-                <property>orientation/heading-magnetic-deg</property>
-                <scale>-1</scale>
-            </transformation>
-            <transformation>
-                <type>rotation</type>
-                <property>instrumentation/radar/airports[4]/crs</property>
-            </transformation>
-            <transformation>
-               <type>y-shift</type>
-               <property>instrumentation/radar/airports[4]/dist-norm</property>
-               <scale>80</scale>
-            </transformation>
-            <transformation>
-                <type>rotation</type>
-                <property>instrumentation/radar/airports[4]/crs</property>
-                <scale>-1.0</scale>
-            </transformation>
-          </transformations>
-        </layer>
-        
-        <layer>
-          <condition>
-            <and>
-              <equals>
-                <property>instrumentation/radar/airports[5]/valid</property>
-                <value>1</value>
-              </equals>
-              <equals>
-                <property>instrumentation/efis[0]/inputs/ARPT</property>
-                <value>1</value>
-              </equals>
-            </and>
-          </condition>
-          <name>airport5</name>
-          <w>12</w>
-          <h>12</h>
-          <texture>
-            <path>Aircraft/A380/Models/Instruments/MFD/airbus_symbols.png</path>
-            <x1>0.600</x1>
-            <y1>0.890</y1>
-            <x2>0.650</x2>
-            <y2>0.950</y2>
-          </texture>
-          <emissive>true</emissive>
-          <transformations>
-            <transformation>
-               <type>y-shift</type>
-               <offset>-10</offset>
-            </transformation>
-            <transformation>
-              <type>rotation</type>
-                <property>orientation/heading-magnetic-deg</property>
-                <scale>-1</scale>
-            </transformation>
-            <transformation>
-                <type>rotation</type>
-                <property>instrumentation/radar/airports[5]/crs</property>
-            </transformation>
-            <transformation>
-               <type>y-shift</type>
-               <property>instrumentation/radar/airports[5]/dist-norm</property>
-               <scale>80</scale>
-            </transformation>
-            <transformation>
-                <type>rotation</type>
-                <property>instrumentation/radar/airports[5]/crs</property>
-                <scale>-1.0</scale>
-            </transformation>
-          </transformations>
-        </layer>
-        
-        <layer>
-          <condition>
-            <and>
-              <equals>
-                <property>instrumentation/radar/airports[6]/valid</property>
-                <value>1</value>
-              </equals>
-              <equals>
-                <property>instrumentation/efis[0]/inputs/ARPT</property>
-                <value>1</value>
-              </equals>
-            </and>
-          </condition>
-          <name>airport6</name>
-          <w>12</w>
-          <h>12</h>
-          <texture>
-            <path>Aircraft/A380/Models/Instruments/MFD/airbus_symbols.png</path>
-            <x1>0.600</x1>
-            <y1>0.890</y1>
-            <x2>0.650</x2>
-            <y2>0.950</y2>
-          </texture>
-          <emissive>true</emissive>
-          <transformations>
-            <transformation>
-               <type>y-shift</type>
-               <offset>-10</offset>
-            </transformation>
-            <transformation>
-              <type>rotation</type>
-                <property>orientation/heading-magnetic-deg</property>
-                <scale>-1</scale>
-            </transformation>
-            <transformation>
-                <type>rotation</type>
-                <property>instrumentation/radar/airports[6]/crs</property>
-            </transformation>
-            <transformation>
-               <type>y-shift</type>
-               <property>instrumentation/radar/airports[6]/dist-norm</property>
-               <scale>80</scale>
-            </transformation>
-            <transformation>
-                <type>rotation</type>
-                <property>instrumentation/radar/airports[6]/crs</property>
-                <scale>-1.0</scale>
-            </transformation>
-          </transformations>
-        </layer>
-        
-        <layer>
-          <condition>
-            <and>
-              <equals>
-                <property>instrumentation/radar/airports[7]/valid</property>
-                <value>1</value>
-              </equals>
-              <equals>
-                <property>instrumentation/efis[0]/inputs/ARPT</property>
-                <value>1</value>
-              </equals>
-            </and>
-          </condition>
-          <name>airport7</name>
-          <w>12</w>
-          <h>12</h>
-          <texture>
-            <path>Aircraft/A380/Models/Instruments/MFD/airbus_symbols.png</path>
-            <x1>0.600</x1>
-            <y1>0.890</y1>
-            <x2>0.650</x2>
-            <y2>0.950</y2>
-          </texture>
-          <emissive>true</emissive>
-          <transformations>
-            <transformation>
-               <type>y-shift</type>
-               <offset>-10</offset>
-            </transformation>
-            <transformation>
-              <type>rotation</type>
-                <property>orientation/heading-magnetic-deg</property>
-                <scale>-1</scale>
-            </transformation>
-            <transformation>
-                <type>rotation</type>
-                <property>instrumentation/radar/airports[7]/crs</property>
-            </transformation>
-            <transformation>
-               <type>y-shift</type>
-               <property>instrumentation/radar/airports[7]/dist-norm</property>
-               <scale>80</scale>
-            </transformation>
-            <transformation>
-                <type>rotation</type>
-                <property>instrumentation/radar/airports[7]/crs</property>
-                <scale>-1.0</scale>
-            </transformation>
-          </transformations>
-        </layer>
-        
-        <layer>
-          <condition>
-            <and>
-              <equals>
-                <property>instrumentation/radar/airports[8]/valid</property>
-                <value>1</value>
-              </equals>
-              <equals>
-                <property>instrumentation/efis[0]/inputs/ARPT</property>
-                <value>1</value>
-              </equals>
-            </and>
-          </condition>
-          <name>airport8</name>
-          <w>12</w>
-          <h>12</h>
-          <texture>
-            <path>Aircraft/A380/Models/Instruments/MFD/airbus_symbols.png</path>
-            <x1>0.600</x1>
-            <y1>0.890</y1>
-            <x2>0.650</x2>
-            <y2>0.950</y2>
-          </texture>
-          <emissive>true</emissive>
-          <transformations>
-            <transformation>
-               <type>y-shift</type>
-               <offset>-10</offset>
-            </transformation>
-            <transformation>
-              <type>rotation</type>
-                <property>orientation/heading-magnetic-deg</property>
-                <scale>-1</scale>
-            </transformation>
-            <transformation>
-                <type>rotation</type>
-                <property>instrumentation/radar/airports[8]/crs</property>
-            </transformation>
-            <transformation>
-               <type>y-shift</type>
-               <property>instrumentation/radar/airports[8]/dist-norm</property>
-               <scale>80</scale>
-            </transformation>
-            <transformation>
-                <type>rotation</type>
-                <property>instrumentation/radar/airports[8]/crs</property>
-                <scale>-1.0</scale>
-            </transformation>
-          </transformations>
-        </layer>
-        
-        <layer>
-          <condition>
-            <and>
-              <equals>
-                <property>instrumentation/radar/airports[9]/valid</property>
-                <value>1</value>
-              </equals>
-              <equals>
-                <property>instrumentation/efis[0]/inputs/ARPT</property>
-                <value>1</value>
-              </equals>
-            </and>
-          </condition>
-          <name>airport9</name>
-          <w>12</w>
-          <h>12</h>
-          <texture>
-            <path>Aircraft/A380/Models/Instruments/MFD/airbus_symbols.png</path>
-            <x1>0.600</x1>
-            <y1>0.890</y1>
-            <x2>0.650</x2>
-            <y2>0.950</y2>
-          </texture>
-          <emissive>true</emissive>
-          <transformations>
-            <transformation>
-               <type>y-shift</type>
-               <offset>-10</offset>
-            </transformation>
-            <transformation>
-              <type>rotation</type>
-                <property>orientation/heading-magnetic-deg</property>
-                <scale>-1</scale>
-            </transformation>
-            <transformation>
-                <type>rotation</type>
-                <property>instrumentation/radar/airports[9]/crs</property>
-            </transformation>
-            <transformation>
-               <type>y-shift</type>
-               <property>instrumentation/radar/airports[9]/dist-norm</property>
-               <scale>80</scale>
-            </transformation>
-            <transformation>
-                <type>rotation</type>
-                <property>instrumentation/radar/airports[9]/crs</property>
-                <scale>-1.0</scale>
-            </transformation>
-          </transformations>
-        </layer>
-        
-        <layer>
-          <condition>
-            <and>
-              <equals>
-                <property>instrumentation/radar/airports[10]/valid</property>
-                <value>1</value>
-              </equals>
-              <equals>
-                <property>instrumentation/efis[0]/inputs/ARPT</property>
-                <value>1</value>
-              </equals>
-            </and>
-          </condition>
-          <name>airport10</name>
-          <w>12</w>
-          <h>12</h>
-          <texture>
-            <path>Aircraft/A380/Models/Instruments/MFD/airbus_symbols.png</path>
-            <x1>0.600</x1>
-            <y1>0.890</y1>
-            <x2>0.650</x2>
-            <y2>0.950</y2>
-          </texture>
-          <emissive>true</emissive>
-          <transformations>
-            <transformation>
-               <type>y-shift</type>
-               <offset>-10</offset>
-            </transformation>
-            <transformation>
-              <type>rotation</type>
-                <property>orientation/heading-magnetic-deg</property>
-                <scale>-1</scale>
-            </transformation>
-            <transformation>
-                <type>rotation</type>
-                <property>instrumentation/radar/airports[10]/crs</property>
-            </transformation>
-            <transformation>
-               <type>y-shift</type>
-               <property>instrumentation/radar/airports[10]/dist-norm</property>
-               <scale>80</scale>
-            </transformation>
-            <transformation>
-                <type>rotation</type>
-                <property>instrumentation/radar/airports[10]/crs</property>
-                <scale>-1.0</scale>
-            </transformation>
-          </transformations>
-        </layer -->
 
         
         <layer>
@@ -1395,7 +805,7 @@
           <transformations>
             <transformation>
                <type>y-shift</type>
-               <offset>-12</offset>
+	       <offset>-22</offset> <!-- was -12 SAH 2012-03-08 -->
             </transformation>
             <transformation>
                 <type>rotation</type>
@@ -1435,7 +845,7 @@
           <transformations>
             <transformation>
                <type>y-shift</type>
-               <offset>-12</offset>
+               <offset>-22</offset>  <!-- was -12 SAH 2012-03-08 -->
             </transformation>
             <transformation>
                 <type>rotation</type>
@@ -1475,7 +885,7 @@
           <transformations>
             <transformation>
                <type>y-shift</type>
-               <offset>-12</offset>
+               <offset>-22</offset>  <!-- was -12 SAH 2012-03-08 -->
             </transformation>
             <transformation>
                 <type>rotation</type>
@@ -1494,405 +904,16 @@
           </transformations>
         </layer>
         
-        
-        <!--  fix wp -->
-        
-        <!-- layer>
-          <condition>
-              <equals>
-                <property>instrumentation/radar/wp[0]/valid</property>
-                <value>1</value>
-              </equals>
-          </condition>
-          <name>wp0</name>
-          <w>10</w>
-          <h>10</h>
-          <texture>
-            <path>Aircraft/A380/Models/Instruments/MFD/airbus_symbols.png</path>
-            <x1>0.540</x1>
-            <y1>0.900</y1>
-            <x2>0.590</x2>
-            <y2>0.950</y2>
-          </texture>
-          <emissive>true</emissive>
-          <transformations>
-            <transformation>
-               <type>y-shift</type>
-               <offset>-12</offset>
-            </transformation>
-            <transformation>
-                <type>rotation</type>
-                <property>instrumentation/radar/wp[0]/brg-offset</property>
-            </transformation>
-            <transformation>
-               <type>y-shift</type>
-               <property>instrumentation/radar/wp[0]/dist-norm</property>
-               <scale>80</scale>
-            </transformation>
-            <transformation>
-                <type>rotation</type>
-                <property>instrumentation/radar/wp[0]/brg-offset</property>
-                <scale>-1.0</scale>
-            </transformation>
-          </transformations>
-        </layer>
-        
-        
-        
-        
-        <layer>
-          <condition>
-                <property>instrumentation/radar/wp[1]/valid</property>
-                <value>1</value>
-            </condition>
-          <name>wp1</name>
-          <w>10</w>
-          <h>10</h>
-          <texture>
-            <path>Aircraft/A380/Models/Instruments/MFD/airbus_symbols.png</path>
-            <x1>0.540</x1>
-            <y1>0.900</y1>
-            <x2>0.590</x2>
-            <y2>0.950</y2>
-          </texture>
-          <emissive>true</emissive>
-          <transformations>
-            <transformation>
-               <type>y-shift</type>
-               <offset>-12</offset>
-            </transformation>
-            <transformation>
-                <type>rotation</type>
-                <property>instrumentation/radar/wp[1]/brg-offset</property>
-            </transformation>
-            <transformation>
-               <type>y-shift</type>
-               <property>instrumentation/radar/wp[1]/dist-norm</property>
-               <scale>80</scale>
-            </transformation>
-            <transformation>
-                <type>rotation</type>
-                <property>instrumentation/radar/wp[1]/brg-offset</property>
-                <scale>-1.0</scale>
-            </transformation>
-          </transformations>
-        </layer>
-        
-        <layer>
-          <condition>
-                <property>instrumentation/radar/wp[2]/valid</property>
-                <value>1</value>
-            </condition>
-          <name>wp2</name>
-          <w>10</w>
-          <h>10</h>
-          <texture>
-            <path>Aircraft/A380/Models/Instruments/MFD/airbus_symbols.png</path>
-            <x1>0.540</x1>
-            <y1>0.900</y1>
-            <x2>0.590</x2>
-            <y2>0.950</y2>
-          </texture>
-          <emissive>true</emissive>
-          <transformations>
-            <transformation>
-               <type>y-shift</type>
-               <offset>-12</offset>
-            </transformation>
-            <transformation>
-                <type>rotation</type>
-                <property>instrumentation/radar/wp[2]/brg-offset</property>
-            </transformation>
-            <transformation>
-               <type>y-shift</type>
-               <property>instrumentation/radar/wp[2]/dist-norm</property>
-               <scale>80</scale>
-            </transformation>
-            <transformation>
-                <type>rotation</type>
-                <property>instrumentation/radar/wp[2]/brg-offset</property>
-                <scale>-1.0</scale>
-            </transformation>
-          </transformations>
-        </layer>
-        
-        <layer>
-          <condition>
-                <property>instrumentation/radar/wp[3]/valid</property>
-                <value>1</value>
-            </condition>
-          <name>wp3</name>
-          <w>10</w>
-          <h>10</h>
-          <texture>
-            <path>Aircraft/A380/Models/Instruments/MFD/airbus_symbols.png</path>
-            <x1>0.540</x1>
-            <y1>0.900</y1>
-            <x2>0.590</x2>
-            <y2>0.950</y2>
-          </texture>
-          <emissive>true</emissive>
-          <transformations>
-            <transformation>
-               <type>y-shift</type>
-               <offset>-12</offset>
-            </transformation>
-            <transformation>
-                <type>rotation</type>
-                <property>instrumentation/radar/wp[3]/brg-offset</property>
-            </transformation>
-            <transformation>
-               <type>y-shift</type>
-               <property>instrumentation/radar/wp[3]/dist-norm</property>
-               <scale>80</scale>
-            </transformation>
-            <transformation>
-                <type>rotation</type>
-                <property>instrumentation/radar/wp[3]/brg-offset</property>
-                <scale>-1.0</scale>
-            </transformation>
-          </transformations>
-        </layer>
-        
-        <layer>
-          <condition>
-                <property>instrumentation/radar/wp[4]/valid</property>
-                <value>1</value>
-            </condition>
-          <name>wp4</name>
-          <w>10</w>
-          <h>10</h>
-          <texture>
-            <path>Aircraft/A380/Models/Instruments/MFD/airbus_symbols.png</path>
-            <x1>0.540</x1>
-            <y1>0.900</y1>
-            <x2>0.590</x2>
-            <y2>0.950</y2>
-          </texture>
-          <emissive>true</emissive>
-          <transformations>
-            <transformation>
-               <type>y-shift</type>
-               <offset>-12</offset>
-            </transformation>
-            <transformation>
-                <type>rotation</type>
-                <property>instrumentation/radar/wp[4]/brg-offset</property>
-            </transformation>
-            <transformation>
-               <type>y-shift</type>
-               <property>instrumentation/radar/wp[4]/dist-norm</property>
-               <scale>80</scale>
-            </transformation>
-            <transformation>
-                <type>rotation</type>
-                <property>instrumentation/radar/wp[4]/brg-offset</property>
-                <scale>-1.0</scale>
-            </transformation>
-          </transformations>
-        </layer>
-        
-        <layer>
-          <condition>
-                <property>instrumentation/radar/wp[5]/valid</property>
-                <value>1</value>
-            </condition>
-          <name>wp5</name>
-          <w>10</w>
-          <h>10</h>
-          <texture>
-            <path>Aircraft/A380/Models/Instruments/MFD/airbus_symbols.png</path>
-            <x1>0.540</x1>
-            <y1>0.900</y1>
-            <x2>0.590</x2>
-            <y2>0.950</y2>
-          </texture>
-          <emissive>true</emissive>
-          <transformations>
-            <transformation>
-               <type>y-shift</type>
-               <offset>-12</offset>
-            </transformation>
-            <transformation>
-                <type>rotation</type>
-                <property>instrumentation/radar/wp[5]/brg-offset</property>
-            </transformation>
-            <transformation>
-               <type>y-shift</type>
-               <property>instrumentation/radar/wp[5]/dist-norm</property>
-               <scale>80</scale>
-            </transformation>
-            <transformation>
-                <type>rotation</type>
-                <property>instrumentation/radar/wp[5]/brg-offset</property>
-                <scale>-1.0</scale>
-            </transformation>
-          </transformations>
-        </layer>
-        
-        <layer>
-          <condition>
-                <property>instrumentation/radar/wp[6]/valid</property>
-                <value>1</value>
-            </condition>
-          <name>wp5</name>
-          <w>10</w>
-          <h>10</h>
-          <texture>
-            <path>Aircraft/A380/Models/Instruments/MFD/airbus_symbols.png</path>
-            <x1>0.540</x1>
-            <y1>0.900</y1>
-            <x2>0.590</x2>
-            <y2>0.950</y2>
-          </texture>
-          <emissive>true</emissive>
-          <transformations>
-            <transformation>
-               <type>y-shift</type>
-               <offset>-12</offset>
-            </transformation>
-            <transformation>
-                <type>rotation</type>
-                <property>instrumentation/radar/wp[6]/brg-offset</property>
-            </transformation>
-            <transformation>
-               <type>y-shift</type>
-               <property>instrumentation/radar/wp[6]/dist-norm</property>
-               <scale>80</scale>
-            </transformation>
-            <transformation>
-                <type>rotation</type>
-                <property>instrumentation/radar/wp[6]/brg-offset</property>
-                <scale>-1.0</scale>
-            </transformation>
-          </transformations>
-        </layer>
-        
-        <layer>
-          <condition>
-                <property>instrumentation/radar/wp[7]/valid</property>
-                <value>1</value>
-            </condition>
-          <name>wp5</name>
-          <w>10</w>
-          <h>10</h>
-          <texture>
-            <path>Aircraft/A380/Models/Instruments/MFD/airbus_symbols.png</path>
-            <x1>0.540</x1>
-            <y1>0.900</y1>
-            <x2>0.590</x2>
-            <y2>0.950</y2>
-          </texture>
-          <emissive>true</emissive>
-          <transformations>
-            <transformation>
-               <type>y-shift</type>
-               <offset>-12</offset>
-            </transformation>
-            <transformation>
-                <type>rotation</type>
-                <property>instrumentation/radar/wp[7]/brg-offset</property>
-            </transformation>
-            <transformation>
-               <type>y-shift</type>
-               <property>instrumentation/radar/wp[7]/dist-norm</property>
-               <scale>80</scale>
-            </transformation>
-            <transformation>
-                <type>rotation</type>
-                <property>instrumentation/radar/wp[7]/brg-offset</property>
-                <scale>-1.0</scale>
-            </transformation>
-          </transformations>
-        </layer>
-        
-        <layer>
-          <condition>
-                <property>instrumentation/radar/wp[8]/valid</property>
-                <value>1</value>
-            </condition>
-          <name>wp5</name>
-          <w>10</w>
-          <h>10</h>
-          <texture>
-            <path>Aircraft/A380/Models/Instruments/MFD/airbus_symbols.png</path>
-            <x1>0.540</x1>
-            <y1>0.900</y1>
-            <x2>0.590</x2>
-            <y2>0.950</y2>
-          </texture>
-          <emissive>true</emissive>
-          <transformations>
-            <transformation>
-               <type>y-shift</type>
-               <offset>-12</offset>
-            </transformation>
-            <transformation>
-                <type>rotation</type>
-                <property>instrumentation/radar/wp[8]/brg-offset</property>
-            </transformation>
-            <transformation>
-               <type>y-shift</type>
-               <property>instrumentation/radar/wp[8]/dist-norm</property>
-               <scale>80</scale>
-            </transformation>
-            <transformation>
-                <type>rotation</type>
-                <property>instrumentation/radar/wp[8]/brg-offset</property>
-                <scale>-1.0</scale>
-            </transformation>
-          </transformations>
-        </layer -->
-        
-        <!-- ref navaid RH NAV2 -->
-        <!-- layer>
-          <condition>
-                <property>instrumentation/radar/navaid-valid</property>
-                <value>1</value>
-            </condition>
-          <name>navref</name>
-          <w>15</w>
-          <h>15</h>
-          <texture>
-            <path>Aircraft/A380/Models/Instruments/MFD/airbus_symbols.png</path>
-            <x1>0.350</x1>
-            <y1>0.870</y1>
-            <x2>0.445</x2>
-            <y2>0.970</y2>
-          </texture>
-          <emissive>true</emissive>
-          <transformations>
-            <transformation>
-               <type>y-shift</type>
-               <offset>-12</offset>
-            </transformation>
-            <transformation>
-                <type>rotation</type>
-                <property>instrumentation/radar/navaid-brg</property>
-            </transformation>
-            <transformation>
-               <type>y-shift</type>
-               <property>instrumentation/radar/navaid-dist-norm</property>
-               <scale>80</scale>
-            </transformation>
-            <transformation>
-                <type>rotation</type>
-                <property>instrumentation/radar/navaid-brg</property>
-                <scale>-1.0</scale>
-            </transformation>
-          </transformations>
-        </layer -->
-        
         <layer>
             <name>aircraft symbol</name>
-            <w>20</w>
-            <h>20</h>
+            <w>30</w>
+            <h>30</h>
             <texture>
-                <path>Aircraft/A380/Models/Instruments/MFD/symbols.png</path>
-                <x1>0.654</x1>
-                <y1>0.686</y1>
-                <x2>0.790</x2>
-                <y2>0.833</y2>
+                <path>Aircraft/A380/Models/Instruments/MFD/airbus_symbols.png</path>
+                <x1>0.332</x1>
+                <y1>0.111</y1>
+                <x2>0.494</x2>
+		<y2>0.326</y2>
             </texture>
             <transformations>
                 <transformation>
@@ -1921,7 +942,7 @@
             </texture>
         </layer -->
 
-        <layer>
+        <!-- layer>
             <condition>
                 <greater-than>
                     <property>environment/wind-speed-kt</property>
@@ -1958,7 +979,7 @@
                 <property>environment/wind-from-heading-deg</property>
             </transformation>
             </transformations>
-        </layer>
+        </layer -->
 
 </layers>
 

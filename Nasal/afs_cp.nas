@@ -71,7 +71,7 @@ SPD_THRIDL=8;
 
 # working memory
 afs_trace = 0;
-afs_version = "2.0.4";
+afs_version = "2.0.8";
 
 
 
@@ -115,13 +115,21 @@ toggle_fd = func() {
 toggle_ap = func(n) {
       apeng = getprop("/controls/autoflight/autopilot["~n~"]/engage");
       if (apeng == 1) {
-        setprop("/instrumentation/flightdirector/autopilot-on",0);
+        if (getprop("/controls/autoflight/autopilot[0]/engage") == 0 and getprop("/controls/autoflight/autopilot[1]/engage") == 0) {
+          setprop("/instrumentation/flightdirector/autopilot-on",0);
+        }
         setprop("/controls/autoflight/autopilot["~n~"]/engage","false");
         setprop("instrumentation/flightdirector/alt-acquire-mode",0);
+
+        ## we may want turn co-ordination in normal law/flight mode?
+        setprop("/controls/flights/auto-coordination", 0);
+        setprop("/controls/flights/auto-coordination-factor", 0.0);
       } else {
         setprop("/controls/autoflight/autopilot["~n~"]/engage","true");
 	setprop("/instrumentation/flightdirector/autopilot-on",1);
         setprop("/instrumentation/flightdirector/alt-acquire-mode",1);
+        setprop("/controls/flights/auto-coordination", 0);
+        setprop("/controls/flights/auto-coordination-factor", 0.0);
       }
       ### called each of the modes to evaluate their current settings ###
       toggle_spd_select(0);
@@ -138,21 +146,23 @@ toggle_loc = func() {
 	setprop("instrumentation/flightdirector/lnav",0);
         setprop("/autopilot/locks/heading","");
         setprop("instrumentation/afs/lateral-managed-mode", 0);
-          setprop("/instrumentation/afs/lateral-display",0);
+        setprop("/instrumentation/afs/lateral-display",0);
       } else {
         var inRange1 = getprop("/instrumentation/nav[0]/in-range");
         tracer("AFS: localizer inrange: "~inRange1);
-        var dh = getprop("instrumentation/mk-viii/arinc429/decision-height");
+        var dh = getprop("instrumentation/mk-viii/inputs/arinc429/decision-height");
         var rwyVal = getprop("instrumentation/afs/arv-rwy");
-        var apt = airportinfo(getprop("/instrumentation/afs/FROM"));
+        var apt = airportinfo(getprop("/instrumentation/afs/TO"));
         var mhz = getILS(apt,rwyVal);
-        if (mhz != nil) {
-          setprop("instrumentation/afs/rwy-cat","CAT I");
-          if (dh < 100) {
+        var nav0Freq = getprop("instrumentation/nav[0]/frequencies/selected-mhz");
+        if (mhz != nil and mhz == nav0Freq) {
+          print("LOCaliser Mhz: "~mhz);
+          setprop("instrumentation/afs/rwy-cat","CAT II");
+          if (dh < 100) { 
             setprop("instrumentation/afs/rwy-cat","CAT III");
           }
         }
-        if ((inRange1 == 1)) {
+        if (inRange1 == 1) {
           setprop("/autopilot/locks/heading","nav1-hold");
           # notice that nav1 loc is different than APPR?
 	  setprop("/instrumentation/flightdirector/lnav",LNAV_LOC);
@@ -160,6 +170,9 @@ toggle_loc = func() {
           ##setprop("instrumentation/flightdirector/alt-acquire-mode",0);
           setprop("instrumentation/afs/lateral-managed-mode", -1);
           setprop("/instrumentation/afs/lateral-display",-1);
+        } else {
+          ##so we don't have localiser in range yet, just arm LNAV mode
+          setprop("instrumentation/flightdirector/lnav-arm", LNAV_LOC);
         }
       }
 }
@@ -188,13 +201,23 @@ toggle_alt_inc = func() {
 increment_alt = func() {
     time_reset_alt("vertical-alt-display");
     incAmt = getprop("/controls/afs/alt-inc-select");
-    curAlt = getprop("/instrumentation/afs/target-altitude-ft");
-    curAlt = curAlt+incAmt;
-    if (curAlt > 49000) {
-      curAlt = 49000;
+    curAltFt = getprop("/instrumentation/afs/target-altitude-ft");
+    curAltMetre = getprop("/instrumentation/afs/target-altitude-metre");
+    var metric = getprop("instrumentation/efis[0]/metric");
+    var incAmtMetric = 300;
+    if (incAmt == 1000) {
+      incAmtMetric = 500;
     }
-    setprop("/instrumentation/afs/target-altitude-ft",curAlt);
-    setprop("/autopilot/settings/target-altitude-ft", curAlt);
+    if (metric == 1) {
+      curAltFt = curAltFt+(incAmtMetric/0.3048);
+    } else {
+      curAltFt = curAltFt+incAmt;
+    }
+    if (curAltFt > 49000) {
+      curAltFt = 49000;
+    }
+    setprop("/instrumentation/afs/target-altitude-ft",curAltFt);
+    setprop("/autopilot/settings/target-altitude-ft", curAltFt);
 
     var altSelect = getprop("/instrumentation/afs/vertical-alt-mode");
     var vsSelect  = getprop("/instrumentation/afs/vertical-vs-mode");
@@ -221,7 +244,16 @@ decrement_alt = func() {
     time_reset_alt("vertical-alt-display");
     incAmt = getprop("/controls/afs/alt-inc-select");
     curAlt = getprop("/instrumentation/afs/target-altitude-ft");
-    curAlt = curAlt+-incAmt;
+    var metric = getprop("instrumentation/efis[0]/metric");
+    var incAmtMetric = 300;
+    if (incAmt == 1000) {
+      incAmtMetric = 500;
+    }
+    if (metric == 1) {
+      curAlt = curAlt+(-incAmtMetric/0.3048);
+    } else {
+      curAlt = curAlt+-incAmt;
+    }
     if (curAlt < 0) {
       curAlt = 0;
     }
@@ -245,6 +277,14 @@ decrement_alt = func() {
     if (altSelect == -1 and vsSelect == -1 and apMode == 1) {
       var afms = AirbusFMS.new();
       var newMode = afms.evaluateManagedVNAV();
+      tracer("decrement alt, newMode: "~newMode);
+      if (newMode == VNAV_CLB or newMode == VNAV_OPCLB) {
+        newMode = VNAV_VS;
+        setprop("instrumentation/flightdirector/vnav-arm", VNAV_OFF);
+        setprop("instrumentation/afs/vertical-speed-fpm", 800);
+        setprop("autopilot/settings/vertical-speed-fpm", 800);
+        setprop("instrumentation/flightdirector/mode-reversion", 1);
+      }
       setprop("/instrumentation/flightdirector/vnav", newMode);
     }
 }
@@ -262,6 +302,9 @@ increment_vs = func() {
     setprop("/instrumentation/afs/vertical-speed-fpm",curr);
     if (getprop("/instrumentation/flightdirector/vnav") == VNAV_VS) {
       setprop("/autopilot/settings/vertical-speed-fpm",curr);
+      var fps = math.abs(curr/60);
+      setprop("instrumentation/afs/limit-max-vs-fps", (0+fps));
+      setprop("instrumentation/afs/limit-min-vs-fps", (0-fps));
     }
 }
 
@@ -278,6 +321,9 @@ decrement_vs = func() {
     setprop("/instrumentation/afs/vertical-speed-fpm",curr);
     if (getprop("/instrumentation/flightdirector/vnav") == VNAV_VS) {
       setprop("/autopilot/settings/vertical-speed-fpm",curr);
+      var fps = math.abs(curr/60);
+      setprop("instrumentation/afs/limit-max-vs-fps", (0+fps));
+      setprop("instrumentation/afs/limit-min-vs-fps", (0-fps));
     }
 }
 
@@ -411,6 +457,21 @@ setlistener("/autopilot/settings/vertical-speed-fpm", func(n) {
    }
 });
 
+setlistener("/instrumentation/efis[0]/metric", func(n) {
+   var val = n.getValue();
+   if (val == 1) {
+     var curAltMetre = getprop("/instrumentation/afs/target-altitude-metre");
+     var newAlt = int(curAltMetre/10)*10;
+     var newAltFt = newAlt/0.3048;
+     setprop("/instrumentation/afs/target-altitude-ft",newAltFt);
+   }
+   if (val == 0) {
+     var curAltFt = getprop("/instrumentation/afs/target-altitude-ft");
+     var newAlt = int(curAltFt/100)*100;
+     setprop("/instrumentation/afs/target-altitude-ft",newAlt);
+   }
+});
+
 
 setlistener("instrumentation/efis[0]/display-mode", func(n) {
     var val = n.getValue();
@@ -518,9 +579,13 @@ toggle_vs_select = func(n) {
         armMode = aFMS.evaluateManagedVNAV();
         tracer("finalVNAVMode: "~finalVNAVMode~", verticalMode: "~verticalMode);
         if (verticalMode == 0) {
-          setprop("/autopilot/settings/vertical-speed-fpm",getprop("/instrumentation/afs/vertical-speed-fpm"));
+          var currVS = getprop("/instrumentation/afs/vertical-speed-fpm");
+          setprop("/autopilot/settings/vertical-speed-fpm",currVS);
           ##setprop("/instrumentation/flightdirector/alt-acquire-mode",1);
           setprop("/instrumentation/flightdirector/vnav-arm", VNAV_ALTs);
+          var fps = math.abs(currVS/60);
+          setprop("instrumentation/afs/limit-max-vs-fps", (0+fps));
+          setprop("instrumentation/afs/limit-min-vs-fps", (0-fps));
         }
       }
       if (finalVNAVMode == VNAV_OPCLB) {
@@ -646,6 +711,7 @@ toggle_spd_select = func(n) {
       ###}
       setprop("/instrumentation/afs/speed-mode", speed);
       setprop("/instrumentation/afs/spd-display", speed);
+      setprop("instrumentation/afs/speed-managed-mode", speed);
 }
 
 toggle_hdg_select = func(n) {
@@ -700,6 +766,7 @@ toggle_hdg_select = func(n) {
             tracer("change in NAV mode, set OPCLB");
             setprop("/instrumentation/flightdirector/vnav",VNAV_OPCLB);
             setprop("/instrumentation/flightdirector/vnav-arm", VNAV_CLB);
+            setprop("/instrumentation/flightdirector/mode-reversion", 1);
             #setprop("/autopilot/settings/vertical-speed-fpm",currVS);
             #toggle_alt_select(0);
           }
@@ -707,6 +774,7 @@ toggle_hdg_select = func(n) {
             tracer("change in NAV mode, set OPDES");
             setprop("/instrumentation/flightdirector/vnav",VNAV_OPDES);
             setprop("/instrumentation/flightdirector/vnav-arm", VNAV_DES);
+            setprop("/instrumentation/flightdirector/mode-reversion", 1);
             #setprop("/autopilot/settings/vertical-speed-fpm",currVS);
             #toggle_alt_select(0);
           }
@@ -737,13 +805,13 @@ toggle_appr = func() {
         setprop("/instrumentation/flightdirector/vnav",VNAV_OFF);
         setprop("/instrumentation/flightdirector/lnav",LNAV_LOC);
       } else {
-        var dh = getprop("instrumentation/mk-viii/arinc429/decision-height");
+        var dh = getprop("instrumentation/mk-viii/inputs/arinc429/decision-height");
         var rwyVal = getprop("instrumentation/afs/arv-rwy");
-        var apt = airportinfo(getprop("/instrumentation/afs/FROM"));
+        var apt = airportinfo(getprop("/instrumentation/afs/TO"));
         var mhz = getILS(apt,rwyVal);
         if (mhz != nil) {
-          setprop("instrumentation/afs/rwy-cat", "CAT I");
-          if (dh < 100) {
+          setprop("instrumentation/afs/rwy-cat", "CAT II");
+          if (dh < 100) { 
             setprop("instrumentation/afs/rwy-cat","CAT III");
           }
         }
@@ -766,15 +834,10 @@ toggle_appr = func() {
 ## get ILS frequency from airportinfo.
 var getILS = func(apt, rwy) {
    var mhz = nil;
-   var runways = apt["runways"];
-   var ks = keys(runways);
-   for(var r=0; r != size(runways); r=r+1) {
-     var run = runways[ks[r]];
-     if (run.id == rwy and contains(run, "ils_frequency_mhz")) {
-       mhz = sprintf("%3.1f",run.ils_frequency_mhz);
-       return mhz;
-     }
-   }
+   var runway = apt.runway(rwy);
+   mhz = sprintf("%3.1f",runway.ils_frequency_mhz);
+   var ils = runway.ils;
+   tracer("ils id: "~ils.id~", ils freq: "~ils.frequency~", course: "~ils.course);
    return mhz;
 }
 
@@ -914,8 +977,9 @@ toggle_thrust_detent = func(n) {
        ##interpolate("/controls/engines/engine["~e~"]/thrust-lever", throttleRates[currDetent], 1);
        setprop("/controls/engines/engine["~e~"]/thrust-lever", throttleRates[currDetent]);
        var curTh = getprop("/controls/engines/engine["~e~"]/throttle");
-       tracer("Current Throttle: "~curTh~", set new throttle: "~newThrottle~", engine: "~e~", throttleRate: "~throttleRates[currDetent]);       
-       if (currDetent == 1 and n == -1) {
+       tracer("Current Throttle: "~curTh~", set new throttle: "~newThrottle~", engine: "~e~", throttleRate: "~throttleRates[currDetent]);
+       var engSelect = getprop("/sim/input/selected/engine["~e~"]");  
+       if (currDetent == 1 and n == -1 and engSelect == 1) {
          ##setprop("/controls/engines/engine["~e~"]/throttle",newThrottle);
          interpolate("/controls/engines/engine["~e~"]/throttle",newThrottle, 10);
          tracer("interpolate engine: "~e~" down to newThrottle: "~newThrottle);
@@ -938,8 +1002,11 @@ adjust_thrust = func(n) {
     var newThrust = curTh+inc;
     if (newThrust < 0.0) newThrust = 0.0;
     if (newThrust > 1.0) newThrust = 1.0;
-    setprop("/controls/engines/engine["~e~"]/thrust-lever", newThrust);
-    setprop("/controls/engines/engine["~e~"]/throttle", newThrust);
+    var engSelect = getprop("/sim/input/selected/engine["~e~"]");
+    if (engSelect == 1) {
+      setprop("/controls/engines/engine["~e~"]/thrust-lever", newThrust);
+      setprop("/controls/engines/engine["~e~"]/throttle", newThrust);
+    }
   }
 }
 

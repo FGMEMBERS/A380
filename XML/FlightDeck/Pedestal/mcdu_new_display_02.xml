@@ -2,7 +2,7 @@
 
 <!--
     MFD Display for A380.
-    This file is for MFD unit 0.
+    This file is for MFD unit 1.
     There are a number of "pages" within the MFD display. A menu bar across the top
     allows us to select various sub-menu options from the main main across.
     The naming of <text> objects is;
@@ -19,7 +19,7 @@
 <PropertyList>
 
 	<path>../../../Models/FlightDeck/Pedestal/mcdu_display.ac</path> 
-	<texture-path>../../../Textures/Panels/fms/</texture-path>
+	<texture-path>Aircraft/A380/Textures/Panels/fms/</texture-path>
 
 <!--  Text labels -->
 
@@ -70,6 +70,127 @@
   <character-size type="double">0.005</character-size>
   <alignment>center-bottom</alignment>  
 </text>
+
+
+ <!-- sysetm sub-menu -->
+ <animation>
+  <type>pick</type>
+  <object-name>system.menu</object-name>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>property-toggle</command>
+      <property>instrumentation/mcdu[1]/dropdown[4]/active</property>
+    </binding>
+    <binding>
+      <command>property-assign</command>
+      <property>instrumentation/mcdu[1]/dropdown[0]/active</property>
+      <value type="bool">false</value>
+    </binding>
+    <binding>
+      <command>property-assign</command>
+      <property>instrumentation/mcdu[1]/dropdown[1]/active</property>
+      <value type="bool">false</value>
+    </binding>
+    <binding>
+      <command>property-assign</command>
+      <property>instrumentation/mcdu[1]/dropdown[2]/active</property>
+      <value type="bool">false</value>
+    </binding>
+    <binding>
+      <command>property-assign</command>
+      <property>instrumentation/mcdu[1]/dropdown[3]/active</property>
+      <value type="bool">false</value>
+    </binding>
+  </action>
+</animation>
+
+ <text>
+   <name>label.system.menu</name>
+   <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+    <pitch-deg>-90</pitch-deg>
+    <x-m>-0.199</x-m>
+    <y-m>0.020</y-m>
+    <z-m>0.0025</z-m>
+  </offsets>
+  <type type="string">text-value</type>
+  <property>/instrumentation/mcdu[1]/dropdown[4]/title</property>
+  <font>helvetica_medium.txf</font>
+  <character-size type="double">0.0045</character-size>
+  <alignment>center-bottom</alignment> 
+ </text>
+
+<text>
+  <name>label.dropdown.sys.opt1</name>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+    <pitch-deg>-90</pitch-deg>
+    <x-m>-0.193</x-m>
+    <y-m>0.022</y-m>
+    <z-m>0.0025</z-m>
+  </offsets>
+  <type type="string">text-value</type>
+  <property>/instrumentation/mcdu[1]/dropdown[4]/menu/item[0]</property>
+  <font>helvetica_medium.txf</font>
+  <character-size type="double">0.0045</character-size>
+  <alignment>center-bottom</alignment>  
+</text>
+
+
+<animation>
+  <type>pick</type>
+  <object-name>dropdown.sys.opt1</object-name>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>MCDU2.changeDropdown(1,4,0)</script>
+    </binding>
+  </action>
+</animation>
+
+<text>
+  <name>label.dropdown.sys.opt2</name>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+    <pitch-deg>-90</pitch-deg>
+    <x-m>-0.1879</x-m>
+    <y-m>0.022</y-m>
+    <z-m>0.0025</z-m>
+  </offsets>
+  <type type="string">text-value</type>
+  <property>/instrumentation/mcdu[1]/dropdown[4]/menu/item[1]</property>
+  <font>helvetica_medium.txf</font>
+  <character-size type="double">0.0045</character-size>
+  <alignment>center-bottom</alignment>  
+</text>
+
+<animation>
+  <type>pick</type>
+  <object-name>dropdown.sys.opt2</object-name>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>MCDU2.changeDropdown(1,4,1)</script>
+    </binding>
+  </action>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>label.dropdown.sys.opt1</object-name>
+  <object-name>label.dropdown.sys.opt2</object-name>
+  <condition>
+    <property>/instrumentation/mcdu[1]/dropdown[4]/active</property>
+  </condition>
+</animation>
+
+
 
 
 <!--  active sub-menu -->
@@ -198,6 +319,104 @@
       <value type="bool">false</value>
     </binding>
   </action>
+</animation>
+
+<text>
+  <name>label.dropdown1.opt1</name>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+    <pitch-deg>-90</pitch-deg>
+    <x-m>-0.1833</x-m>
+    <y-m>0.049</y-m>
+    <z-m>0.0015</z-m>
+  </offsets>
+  <type type="string">text-value</type>
+  <property>/instrumentation/mcdu[1]/dropdown[1]/menu[0]/item[0]</property>
+  <font>helvetica_medium.txf</font>
+  <character-size type="double">0.0045</character-size>
+  <alignment>center-bottom</alignment>  
+</text>
+
+
+<animation>
+  <type>pick</type>
+  <object-name>dropdown1.opt1</object-name>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>MCDU2.changeDropdown(1,1,0)</script>
+    </binding>
+  </action>
+</animation>
+
+<text>
+  <name>label.dropdown1.opt2</name>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+    <pitch-deg>-90</pitch-deg>
+    <x-m>-0.1785</x-m>
+    <y-m>0.049</y-m>
+    <z-m>0.0015</z-m>
+  </offsets>
+  <type type="string">text-value</type>
+  <property>/instrumentation/mcdu[1]/dropdown[1]/menu[0]/item[1]</property>
+  <font>helvetica_medium.txf</font>
+  <character-size type="double">0.0045</character-size>
+  <alignment>center-bottom</alignment>  
+</text>
+
+<animation>
+  <type>pick</type>
+  <object-name>dropdown1.opt2</object-name>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>MCDU2.changeDropdown(1,1,1)</script>
+    </binding>
+  </action>
+</animation>
+
+<text>
+  <name>label.dropdown1.opt3</name>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+    <pitch-deg>-90</pitch-deg>
+    <x-m>-0.1737</x-m>
+    <y-m>0.049</y-m>
+    <z-m>0.0015</z-m>
+  </offsets>
+  <type type="string">text-value</type>
+  <property>/instrumentation/mcdu[1]/dropdown[1]/menu[0]/item[2]</property>
+  <font>helvetica_medium.txf</font>
+  <character-size type="double">0.0045</character-size>
+  <alignment>center-bottom</alignment>  
+</text>
+
+<animation>
+  <type>pick</type>
+  <object-name>dropdown1.opt3</object-name>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>MCDU2.changeDropdown(1,1,2)</script>
+    </binding>
+  </action>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>label.dropdown1.opt1</object-name>
+  <object-name>label.dropdown1.opt2</object-name>
+  <object-name>label.dropdown1.opt3</object-name>
+  <condition>
+    <property>/instrumentation/mcdu[1]/dropdown[1]/active</property>
+  </condition>
 </animation>
 
 
@@ -2758,8 +2977,98 @@
 </animation>
 
 
+ <!-- active.to_perf.appr  values -->
+ 
+ <text>
+  <name>value.appr_perf.Vls</name>
+  <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.073</x-m>
+      <y-m>0.115</y-m>
+      <z-m>0.0008</z-m>
+    </offsets>
+    <type type="string">number-value</type>
+    <property type="string">/instrumentation/afs/Vls</property>
+    <format>%3.0f</format>
+    <!-- truncate type="bool">true</truncate -->
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.0048</character-size>
+    <alignment>left-bottom</alignment>
+</text>
 
-
+ <text>
+  <name>value.appr_perf.Vref</name>
+  <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.108</x-m>
+      <y-m>0.114</y-m>
+      <z-m>0.0008</z-m>
+    </offsets>
+    <type type="string">number-value</type>
+    <property type="string">/instrumentation/afs/Vref</property>
+    <format>%3.0f</format>
+    <!-- truncate type="bool">true</truncate -->
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.0048</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+ 
+ <text>
+   <name>value.appr_perf.appr_wind_deg</name>
+   <axis-alignment>yz-plane</axis-alignment>
+   <offsets>
+     <pitch-deg>-90</pitch-deg>
+     <x-m>-0.136</x-m>
+     <y-m>0.057</y-m>
+     <z-m>0.0008</z-m>
+   </offsets>
+   <type type="string">number-value</type>
+   <property>instrumentation/afs/appr_wind_deg</property>
+   <format>%1.0f</format>
+   <truncate type="bool">true</truncate>
+   <font>helvetica_medium.txf</font>
+   <character-size type="double">0.005</character-size>
+   <alignment>right-bottom</alignment>
+ </text>
+ 
+ 
+ <text>
+   <name>value.appr_perf.appr_wind_kts</name>
+   <axis-alignment>yz-plane</axis-alignment>
+   <offsets>
+     <pitch-deg>-90</pitch-deg>
+     <x-m>-0.136</x-m>
+     <y-m>0.077</y-m>
+     <z-m>0.0008</z-m>
+   </offsets>
+   <type type="string">number-value</type>
+   <property>instrumentation/afs/appr_wind_kts</property>
+   <format>%1.0f</format>
+   <truncate type="bool">true</truncate>
+   <font>helvetica_medium.txf</font>
+   <character-size type="double">0.005</character-size>
+   <alignment>right-bottom</alignment>
+ </text>
+ 
+ <text>
+   <name>value.appr_perf.appr_oat</name>
+   <axis-alignment>yz-plane</axis-alignment>
+   <offsets>
+     <pitch-deg>-90</pitch-deg>
+     <x-m>-0.113</x-m>
+     <y-m>0.064</y-m>
+     <z-m>0.0008</z-m>
+   </offsets>
+   <type type="string">number-value</type>
+   <property>instrumentation/afs/appr_oat</property>
+   <format>%1.0f</format>
+   <truncate type="bool">true</truncate>
+   <font>helvetica_medium.txf</font>
+   <character-size type="double">0.005</character-size>
+   <alignment>right-bottom</alignment>
+ </text>
 
 
 
@@ -2782,6 +3091,8 @@
     <object-name>label.position</object-name>
     <object-name>label.sec</object-name>
     <object-name>label.data</object-name>
+    <object-name>label.dropdown.sys.opt1</object-name>
+    <object-name>label.dropdown.sys.opt2</object-name>
     <object-name>label.FLT_NBR</object-name>
     <object-name>label.FROM</object-name>
     <object-name>label.TO</object-name>
@@ -2897,6 +3208,7 @@
     <object-name>value.to_perf.s-speed</object-name>
     <object-name>value.to_perf.f-speed</object-name>
     <object-name>value.to_perf.to_flaps</object-name>
+    <object-name>label.system.menu</object-name>
     <ambient>
       <red>0.0</red>
       <green>0.0</green>
@@ -2927,6 +3239,11 @@
     <object-name>value.to_perf.crz_mach</object-name>
     <object-name>value.to_perf.lrc_mach</object-name>
     <object-name>value.to_perf.turb_mach</object-name>
+    <object-name>value.appr_perf.Vls</object-name>
+    <object-name>value.appr_perf.Vref</object-name>
+    <object-name>value.appr_perf.appr_wind_deg</object-name>
+    <object-name>value.appr_perf.appr_wind_kts</object-name>
+    <object-name>value.appr_perf.appr_oat</object-name>
     <ambient>
       <red>0.1</red>
       <green>0.8</green>
@@ -3172,10 +3489,51 @@
 <animation>
   <type>select</type>
   <object-name>page.PERF_APPR</object-name>
+  <object-name>value.appr_perf.Vls</object-name>
+  <object-name>value.appr_perf.Vref</object-name>
+  <object-name>value.appr_perf.appr_wind_deg</object-name>
+  <object-name>value.appr_perf.appr_wind_kts</object-name>
+  <object-name>value.appr_perf.appr_oat</object-name>
   <condition>
     <equals>
       <property>/instrumentation/mcdu[1]/page</property>
       <value>active.appr_perf</value>
+    </equals>
+  </condition>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>page.ATC_CONNECT_LOGON</object-name>
+  <condition>
+    <equals>
+      <property>/instrumentation/mcdu[1]/page</property>
+      <value>atc.connect.logon</value>
+    </equals>
+  </condition>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>page.ATC_CONNECT_LOGOFF</object-name>
+  <object-name>button.atc-logoff.send</object-name>
+  <object-name>label.atc-logoff.send</object-name>
+  <condition>
+    <equals>
+      <property>/instrumentation/mcdu[0]/page</property>
+      <value>atc.connect.logoff</value>
+    </equals>
+  </condition>
+</animation>
+
+
+<animation>
+  <type>select</type>
+  <object-name>page.ATC_REQUEST_DEPART</object-name>
+  <condition>
+    <equals>
+      <property>/instrumentation/mcdu[1]/page</property>
+      <value>atc.request.departure</value>
     </equals>
   </condition>
 </animation>
@@ -3205,6 +3563,21 @@
     </offsets>
     <type type="string">literal</type>
     <text> - - - - - -  D I S C O N T I N U I T Y - - - - - - </text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.0035</character-size>
+    <alignment>center-bottom</alignment>
+</text>
+<text>
+   <name>value.wp0.end</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.165</x-m>
+      <y-m>0.07</y-m>
+      <z-m>0.0008</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text> - - - - - -  E N D   O F   P L A N - - - - - - </text>
     <font>helvetica_medium.txf</font>
     <character-size type="double">0.0035</character-size>
     <alignment>center-bottom</alignment>
@@ -3382,6 +3755,37 @@
   <transparency><alpha>0.7</alpha></transparency>
 </animation>
 <animation>
+  <type>select</type>
+  <object-name>value.wp0.end</object-name>
+  <condition>
+    <and>
+    <equals>
+      <property>/instrumentation/mcdu[1]/page</property>
+      <value>active.flt_pln</value>
+    </equals>
+    <equals>
+      <property>instrumentation/fms/plan[0]/display-nodes/wp[0]/active</property>
+      <value>1</value>
+    </equals>
+    <equals>
+      <property>instrumentation/fms/plan[0]/display-nodes/wp[0]/wp-type</property>
+      <value>END</value>
+    </equals>
+    </and>
+  </condition>
+</animation>
+<animation>
+  <type>material</type>
+  <object-name>value.wp0.end</object-name>
+  <emission>
+    <red>0.9</red>
+    <green>0.9</green>
+    <blue>0.9</blue>
+  </emission>
+  <shininess>0.0</shininess>
+  <transparency><alpha>0.7</alpha></transparency>
+</animation>
+<animation>
   <type>material</type>
   <object-name>group.node0</object-name>
   <condition>
@@ -3431,6 +3835,21 @@
     </offsets>
     <type type="string">literal</type>
     <text> - - - - - -  D I S C O N T I N U I T Y - - - - - - </text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.0035</character-size>
+    <alignment>center-bottom</alignment>
+</text>
+<text>
+   <name>value.wp1.end</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.151</x-m>
+      <y-m>0.07</y-m>
+      <z-m>0.0008</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text> - - - - - -  E N D   O F   P L A N - - - - - - </text>
     <font>helvetica_medium.txf</font>
     <character-size type="double">0.0035</character-size>
     <alignment>center-bottom</alignment>
@@ -3607,6 +4026,39 @@
   <shininess>0.0</shininess>
   <transparency><alpha>0.7</alpha></transparency>
 </animation>
+
+<animation>
+  <type>select</type>
+  <object-name>value.wp1.end</object-name>
+  <condition>
+    <and>
+    <equals>
+      <property>/instrumentation/mcdu[1]/page</property>
+      <value>active.flt_pln</value>
+    </equals>
+    <equals>
+      <property>instrumentation/fms/plan[0]/display-nodes/wp[1]/active</property>
+      <value>1</value>
+    </equals>
+    <equals>
+      <property>instrumentation/fms/plan[0]/display-nodes/wp[1]/wp-type</property>
+      <value>END</value>
+    </equals>
+    </and>
+  </condition>
+</animation>
+<animation>
+  <type>material</type>
+  <object-name>value.wp1.end</object-name>
+  <emission>
+    <red>0.9</red>
+    <green>0.9</green>
+    <blue>0.9</blue>
+  </emission>
+  <shininess>0.0</shininess>
+  <transparency><alpha>0.7</alpha></transparency>
+</animation>
+
 <animation>
   <type>material</type>
   <object-name>group.node1</object-name>
@@ -3657,6 +4109,21 @@
     </offsets>
     <type type="string">literal</type>
     <text> - - - - - -  D I S C O N T I N U I T Y - - - - - - </text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.0035</character-size>
+    <alignment>center-bottom</alignment>
+</text>
+<text>
+   <name>value.wp2.end</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.137</x-m>
+      <y-m>0.07</y-m>
+      <z-m>0.0008</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text> - - - - - -  E N D   O F   P L A N - - - - - - </text>
     <font>helvetica_medium.txf</font>
     <character-size type="double">0.0035</character-size>
     <alignment>center-bottom</alignment>
@@ -3833,6 +4300,39 @@
   <shininess>0.0</shininess>
   <transparency><alpha>0.7</alpha></transparency>
 </animation>
+
+<animation>
+  <type>select</type>
+  <object-name>value.wp2.end</object-name>
+  <condition>
+    <and>
+    <equals>
+      <property>/instrumentation/mcdu[1]/page</property>
+      <value>active.flt_pln</value>
+    </equals>
+    <equals>
+      <property>instrumentation/fms/plan[0]/display-nodes/wp[2]/active</property>
+      <value>1</value>
+    </equals>
+    <equals>
+      <property>instrumentation/fms/plan[0]/display-nodes/wp[2]/wp-type</property>
+      <value>END</value>
+    </equals>
+    </and>
+  </condition>
+</animation>
+<animation>
+  <type>material</type>
+  <object-name>value.wp2.end</object-name>
+  <emission>
+    <red>0.9</red>
+    <green>0.9</green>
+    <blue>0.9</blue>
+  </emission>
+  <shininess>0.0</shininess>
+  <transparency><alpha>0.7</alpha></transparency>
+</animation>
+
 <animation>
   <type>material</type>
   <object-name>group.node2</object-name>
@@ -3883,6 +4383,21 @@
     </offsets>
     <type type="string">literal</type>
     <text> - - - - - -  D I S C O N T I N U I T Y - - - - - - </text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.0035</character-size>
+    <alignment>center-bottom</alignment>
+</text>
+<text>
+   <name>value.wp3.end</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.123</x-m>
+      <y-m>0.07</y-m>
+      <z-m>0.0008</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text> - - - - - -  E N D   O F   P L A N - - - - - - </text>
     <font>helvetica_medium.txf</font>
     <character-size type="double">0.0035</character-size>
     <alignment>center-bottom</alignment>
@@ -4059,6 +4574,39 @@
   <shininess>0.0</shininess>
   <transparency><alpha>0.7</alpha></transparency>
 </animation>
+
+<animation>
+  <type>select</type>
+  <object-name>value.wp3.end</object-name>
+  <condition>
+    <and>
+    <equals>
+      <property>/instrumentation/mcdu[1]/page</property>
+      <value>active.flt_pln</value>
+    </equals>
+    <equals>
+      <property>instrumentation/fms/plan[0]/display-nodes/wp[3]/active</property>
+      <value>1</value>
+    </equals>
+    <equals>
+      <property>instrumentation/fms/plan[0]/display-nodes/wp[3]/wp-type</property>
+      <value>END</value>
+    </equals>
+    </and>
+  </condition>
+</animation>
+<animation>
+  <type>material</type>
+  <object-name>value.wp3.end</object-name>
+  <emission>
+    <red>0.9</red>
+    <green>0.9</green>
+    <blue>0.9</blue>
+  </emission>
+  <shininess>0.0</shininess>
+  <transparency><alpha>0.7</alpha></transparency>
+</animation>
+
 <animation>
   <type>material</type>
   <object-name>group.node3</object-name>
@@ -4109,6 +4657,21 @@
     </offsets>
     <type type="string">literal</type>
     <text> - - - - - -  D I S C O N T I N U I T Y - - - - - - </text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.0035</character-size>
+    <alignment>center-bottom</alignment>
+</text>
+<text>
+   <name>value.wp4.end</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.1085</x-m>
+      <y-m>0.07</y-m>
+      <z-m>0.0008</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text> - - - - - -  E N D   O F   P L A N - - - - - - </text>
     <font>helvetica_medium.txf</font>
     <character-size type="double">0.0035</character-size>
     <alignment>center-bottom</alignment>
@@ -4285,6 +4848,39 @@
   <shininess>0.0</shininess>
   <transparency><alpha>0.7</alpha></transparency>
 </animation>
+
+<animation>
+  <type>select</type>
+  <object-name>value.wp4.end</object-name>
+  <condition>
+    <and>
+    <equals>
+      <property>/instrumentation/mcdu[1]/page</property>
+      <value>active.flt_pln</value>
+    </equals>
+    <equals>
+      <property>instrumentation/fms/plan[0]/display-nodes/wp[4]/active</property>
+      <value>1</value>
+    </equals>
+    <equals>
+      <property>instrumentation/fms/plan[0]/display-nodes/wp[4]/wp-type</property>
+      <value>END</value>
+    </equals>
+    </and>
+  </condition>
+</animation>
+<animation>
+  <type>material</type>
+  <object-name>value.wp4.end</object-name>
+  <emission>
+    <red>0.9</red>
+    <green>0.9</green>
+    <blue>0.9</blue>
+  </emission>
+  <shininess>0.0</shininess>
+  <transparency><alpha>0.7</alpha></transparency>
+</animation>
+
 <animation>
   <type>material</type>
   <object-name>group.node4</object-name>
@@ -4335,6 +4931,21 @@
     </offsets>
     <type type="string">literal</type>
     <text> - - - - - -  D I S C O N T I N U I T Y - - - - - - </text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.0035</character-size>
+    <alignment>center-bottom</alignment>
+</text>
+<text>
+   <name>value.wp5.end</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.0945</x-m>
+      <y-m>0.07</y-m>
+      <z-m>0.0008</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text> - - - - - -  E N D   O F   P L A N - - - - - - </text>
     <font>helvetica_medium.txf</font>
     <character-size type="double">0.0035</character-size>
     <alignment>center-bottom</alignment>
@@ -4512,6 +5123,37 @@
   <transparency><alpha>0.7</alpha></transparency>
 </animation>
 <animation>
+  <type>select</type>
+  <object-name>value.wp5.end</object-name>
+  <condition>
+    <and>
+    <equals>
+      <property>/instrumentation/mcdu[1]/page</property>
+      <value>active.flt_pln</value>
+    </equals>
+    <equals>
+      <property>instrumentation/fms/plan[0]/display-nodes/wp[5]/active</property>
+      <value>1</value>
+    </equals>
+    <equals>
+      <property>instrumentation/fms/plan[0]/display-nodes/wp[5]/wp-type</property>
+      <value>END</value>
+    </equals>
+    </and>
+  </condition>
+</animation>
+<animation>
+  <type>material</type>
+  <object-name>value.wp5.end</object-name>
+  <emission>
+    <red>0.9</red>
+    <green>0.9</green>
+    <blue>0.9</blue>
+  </emission>
+  <shininess>0.0</shininess>
+  <transparency><alpha>0.7</alpha></transparency>
+</animation>
+<animation>
   <type>material</type>
   <object-name>group.node5</object-name>
   <condition>
@@ -4561,6 +5203,21 @@
     </offsets>
     <type type="string">literal</type>
     <text> - - - - - -  D I S C O N T I N U I T Y - - - - - - </text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.0035</character-size>
+    <alignment>center-bottom</alignment>
+</text>
+<text>
+   <name>value.wp6.end</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.081</x-m>
+      <y-m>0.07</y-m>
+      <z-m>0.0008</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text> - - - - - -  E N D   O F   P L A N - - - - - - </text>
     <font>helvetica_medium.txf</font>
     <character-size type="double">0.0035</character-size>
     <alignment>center-bottom</alignment>
@@ -4738,6 +5395,37 @@
   <transparency><alpha>0.7</alpha></transparency>
 </animation>
 <animation>
+  <type>select</type>
+  <object-name>value.wp6.end</object-name>
+  <condition>
+    <and>
+    <equals>
+      <property>/instrumentation/mcdu[1]/page</property>
+      <value>active.flt_pln</value>
+    </equals>
+    <equals>
+      <property>instrumentation/fms/plan[0]/display-nodes/wp[6]/active</property>
+      <value>1</value>
+    </equals>
+    <equals>
+      <property>instrumentation/fms/plan[0]/display-nodes/wp[6]/wp-type</property>
+      <value>END</value>
+    </equals>
+    </and>
+  </condition>
+</animation>
+<animation>
+  <type>material</type>
+  <object-name>value.wp6.end</object-name>
+  <emission>
+    <red>0.9</red>
+    <green>0.9</green>
+    <blue>0.9</blue>
+  </emission>
+  <shininess>0.0</shininess>
+  <transparency><alpha>0.7</alpha></transparency>
+</animation>
+<animation>
   <type>material</type>
   <object-name>group.node6</object-name>
   <condition>
@@ -4787,6 +5475,21 @@
     </offsets>
     <type type="string">literal</type>
     <text> - - - - - -  D I S C O N T I N U I T Y - - - - - - </text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.0035</character-size>
+    <alignment>center-bottom</alignment>
+</text>
+<text>
+   <name>value.wp7.end</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.066</x-m>
+      <y-m>0.07</y-m>
+      <z-m>0.0008</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text> - - - - - -  E N D   O F   P L A N - - - - - - </text>
     <font>helvetica_medium.txf</font>
     <character-size type="double">0.0035</character-size>
     <alignment>center-bottom</alignment>
@@ -4964,6 +5667,37 @@
   <transparency><alpha>0.7</alpha></transparency>
 </animation>
 <animation>
+  <type>select</type>
+  <object-name>value.wp7.end</object-name>
+  <condition>
+    <and>
+    <equals>
+      <property>/instrumentation/mcdu[1]/page</property>
+      <value>active.flt_pln</value>
+    </equals>
+    <equals>
+      <property>instrumentation/fms/plan[0]/display-nodes/wp[7]/active</property>
+      <value>1</value>
+    </equals>
+    <equals>
+      <property>instrumentation/fms/plan[0]/display-nodes/wp[7]/wp-type</property>
+      <value>END</value>
+    </equals>
+    </and>
+  </condition>
+</animation>
+<animation>
+  <type>material</type>
+  <object-name>value.wp7.end</object-name>
+  <emission>
+    <red>0.9</red>
+    <green>0.9</green>
+    <blue>0.9</blue>
+  </emission>
+  <shininess>0.0</shininess>
+  <transparency><alpha>0.7</alpha></transparency>
+</animation>
+<animation>
   <type>material</type>
   <object-name>group.node7</object-name>
   <condition>
@@ -5014,6 +5748,21 @@
     </offsets>
     <type type="string">literal</type>
     <text> - - - - - -  D I S C O N T I N U I T Y - - - - - - </text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.0035</character-size>
+    <alignment>center-bottom</alignment>
+</text>
+<text>
+   <name>value.wp8.end</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.052</x-m>
+      <y-m>0.07</y-m>
+      <z-m>0.0008</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text> - - - - - -  E N D   O F   P L A N - - - - - - </text>
     <font>helvetica_medium.txf</font>
     <character-size type="double">0.0035</character-size>
     <alignment>center-bottom</alignment>
@@ -5152,10 +5901,18 @@
       <property>instrumentation/fms/plan[0]/display-nodes/wp[8]/active</property>
       <value>1</value>
     </equals>
-    <not-equals>
+    <not>
+      <or>
+    <equals>
       <property>instrumentation/fms/plan[0]/display-nodes/wp[8]/wp-type</property>
       <value>DISC</value>
-    </not-equals>
+    </equals>
+    <equals>
+      <property>instrumentation/fms/plan[0]/display-nodes/wp[8]wp-type</property>
+      <value>END</value>
+    </equals>
+  </or>
+  </not>
     </and>
   </condition>
 </animation>
@@ -5182,6 +5939,37 @@
 <animation>
   <type>material</type>
   <object-name>value.wp8.disc</object-name>
+  <emission>
+    <red>0.9</red>
+    <green>0.9</green>
+    <blue>0.9</blue>
+  </emission>
+  <shininess>0.0</shininess>
+  <transparency><alpha>0.7</alpha></transparency>
+</animation>
+<animation>
+  <type>select</type>
+  <object-name>value.wp8.end</object-name>
+  <condition>
+    <and>
+    <equals>
+      <property>/instrumentation/mcdu[1]/page</property>
+      <value>active.flt_pln</value>
+    </equals>
+    <equals>
+      <property>instrumentation/fms/plan[0]/display-nodes/wp[8]/active</property>
+      <value>1</value>
+    </equals>
+    <equals>
+      <property>instrumentation/fms/plan[0]/display-nodes/wp[8]/wp-type</property>
+      <value>END</value>
+    </equals>
+    </and>
+  </condition>
+</animation>
+<animation>
+  <type>material</type>
+  <object-name>value.wp8.end</object-name>
   <emission>
     <red>0.9</red>
     <green>0.9</green>
@@ -5224,6 +6012,20 @@
   <shininess>0.0</shininess>
   <transparency><alpha>0.7</alpha></transparency>
 </animation>
+
+ <!-- can not use properties to name the object
+ <animation>
+   <type>material</type>
+   <object-name-prop>instrumentation/afs/current-field</object-name-prop>
+   <emission>
+     <red>0.8</red>
+     <green>0.8</green>
+     <blue>0.8</blue>
+   </emission>
+   <transparency>
+     <alpha>0.4</alpha>
+   </transparency>
+ </animation -->
 
 <animation>
   <type>select</type>
@@ -5510,6 +6312,14 @@
 
 <animation>
   <type>select</type>
+  <object-name>dropdown.menu.sysmenu</object-name>
+  <condition>
+    <property>/instrumentation/mcdu[1]/dropdown[4]/active</property>
+  </condition>
+</animation>
+
+<animation>
+  <type>select</type>
   <object-name>dropdown.menu.active</object-name>
   <condition>
     <property>/instrumentation/mcdu[1]/dropdown[0]/active</property>
@@ -5549,6 +6359,8 @@
   <object-name>page.PERF_CRZ</object-name>
   <object-name>page.PERF_APPR</object-name>
   <object-name>page.FLT_PLN</object-name>
+  <object-name>page.ATC_REQUEST</object-name>
+  <object-name>page.ATC_CONNECT</object-name>
   <object-name>menu.config</object-name>
   <object-name>menu.data</object-name>
   <object-name>menu.sec</object-name>

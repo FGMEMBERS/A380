@@ -4,7 +4,7 @@
 
 	<path>../../../Models/FlightDeck/FrontPanel/pfd3.ac</path> 
 	<!-- texture-path>../../../Textures/Instruments</texture-path -->
-	<texture-path>../../../Textures/Panels/pfd/</texture-path>
+	<texture-path>Aircraft/A380/Textures/Panels/pfd/</texture-path>
 
 <!-- animation>
    <type>select</type>

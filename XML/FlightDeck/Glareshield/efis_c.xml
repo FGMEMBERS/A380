@@ -3,7 +3,7 @@
 <PropertyList>
 
 	<path>../../../Models/FlightDeck/Glareshield/efis_c.ac</path> 
-	<texture-path>../../../Textures/Instruments</texture-path>
+	<texture-path>Aircraft/A380/Textures/Instruments</texture-path>
 	<offsets>
 		<z-m>0.25</z-m>
 	</offsets>
@@ -260,28 +260,28 @@
      <button>0</button>
      <repeatable>false</repeatable>
      <binding>
-      <!-- command>property-adjust</command>
+      <command>property-multiply</command>
       <property>/instrumentation/nd[0]/range</property>
-      <step>1.0</step>
-      <min>1</min>
+      <factor>2.0</factor>
+      <min>5</min>
       <max>640</max>
-      <wrap>false</wrap -->
-      <command>nasal</command>
-      <script>FCU.change_radar_range(1)</script>
+      <wrap>false</wrap>
+      <!-- command>nasal</command>
+      <script>FCU.change_radar_range(1)</script -->
      </binding>
    </action>
    <action>
      <button>1</button>
      <repeatable>false</repeatable>
      <binding>
-      <!-- command>property-adjust</command>
+      <command>property-multiply</command>
       <property>/instrumentation/nd[0]/range</property>
-      <step>-1.0</step>
-      <min>1</min>
+      <factor>0.5</factor>
+      <min>5</min>
       <max>640</max>
-      <wrap>false</wrap -->
-      <command>nasal</command>
-      <script>FCU.change_radar_range(-1)</script>
+      <wrap>false</wrap>
+      <!-- command>nasal</command>
+      <script>FCU.change_radar_range(-1)</script -->
      </binding>
    </action>   
  </animation>
@@ -406,6 +406,42 @@
     <blue>0.0</blue>
     <factor-prop>instrumentation/efis[0]/inputs/taxi</factor-prop>
   </emission>
+  </animation>
+  
+  <animation>
+    <type>pick</type>
+    <object-name>LS</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>instrumentation/efis[0]/inputs/ls</property>
+	<!-- property alias="/params/efis/inputs/ls"/ -->
+      </binding>
+    </action>
+  </animation>
+  <animation>
+    <type>textranslate</type>
+    <object-name>LS.toggle</object-name>
+    <property>instrumentation/efis[0]/inputs/ls</property>
+    <!-- property alias="/params/efis/inputs/ls"/ -->
+    <factor>50</factor>
+    <axis>
+      <x>0</x>
+      <y>-1</y>
+      <z>-1</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>material</type>
+    <object-name>LS.toggle</object-name>
+    <emission>
+      <red>0.0</red>
+      <green>0.2</green>
+      <blue>0.0</blue>
+      <factor-prop>instrumentation/efis[0]/inputs/ls</factor-prop>
+      <!-- factor-prop alias="/params/efis/inputs/ls"/ -->
+    </emission>
   </animation>
  
  <animation>

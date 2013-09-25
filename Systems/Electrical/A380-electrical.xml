@@ -234,6 +234,18 @@
     <prop>/systems/electrical/outputs/landing-lights</prop>
     <rated-draw>10</rated-draw>
   </output>
+  
+  <output>
+    <name>Logo Light Power</name>
+    <prop>/systems/electrical/outputs/logo-lights</prop>
+    <rated-draw>10</rated-draw>
+  </output>
+  
+  <output>
+    <name>Wing Light Power</name>
+    <prop>/systems/electrical/outputs/wing-lights</prop>
+    <rated-draw>10</rated-draw>
+  </output>
 
   <output>
     <name>Flaps Power</name>
@@ -484,6 +496,7 @@
       <prop>controls/electric/contact/dc_left_tie</prop>
     </switch>
   </connector>
+  
   <connector>
     <input>dc_bus_left</input>
     <output>dc_bat_bus</output>
@@ -500,6 +513,7 @@
       <initial-state>off</initial-state>
     </switch>
   </connector>
+  
   <connector>
     <input>dc_bus_right</input>
     <output>dc_bat_bus</output>
@@ -626,6 +640,32 @@
     </switch>
     <switch>
       <prop>/controls/circuit-breakers/landing-lights</prop>
+      <rating-amps>10</rating-amps>
+    </switch>
+  </connector>
+  
+  <connector>
+    <input>ac_bus_1-2</input>
+    <output>Logo Light Power</output>
+    <switch>
+      <prop>/controls/switches/logo-lights</prop>
+      <initial-state>off</initial-state>
+    </switch>
+    <switch>
+      <prop>/controls/circuit-breakers/logo-lights</prop>
+      <rating-amps>10</rating-amps>
+    </switch>
+  </connector>
+  
+  <connector>
+    <input>ac_bus_1-2</input>
+    <output>Wing Light Power</output>
+    <switch>
+      <prop>/controls/switches/wing-lights</prop>
+      <initial-state>off</initial-state>
+    </switch>
+    <switch>
+      <prop>/controls/circuit-breakers/wing-lights</prop>
       <rating-amps>10</rating-amps>
     </switch>
   </connector>

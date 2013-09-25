@@ -47,22 +47,22 @@
     <logic>
         <name>Throttles At Idle</name>
          <input>
-            <!-- engine 0 -->
+            <!-- engine 1 -->
             <and>
-            <or>
-                <less-than>
-                    <property>controls/engines/engine[0]/throttle</property>
-                    <property>autopilot/autobrake/config/idle-throttle</property>
-                </less-than>
-                <property>controls/engines/engine[0]/reverser</property>
-            </or>
-           <!-- engine 1 -->    
             <or>
                 <less-than>
                     <property>controls/engines/engine[1]/throttle</property>
                     <property>autopilot/autobrake/config/idle-throttle</property>
                 </less-than>
                 <property>controls/engines/engine[1]/reverser</property>
+            </or>
+           <!-- engine 2 -->    
+            <or>
+                <less-than>
+                    <property>controls/engines/engine[2]/throttle</property>
+                    <property>autopilot/autobrake/config/idle-throttle</property>
+                </less-than>
+                <property>controls/engines/engine[2]/reverser</property>
             </or>
             </and>
         </input>
@@ -72,7 +72,7 @@
     <logic>
         <name>Airborne</name>
         <input>
-            <not><property>gear/gear/wow</property></not>
+            <not><property>gear/gear[0]/wow</property></not>
         </input>
         <output>autopilot/autobrake/airborne</output>
     </logic>
@@ -81,7 +81,8 @@
         <name>High-speed</name>
         <input>
             <greater-than>
-                <property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
+                <!-- property>instrumentation/airspeed-indicator/indicated-speed-kt</property -->
+		<property>velocities/airspeed-kt</property>
                 <value>85</value>
             </greater-than>
         </input>
@@ -115,7 +116,7 @@
         measuring pitch is tricky, so let's use nose-gear WoW instead
         -->
         <input>
-            <not><property>gear/gear[1]/wow</property></not>
+            <not><property>gear/gear[0]/wow</property></not>
         </input>
         <output>autopilot/autobrake/pitch-up-1deg</output>
     </logic>
@@ -252,10 +253,10 @@
                 <table>
                     <property>autopilot/autobrake/step</property> 
                     <entry><ind>0</ind><dep>0</dep></entry>
-                    <entry><ind>1</ind><dep>4</dep></entry>
-                    <entry><ind>2</ind><dep>5</dep></entry>
-                    <entry><ind>3</ind><dep>6</dep></entry>
-                    <entry><ind>4</ind><dep>7</dep></entry>
+                    <entry><ind>1</ind><dep>20</dep></entry>
+                    <entry><ind>2</ind><dep>30</dep></entry>
+                    <entry><ind>3</ind><dep>40</dep></entry>
+                    <entry><ind>4</ind><dep>45</dep></entry>
                 </table>
             </expression>
         </input>
@@ -281,7 +282,7 @@
                       <value>5</value>
                   </equals>
               </condition>
-              <value>11</value> <!-- the real MAX value -->
+              <value>50</value> <!-- the real MAX value -->
           </input>
         
         <input>
@@ -290,7 +291,7 @@
             </condition>
             <!-- RTO setting applies max hydraulic pressure, simulate this
               with a huge value here, to ensure the PI drives to 1.0 output -->
-            <value>50</value>
+            <value>200</value>
         </input>
     </filter>
     
@@ -309,7 +310,7 @@
         
         <config>
             <Kp>1.0</Kp>
-            <Ki>0.0</Ki>
+            <Ki>0.5</Ki>
         </config>
     </pi-simple-controller>
     
@@ -337,6 +338,7 @@
         </input>
         
         <output>autopilot/autobrake/left-brake-output</output>
+	<output>/fdm/jsbsim/fcs/left-brake-cmd-norm</output>
     </filter>
     
     <!-- right output summer -->
@@ -362,7 +364,41 @@
             <property>controls/gear/brake-right</property>
         </input>
         
+	<output>/fdm/jsbsim/fcs/right-brake-cmd-norm</output>
         <output>autopilot/autobrake/right-brake-output</output>
+    </filter>
+    
+    <!-- nose output summer -->
+    <filter>
+        <name>Nose Output Summer</name>
+        <type>gain</type>
+        <gain>1.0</gain>
+        
+        <input>
+            <condition>
+                <property>autopilot/autobrake/engaged</property>
+            </condition>
+            
+            <expression>
+                <max>
+                    <property>controls/gear/brake-left</property>
+		    <property>controls/gear/brake-right</property>
+                    <property>autopilot/autobrake/output-brake</property>
+                </max>
+            </expression>
+        </input>
+        <!-- default input -->
+        <input>
+            <expression>
+                <min>
+                    <property>controls/gear/brake-left</property>
+		    <property>controls/gear/brake-right</property>
+                </min>
+            </expression>
+        </input>
+	
+        <output>autopilot/autobrake/centre-brake-output</output>
+	<output>/fdm/jsbsim/fcs/center-brake-cmd-norm</output>
     </filter>
     
 </PropertyList>

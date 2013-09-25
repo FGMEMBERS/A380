@@ -3,7 +3,7 @@
 <PropertyList>
 
 	<path>../../../Models/FlightDeck/Overhead/overhead.3ds</path> 
-	<texture-path>../../../Textures/Common</texture-path>
+	<texture-path>Aircraft/A380/Textures/Common</texture-path>
 
 	<!-- -->
 	<!-- Center -->

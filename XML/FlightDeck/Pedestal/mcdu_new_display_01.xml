@@ -19,7 +19,7 @@
 <PropertyList>
 
 	<path>../../../Models/FlightDeck/Pedestal/mcdu_display.ac</path> 
-	<texture-path>../../../Textures/Panels/fms/</texture-path>
+	<texture-path>Aircraft/A380/Textures/Panels/fms/</texture-path>
 
 <!--  Text labels -->
 
@@ -72,6 +72,127 @@
 </text>
 
 
+ <!-- sysetm sub-menu -->
+ <animation>
+  <type>pick</type>
+  <object-name>system.menu</object-name>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>property-toggle</command>
+      <property>instrumentation/mcdu[0]/dropdown[4]/active</property>
+    </binding>
+    <binding>
+      <command>property-assign</command>
+      <property>instrumentation/mcdu[0]/dropdown[0]/active</property>
+      <value type="bool">false</value>
+    </binding>
+    <binding>
+      <command>property-assign</command>
+      <property>instrumentation/mcdu[0]/dropdown[1]/active</property>
+      <value type="bool">false</value>
+    </binding>
+    <binding>
+      <command>property-assign</command>
+      <property>instrumentation/mcdu[0]/dropdown[2]/active</property>
+      <value type="bool">false</value>
+    </binding>
+    <binding>
+      <command>property-assign</command>
+      <property>instrumentation/mcdu[0]/dropdown[3]/active</property>
+      <value type="bool">false</value>
+    </binding>
+  </action>
+</animation>
+
+ <text>
+   <name>label.system.menu</name>
+   <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+    <pitch-deg>-90</pitch-deg>
+    <x-m>-0.199</x-m>
+    <y-m>0.020</y-m>
+    <z-m>0.0025</z-m>
+  </offsets>
+  <type type="string">text-value</type>
+  <property>/instrumentation/mcdu[0]/dropdown[4]/title</property>
+  <font>helvetica_medium.txf</font>
+  <character-size type="double">0.0045</character-size>
+  <alignment>center-bottom</alignment> 
+ </text>
+
+<text>
+  <name>label.dropdown.sys.opt1</name>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+    <pitch-deg>-90</pitch-deg>
+    <x-m>-0.193</x-m>
+    <y-m>0.022</y-m>
+    <z-m>0.0025</z-m>
+  </offsets>
+  <type type="string">text-value</type>
+  <property>/instrumentation/mcdu[0]/dropdown[4]/menu/item[0]</property>
+  <font>helvetica_medium.txf</font>
+  <character-size type="double">0.0045</character-size>
+  <alignment>center-bottom</alignment>  
+</text>
+
+
+<animation>
+  <type>pick</type>
+  <object-name>dropdown.sys.opt1</object-name>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>MCDU1.changeDropdown(0,4,0)</script>
+    </binding>
+  </action>
+</animation>
+
+<text>
+  <name>label.dropdown.sys.opt2</name>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+    <pitch-deg>-90</pitch-deg>
+    <x-m>-0.1879</x-m>
+    <y-m>0.022</y-m>
+    <z-m>0.0025</z-m>
+  </offsets>
+  <type type="string">text-value</type>
+  <property>/instrumentation/mcdu[0]/dropdown[4]/menu/item[1]</property>
+  <font>helvetica_medium.txf</font>
+  <character-size type="double">0.0045</character-size>
+  <alignment>center-bottom</alignment>  
+</text>
+
+<animation>
+  <type>pick</type>
+  <object-name>dropdown.sys.opt2</object-name>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>MCDU1.changeDropdown(0,4,1)</script>
+    </binding>
+  </action>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>label.dropdown.sys.opt1</object-name>
+  <object-name>label.dropdown.sys.opt2</object-name>
+  <condition>
+    <property>/instrumentation/mcdu[0]/dropdown[4]/active</property>
+  </condition>
+</animation>
+
+
+
+
 <!--  active sub-menu -->
 
 <animation>
@@ -112,7 +233,7 @@
     <z-m>0.0011</z-m>
   </offsets>
   <type type="string">text-value</type>
-  <property>/instrumentation/mcdu[0]/dropdown[0]/menu/item[0]</property>
+  <property>/instrumentation/mcdu[0]/dropdown[0]/menu[0]/item[0]</property>
   <font>helvetica_medium.txf</font>
   <character-size type="double">0.0045</character-size>
   <alignment>center-bottom</alignment>  
@@ -142,7 +263,7 @@
     <z-m>0.0011</z-m>
   </offsets>
   <type type="string">text-value</type>
-  <property>/instrumentation/mcdu[0]/dropdown[0]/menu/item[1]</property>
+  <property>/instrumentation/mcdu[0]/dropdown[0]/menu[0]/item[1]</property>
   <font>helvetica_medium.txf</font>
   <character-size type="double">0.0045</character-size>
   <alignment>center-bottom</alignment>  
@@ -200,6 +321,104 @@
   </action>
 </animation>
 
+<text>
+  <name>label.dropdown1.opt1</name>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+    <pitch-deg>-90</pitch-deg>
+    <x-m>-0.1833</x-m>
+    <y-m>0.049</y-m>
+    <z-m>0.0025</z-m>
+  </offsets>
+  <type type="string">text-value</type>
+  <property>/instrumentation/mcdu[0]/dropdown[1]/menu[0]/item[0]</property>
+  <font>helvetica_medium.txf</font>
+  <character-size type="double">0.0045</character-size>
+  <alignment>center-bottom</alignment>  
+</text>
+
+
+<animation>
+  <type>pick</type>
+  <object-name>dropdown1.opt1</object-name>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>MCDU1.changeDropdown(0,1,0)</script>
+    </binding>
+  </action>
+</animation>
+
+<text>
+  <name>label.dropdown1.opt2</name>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+    <pitch-deg>-90</pitch-deg>
+    <x-m>-0.1782</x-m>
+    <y-m>0.049</y-m>
+    <z-m>0.0025</z-m>
+  </offsets>
+  <type type="string">text-value</type>
+  <property>/instrumentation/mcdu[0]/dropdown[1]/menu[0]/item[1]</property>
+  <font>helvetica_medium.txf</font>
+  <character-size type="double">0.0045</character-size>
+  <alignment>center-bottom</alignment>  
+</text>
+
+<animation>
+  <type>pick</type>
+  <object-name>dropdown1.opt2</object-name>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>MCDU1.changeDropdown(0,1,1)</script>
+    </binding>
+  </action>
+</animation>
+
+<text>
+  <name>label.dropdown1.opt3</name>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+    <pitch-deg>-90</pitch-deg>
+    <x-m>-0.1730</x-m>
+    <y-m>0.049</y-m>
+    <z-m>0.0025</z-m>
+  </offsets>
+  <type type="string">text-value</type>
+  <property>/instrumentation/mcdu[0]/dropdown[1]/menu[0]/item[2]</property>
+  <font>helvetica_medium.txf</font>
+  <character-size type="double">0.0045</character-size>
+  <alignment>center-bottom</alignment>  
+</text>
+
+<animation>
+  <type>pick</type>
+  <object-name>dropdown1.opt3</object-name>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>MCDU1.changeDropdown(0,1,2)</script>
+    </binding>
+  </action>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>label.dropdown1.opt1</object-name>
+  <object-name>label.dropdown1.opt2</object-name>
+  <object-name>label.dropdown1.opt3</object-name>
+  <condition>
+    <property>/instrumentation/mcdu[0]/dropdown[1]/active</property>
+  </condition>
+</animation>
+
 
 <!--  secondary sub-menu -->
 
@@ -241,7 +460,7 @@
     <z-m>0.0012</z-m>
   </offsets>
   <type type="string">text-value</type>
-  <property>/instrumentation/mcdu[0]/dropdown[2]/menu/item[0]</property>
+  <property>/instrumentation/mcdu[0]/dropdown[2]/menu[0]/item[0]</property>
   <font>helvetica_medium.txf</font>
   <character-size type="double">0.0045</character-size>
   <alignment>center-bottom</alignment>  
@@ -269,7 +488,7 @@
     <z-m>0.0012</z-m>
   </offsets>
   <type type="string">text-value</type>
-  <property>/instrumentation/mcdu[0]/dropdown[2]/menu/item[1]</property>
+  <property>/instrumentation/mcdu[0]/dropdown[2]/menu[0]/item[1]</property>
   <font>helvetica_medium.txf</font>
   <character-size type="double">0.0045</character-size>
   <alignment>center-bottom</alignment>  
@@ -297,7 +516,7 @@
     <z-m>0.0012</z-m>
   </offsets>
   <type type="string">text-value</type>
-  <property>/instrumentation/mcdu[0]/dropdown[2]/menu/item[2]</property>
+  <property>/instrumentation/mcdu[0]/dropdown[2]/menu[0]/item[2]</property>
   <font>helvetica_medium.txf</font>
   <character-size type="double">0.0045</character-size>
   <alignment>center-bottom</alignment>  
@@ -1189,6 +1408,8 @@
 
 
 <!--   input fields -->
+
+
 
 <!--  active.init fields -->
 
@@ -2758,15 +2979,442 @@
 </animation>
 
 
+ <!-- active.to_perf.appr  values -->
+ 
+ <text>
+  <name>value.appr_perf.Vls</name>
+  <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.073</x-m>
+      <y-m>0.115</y-m>
+      <z-m>0.0008</z-m>
+    </offsets>
+    <type type="string">number-value</type>
+    <property type="string">/instrumentation/afs/Vls</property>
+    <format>%3.0f</format>
+    <!-- truncate type="bool">true</truncate -->
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.0048</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+ <text>
+  <name>value.appr_perf.Vref</name>
+  <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.108</x-m>
+      <y-m>0.114</y-m>
+      <z-m>0.0008</z-m>
+    </offsets>
+    <type type="string">number-value</type>
+    <property type="string">/instrumentation/afs/Vref</property>
+    <format>%3.0f</format>
+    <!-- truncate type="bool">true</truncate -->
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.0048</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+ 
+ <text>
+   <name>value.appr_perf.appr_wind_deg</name>
+   <axis-alignment>yz-plane</axis-alignment>
+   <offsets>
+     <pitch-deg>-90</pitch-deg>
+     <x-m>-0.136</x-m>
+     <y-m>0.057</y-m>
+     <z-m>0.0008</z-m>
+   </offsets>
+   <type type="string">number-value</type>
+   <property>instrumentation/afs/appr_wind_deg</property>
+   <format>%1.0f</format>
+   <truncate type="bool">true</truncate>
+   <font>helvetica_medium.txf</font>
+   <character-size type="double">0.005</character-size>
+   <alignment>right-bottom</alignment>
+ </text>
+ 
+ 
+ <text>
+   <name>value.appr_perf.appr_wind_kts</name>
+   <axis-alignment>yz-plane</axis-alignment>
+   <offsets>
+     <pitch-deg>-90</pitch-deg>
+     <x-m>-0.136</x-m>
+     <y-m>0.077</y-m>
+     <z-m>0.0008</z-m>
+   </offsets>
+   <type type="string">number-value</type>
+   <property>instrumentation/afs/appr_wind_kts</property>
+   <format>%1.0f</format>
+   <truncate type="bool">true</truncate>
+   <font>helvetica_medium.txf</font>
+   <character-size type="double">0.005</character-size>
+   <alignment>right-bottom</alignment>
+ </text>
+ 
+ <text>
+   <name>value.appr_perf.appr_oat</name>
+   <axis-alignment>yz-plane</axis-alignment>
+   <offsets>
+     <pitch-deg>-90</pitch-deg>
+     <x-m>-0.113</x-m>
+     <y-m>0.064</y-m>
+     <z-m>0.0008</z-m>
+   </offsets>
+   <type type="string">number-value</type>
+   <property>instrumentation/afs/appr_oat</property>
+   <format>%1.0f</format>
+   <truncate type="bool">true</truncate>
+   <font>helvetica_medium.txf</font>
+   <character-size type="double">0.005</character-size>
+   <alignment>right-bottom</alignment>
+ </text>
+
+
+ <!--  ATC pages -->
+ 
+ <!-- ATC logon -->
+ 
+ <animation>
+  <type>pick</type>
+  <object-name>field.atc-logon.icao</object-name>
+    <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU1.selectField("ATC_logon_icao")</script>
+   </binding>
+  </action>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>button.atc-logon.send</object-name>
+    <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU1.atcSend("logon")</script>
+   </binding>
+  </action>
+ </animation>
+
+ <text>
+   <name>value.atc-logon.icao</name>
+   <axis-alignment>yz-plane</axis-alignment>
+   <offsets>
+     <pitch-deg>-90</pitch-deg>
+     <x-m>-0.134</x-m>
+     <y-m>0.07</y-m>
+     <z-m>0.0008</z-m>
+   </offsets>
+   <type type="string">text-value</type>
+   <property>instrumentation/afs/ATC_logon_icao</property>
+   <truncate type="bool">true</truncate>
+   <font>helvetica_medium.txf</font>
+   <character-size type="double">0.005</character-size>
+   <alignment>right-bottom</alignment>
+ </text>
+ 
+ 
+ <animation>
+  <type>pick</type>
+  <object-name>field.atc-logon.airline</object-name>
+    <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU1.selectField("ATC_logon_airline")</script>
+   </binding>
+  </action>
+</animation>
+
+ <text>
+   <name>value.atc-logon.airline</name>
+   <axis-alignment>yz-plane</axis-alignment>
+   <offsets>
+     <pitch-deg>-90</pitch-deg>
+     <x-m>-0.1217</x-m>
+     <y-m>0.07</y-m>
+     <z-m>0.0008</z-m>
+   </offsets>
+   <type type="string">text-value</type>
+   <property>instrumentation/afs/ATC_logon_airline</property>
+   <truncate type="bool">true</truncate>
+   <font>helvetica_medium.txf</font>
+   <character-size type="double">0.005</character-size>
+   <alignment>right-bottom</alignment>
+ </text>
+ 
+ 
+ <animation>
+  <type>pick</type>
+  <object-name>field.atc-logon.username</object-name>
+    <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU1.selectField("ATC_logon_username")</script>
+   </binding>
+  </action>
+</animation>
+
+ <text>
+   <name>value.atc-logon.username</name>
+   <axis-alignment>yz-plane</axis-alignment>
+   <offsets>
+     <pitch-deg>-90</pitch-deg>
+     <x-m>-0.110</x-m>
+     <y-m>0.07</y-m>
+     <z-m>0.0008</z-m>
+   </offsets>
+   <type type="string">text-value</type>
+   <property>instrumentation/afs/ATC_logon_username</property>
+   <truncate type="bool">true</truncate>
+   <font>helvetica_medium.txf</font>
+   <character-size type="double">0.005</character-size>
+   <alignment>right-bottom</alignment>
+ </text>
+
+ 
+ <animation>
+  <type>pick</type>
+  <object-name>field.atc-logon.acft-type</object-name>
+    <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU1.selectField("ATC_logon_acft-type")</script>
+   </binding>
+  </action>
+</animation>
+
+ <text>
+   <name>value.atc-logon.acft-type</name>
+   <axis-alignment>yz-plane</axis-alignment>
+   <offsets>
+     <pitch-deg>-90</pitch-deg>
+     <x-m>-0.0982</x-m>
+     <y-m>0.07</y-m>
+     <z-m>0.0008</z-m>
+   </offsets>
+   <type type="string">text-value</type>
+   <property>instrumentation/afs/ATC_logon_acft-type</property>
+   <truncate type="bool">true</truncate>
+   <font>helvetica_medium.txf</font>
+   <character-size type="double">0.005</character-size>
+   <alignment>right-bottom</alignment>
+ </text>
+ 
+ <text>
+   <name>label.atc-logon.send</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.019</x-m>
+      <y-m>0.098</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text>SEND</text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+
+ <!--  ATC logoff -->
+ 
+ <animation>
+  <type>pick</type>
+  <object-name>button.atc-logoff.send</object-name>
+    <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU1.atcSend("logoff")</script>
+   </binding>
+  </action>
+ </animation>
+ 
+  <text>
+   <name>label.atc-logoff.send</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.019</x-m>
+      <y-m>0.098</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text>SEND</text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+ 
+ 
+
+ <!-- ATC departure request -->
+ 
+ 
+<animation>
+  <type>pick</type>
+  <object-name>field.atc-dep.depart</object-name>
+    <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU1.selectField("FROM")</script>
+   </binding>
+  </action>
+</animation>
+<text>
+   <name>value.atc-depart.departure</name>
+   <axis-alignment>yz-plane</axis-alignment>
+   <offsets>
+     <pitch-deg>-90</pitch-deg>
+     <x-m>-0.1267</x-m>
+     <y-m>0.08</y-m>
+     <z-m>0.0008</z-m>
+   </offsets>
+   <type type="string">text-value</type>
+   <property>instrumentation/afs/FROM</property>
+   <truncate type="bool">true</truncate>
+   <font>helvetica_medium.txf</font>
+   <character-size type="double">0.005</character-size>
+   <alignment>right-bottom</alignment>
+ </text>
+
+
+<animation>
+  <type>pick</type>
+  <object-name>field.atc-dep.arrival</object-name>
+    <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU1.selectField("TO")</script>
+   </binding>
+  </action>
+</animation>
+<text>
+   <name>value.atc-depart.arrival</name>
+   <axis-alignment>yz-plane</axis-alignment>
+   <offsets>
+     <pitch-deg>-90</pitch-deg>
+     <x-m>-0.111</x-m>
+     <y-m>0.08</y-m>
+     <z-m>0.0008</z-m>
+   </offsets>
+   <type type="string">text-value</type>
+   <property>instrumentation/afs/TO</property>
+   <truncate type="bool">true</truncate>
+   <font>helvetica_medium.txf</font>
+   <character-size type="double">0.005</character-size>
+   <alignment>right-bottom</alignment>
+ </text>
+
+
+<animation>
+  <type>pick</type>
+  <object-name>field.atc-dep.atis-code</object-name>
+    <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU1.selectField("ATC_depart_atis")</script>
+   </binding>
+  </action>
+</animation>
+<text>
+   <name>value.atc-depart.atis</name>
+   <axis-alignment>yz-plane</axis-alignment>
+   <offsets>
+     <pitch-deg>-90</pitch-deg>
+     <x-m>-0.100</x-m>
+     <y-m>0.08</y-m>
+     <z-m>0.0008</z-m>
+   </offsets>
+   <type type="string">text-value</type>
+   <property>instrumentation/afs/ATC_depart_atis</property>
+   <truncate type="bool">true</truncate>
+   <font>helvetica_medium.txf</font>
+   <character-size type="double">0.005</character-size>
+   <alignment>right-bottom</alignment>
+ </text>
+
+
+<animation>
+  <type>pick</type>
+  <object-name>field.atc-dep.gate</object-name>
+    <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU1.selectField("ATC_depart_gate")</script>
+   </binding>
+  </action>
+</animation>
+<text>
+   <name>value.atc-depart.gate</name>
+   <axis-alignment>yz-plane</axis-alignment>
+   <offsets>
+     <pitch-deg>-90</pitch-deg>
+     <x-m>-0.0912</x-m>
+     <y-m>0.08</y-m>
+     <z-m>0.0008</z-m>
+   </offsets>
+   <type type="string">text-value</type>
+   <property>instrumentation/afs/ATC_depart_gate</property>
+   <truncate type="bool">true</truncate>
+   <font>helvetica_medium.txf</font>
+   <character-size type="double">0.005</character-size>
+   <alignment>right-bottom</alignment>
+ </text>
 
 
 
-
-
-
-
-
-
+ <animation>
+  <type>pick</type>
+  <object-name>button.atc-depart.send</object-name>
+    <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+      <command>nasal</command>
+      <script>MCDU1.atcSend("departClear")</script>
+   </binding>
+  </action>
+ </animation>
+ 
+ <text>
+   <name>label.atc-depart.send</name>
+   <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.019</x-m>
+      <y-m>0.098</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text>SEND</text>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>left-bottom</alignment>
+</text>
 
 
   
@@ -2776,12 +3424,18 @@
     <object-name>label.active</object-name>
     <object-name>label.dropdown0.opt1</object-name>
     <object-name>label.dropdown0.opt2</object-name>
+    <object-name>label.dropdown0.opt3</object-name>
+    <object-name>label.dropdown1.opt1</object-name>
+    <object-name>label.dropdown1.opt2</object-name>
+    <object-name>label.dropdown1.opt3</object-name>
     <object-name>label.dropdown2.opt1</object-name>
     <object-name>label.dropdown2.opt2</object-name>
     <object-name>label.dropdown2.opt3</object-name>
     <object-name>label.position</object-name>
     <object-name>label.sec</object-name>
     <object-name>label.data</object-name>
+    <object-name>label.dropdown.sys.opt1</object-name>
+    <object-name>label.dropdown.sys.opt2</object-name>
     <object-name>label.FLT_NBR</object-name>
     <object-name>label.FROM</object-name>
     <object-name>label.TO</object-name>
@@ -2869,6 +3523,8 @@
     <object-name>label.menu.des</object-name>
     <object-name>label.menu.appr</object-name>
     <object-name>label.menu.ga</object-name>
+    <object-name>label.atc-logon.send</object-name>
+    <object-name>label.atc-depart.send</object-name>
     <emission>
       <red>0.9</red>
       <green>0.9</green>
@@ -2897,6 +3553,15 @@
     <object-name>value.to_perf.s-speed</object-name>
     <object-name>value.to_perf.f-speed</object-name>
     <object-name>value.to_perf.to_flaps</object-name>
+    <object-name>label.system.menu</object-name>
+    <object-name>value.atc-logon.icao</object-name>
+    <object-name>value.atc-logon.airline</object-name>
+    <object-name>value.atc-logon.username</object-name>
+    <object-name>value.atc-logon.acft-type</object-name>
+    <object-name>value.atc-depart.departure</object-name>
+    <object-name>value.atc-depart.arrival</object-name>
+    <object-name>value.atc-depart.atis</object-name>
+    <object-name>value.atc-depart.gate</object-name>
     <ambient>
       <red>0.0</red>
       <green>0.0</green>
@@ -2927,6 +3592,11 @@
     <object-name>value.to_perf.crz_mach</object-name>
     <object-name>value.to_perf.lrc_mach</object-name>
     <object-name>value.to_perf.turb_mach</object-name>
+    <object-name>value.appr_perf.Vls</object-name>
+    <object-name>value.appr_perf.Vref</object-name>
+    <object-name>value.appr_perf.appr_wind_deg</object-name>
+    <object-name>value.appr_perf.appr_wind_kts</object-name>
+    <object-name>value.appr_perf.appr_oat</object-name>
     <ambient>
       <red>0.1</red>
       <green>0.8</green>
@@ -3172,10 +3842,63 @@
 <animation>
   <type>select</type>
   <object-name>page.PERF_APPR</object-name>
+  <object-name>value.appr_perf.Vls</object-name>
+  <object-name>value.appr_perf.Vref</object-name>
+  <object-name>value.appr_perf.appr_wind_deg</object-name>
+  <object-name>value.appr_perf.appr_wind_kts</object-name>
+  <object-name>value.appr_perf.appr_oat</object-name>
   <condition>
     <equals>
       <property>/instrumentation/mcdu[0]/page</property>
       <value>active.appr_perf</value>
+    </equals>
+  </condition>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>page.ATC_CONNECT_LOGON</object-name>
+  <object-name>value.atc-logon.icao</object-name>
+  <object-name>value.atc-logon.airline</object-name>
+  <object-name>value.atc-logon.username</object-name>
+  <object-name>value.atc-logon.acft-type</object-name>
+  <object-name>button.atc-logon.send</object-name>
+  <object-name>label.atc-logon.send</object-name>
+  <condition>
+    <equals>
+      <property>/instrumentation/mcdu[0]/page</property>
+      <value>atc.connect.logon</value>
+    </equals>
+  </condition>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>page.ATC_CONNECT_LOGOFF</object-name>
+  <object-name>button.atc-logoff.send</object-name>
+  <object-name>label.atc-logoff.send</object-name>
+  <condition>
+    <equals>
+      <property>/instrumentation/mcdu[0]/page</property>
+      <value>atc.connect.logoff</value>
+    </equals>
+  </condition>
+</animation>
+
+
+<animation>
+  <type>select</type>
+  <object-name>page.ATC_REQUEST_DEPART</object-name>
+  <object-name>button.atc-depart.send</object-name>
+  <object-name>label.atc-depart.send</object-name>
+  <object-name>value.atc-depart.departure</object-name>
+  <object-name>value.atc-depart.arrival</object-name>
+  <object-name>value.atc-depart.atis</object-name>
+  <object-name>value.atc-depart.gate</object-name>
+  <condition>
+    <equals>
+      <property>/instrumentation/mcdu[0]/page</property>
+      <value>atc.request.departure</value>
     </equals>
   </condition>
 </animation>
@@ -5225,6 +5948,20 @@
   <transparency><alpha>0.7</alpha></transparency>
 </animation>
 
+ <!-- can not use properties to name the object
+ <animation>
+   <type>material</type>
+   <object-name-prop>instrumentation/afs/current-field</object-name-prop>
+   <emission>
+     <red>0.8</red>
+     <green>0.8</green>
+     <blue>0.8</blue>
+   </emission>
+   <transparency>
+     <alpha>0.4</alpha>
+   </transparency>
+ </animation -->
+
 <animation>
   <type>select</type>
   <object-name>page.perf</object-name>
@@ -5509,6 +6246,14 @@
 
 <animation>
   <type>select</type>
+  <object-name>dropdown.menu.sysmenu</object-name>
+  <condition>
+    <property>/instrumentation/mcdu[0]/dropdown[4]/active</property>
+  </condition>
+</animation>
+
+<animation>
+  <type>select</type>
   <object-name>dropdown.menu.active</object-name>
   <condition>
     <property>/instrumentation/mcdu[0]/dropdown[0]/active</property>
@@ -5548,6 +6293,8 @@
   <object-name>page.PERF_CRZ</object-name>
   <object-name>page.PERF_APPR</object-name>
   <object-name>page.FLT_PLN</object-name>
+  <object-name>page.ATC_REQUEST</object-name>
+  <object-name>page.ATC_CONNECT</object-name>
   <object-name>menu.config</object-name>
   <object-name>menu.data</object-name>
   <object-name>menu.sec</object-name>
@@ -5562,6 +6309,10 @@
   <object-name>label.sec</object-name>
   <object-name>label.dropdown0.opt1</object-name>
   <object-name>label.dropdown0.opt2</object-name>
+  <object-name>label.dropdown0.opt3</object-name>
+  <object-name>label.dropdown1.opt1</object-name>
+  <object-name>label.dropdown1.opt2</object-name>
+  <object-name>label.dropdown1.opt3</object-name>
   <object-name>label.dropdown2.opt1</object-name>
   <object-name>label.dropdown2.opt2</object-name>
   <object-name>label.dropdown2.opt3</object-name>

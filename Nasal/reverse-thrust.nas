@@ -15,7 +15,7 @@ togglereverser = func {
     setprop(r2,"reverser-angle-rad","180");
     setprop(r3,"reverser", "true");
     setprop(r4,"reverser", "true");
-    setprop(r5,"engine", "false");
+    setprop(r5,"engine[0]", "false");
     setprop(r5,"engine[1]", "true");
     setprop(r5,"engine[2]", "true");
     setprop(r5,"engine[3]", "false");
@@ -27,7 +27,7 @@ togglereverser = func {
       setprop(r2,"reverser-angle-rad",0);
       setprop(r3,"reverser",0);
       setprop(r4,"reverser",0);
-      setprop(r5,"engine", "true");
+      setprop(r5,"engine[0]", "true");
       setprop(r5,"engine[1]", "true");
       setprop(r5,"engine[2]", "true");
       setprop(r5,"engine[3]", "true");

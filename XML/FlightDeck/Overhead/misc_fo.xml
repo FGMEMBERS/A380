@@ -3,7 +3,7 @@
 <PropertyList>
 
 	<path>../../../Models/FlightDeck/Overhead/misc_fo.ac</path> 
-	<texture-path>../../../Textures/Instruments</texture-path>
+	<texture-path>Aircraft/A380/Textures/Instruments</texture-path>
 	
 	<!-- Load the guards (red) for the buttons. -->
 	<model>

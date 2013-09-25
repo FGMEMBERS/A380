@@ -2,8 +2,8 @@
 
 <PropertyList>
 
-	<path>../../../Models/FlightDeck/Pedestal/pedestal.3ds</path> 
-	<texture-path>../../../Textures/Common</texture-path>
+	<path>../../../Models/FlightDeck/Pedestal/pedestal.ac</path> 
+	<texture-path>Aircraft/A380/Textures/Common</texture-path>
 	<offsets>
 		<x-m>0.220</x-m>
 		<y-m>-0.25713</y-m>

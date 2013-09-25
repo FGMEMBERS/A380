@@ -14,7 +14,7 @@
 	
 	<!-- path>../../../Models/FlightDeck/Pedestal/ecam/sdisplay.ac</path -->
 	<path>../../../Textures/Panels/ecam/sdisplay.ac</path>
-	<texture-path>../../../Textures/Panels/ecam</texture-path>
+	<texture-path>Aircraft/A380/Textures/Panels/ecam</texture-path>
 
 
 
@@ -2811,6 +2811,138 @@
     <font>schoolbook_bold.txf</font>
     <character-size type="double">0.003</character-size>
   </text -->
+  
+  
+  <!--   The ATC Mailbox area -->
+  <text>
+    <name>mailbox00</name>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.048</x-m>
+      <y-m>0.065</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">text-value</type>
+    <property type="string">/instrumentation/atn/mailbox/line[0]</property>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+<text>
+    <name>mailbox01</name>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.042</x-m>
+      <y-m>0.065</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">text-value</type>
+    <property type="string">/instrumentation/atn/mailbox/line[1]</property>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+<text>
+    <name>mailbox02</name>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+      <pitch-deg>-90</pitch-deg>
+      <x-m>-0.036</x-m>
+      <y-m>0.065</y-m>
+      <z-m>0.002</z-m>
+    </offsets>
+    <type type="string">text-value</type>
+    <property type="string">/instrumentation/atn/mailbox/line[2]</property>
+    <font>helvetica_medium.txf</font>
+    <character-size type="double">0.005</character-size>
+    <alignment>left-bottom</alignment>
+</text>
+
+
+
+  <animation>
+    <type>material</type>
+    <object-name>mailbox00</object-name>
+    <ambient>
+      <red-prop>/instrumentation/atn/mailbox/red[0]</red-prop>
+      <green-prop>/instrumentation/atn/mailbox/green[0]</green-prop>
+      <blue-prop>/instrumentation/atn/mailbox/blue[0]</blue-prop>
+    </ambient>
+    <emission>
+      <red-prop>/instrumentation/atn/mailbox/red[0]</red-prop>
+      <green-prop>/instrumentation/atn/mailbox/green[0]</green-prop>
+      <blue-prop>/instrumentation/atn/mailbox/blue[0]</blue-prop>
+    </emission>
+    <diffuse>
+      <red-prop>/instrumentation/atn/mailbox/red[0]</red-prop>
+      <green-prop>/instrumentation/atn/mailbox/green[0]</green-prop>
+      <blue-prop>/instrumentation/atn/mailbox/blue[0]</blue-prop>
+    </diffuse>
+    <specular>
+      <red>0.0</red>
+      <green>0.0</green>
+      <blue>0.0</blue>
+    </specular>
+    <shininess>0.0</shininess>
+    <transparency><alpha>0.7</alpha></transparency>
+  </animation>
+  <animation>
+    <type>material</type>
+    <object-name>mailbox01</object-name>
+    <ambient>
+      <red-prop>/instrumentation/atn/mailbox/red[1]</red-prop>
+      <green-prop>/instrumentation/atn/mailbox/green[1]</green-prop>
+      <blue-prop>/instrumentation/atn/mailbox/blue[1]</blue-prop>
+    </ambient>
+    <emission>
+      <red-prop>/instrumentation/atn/mailbox/red[1]</red-prop>
+      <green-prop>/instrumentation/atn/mailbox/green[1]</green-prop>
+      <blue-prop>/instrumentation/atn/mailbox/blue[1]</blue-prop>
+    </emission>
+    <diffuse>
+      <red-prop>/instrumentation/atn/mailbox/red[1]</red-prop>
+      <green-prop>/instrumentation/atn/mailbox/green[1]</green-prop>
+      <blue-prop>/instrumentation/atn/mailbox/blue[1]</blue-prop>
+    </diffuse>
+    <specular>
+      <red>0.0</red>
+      <green>0.0</green>
+      <blue>0.0</blue>
+    </specular>
+    <shininess>0.0</shininess>
+    <transparency><alpha>0.7</alpha></transparency>
+  </animation>
+  <animation>
+    <type>material</type>
+    <object-name>mailbox02</object-name>
+    <ambient>
+      <red-prop>/instrumentation/atn/mailbox/red[2]</red-prop>
+      <green-prop>/instrumentation/atn/mailbox/green[2]</green-prop>
+      <blue-prop>/instrumentation/atn/mailbox/blue[2]</blue-prop>
+    </ambient>
+    <emission>
+      <red-prop>/instrumentation/atn/mailbox/red[2]</red-prop>
+      <green-prop>/instrumentation/atn/mailbox/green[2]</green-prop>
+      <blue-prop>/instrumentation/atn/mailbox/blue[2]</blue-prop>
+    </emission>
+    <diffuse>
+      <red-prop>/instrumentation/atn/mailbox/red[2]</red-prop>
+      <green-prop>/instrumentation/atn/mailbox/green[2]</green-prop>
+      <blue-prop>/instrumentation/atn/mailbox/blue[2]</blue-prop>
+    </diffuse>
+    <specular>
+      <red>0.0</red>
+      <green>0.0</green>
+      <blue>0.0</blue>
+    </specular>
+    <shininess>0.0</shininess>
+    <transparency><alpha>0.7</alpha></transparency>
+  </animation>
+
+
 
 
 <animation>

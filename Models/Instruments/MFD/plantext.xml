@@ -5,6 +5,13 @@
     <name>PLANtext</name>
     <w-base>256</w-base>
     <h-base>256</h-base>
+    <params>
+      <inputs>
+        <lh-vor-adf>instrumentation/efis[0]/inputs/vor-adf-1</lh-vor-adf>
+        <rh-vor-adf>instrumentation/efis[0]/inputs/vor-adf-2</rh-vor-adf>
+      </inputs>
+      <nd-range>instrumentation/nd[0]/range</nd-range>
+    </params>
 
     <layers>
 
@@ -224,6 +231,36 @@
                 <transformation>
                     <type>y-shift</type>
                     <offset>100</offset>
+                </transformation>
+            </transformations>
+        </layer>
+	
+	
+	        <layer>
+            <name>WXR range</name>
+            <type>text</type>
+            <font>arial_black</font>
+            <point-size>8</point-size>
+            <color>
+                <red>0.8</red>
+                <green>0.8</green>
+                <blue>0.8</blue>
+            </color>
+            <chunks>
+                <chunk>
+                    <type>number-value</type>
+		    <property alias="/params/nd-range"/>
+                    <format>%3.0f</format>
+                </chunk>
+            </chunks>
+            <transformations>
+                <transformation>
+                    <type>x-shift</type>
+                    <offset>-30</offset>
+                </transformation>
+                <transformation>
+                    <type>y-shift</type>
+                    <offset>15</offset>
                 </transformation>
             </transformations>
         </layer>

@@ -75,7 +75,7 @@ var TextRegion = {
    },
 
    #
-   # called reset when you are done writing to the region
+   # call reset when you are done writing to the region
    # it will reset the pointer so next frame you start writing from the top again
    #
    reset : func() {

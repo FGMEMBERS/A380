@@ -9,8 +9,8 @@
 
 <PropertyList>
 
-	<path>../../../Models/FlightDeck/Pedestal/displayFrame.3ds</path> 
-	<texture-path>../../../Textures/Common</texture-path>
+	<path>../../../Models/FlightDeck/Pedestal/displayFrame.ac</path> 
+	<texture-path>Aircraft/A380/Textures/Common</texture-path>
 	
 	<model>
 		<name>cdu1</name>
@@ -28,7 +28,7 @@
 		<offsets>
 			<x-m>-0.03</x-m>
 			<y-m>-0.08</y-m>
-			<z-m>-0.0075</z-m>
+			<z-m>-0.002</z-m>
 		</offsets>
 	</model>
 		

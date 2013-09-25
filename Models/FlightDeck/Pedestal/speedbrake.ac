@@ -1,8 +1,7 @@
 AC3Db
-MATERIAL "DefaultWhite" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0.5 0.5 0.5  shi 64  trans 0
-MATERIAL "1 - Default" rgb 0.12549 0.188235 0.188235 amb 0.5 0.5 0.5 emis 0 0 0 spec 0 0 0 shi 32 trans 0
-MATERIAL "14 - Default" rgb 0.501961 0.501961 0.501961 amb 0.5 0.5 0.5 emis 0 0 0 spec 0.501961 0.501961 0.501961 shi 32 trans 0
-MATERIAL "13 - Default" rgb 0.062745 0.062745 0.062745 amb 0.5 0.5 0.5 emis 0 0 0 spec 0.501961 0.501961 0.501961 shi 32 trans 0
+MATERIAL "1 - Default" rgb 0.125 0.188 0.188  amb 0.627 0.69 0.69  emis 0 0 0  spec 0 0 0  shi 32  trans 0
+MATERIAL "14 - Default" rgb 0.501961 0.501961 0.501961  amb 0.5 0.5 0.5  emis 0 0 0  spec 0.501961 0.501961 0.501961  shi 32  trans 0
+MATERIAL "13 - Default" rgb 0.062745 0.062745 0.062745  amb 0.5 0.5 0.5  emis 0 0 0  spec 0.501961 0.501961 0.501961  shi 32  trans 0
 OBJECT world
 kids 4
 OBJECT poly
@@ -27,85 +26,85 @@ numvert 14
 0.081694 0.001 -0.10561
 numsurf 14
 SURF 0x20
-mat 1
+mat 0
 refs 3
 0 0 0
 1 0 0
 2 0 0
 SURF 0x20
-mat 1
+mat 0
 refs 3
 0 0 0
 3 0 0
 4 0 0
 SURF 0x20
-mat 1
+mat 0
 refs 3
 3 0 0
 0 0 0
 5 0 0
 SURF 0x20
-mat 1
+mat 0
 refs 3
 6 0 0
 7 0 0
 5 0 0
 SURF 0x20
-mat 1
+mat 0
 refs 3
 2 0 0
 8 0 0
 6 0 0
 SURF 0x20
-mat 1
+mat 0
 refs 3
 1 0 0
 0 0 0
 4 0 0
 SURF 0x20
-mat 1
+mat 0
 refs 3
 1 0 0
 9 0 0
 2 0 0
 SURF 0x20
-mat 1
+mat 0
 refs 3
 9 0 0
 8 0 0
 2 0 0
 SURF 0x20
-mat 1
+mat 0
 refs 3
 8 0 0
 10 0 0
 6 0 0
 SURF 0x20
-mat 1
+mat 0
 refs 3
 10 0 0
 11 0 0
 6 0 0
 SURF 0x20
-mat 1
+mat 0
 refs 3
 11 0 0
 7 0 0
 6 0 0
 SURF 0x20
-mat 1
+mat 0
 refs 3
 7 0 0
 12 0 0
 5 0 0
 SURF 0x20
-mat 1
+mat 0
 refs 3
 12 0 0
 13 0 0
 5 0 0
 SURF 0x20
-mat 1
+mat 0
 refs 3
 13 0 0
 3 0 0
@@ -169,273 +168,273 @@ numvert 50
 0.050803 -0.055237 -0.108175
 numsurf 40
 SURF 0x20
-mat 3
+mat 2
 refs 4
 0 0 0
 1 0 0
 2 0 0
 3 0 0
 SURF 0x20
-mat 3
+mat 2
 refs 4
 1 0 0
 0 0 0
 4 0 0
 5 0 0
 SURF 0x20
-mat 3
+mat 2
 refs 4
 6 0 0
 7 0 0
 5 0 0
 4 0 0
 SURF 0x20
-mat 3
+mat 2
 refs 4
 8 0 0
 9 0 0
 7 0 0
 6 0 0
 SURF 0x20
-mat 3
+mat 2
 refs 4
 10 0 0
 11 0 0
 9 0 0
 8 0 0
 SURF 0x20
-mat 3
+mat 2
 refs 4
 12 0 0
 13 0 0
 11 0 0
 10 0 0
 SURF 0x20
-mat 3
+mat 2
 refs 4
 14 0 0
 15 0 0
 13 0 0
 12 0 0
 SURF 0x20
-mat 3
+mat 2
 refs 4
 3 0 0
 2 0 0
 15 0 0
 14 0 0
 SURF 0x20
-mat 3
+mat 2
 refs 4
 1 0 0
 16 0 0
 17 0 0
 2 0 0
 SURF 0x20
-mat 3
+mat 2
 refs 4
 5 0 0
 18 0 0
 16 0 0
 1 0 0
 SURF 0x20
-mat 3
+mat 2
 refs 4
 7 0 0
 19 0 0
 18 0 0
 5 0 0
 SURF 0x20
-mat 3
+mat 2
 refs 4
 9 0 0
 20 0 0
 19 0 0
 7 0 0
 SURF 0x20
-mat 3
+mat 2
 refs 4
 11 0 0
 21 0 0
 20 0 0
 9 0 0
 SURF 0x20
-mat 3
+mat 2
 refs 4
 13 0 0
 22 0 0
 21 0 0
 11 0 0
 SURF 0x20
-mat 3
+mat 2
 refs 4
 15 0 0
 23 0 0
 22 0 0
 13 0 0
 SURF 0x20
-mat 3
+mat 2
 refs 4
 2 0 0
 17 0 0
 23 0 0
 15 0 0
 SURF 0x20
-mat 3
+mat 2
 refs 4
 28 0 0
 33 0 0
 21 0 0
 29 0 0
 SURF 0x20
-mat 3
+mat 2
 refs 4
 28 0 0
 34 0 0
 19 0 0
 33 0 0
 SURF 0x20
-mat 3
+mat 2
 refs 4
 18 0 0
 35 0 0
 36 0 0
 37 0 0
 SURF 0x20
-mat 3
+mat 2
 refs 4
 19 0 0
 34 0 0
 35 0 0
 18 0 0
 SURF 0x20
-mat 3
+mat 2
 refs 4
 21 0 0
 38 0 0
 39 0 0
 29 0 0
 SURF 0x20
-mat 3
+mat 2
 refs 4
 23 0 0
 40 0 0
 39 0 0
 38 0 0
 SURF 0x20
-mat 3
+mat 2
 refs 4
 17 0 0
 41 0 0
 40 0 0
 23 0 0
 SURF 0x20
-mat 3
+mat 2
 refs 4
 37 0 0
 36 0 0
 41 0 0
 17 0 0
 SURF 0x20
-mat 2
+mat 1
 refs 4
 0 0 0
 42 0 0
 43 0 0
 4 0 0
 SURF 0x20
-mat 2
+mat 1
 refs 4
 4 0 0
 43 0 0
 44 0 0
 6 0 0
 SURF 0x20
-mat 2
+mat 1
 refs 4
 6 0 0
 44 0 0
 45 0 0
 8 0 0
 SURF 0x20
-mat 2
+mat 1
 refs 4
 8 0 0
 45 0 0
 46 0 0
 10 0 0
 SURF 0x20
-mat 2
+mat 1
 refs 4
 10 0 0
 46 0 0
 47 0 0
 12 0 0
 SURF 0x20
-mat 2
+mat 1
 refs 4
 12 0 0
 47 0 0
 48 0 0
 14 0 0
 SURF 0x20
-mat 2
+mat 1
 refs 4
 14 0 0
 48 0 0
 49 0 0
 3 0 0
 SURF 0x20
-mat 2
+mat 1
 refs 4
 42 0 0
 0 0 0
 3 0 0
 49 0 0
 SURF 0x20
-mat 3
+mat 2
 refs 3
 31 0 0
 32 0 0
 25 0 0
 SURF 0x20
-mat 3
+mat 2
 refs 3
 31 0 0
 25 0 0
 24 0 0
 SURF 0x20
-mat 3
+mat 2
 refs 3
 31 0 0
 24 0 0
 29 0 0
 SURF 0x20
-mat 3
+mat 2
 refs 3
 30 0 0
 31 0 0
 29 0 0
 SURF 0x20
-mat 3
+mat 2
 refs 3
 24 0 0
 25 0 0
 26 0 0
 SURF 0x20
-mat 3
+mat 2
 refs 3
 29 0 0
 24 0 0
 27 0 0
 SURF 0x20
-mat 3
+mat 2
 refs 3
 27 0 0
 24 0 0
 26 0 0
 SURF 0x20
-mat 3
+mat 2
 refs 3
 28 0 0
 27 0 0
@@ -457,37 +456,37 @@ numvert 8
 0.01 0 -0.10961
 numsurf 6
 SURF 0x20
-mat 3
+mat 2
 refs 3
 4 0 0
 5 0 0
 6 0 0
 SURF 0x20
-mat 3
+mat 2
 refs 3
 3 0 0
 4 0 0
 6 0 0
 SURF 0x20
-mat 3
+mat 2
 refs 3
 3 0 0
 6 0 0
 7 0 0
 SURF 0x20
-mat 3
+mat 2
 refs 3
 2 0 0
 3 0 0
 7 0 0
 SURF 0x20
-mat 3
+mat 2
 refs 3
 1 0 0
 2 0 0
 7 0 0
 SURF 0x20
-mat 3
+mat 2
 refs 3
 7 0 0
 0 0 0
@@ -509,37 +508,37 @@ numvert 8
 0.085606 0 -0.10961
 numsurf 6
 SURF 0x20
-mat 3
+mat 2
 refs 3
 7 0 0
 0 0 0
 6 0 0
 SURF 0x20
-mat 3
+mat 2
 refs 3
 1 0 0
 2 0 0
 3 0 0
 SURF 0x20
-mat 3
+mat 2
 refs 3
 6 0 0
 0 0 0
 5 0 0
 SURF 0x20
-mat 3
+mat 2
 refs 3
 1 0 0
 3 0 0
 4 0 0
 SURF 0x20
-mat 3
+mat 2
 refs 3
 5 0 0
 0 0 0
 4 0 0
 SURF 0x20
-mat 3
+mat 2
 refs 3
 4 0 0
 0 0 0

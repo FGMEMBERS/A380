@@ -10,7 +10,7 @@
 <PropertyList>
 
 	<path>../../../Models/FlightDeck/Pedestal/mcdu_qwerty.ac</path> 
-	<texture-path>../../../Textures/Common</texture-path>
+	<texture-path>Aircraft/A380/Textures/Common</texture-path>
 	
 	<animation>
 	  <type>pick</type>

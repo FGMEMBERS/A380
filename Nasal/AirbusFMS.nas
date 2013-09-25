@@ -62,8 +62,8 @@ SELECTED_MODE = 0;
 
 
 var AirbusFMS = {
+   new: func() {
    
-   new : func() {
      var m = {parents : [AirbusFMS]};
      m.FMSnode = props.globals.getNode("/instrumentation/fms",1);
      m.activeFpln = m.FMSnode.getNode("plan[0]",1);
@@ -73,13 +73,22 @@ var AirbusFMS = {
      m.secondPlan = [];
      m.depDB = nil;
      m.arvDB = nil;
+     m.flightplan = nil;
      setprop("instrumentation/fms/plan[0]/display-nodes/current-page",0);
      setprop("instrumentation/fms/plan[0]/display-nodes/current-wp",0);
-     m.version = "V1.1.2";
+     setprop("/autopilot/route-manager/disable-fms", 1);
+     m.version = "V1.1.7";
 
      setlistener("/sim/signals/fdm-initialized", func m.init());
      setlistener("/autopilot/route-manager/current-wp", func m.updateCurrentWP());
+
      return m;
+   },
+
+   delegate: func(fp) {
+     print("initiate FMS delegate");
+     me.flightplan = fp;
+     return me;
    },
 
 #############################################################################
@@ -170,8 +179,11 @@ tracer : func(msg) {
      }
       me.tracer("bothSelect: "~bothSelect);
       me.tracer("clbArm: "~clbArm);
+      me.tracer("crzAcquire: "~crzAcquire);
       me.tracer("spdMode: "~spdMode);
       me.tracer("flapPos: "~flapPos);
+      me.tracer("curFlightMode: "~curFlightMode);
+
       if (bothSelect == MANAGED_MODE) {
         setprop("instrumentation/afs/vertical-lvl-managed-mode",-1);
       }
@@ -216,6 +228,9 @@ tracer : func(msg) {
              me.tracer("retVNAV = VNAV_OPDES");
              setprop("instrumentation/afs/vertical-lvl-managed-mode",0);
            }
+         }
+         if (getprop("instrumentation/afs/target-altitude-ft") < crzAlt and crzAcquire == 1 and bothSelect == MANAGED_MODE) {
+           retVNAV = VNAV_DES;
          }
        }
        if (getprop("/position/altitude-agl-ft") < 400 and vnavMode == VNAV_GS and lnavMode == LNAV_LOC) {
@@ -324,7 +339,7 @@ tracer : func(msg) {
            retSpeed = SPD_CRZ;
          }
        } else {
-         setprop("instrumentation/afs/speed-managed-mode",0);
+         setprop("instrumentation/afs/speed-managed-mode",SELECTED_MODE);
          if (curAlt > changeoverAlt) {
            retSpeed = SPD_MACH;
          } else {
@@ -332,7 +347,7 @@ tracer : func(msg) {
          }
        }
      } else {
-       setprop("instrumentation/afs/speed-managed-mode",0);
+       setprop("instrumentation/afs/speed-managed-mode",SELECTED_MODE);
        retSpeed = SPD_OFF;
      }
      return retSpeed;
@@ -420,16 +435,21 @@ tracer : func(msg) {
     #
     updateCurrentWP : func() {
       var rteWP = getprop("autopilot/route-manager/current-wp");
-      var rteWPId = getprop("autopilot/route-manager/route/wp["~rteWP~"]/id");
-      var planIdx = me.findWPName(rteWPId);
-      if (planIdx != nil) {
-        var tmp = int(planIdx/9);
-        var mod = (planIdx-(tmp*9));
-        setprop("instrumentation/fms/plan[0]/display-nodes/current-wp", mod);
-        var currPage = getprop("instrumentation/fms/plan[0]/display-nodes/current-page");
-        if (tmp != currPage) {
-          setprop("instrumentation/fms/plan[0]/display-nodes/current-page", tmp);
-          me.updateDisplay();
+      if (rteWP == nil) {
+        rteWP = -1;
+      }
+      if (rteWP > 0) {
+        var rteWPId = getprop("autopilot/route-manager/route/wp["~rteWP~"]/id");
+        var planIdx = me.findWPName(rteWPId);
+        if (planIdx != nil) {
+          var tmp = int(planIdx/9);
+          var mod = (planIdx-(tmp*9));
+          setprop("instrumentation/fms/plan[0]/display-nodes/current-wp", mod);
+          var currPage = getprop("instrumentation/fms/plan[0]/display-nodes/current-page");
+          if (tmp != currPage) {
+            setprop("instrumentation/fms/plan[0]/display-nodes/current-page", tmp);
+            me.updateDisplay();
+          }
         }
       }
     },
@@ -501,6 +521,7 @@ tracer : func(msg) {
       me.tracer("Append WP: "~wp.wp_name~" at pos: "~me.lastWP);
       append(me.activePlan, wp);
       me.lastWP = me.lastWP+1;
+      ##flightplan().appendWP(wp);
       me.updateDisplay();
       return me.lastWP-1;
     },
@@ -509,9 +530,11 @@ tracer : func(msg) {
     # insert a WP into FMS plan at positon
     #
     insertWP : func(wp, idx) {
-      me.tracer("insert WP: "~wp.wp_name~" at pos: "~idx);
+      me.tracer("insert WP: "~wp.wp_name);
+      me.tracer("   at pos: "~idx);
       if (idx > size(me.activePlan)-1) {
         append(me.activePlan, wp);
+        ##flightplan().append(wp);
       } else {
         me.activePlan = setsize(me.activePlan, size(me.activePlan)+1);
         # shuffle down all elements
@@ -532,6 +555,7 @@ tracer : func(msg) {
       me.tracer("insert WP: "~wp.wp_name~" at pos: "~idx);
       if (idx > size(me.activePlan)-1) {
         append(me.activePlan, wp);
+        ##flightplan().appendWP(wp);
       } else {
         me.activePlan = setsize(me.activePlan, size(me.activePlan)+1);
         # shuffle down all elements
@@ -591,6 +615,9 @@ tracer : func(msg) {
     getWPIdx : func(idx) {
       var startPage = getprop("instrumentation/fms/plan[0]/display-nodes/current-page");
       var wpIdx = startPage*9+idx;
+      if (wpIdx > size(me.activePlan)) {
+        return nil;
+      }
       return me.activePlan[wpIdx];
     },
 
@@ -626,10 +653,23 @@ tracer : func(msg) {
         var wp = me.activePlan[i];
         if (wp.wp_type != type) {
           append(tmpPlan, wp);
+          tmpPos = tmpPos+1;
         }
       }
       me.activePlan = tmpPlan;
+      me.lastPost = tmpPos;
+    },
+
+    waypointsChanged: func {
+      print("Waypoints changed, update FMS");
+
+    },
+
+    currentWaypointChanged: func {
+      print("currentWaypointChanged, update FMS");
     }
+
+
 
 };
 

@@ -2,7 +2,7 @@
 
 <PropertyList>
 	<path>../../Models/Wings/cowling.ac</path>
-	<texture-path>../../Textures/Livery/House/</texture-path>
+	<texture-path>Aircraft/A380/Textures/Livery/House/</texture-path>
 
 	<!-- MP Livery Update -->
 	<nasal> 

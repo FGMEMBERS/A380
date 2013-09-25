@@ -66,7 +66,7 @@
     <object-name>gear3.ind</object-name>
     <condition>
       <greater-than>
-        <property>gear/gear[1]/position-norm</property>
+        <property>gear/gear[2]/position-norm</property>
         <value>0.4</value>
       </greater-than>
     </condition>
@@ -77,11 +77,11 @@
     <condition>
       <and>
       <greater-than>
-        <property>gear/gear[1]/position-norm</property>
+        <property>gear/gear[2]/position-norm</property>
         <value>0.0</value>
       </greater-than>
       <less-than>
-        <property>gear/gear[1]/position-norm</property>
+        <property>gear/gear[2]/position-norm</property>
         <value>0.4</value>
       </less-than>
       </and>
@@ -120,7 +120,7 @@
     <object-name>gear5.ind</object-name>
     <condition>
       <greater-than>
-        <property>gear/gear[2]/position-norm</property>
+        <property>gear/gear[1]/position-norm</property>
         <value>0.4</value>
       </greater-than>
     </condition>
@@ -131,11 +131,11 @@
     <condition>
       <and>
       <greater-than>
-        <property>gear/gear[2]/position-norm</property>
+        <property>gear/gear[1]/position-norm</property>
         <value>0.0</value>
       </greater-than>
       <less-than>
-        <property>gear/gear[2]/position-norm</property>
+        <property>gear/gear[1]/position-norm</property>
         <value>0.4</value>
       </less-than>
       </and>
@@ -170,7 +170,7 @@
                 <property>/controls/gear/autobrakes</property>
                 <step>1</step>
                 <min>0</min>
-                <max>5</max>
+                <max>4</max>
                 <wrap>false</wrap>
             </binding>
             <binding>
@@ -186,7 +186,7 @@
                   <property>/controls/gear/autobrakes</property>
                   <step>-1</step>
                   <min>0</min>
-                  <max>5</max>
+                  <max>4</max>
                   <wrap>false</wrap>
             </binding>
             <binding>
@@ -194,6 +194,22 @@
                 <property>/sim/sound/switch</property>
             </binding>
           </action>
+     </animation>
+     
+     
+     <animation>
+       <type>pick</type>
+       <object-name>decel.box</object-name>
+       <action>
+	 <button>0</button>
+	 <repeatable>false</repeatable>
+	 <binding>
+	   <command>property-cycle</command>
+	   <property>autopilot/autobrake/step</property>
+	   <value>-1</value>
+	   <value>-2</value>
+	 </binding>
+       </action>
      </animation>
   
   <!-- unit [0] -->
@@ -258,7 +274,7 @@
   <animation>
     <type>material</type>
     <object-name>gear2.ind</object-name>
-    <object-name>gear3.ind</object-name>
+    <object-name>gear5.ind</object-name>
     <condition>
       <and>
         <greater-than>
@@ -290,7 +306,7 @@
   <animation>
     <type>material</type>
     <object-name>gear2.ind</object-name>
-    <object-name>gear3.ind</object-name>
+    <object-name>gear5.ind</object-name>
     <condition>
         <greater-than>
           <property>gear/gear[1]/position-norm</property>
@@ -317,8 +333,8 @@
   <!-- unit [2] -->
   <animation>
     <type>material</type>
+    <object-name>gear3.ind</object-name>
     <object-name>gear4.ind</object-name>
-    <object-name>gear5.ind</object-name>
     <condition>
       <and>
         <greater-than>
@@ -349,8 +365,8 @@
   </animation>
   <animation>
     <type>material</type>
+    <object-name>gear3.ind</object-name>
     <object-name>gear4.ind</object-name>
-    <object-name>gear5.ind</object-name>
     <condition>
         <greater-than>
           <property>gear/gear[2]/position-norm</property>

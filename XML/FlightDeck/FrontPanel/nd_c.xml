@@ -3,7 +3,7 @@
 <PropertyList>
 
 	<path>../../../Models/FlightDeck/FrontPanel/nd.ac</path> 
-	<texture-path>../../../Textures/Common</texture-path>
+	<texture-path>Aircraft/A380/Textures/Common</texture-path>
 	
        <!-- panel>
         <path>Aircraft/A380/XML/Instruments/MFD/mfdtext-panel.xml</path>

@@ -2,7 +2,7 @@
 <PropertyList>
 
  <path>../../../Models/FlightDeck/FrontPanel/eicas.ac</path> 
-<texture-path>../../../Models/FlightDeck/FrontPanel</texture-path>  
+<texture-path>Aircraft/A380/Models/FlightDeck/FrontPanel</texture-path>  
 
   <animation>
   <type>rotate</type>

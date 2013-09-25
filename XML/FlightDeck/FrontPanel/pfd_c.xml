@@ -1,10 +1,14 @@
 <?xml version="1.0"?>
 
 <PropertyList>
-
+  <params>
+    <inputs>
+      <ls>instrumentation/efis[0]/inputs/ls</ls>
+    </inputs>
+  </params>
 	<path>../../../Models/FlightDeck/FrontPanel/pfd3.ac</path> 
 	<!-- texture-path>../../../Textures/Instruments</texture-path -->
-	<texture-path>../../../Textures/Panels/pfd/</texture-path>
+	<texture-path>Aircraft/A380/Textures/Panels/pfd/</texture-path>
 
 <!-- animation>
    <type>select</type>
@@ -34,17 +38,18 @@
    <object-name>GSscale</object-name>
    <condition>
      <and>
-      <or>
-      <equals>
-       <property>sim/current-view/view-number</property>
-       <value>0</value>
-      </equals>
-      <equals>
+       <or>
+         <equals>
+           <property>sim/current-view/view-number</property>
+           <value>0</value>
+         </equals>
+         <equals>
            <property>sim/current-view/view-number</property>
            <value>9</value>
          </equals>
        </or>
-       <property>/instrumentation/nav/gs-in-range</property>
+       <!-- property>instrumentation/efis[0]/inputs/ls</property -->
+       <property alias="/params/inputs/ls"/>
        <greater-than>
          <property>systems/electrical/outputs/efis</property>
          <value>15</value>
@@ -68,8 +73,9 @@
            <value>9</value>
          </equals>
        </or>
-         <!-- property>/instrumentation/nav/has-gs</property -->
-       <property>/instrumentation/nav/gs-in-range</property>
+       <property>/instrumentation/nav[0]/gs-in-range</property>
+       <!-- property>instrumentation/efis[0]/inputs/ls</property -->
+       <property alias="/params/inputs/ls"/>
        <greater-than>
          <property>systems/electrical/outputs/efis</property>
          <value>15</value>
@@ -81,7 +87,7 @@
  <animation>
    <type>translate</type>
    <object-name>GSneedle</object-name>
-   <property>/instrumentation/nav/gs-needle-deflection-norm</property>
+   <property>/instrumentation/nav[0]/gs-needle-deflection-norm</property>
    <interpolation>
      <entry>
        <ind> -1.0</ind>
@@ -132,8 +138,8 @@
            <value>9</value>
          </equals>
        </or>
-       <property>/instrumentation/nav/nav-loc</property>
-       <property>/instrumentation/nav/in-range</property>
+       <!-- property>instrumentation/efis[0]/inputs/ls</property -->
+       <property alias="/params/inputs/ls"/>
        <greater-than>
          <property>systems/electrical/outputs/efis</property>
          <value>15</value>
@@ -157,8 +163,10 @@
            <value>9</value>
          </equals>
        </or>
-       <property>/instrumentation/nav/nav-loc</property>
-       <property>/instrumentation/nav/in-range</property>
+       <property>/instrumentation/nav[0]/nav-loc</property>
+       <property>/instrumentation/nav[0]/in-range</property>
+       <!-- property>instrumentation/efis[0]/inputs/ls</property -->
+       <property alias="/params/inputs/ls"/>
        <greater-than>
          <property>systems/electrical/outputs/efis</property>
          <value>15</value>
@@ -170,7 +178,7 @@
  <animation>
    <type>translate</type>
    <object-name>LOCneedle</object-name>
-   <property>/instrumentation/nav/heading-needle-deflection-norm</property>
+   <property>/instrumentation/nav[0]/heading-needle-deflection-norm</property>
    <interpolation>
     <entry>
       <ind>-1.0</ind>
@@ -291,7 +299,7 @@
 
 
 
- <animation>
+ <!-- animation>
    <type>textranslate</type>
    <object-name>ALTribbon</object-name>
    <property>/instrumentation/altimeter/indicated-altitude-ft</property>
@@ -301,7 +309,193 @@
      <y>1</y>
      <z>0</z>
    </axis>
- </animation>
+ </animation -->
+ 
+ <animation>
+		<name>Altimeter tape 1 select</name>
+		<type>select</type>
+		<object-name>AltTape1</object-name>
+		<condition>
+			<less-than>
+				<property>instrumentation/altimeter/indicated-altitude-ft</property>
+				<value>9600</value>
+			</less-than>
+		</condition>
+	</animation>
+	<animation>
+		<name>Altimeter tape 1 translate</name>
+		<type>textranslate</type>
+		<object-name>AltTape1</object-name>
+		<property>instrumentation/altimeter/indicated-altitude-ft</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>9600</ind><dep>0.9035</dep></entry>
+		</interpolation>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+		</axis>
+	</animation>
+
+	<animation>
+		<name>Altimeter tape 2 select</name>
+		<type>select</type>
+		<object-name>AltTape2</object-name>
+		<condition>
+			<and>
+				<greater-than-equals>
+					<property>instrumentation/altimeter/indicated-altitude-ft</property>
+					<value>9600</value>
+				</greater-than-equals>
+				<less-than>
+					<property>instrumentation/altimeter/indicated-altitude-ft</property>
+					<value>19200</value>
+				</less-than>
+			</and>
+		</condition>
+	</animation>
+	<animation>
+		<name>Altimeter tape 2 translate</name>
+		<type>textranslate</type>
+		<object-name>AltTape2</object-name>
+		<property>instrumentation/altimeter/indicated-altitude-ft</property>
+		<interpolation>
+			<entry><ind>9600</ind><dep>0</dep></entry>
+			<entry><ind>19200</ind><dep>0.9035</dep></entry>
+		</interpolation>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+		</axis>
+	</animation>
+
+	<animation>
+		<name>Altimeter tape 3 select</name>
+		<type>select</type>
+		<object-name>AltTape3</object-name>
+		<condition>
+			<and>
+				<greater-than-equals>
+					<property>instrumentation/altimeter/indicated-altitude-ft</property>
+					<value>19200</value>
+				</greater-than-equals>
+				<less-than>
+					<property>instrumentation/altimeter/indicated-altitude-ft</property>
+					<value>28800</value>
+				</less-than>
+			</and>
+		</condition>
+	</animation>
+	<animation>
+		<name>Altimeter tape 3 translate</name>
+		<type>textranslate</type>
+		<object-name>AltTape3</object-name>
+		<property>instrumentation/altimeter/indicated-altitude-ft</property>
+		<interpolation>
+			<entry><ind>19200</ind><dep>0</dep></entry>
+			<entry><ind>28800</ind><dep>0.9035</dep></entry>
+		</interpolation>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+		</axis>
+	</animation>
+
+	<animation>
+		<name>Altimeter tape 4 select</name>
+		<type>select</type>
+		<object-name>AltTape4</object-name>
+		<condition>
+			<and>
+				<greater-than-equals>
+					<property>instrumentation/altimeter/indicated-altitude-ft</property>
+					<value>28800</value>
+				</greater-than-equals>
+				<less-than>
+					<property>instrumentation/altimeter/indicated-altitude-ft</property>
+					<value>38400</value>
+				</less-than>
+			</and>
+		</condition>
+	</animation>
+	<animation>
+		<name>Altimeter tape 4 translate</name>
+		<type>textranslate</type>
+		<object-name>AltTape4</object-name>
+		<property>instrumentation/altimeter/indicated-altitude-ft</property>
+		<interpolation>
+			<entry><ind>28800</ind><dep>0</dep></entry>
+			<entry><ind>38400</ind><dep>0.9035</dep></entry>
+		</interpolation>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+		</axis>
+	</animation>
+
+	<animation>
+		<name>Altimeter tape 5 select</name>
+		<type>select</type>
+		<object-name>AltTape5</object-name>
+		<condition>
+			<and>
+				<greater-than-equals>
+					<property>instrumentation/altimeter/indicated-altitude-ft</property>
+					<value>38400</value>
+				</greater-than-equals>
+				<less-than>
+					<property>instrumentation/altimeter/indicated-altitude-ft</property>
+					<value>48000</value>
+				</less-than>
+			</and>
+		</condition>
+	</animation>
+	<animation>
+		<name>Altimeter tape 5 translate</name>
+		<type>textranslate</type>
+		<object-name>AltTape5</object-name>
+		<property>instrumentation/altimeter/indicated-altitude-ft</property>
+		<interpolation>
+			<entry><ind>38400</ind><dep>0</dep></entry>
+			<entry><ind>48000</ind><dep>0.9035</dep></entry>
+		</interpolation>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+		</axis>
+	</animation>
+
+	<animation>
+		<name>Altimeter tape 6 select</name>
+		<type>select</type>
+		<object-name>AltTape6</object-name>
+		<condition>
+			<and>
+				<greater-than-equals>
+					<property>instrumentation/altimeter/indicated-altitude-ft</property>
+					<value>48000</value>
+				</greater-than-equals>
+				<less-than>
+					<property>instrumentation/altimeter/indicated-altitude-ft</property>
+					<value>57600</value>
+				</less-than>
+			</and>
+		</condition>
+	</animation>
+	<animation>
+		<name>Altimeter tape 6 translate</name>
+		<type>textranslate</type>
+		<object-name>AltTape6</object-name>
+		<property>instrumentation/altimeter/indicated-altitude-ft</property>
+		<interpolation>
+			<entry><ind>48000</ind><dep>0</dep></entry>
+			<entry><ind>57600</ind><dep>0.9035</dep></entry>
+		</interpolation>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+		</axis>
+	</animation>
 
 
   <animation>
@@ -1787,6 +1981,14 @@
              <property>instrumentation/flightdirector/lnav</property>
              <value>3</value>
            </equals>
+	   <!-- equals>
+             <property>instrumentation/flightdirector/vnav</property>
+             <value>5</value>
+           </equals>
+	   <equals>
+             <property>instrumentation/flightdirector/vnav</property>
+             <value>6</value>
+           </equals -->
            <equals>
              <property>instrumentation/flightdirector/lnav-arm</property>
              <value>3</value>

@@ -3,7 +3,7 @@
 <PropertyList>
 
 	<path>../../../Models/FlightDeck/Glareshield/efis_fo.ac</path> 
-	<texture-path>../../../Textures/Instruments</texture-path>
+	<texture-path>Aircraft/A380/Textures/Instruments</texture-path>
 	<offsets>
 		<z-m>0.25</z-m>
 	</offsets>
@@ -174,7 +174,7 @@
    <object-name>mode.plan</object-name>
    <condition>
      <not-equals>
-       <property>/instrumentation/efis[0]/display-mode</property>
+       <property>/instrumentation/efis[1]/display-mode</property>
        <value>4</value>
      </not-equals>
    </condition>
@@ -186,7 +186,7 @@
    <object-name>mode.arc</object-name>
    <condition>
      <not-equals>
-       <property>/instrumentation/efis[0]/display-mode</property>
+       <property>/instrumentation/efis[1]/display-mode</property>
        <value>3</value>
      </not-equals>
    </condition>
@@ -197,7 +197,7 @@
    <object-name>mode.nav</object-name>
    <condition>
        <not-equals>
-         <property>/instrumentation/efis[0]/display-mode</property>
+         <property>/instrumentation/efis[1]/display-mode</property>
          <value>2</value>
        </not-equals>
    </condition>
@@ -208,7 +208,7 @@
    <object-name>mode.vor</object-name>
    <condition>
      <not-equals>
-       <property>/instrumentation/efis[0]/display-mode</property>
+       <property>/instrumentation/efis[1]/display-mode</property>
        <value>1</value>
      </not-equals>
    </condition>
@@ -219,7 +219,7 @@
    <object-name>mode.ls</object-name>
    <condition>
        <not-equals>
-         <property>/instrumentation/efis[0]/display-mode</property>
+         <property>/instrumentation/efis[1]/display-mode</property>
          <value>0</value>
        </not-equals>
    </condition>
@@ -233,7 +233,7 @@
      <repeatable>false</repeatable>
      <binding>
       <command>property-adjust</command>
-      <property>/instrumentation/efis[0]/display-mode</property>
+      <property>/instrumentation/efis[1]/display-mode</property>
       <step>1.0</step>
       <min>0</min>
       <max>4</max>
@@ -245,7 +245,7 @@
      <repeatable>false</repeatable>
      <binding>
       <command>property-adjust</command>
-      <property>/instrumentation/efis[0]/display-mode</property>
+      <property>/instrumentation/efis[1]/display-mode</property>
       <step>-1.0</step>
       <min>0</min>
       <max>4</max>
@@ -261,28 +261,28 @@
      <button>0</button>
      <repeatable>false</repeatable>
      <binding>
-      <!-- command>property-adjust</command>
-      <property>/instrumentation/radar/range</property>
-      <step>1.0</step>
-      <min>1</min>
+      <command>property-multiply</command>
+      <property>/instrumentation/nd[1]/range</property>
+      <factor>2.0</factor>
+      <min>5</min>
       <max>640</max>
-      <wrap>false</wrap -->
-      <command>nasal</command>
-      <script>FCU.change_radar_range(1)</script>
+      <wrap>false</wrap>
+      <!-- command>nasal</command>
+      <script>FCU.change_radar_range(1)</script -->
      </binding>
    </action>
    <action>
      <button>1</button>
      <repeatable>false</repeatable>
      <binding>
-      <!-- command>property-adjust</command>
-      <property>/instrumentation/radar/range</property>
-      <step>-1.0</step>
+      <command>property-multiply</command>
+      <property>/instrumentation/nd[1]/range</property>
+      <factor>0.5</factor>
       <min>1</min>
       <max>640</max>
-      <wrap>false</wrap -->
-      <command>nasal</command>
-      <script>FCU.change_radar_range(-1)</script>
+      <wrap>false</wrap>
+      <!-- command>nasal</command>
+      <script>FCU.change_radar_range(-1)</script -->
      </binding>
    </action>   
  </animation>
@@ -292,7 +292,7 @@
    <object-name>range.zoom</object-name>
    <condition>
      <greater-than>
-       <property>/instrumentation/radar/range</property>
+       <property>/instrumentation/nd[1]/range</property>
        <value>9</value>
      </greater-than>
    </condition>
@@ -303,7 +303,7 @@
    <object-name>range.10</object-name>
    <condition>
      <not-equals>
-       <property>/instrumentation/radar/range</property>
+       <property>/instrumentation/nd[1]/range</property>
        <value>10</value>
      </not-equals>
    </condition>
@@ -314,7 +314,7 @@
    <object-name>range.20</object-name>
    <condition>
      <not-equals>
-       <property>/instrumentation/radar/range</property>
+       <property>/instrumentation/nd[1]/range</property>
        <value>20</value>
      </not-equals>
    </condition>
@@ -325,7 +325,7 @@
    <object-name>range.40</object-name>
    <condition>
      <not-equals>
-       <property>/instrumentation/radar/range</property>
+       <property>/instrumentation/nd[1]/range</property>
        <value>40</value>
      </not-equals>
    </condition>
@@ -336,7 +336,7 @@
    <object-name>range.80</object-name>
    <condition>
      <not-equals>
-       <property>/instrumentation/radar/range</property>
+       <property>/instrumentation/nd[1]/range</property>
        <value>80</value>
      </not-equals>
    </condition>
@@ -347,7 +347,7 @@
    <object-name>range.160</object-name>
    <condition>
      <not-equals>
-       <property>/instrumentation/radar/range</property>
+       <property>/instrumentation/nd[1]/range</property>
        <value>160</value>
      </not-equals>
    </condition>
@@ -358,7 +358,7 @@
    <object-name>range.320</object-name>
    <condition>
      <not-equals>
-       <property>/instrumentation/radar/range</property>
+       <property>/instrumentation/nd[1]/range</property>
        <value>320</value>
      </not-equals>
    </condition>
@@ -369,11 +369,77 @@
    <object-name>range.640</object-name>
    <condition>
      <not-equals>
-     <property>/instrumentation/radar/range</property>
+     <property>/instrumentation/nd[1]/range</property>
      <value>640</value>
      </not-equals>
    </condition>
  </animation>
+ 
+ <animation>
+    <type>pick</type>
+    <object-name>TAXI</object-name>
+    <action>
+        <button>0</button>
+	<binding>
+          <command>property-toggle</command>
+          <property>instrumentation/efis[1]/inputs/taxi</property>
+        </binding>
+      </action>
+  </animation>
+  <animation>
+  <type>textranslate</type>
+  <object-name>TAXI.toggle</object-name>
+  <property>instrumentation/efis[1]/inputs/taxi</property>
+  <factor>50</factor>
+  <axis>
+    <x>0</x>
+    <y>-1</y>
+    <z>-1</z>
+  </axis>
+  </animation>
+  <animation>
+  <type>material</type>
+  <object-name>TAXI.toggle</object-name>
+  <emission>
+    <red>0.0</red>
+    <green>0.2</green>
+    <blue>0.0</blue>
+    <factor-prop>instrumentation/efis[1]/inputs/taxi</factor-prop>
+  </emission>
+  </animation>
+ 
+   <animation>
+    <type>pick</type>
+    <object-name>LS</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>instrumentation/efis[1]/inputs/ls</property>
+      </binding>
+    </action>
+  </animation>
+  <animation>
+    <type>textranslate</type>
+    <object-name>LS.toggle</object-name>
+    <property>instrumentation/efis[1]/inputs/ls</property>
+    <factor>50</factor>
+    <axis>
+      <x>0</x>
+      <y>-1</y>
+      <z>-1</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>material</type>
+    <object-name>LS.toggle</object-name>
+    <emission>
+      <red>0.0</red>
+      <green>0.2</green>
+      <blue>0.0</blue>
+      <factor-prop>instrumentation/efis[1]/inputs/ls</factor-prop>
+    </emission>
+  </animation>
  
  <animation>
     <type>pick</type>
@@ -382,14 +448,14 @@
         <button>0</button>
 	<binding>
           <command>property-toggle</command>
-          <property>/instrumentation/efis[0]/inputs/CSTR</property>
+          <property>/instrumentation/efis[1]/inputs/CSTR</property>
         </binding>
       </action>
   </animation>
   <animation>
   <type>textranslate</type>
   <object-name>CSTR.toggle</object-name>
-  <property>instrumentation/efis[0]/inputs/CSTR</property>
+  <property>instrumentation/efis[1]/inputs/CSTR</property>
   <factor>50</factor>
   <axis>
     <x>0</x>
@@ -404,7 +470,7 @@
     <red>0.0</red>
     <green>0.2</green>
     <blue>0.0</blue>
-    <factor-prop>instrumentation/efis[0]/inputs/CSTR</factor-prop>
+    <factor-prop>instrumentation/efis[1]/inputs/CSTR</factor-prop>
   </emission>
   </animation>
 
@@ -415,14 +481,14 @@
         <button>0</button>
 	<binding>
           <command>property-toggle</command>
-          <property>/instrumentation/efis[0]/inputs/WPT</property>
+          <property>/instrumentation/efis[1]/inputs/WPT</property>
         </binding>
       </action>
   </animation>
   <animation>
   <type>textranslate</type>
   <object-name>WPT.toggle</object-name>
-  <property>instrumentation/efis[0]/inputs/WPT</property>
+  <property>instrumentation/efis[1]/inputs/WPT</property>
   <factor>50</factor>
   <axis>
     <x>0</x>
@@ -437,7 +503,7 @@
     <red>0.0</red>
     <green>0.2</green>
     <blue>0.0</blue>
-    <factor-prop>instrumentation/efis[0]/inputs/WPT</factor-prop>
+    <factor-prop>instrumentation/efis[1]/inputs/WPT</factor-prop>
   </emission>
   </animation>
   
@@ -448,14 +514,14 @@
         <button>0</button>
 	<binding>
           <command>property-toggle</command>
-          <property>/instrumentation/efis[0]/inputs/VORD</property>
+          <property>/instrumentation/efis[1]/inputs/VORD</property>
         </binding>
       </action>
   </animation>
   <animation>
   <type>textranslate</type>
   <object-name>VORD.toggle</object-name>
-  <property>instrumentation/efis[0]/inputs/VORD</property>
+  <property>instrumentation/efis[1]/inputs/VORD</property>
   <factor>50</factor>
   <axis>
     <x>0</x>
@@ -470,7 +536,7 @@
     <red>0.0</red>
     <green>0.2</green>
     <blue>0.0</blue>
-    <factor-prop>instrumentation/efis[0]/inputs/VORD</factor-prop>
+    <factor-prop>instrumentation/efis[1]/inputs/VORD</factor-prop>
   </emission>
   </animation>
   
@@ -481,14 +547,14 @@
         <button>0</button>
 	<binding>
           <command>property-toggle</command>
-          <property>/instrumentation/efis[0]/inputs/NDB</property>
+          <property>/instrumentation/efis[1]/inputs/NDB</property>
         </binding>
       </action>
   </animation>
   <animation>
   <type>textranslate</type>
   <object-name>NDB.toggle</object-name>
-  <property>instrumentation/efis[0]/inputs/NDB</property>
+  <property>instrumentation/efis[1]/inputs/NDB</property>
   <factor>50</factor>
   <axis>
     <x>0</x>
@@ -503,7 +569,7 @@
     <red>0.0</red>
     <green>0.2</green>
     <blue>0.0</blue>
-    <factor-prop>instrumentation/efis[0]/inputs/NDB</factor-prop>
+    <factor-prop>instrumentation/efis[1]/inputs/NDB</factor-prop>
   </emission>
   </animation>
   
@@ -514,14 +580,14 @@
         <button>0</button>
 	<binding>
           <command>property-toggle</command>
-          <property>/instrumentation/efis[0]/inputs/ARPT</property>
+          <property>/instrumentation/efis[1]/inputs/ARPT</property>
         </binding>
       </action>
   </animation>
   <animation>
   <type>textranslate</type>
   <object-name>ARPT.toggle</object-name>
-  <property>instrumentation/efis[0]/inputs/ARPT</property>
+  <property>instrumentation/efis[1]/inputs/ARPT</property>
   <factor>50</factor>
   <axis>
     <x>0</x>
@@ -536,7 +602,7 @@
     <red>0.0</red>
     <green>0.2</green>
     <blue>0.0</blue>
-    <factor-prop>instrumentation/efis[0]/inputs/ARPT</factor-prop>
+    <factor-prop>instrumentation/efis[1]/inputs/ARPT</factor-prop>
   </emission>
   </animation>
   
@@ -547,14 +613,14 @@
         <button>0</button>
 	<binding>
           <command>property-toggle</command>
-          <property>/instrumentation/efis[0]/inputs/lh-vor-adf</property>
+          <property>/instrumentation/efis[1]/inputs/lh-vor-adf</property>
         </binding>
       </action>
   </animation>
   <animation>
   <type>textranslate</type>
   <object-name>Arrow1.toggle</object-name>
-  <property>instrumentation/efis[0]/inputs/lh-vor-adf</property>
+  <property>instrumentation/efis[1]/inputs/lh-vor-adf</property>
   <factor>50</factor>
   <axis>
     <x>0</x>
@@ -569,7 +635,7 @@
     <red>0.0</red>
     <green>0.2</green>
     <blue>0.0</blue>
-    <factor-prop>instrumentation/efis[0]/inputs/lh-vor-adf</factor-prop>
+    <factor-prop>instrumentation/efis[1]/inputs/lh-vor-adf</factor-prop>
   </emission>
   </animation>
   
@@ -580,14 +646,14 @@
         <button>0</button>
 	<binding>
           <command>property-toggle</command>
-          <property>/instrumentation/efis[0]/inputs/WX</property>
+          <property>/instrumentation/efis[1]/inputs/WX</property>
         </binding>
       </action>
   </animation>
   <animation>
   <type>textranslate</type>
   <object-name>WX.toggle</object-name>
-  <property>instrumentation/efis[0]/inputs/WX</property>
+  <property>instrumentation/efis[1]/inputs/WX</property>
   <factor>50</factor>
   <axis>
     <x>0</x>
@@ -602,7 +668,7 @@
     <red>0.0</red>
     <green>0.2</green>
     <blue>0.0</blue>
-    <factor-prop>instrumentation/efis[0]/inputs/WX</factor-prop>
+    <factor-prop>instrumentation/efis[1]/inputs/WX</factor-prop>
   </emission>
   </animation>
   
@@ -613,14 +679,14 @@
         <button>0</button>
 	<binding>
           <command>property-toggle</command>
-          <property>/instrumentation/efis[0]/inputs/TERR</property>
+          <property>/instrumentation/efis[1]/inputs/TERR</property>
         </binding>
       </action>
   </animation>
   <animation>
   <type>textranslate</type>
   <object-name>TERR.toggle</object-name>
-  <property>instrumentation/efis[0]/inputs/TERR</property>
+  <property>instrumentation/efis[1]/inputs/TERR</property>
   <factor>50</factor>
   <axis>
     <x>0</x>
@@ -635,7 +701,7 @@
     <red>0.0</red>
     <green>0.2</green>
     <blue>0.0</blue>
-    <factor-prop>instrumentation/efis[0]/inputs/TERR</factor-prop>
+    <factor-prop>instrumentation/efis[1]/inputs/TERR</factor-prop>
   </emission>
   </animation>
   
@@ -646,14 +712,14 @@
         <button>0</button>
 	<binding>
           <command>property-toggle</command>
-          <property>/instrumentation/efis[0]/inputs/TRAF</property>
+          <property>/instrumentation/efis[1]/inputs/TRAF</property>
         </binding>
       </action>
   </animation>
   <animation>
   <type>textranslate</type>
   <object-name>TRAF.toggle</object-name>
-  <property>instrumentation/efis[0]/inputs/TRAF</property>
+  <property>instrumentation/efis[1]/inputs/TRAF</property>
   <factor>50</factor>
   <axis>
     <x>0</x>
@@ -668,7 +734,7 @@
     <red>0.0</red>
     <green>0.2</green>
     <blue>0.0</blue>
-    <factor-prop>instrumentation/efis[0]/inputs/TRAF</factor-prop>
+    <factor-prop>instrumentation/efis[1]/inputs/TRAF</factor-prop>
   </emission>
   </animation>
   
@@ -679,14 +745,14 @@
         <button>0</button>
 	<binding>
           <command>property-toggle</command>
-          <property>/instrumentation/efis[0]/inputs/rh-vor-adf</property>
+          <property>/instrumentation/efis[1]/inputs/rh-vor-adf</property>
         </binding>
       </action>
   </animation>
   <animation>
   <type>textranslate</type>
   <object-name>Arrow2.toggle</object-name>
-  <property>instrumentation/efis[0]/inputs/rh-vor-adf</property>
+  <property>instrumentation/efis[1]/inputs/rh-vor-adf</property>
   <factor>50</factor>
   <axis>
     <x>0</x>
@@ -701,7 +767,7 @@
     <red>0.0</red>
     <green>0.2</green>
     <blue>0.0</blue>
-    <factor-prop>instrumentation/efis[0]/inputs/rh-vor-adf</factor-prop>
+    <factor-prop>instrumentation/efis[1]/inputs/rh-vor-adf</factor-prop>
   </emission>
   </animation>
   
