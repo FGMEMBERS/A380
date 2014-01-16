@@ -776,8 +776,8 @@ The A380 Aircraft is released under GPL as part of the FlightGear.org project.
       </binding>
     </key>
 
-    <key n="9">
-      <name>Tab</name>
+    <key n="61">
+      <name>=</name>
       <desc>switch autobrake</desc>
       <binding>
         <command>property-cycle</command>
