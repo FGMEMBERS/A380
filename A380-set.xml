@@ -35,7 +35,14 @@
     <livery>Aircraft/A380/Textures/Livery/House</livery>
     <aero>A380_RJ</aero>
     
-    
+    <tags>
+        <tag>transport</tag>
+        <tag>airbus</tag>
+        <tag>jet</tag>
+        <tag>retractable-gear</tag>
+        <tag>glass-cockpit</tag>
+        <tag>ifr</tag>
+    </tags>
     <startup>
        <splash-texture>Aircraft/A380/a380-splash.png</splash-texture>
     </startup>
