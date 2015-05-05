@@ -1,0 +1,15 @@
+<?xml version="1.0"?> 
+
+<PropertyList> 
+	<sim> 
+		<model> 
+			<livery> 
+				<name type="string">Airbus A380 - Own the sky</name> 
+				<texture>../F-WWDD_own_the_sky/F-WWDD_own_the_sky.png</texture> 
+			</livery> 
+			<cowling>
+				<texture>../F-WWDD_own_the_sky/cowling.png</texture>
+			</cowling>
+		</model> 
+	</sim> 
+</PropertyList> 

@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<PropertyList><sim><model><livery><name type="string">Etihad Airways</name><texture>../ETD/ETD.png</texture></livery><cowling><texture>../ETD/cowling.png</texture></cowling></model></sim></PropertyList>

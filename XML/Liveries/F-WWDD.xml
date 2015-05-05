@@ -1,0 +1,15 @@
+<?xml version="1.0"?> 
+
+<PropertyList> 
+	<sim> 
+		<model> 
+			<livery> 
+				<name type="string">Airbus A380 - Love at first flight</name> 
+				<texture>../F-WWDD/F-WWDD.png</texture> 
+			</livery> 
+			<cowling>
+				<texture>../F-WWDD/cowling.png</texture>
+			</cowling>
+		</model> 
+	</sim> 
+</PropertyList> 
