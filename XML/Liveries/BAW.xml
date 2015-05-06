@@ -1,15 +1,15 @@
 <?xml version="1.0"?> 
 
 <PropertyList> 
-	<sim> 
-		<model> 
-			<livery> 
-				<name type="string">British Airways</name> 
-				<texture>../BAW/BAW.png</texture> 
-			</livery> 
-			<cowling>
-				<texture>../BAW/cowling.png</texture>
-			</cowling>
-		</model> 
-	</sim> 
+  <sim> 
+    <model> 
+      <livery> 
+	<name type="string">British Airways</name> 
+	<texture>../BAW/BAW.png</texture> 
+      </livery> 
+      <cowling>
+	<texture>../BAW/cowling.png</texture>
+      </cowling>
+    </model> 
+  </sim> 
 </PropertyList> 
