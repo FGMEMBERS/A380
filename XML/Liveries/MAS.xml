@@ -1,0 +1,15 @@
+<?xml version="1.0"?> 
+
+<PropertyList> 
+  <sim> 
+    <model> 
+      <livery> 
+	<name type="string">Malaysia Airlines</name> 
+	<texture>../MAS/MAS.png</texture> 
+      </livery> 
+      <cowling>
+	<texture>../MAS/cowling.png</texture>
+      </cowling>
+    </model> 
+  </sim> 
+</PropertyList> 
