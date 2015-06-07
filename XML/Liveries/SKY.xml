@@ -1,0 +1,15 @@
+<?xml version="1.0"?> 
+
+<PropertyList> 
+	<sim> 
+		<model> 
+			<livery> 
+				<name type="string">Skymark Airlines</name> 
+				<texture>../SKY/SKY.png</texture> 
+			</livery> 
+			<cowling>
+				<texture>../SKY/cowling.png</texture>
+			</cowling>
+		</model> 
+	</sim> 
+</PropertyList> 
