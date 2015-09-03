@@ -181,8 +181,7 @@
         <contact type="BOGEY" name="Left Main gear">
             <location unit="IN">
                 <x> 1644 </x>
-                <!-- y> -282.8 </y -->
-                <y>278.972441</y>
+                <y> -278.972441</y>
                 <z> -344.9 </z>
             </location>
             <static_friction> 0.85 </static_friction>
@@ -197,8 +196,7 @@
         <contact type="BOGEY" name="Right Main Gear">
             <location unit="IN">
                 <x> 1644 </x>
-                <!-- y> 282.8 </y -->
-                <y>-278.972441</y>
+                <y>  278.972441</y>
                 <z> -344.9 </z>
             </location>
             <static_friction> 0.85 </static_friction>
@@ -264,7 +262,7 @@
         <engine file="TRENT-900">
             <location unit="M">
                 <x>  46.9824 </x>
-                <y>  26.2467 </y>
+                <y> -26.2467 </y>
 		<z>  -3.4 </z>
             </location>
             <orient unit="DEG">
@@ -283,7 +281,7 @@
                     <y> -523.648 </y>
                     <z> -40 </z -->
 		    <x> 46.9824 </x>
-		    <y> 26.2467 </y>
+		    <y>-26.2467 </y>
 		    <z> -3.4 </z>
                 </location>
                 <orient unit="DEG">
@@ -296,7 +294,7 @@
         <engine file="TRENT-900">
             <location unit="M">
                 <x> 38.9500 </x>
-                <y> 15.9365 </y>
+                <y>-15.9365 </y>
 		<z> -2.55 </z>
             </location>
             <orient unit="DEG">
@@ -315,7 +313,7 @@
                     <y> -523.648 </y>
                     <z> -40 </z -->
 		    <x> 38.9500 </x>
-		    <y> 15.9365 </y>
+		    <y>-15.9365 </y>
 		    <z> -2.55 </z>
                 </location>
                 <orient unit="DEG">
@@ -328,7 +326,7 @@
         <engine file="TRENT-900">
             <location unit="M">
                 <x> 38.9500 </x>
-		<y> -15.9365 </y>
+		<y>  15.9365 </y>
 		<z> -2.55 </z>
             </location>
             <orient unit="DEG">
@@ -347,7 +345,7 @@
                     <y> 523.648 </y>
                     <z> -40 </z -->
 		    <x> 38.9500 </x>
-		    <y> -15.9365 </y>
+		    <y>  15.9365 </y>
 		    <z> -2.55 </z>
                 </location>
                 <orient unit="DEG">
@@ -360,7 +358,7 @@
         <engine file="TRENT-900">
             <location unit="M">
                 <x>  46.9824 </x>
-                <y>  -26.2467 </y>
+                <y>   26.2467 </y>
 		<z>  -3.4 </z>
             </location>
             <orient unit="DEG">
@@ -379,7 +377,7 @@
                     <y> 523.648 </y>
                     <z> -40 </z -->
 		    <x>  46.9824 </x>
-                    <y>  -26.2467 </y>
+                    <y>   26.2467 </y>
 		    <z>  -3.4 </z>
                 </location>
                 <orient unit="DEG">
@@ -435,7 +433,7 @@
                 <y> 200 </y>
                 <z> -71.8539 </z -->
 		<x> 48.5306 </x>
-		<y> 23.4729 </y>
+		<y>-23.4729 </y>
 		<z> -5.01 </z>
             </location>
             <capacity unit="LBS"> 48390 </capacity>
@@ -447,7 +445,7 @@
         <tank type="FUEL">    <!-- feed number 1 -->
             <location unit="M">
 		<x> 37.4956 </x>
-		<y> 7.6904 </y>
+		<y>-7.6904 </y>
 		<z> -3.3069 </z>
             </location>
             <capacity unit="LBS"> 50780 </capacity>
@@ -459,7 +457,7 @@
         <tank type="FUEL">    <!-- feed number 2 -->
             <location unit="M">
 		<x> 37.4956 </x>
-		<y> -7.6904 </y>
+		<y>  7.6904 </y>
 		<z> -3.3069 </z>
             </location>
             <capacity unit="LBS"> 50780 </capacity>
@@ -471,7 +469,7 @@
         <tank type="FUEL">    <!-- feed number 3 -->
             <location unit="M">
 		<x> 48.5306 </x>
-		<y> -23.4729 </y>
+		<y>  23.4729 </y>
 		<z> -5.01 </z>
             </location>
             <capacity unit="LBS"> 48390 </capacity>
@@ -483,7 +481,7 @@
 	<tank type="FUEL">    <!-- innerL 4 -->
             <location unit="M">
 		<x> 42.1149 </x>
-		<y> 8.5886 </y>
+		<y> -8.5886 </y>
 		<z> -3.3069 </z>
             </location>
             <capacity unit="LBS"> 79850 </capacity>
@@ -495,7 +493,7 @@
 	<tank type="FUEL">    <!-- innerR 5 -->
             <location unit="M">
 		<x> 42.1149 </x>
-		<y> -8.5886 </y>
+		<y>  8.5886 </y>
 		<z> -3.3069 </z>
             </location>
             <capacity unit="LBS"> 79850 </capacity>
@@ -507,7 +505,7 @@
 	<tank type="FUEL">    <!-- midL 6 -->
             <location unit="M"> 
 		<x> 44.0396 </x>
-		<y> 15.0043 </y>
+		<y>-15.0043 </y>
 		<z> -4.67 </z>
             </location>
             <capacity unit="LBS"> 63100 </capacity>
@@ -519,7 +517,7 @@
 	<tank type="FUEL">    <!-- midR 7 -->
             <location unit="M">
 		<x> 44.0396 </x>
-		<y> -15.0043 </y>
+		<y> 15.0043 </y>
 		<z> -4.67 </z>
             </location>
             <capacity unit="LBS"> 63100 </capacity>
@@ -531,7 +529,7 @@
 	<tank type="FUEL">    <!-- outerL 8 -->
             <location unit="M">
 		<x> 52.7169 </x>
-		<y> 30.1754 </y>
+		<y>-30.1754 </y>
 		<z> -5.28 </z>
             </location>
             <capacity unit="LBS"> 18200 </capacity>
@@ -543,7 +541,7 @@
 	<tank type="FUEL">    <!-- outerR 9 -->
             <location unit="M">
 		<x> 52.7169 </x>
-		<y> -30.1754 </y>
+		<y> 30.1754 </y>
 		<z> -5.28 </z>
             </location>
             <capacity unit="LBS"> 18200 </capacity>
