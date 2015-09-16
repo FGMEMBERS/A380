@@ -15,6 +15,7 @@
      2009	SHamilton	MFD, STAR/SID, updated PFD, Pre-flight Tutorial
      2010	SHamilton	Electrical system
      2011	SHamilton	added AFS, autobrake
+     2015	d-laser		door locations with correct offset for jetways
      
 
 -->
@@ -100,21 +101,21 @@
 	<position-norm type="double">0</position-norm>
      </pushback>
      <door>
-       <position-x-m type="float">13.136</position-x-m>
-       <position-y-m type="float">5.0626</position-y-m>
-       <position-z-m type="float">2.9947</position-z-m>
+       <position-x-m type="float">-16.836</position-x-m>
+       <position-y-m type="float">-2.9</position-y-m>
+       <position-z-m type="float">-3.7</position-z-m>
        <jetway-hood-deg type="float">9</jetway-hood-deg>
      </door>
      <door>
-       <position-x-m type="float">23.359</position-x-m>
-       <position-y-m type="float">4.928</position-y-m>
-       <position-z-m type="float">3.706</position-z-m>
+       <position-x-m type="float">-6.5</position-x-m>
+       <position-y-m type="float">-3.3</position-y-m>
+       <position-z-m type="float">-3.7</position-z-m>
        <jetway-hood-deg type="float">9</jetway-hood-deg>
      </door>
      <door>
-       <position-x-m type="float">27.978</position-x-m>
-       <position-y-m type="float">7.353</position-y-m>
-       <position-z-m type="float">3.454</position-z-m>
+       <position-x-m type="float">-2.0</position-x-m>
+       <position-y-m type="float">-3.5</position-y-m>
+       <position-z-m type="float">-1.3</position-z-m>
        <jetway-hood-deg type="float">5</jetway-hood-deg>
      </door>
    </model>
