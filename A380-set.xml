@@ -38,6 +38,10 @@
     <tags>
         <tag>transport</tag>
         <tag>airbus</tag>
+        <tag>2000s</tag>
+        <tag>2010s</tag>
+        <tag>ifr</tag>
+        <tag>tricycle</tag>
         <tag>jet</tag>
         <tag>retractable-gear</tag>
         <tag>glass-cockpit</tag>
@@ -89,6 +93,7 @@
 
    <model>
     <path>Aircraft/A380/XML/A380.xml</path>
+    <fallback-model-index type="int">357</fallback-model-index>
     <livery> 
 	<file type="string">House</file> 
     </livery> 
